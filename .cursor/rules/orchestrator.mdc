@@ -1,0 +1,20 @@
+---
+description: Route new Elay Backend tasks through orchestrator skills before coding
+alwaysApply: true
+---
+
+# Orchestrator Entry Point
+
+For **feature requests**, **new Command/Query**, **sensitive-domain changes**, or **non-trivial bugs**:
+
+1. Start with skill **`orchestrator`** (chat: `/orchestrator` + task description)
+2. If investigation required → **`scenario-contract`** → wait for `تایید شد` / `approved`
+3. Then **`cqrs-scaffold`** or targeted fix
+4. End with **`verify-feature`** (build + API + coverage table)
+
+Skills live in `.cursor/skills/`. Reference files in `references/`.
+
+Master architecture rules: `AGENTS.md` (Sections 1–32).  
+Scenario protocol: `references/section-33-34-full.md`.
+
+Do not use a separate external AI as copy-paste orchestrator — use this single-agent flow.

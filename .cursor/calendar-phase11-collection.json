@@ -1,0 +1,977 @@
+﻿{
+    "variable":  [
+                     {
+                         "key":  "baseUrl",
+                         "value":  "http://localhost:5144"
+                     },
+                     {
+                         "key":  "hFrom",
+                         "value":  "2026-09-07T06:25:50.709Z"
+                     },
+                     {
+                         "key":  "hTo",
+                         "value":  "2026-09-14T06:25:50.709Z"
+                     },
+                     {
+                         "key":  "hStart",
+                         "value":  "2026-09-08T06:25:50.709Z"
+                     },
+                     {
+                         "key":  "hEnd",
+                         "value":  "2026-09-09T05:25:50.709Z"
+                     }
+                 ],
+    "info":  {
+                 "name":  "Calendar Phase 11 â€” Favorites and Holidays",
+                 "schema":  "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+             },
+    "item":  [
+                 {
+                     "name":  "0. Auth (Setup)",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_sara\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Login U1\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u1\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Profile U1\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u1\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_reza\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Login U2\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u2\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Profile U2\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u2\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_nima\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U3",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Login U3\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u3\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u3}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U3",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Profile U3\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u3\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_kian\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U4",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Login U4\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u4\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U4",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Profile U4\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u4\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "1. Favorites and Holidays",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Favorites",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Favorites"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H1-1 Favorites empty or list",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027H1-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.expect(pm.response.json()).to.be.an(\u0027array\u0027);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":{{userId_u1}}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Favorites",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Favorites"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H2-3 Cannot favorite self 400",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027H2-3 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":999999001}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Favorites",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Favorites"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H2-2 Target not found 404",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027H2-2 404\u0027,()=\u003eassertStatus(404));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":{{userId_u2}}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Favorites",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Favorites"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H2-1 Add favorite U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027H2-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const id = pm.response.json();",
+                                                                                    "pm.expect(id).to.be.a(\u0027number\u0027).above(0);",
+                                                                                    "pm.collectionVariables.set(\u0027favoriteId\u0027, id.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":{{userId_u2}}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Favorites",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Favorites"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H2-4 Add favorite duplicate idempotent",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027H2-4 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.expect(pm.response.json().toString()).to.eql(pm.collectionVariables.get(\u0027favoriteId\u0027));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Favorites",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Favorites"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H1-1b Favorites contains U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027H1-1b 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const list = pm.response.json();",
+                                                                                    "const tid = parseInt(pm.collectionVariables.get(\u0027userId_u2\u0027), 10);",
+                                                                                    "pm.test(\u0027contains U2\u0027, () =\u003e pm.expect(list.some(x =\u003e x.targetUserId === tid)).to.be.true);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "DELETE",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Favorites/{{favoriteId}}",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Favorites",
+                                                                               "{{favoriteId}}"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H3-3 Other user cannot delete 403",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027H3-3 403\u0027,()=\u003eassertStatus(403));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "DELETE",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Favorites/999999001",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Favorites",
+                                                                               "999999001"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H3-2 Favorite not found 404",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027H3-2 404\u0027,()=\u003eassertStatus(404));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "DELETE",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Favorites/{{favoriteId}}",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Favorites",
+                                                                               "{{favoriteId}}"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H3-1 Delete favorite",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027H3-1 200\u0027,()=\u003eassertStatus(200));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Favorites",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Favorites"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H3 soft-delete excluded from list",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027list 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const list = pm.response.json();",
+                                                                                    "const fid = parseInt(pm.collectionVariables.get(\u0027favoriteId\u0027), 10);",
+                                                                                    "pm.test(\u0027deleted gone\u0027, () =\u003e pm.expect(list.every(x =\u003e x.id !== fid)).to.be.true);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":{{userId_u2}}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Favorites",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Favorites"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H2 restore after soft-delete",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027restore 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.collectionVariables.set(\u0027favoriteId\u0027, pm.response.json().toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"title\":\"P11 Org Holiday\",\"startAt\":\"{{hStart}}\",\"endAt\":\"{{hEnd}}\",\"isAllDay\":true,\"scope\":\"Organization\",\"scopeId\":null}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Holidays",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Holidays"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "HC-1 Create org holiday",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027HC-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.collectionVariables.set(\u0027holidayId\u0027, pm.response.json().toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "from",
+                                                                                    "value":  "{{hFrom}}"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "to",
+                                                                                    "value":  "{{hTo}}"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "scope",
+                                                                                    "value":  "Organization"
+                                                                                }
+                                                                            ],
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Holidays/Range?from={{hFrom}}\u0026to={{hTo}}\u0026scope=Organization",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Holidays",
+                                                                               "Range"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H4-1 Holidays range org",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027H4-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const list = pm.response.json();",
+                                                                                    "const hid = parseInt(pm.collectionVariables.get(\u0027holidayId\u0027), 10);",
+                                                                                    "pm.test(\u0027seeded holiday present\u0027, () =\u003e pm.expect(list.some(x =\u003e x.id === hid)).to.be.true);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "from",
+                                                                                    "value":  "2026-01-01T00:00:00Z"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "to",
+                                                                                    "value":  "2026-05-01T00:00:00Z"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "scope",
+                                                                                    "value":  "Organization"
+                                                                                }
+                                                                            ],
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Holidays/Range?from=2026-01-01T00:00:00Z\u0026to=2026-05-01T00:00:00Z\u0026scope=Organization",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Holidays",
+                                                                               "Range"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H4-2 Range too large 400",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027H4-2 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "from",
+                                                                                    "value":  "{{hFrom}}"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "to",
+                                                                                    "value":  "{{hTo}}"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "scope",
+                                                                                    "value":  "Unit"
+                                                                                }
+                                                                            ],
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Holidays/Range?from={{hFrom}}\u0026to={{hTo}}\u0026scope=Unit",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Holidays",
+                                                                               "Range"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "H4-4 Unit missing scopeId 400",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027H4-4 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 }
+             ]
+}

@@ -1,0 +1,11 @@
+{
+    "schema_version": 2,
+    "commit": "415609842919f1bee5ed83ad8b5723ab6ee9170a",
+    "indexed_at": "2026-07-09T13:50:21Z",
+    "project": "C-Elay",
+    "nodes": 11372,
+    "edges": 24330,
+    "original_size": 18939904,
+    "compressed_size": 3459656,
+    "compression_level": 3
+}

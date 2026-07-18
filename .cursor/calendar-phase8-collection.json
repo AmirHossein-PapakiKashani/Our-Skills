@@ -1,0 +1,1271 @@
+﻿{
+    "variable":  [
+                     {
+                         "key":  "baseUrl",
+                         "value":  "http://localhost:5144"
+                     },
+                     {
+                         "key":  "eventStart",
+                         "value":  "2026-07-19T15:36:21.486Z"
+                     },
+                     {
+                         "key":  "eventEnd",
+                         "value":  "2026-07-19T16:36:21.486Z"
+                     }
+                 ],
+    "info":  {
+                 "name":  "Calendar Phase 8 â€” Attachments \u0026 Notes G1-G6",
+                 "schema":  "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+             },
+    "item":  [
+                 {
+                     "name":  "0. Auth (Setup)",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_sara\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Login U1\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u1\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Profile U1\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u1\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_reza\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Login U2\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u2\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Profile U2\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u2\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_kian\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U4",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Login U4\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u4\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U4",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Profile U4\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u4\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "1. Setup",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/List",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "List"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup List calendars",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Setup calendars 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const list = pm.response.json();",
+                                                                                    "const personal = list.find(c =\u003e c.type === \u0027Personal\u0027 || c.Type === \u0027Personal\u0027) || list[0];",
+                                                                                    "pm.collectionVariables.set(\u0027calendarId\u0027, (personal.id || personal.Id).toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"calendarId\":{{calendarId}},\"title\":\"Phase8 Attachments Notes\",\"type\":\"Meeting\",\"startAt\":\"{{eventStart}}\",\"endAt\":\"{{eventEnd}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":true,\"participantUserIds\":[{{userId_u2}}]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup Create event",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Setup event 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.collectionVariables.set(\u0027eventId\u0027, pm.response.json().toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "2. G1 Attachments Add",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "formdata":  [
+                                                                                    {
+                                                                                        "key":  "file",
+                                                                                        "type":  "file",
+                                                                                        "src":  "d:\\Elay_Backend-master\\.cursor\\phase8-sample.pdf"
+                                                                                    },
+                                                                                    {
+                                                                                        "key":  "eventId",
+                                                                                        "value":  "{{eventId}}",
+                                                                                        "type":  "text"
+                                                                                    }
+                                                                                ],
+                                                                   "mode":  "formdata"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Attachment",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Attachment"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G1-1 Upload PDF",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G1-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const d = pm.response.json();",
+                                                                                    "pm.expect(d.id || d.Id).to.be.a(\u0027number\u0027).above(0);",
+                                                                                    "pm.expect(d.fileName || d.FileName).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "pm.collectionVariables.set(\u0027attachmentId\u0027, (d.id || d.Id).toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "formdata":  [
+                                                                                    {
+                                                                                        "key":  "eventId",
+                                                                                        "value":  "{{eventId}}",
+                                                                                        "type":  "text"
+                                                                                    }
+                                                                                ],
+                                                                   "mode":  "formdata"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Attachment",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Attachment"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G1-2 Missing file",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G1-2 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "formdata":  [
+                                                                                    {
+                                                                                        "key":  "file",
+                                                                                        "type":  "file",
+                                                                                        "src":  "d:\\Elay_Backend-master\\.cursor\\phase8-bad.txt"
+                                                                                    },
+                                                                                    {
+                                                                                        "key":  "eventId",
+                                                                                        "value":  "{{eventId}}",
+                                                                                        "type":  "text"
+                                                                                    }
+                                                                                ],
+                                                                   "mode":  "formdata"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Attachment",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Attachment"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G1-4 Bad type",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G1-4 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "formdata":  [
+                                                                                    {
+                                                                                        "key":  "file",
+                                                                                        "type":  "file",
+                                                                                        "src":  "d:\\Elay_Backend-master\\.cursor\\phase8-sample.pdf"
+                                                                                    },
+                                                                                    {
+                                                                                        "key":  "eventId",
+                                                                                        "value":  "999999",
+                                                                                        "type":  "text"
+                                                                                    }
+                                                                                ],
+                                                                   "mode":  "formdata"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Attachment",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Attachment"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G1-5 Event not found",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G1-5 404\u0027,()=\u003eassertStatus(404));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "formdata":  [
+                                                                                    {
+                                                                                        "key":  "file",
+                                                                                        "type":  "file",
+                                                                                        "src":  "d:\\Elay_Backend-master\\.cursor\\phase8-sample.pdf"
+                                                                                    },
+                                                                                    {
+                                                                                        "key":  "eventId",
+                                                                                        "value":  "{{eventId}}",
+                                                                                        "type":  "text"
+                                                                                    }
+                                                                                ],
+                                                                   "mode":  "formdata"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Attachment",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Attachment"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G1-6 U4 forbidden",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G1-6 403\u0027,()=\u003eassertStatus(403));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "3. G3 Attachments List",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/{{eventId}}/Attachments",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "{{eventId}}",
+                                                                               "Attachments"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G3-1 List attachments",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G3-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.expect(pm.response.json()).to.be.an(\u0027array\u0027).with.lengthOf.at.least(1);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/{{eventId}}/Attachments",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "{{eventId}}",
+                                                                               "Attachments"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G3-3 U4 forbidden",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G3-3 403\u0027,()=\u003eassertStatus(403));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/999999/Attachments",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "999999",
+                                                                               "Attachments"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G3-2 Not found",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G3-2 404\u0027,()=\u003eassertStatus(404));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "4. G4 Notes Upsert",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"eventId\":{{eventId}},\"text\":\"Phase8 note from U2\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Note",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Note"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G4-1 Create note",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G4-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const id = pm.response.json();",
+                                                                                    "pm.expect(id).to.be.a(\u0027number\u0027).above(0);",
+                                                                                    "pm.collectionVariables.set(\u0027noteId\u0027, id.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"eventId\":{{eventId}},\"noteId\":{{noteId}},\"text\":\"Phase8 note updated\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Note",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Note"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G4-2 Update note",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G4-2 200\u0027,()=\u003eassertStatus(200)); pm.expect(pm.response.json()).to.eql(parseInt(pm.collectionVariables.get(\u0027noteId\u0027),10));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"eventId\":{{eventId}},\"text\":\"\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Note",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Note"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G4-3 Empty text",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G4-3 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"eventId\":{{eventId}},\"noteId\":{{noteId}},\"text\":\"hack\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Note",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Note"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G4-6 U1 cannot edit U2 note",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G4-6 403\u0027,()=\u003eassertStatus(403));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"eventId\":999999,\"text\":\"x\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Note",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Note"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G4-4 Event not found",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G4-4 404\u0027,()=\u003eassertStatus(404));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "5. G5 Notes List",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/{{eventId}}/Notes",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "{{eventId}}",
+                                                                               "Notes"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G5-1 List notes",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G5-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.expect(pm.response.json()).to.be.an(\u0027array\u0027).with.lengthOf.at.least(1);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/{{eventId}}/Notes",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "{{eventId}}",
+                                                                               "Notes"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G5-3 U4 forbidden",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G5-3 403\u0027,()=\u003eassertStatus(403));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "6. G2 G6 Delete + Detail",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "method":  "DELETE",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Attachment/{{attachmentId}}",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Attachment",
+                                                                               "{{attachmentId}}"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G2-3 U4 cannot delete attachment",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G2-3 403\u0027,()=\u003eassertStatus(403));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "DELETE",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Attachment/{{attachmentId}}",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Attachment",
+                                                                               "{{attachmentId}}"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G2-1 Delete attachment",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G2-1 200\u0027,()=\u003eassertStatus(200));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "DELETE",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Attachment/999999",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Attachment",
+                                                                               "999999"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G2-2 Not found",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G2-2 404\u0027,()=\u003eassertStatus(404));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "DELETE",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Note/{{noteId}}",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Note",
+                                                                               "{{noteId}}"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G6-3 U4 cannot delete note",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G6-3 403\u0027,()=\u003eassertStatus(403));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "DELETE",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Note/{{noteId}}",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Note",
+                                                                               "{{noteId}}"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G6-1 Creator deletes note",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G6-1 200\u0027,()=\u003eassertStatus(200));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "DELETE",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Note/999999",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Note",
+                                                                               "999999"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "G6-2 Not found",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027G6-2 404\u0027,()=\u003eassertStatus(404));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/{{eventId}}",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "{{eventId}}"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "B4 Detail has arrays",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027B4 detail 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const d = pm.response.json();",
+                                                                                    "pm.expect(d.attachments || d.Attachments).to.be.an(\u0027array\u0027);",
+                                                                                    "pm.expect(d.notes || d.Notes).to.be.an(\u0027array\u0027);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 }
+             ]
+}

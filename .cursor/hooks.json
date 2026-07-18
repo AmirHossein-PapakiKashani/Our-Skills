@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "command": "rtk hook cursor",
+        "matcher": "Shell",
+        "failClosed": false
+      },
+      {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \".cursor\\hooks\\customer-api-release-policy.ps1\"",
+        "matcher": "Shell",
+        "failClosed": true
+      },
+      {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Elay\\.cursor\\hooks\\block-grep-glob.ps1\"",
+        "matcher": "Grep|Glob",
+        "failClosed": true
+      }
+    ],
+    "subagentStart": [
+      {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Elay\\.cursor\\hooks\\enforce-subagent-policy.ps1\"",
+        "matcher": "explore|generalPurpose|shell",
+        "failClosed": false
+      }
+    ]
+  }
+}

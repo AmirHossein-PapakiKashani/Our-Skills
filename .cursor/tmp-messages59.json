@@ -1,0 +1,63 @@
+﻿{
+    "messages":  [
+                     {
+                         "id":  237,
+                         "conversationId":  59,
+                         "senderId":  2746,
+                         "senderName":  "Sara Chat Test",
+                         "senderAvatarUrl":  null,
+                         "text":  null,
+                         "isDeleted":  true,
+                         "isEdited":  false,
+                         "sentAt":  "2026-07-18T15:57:09.763",
+                         "editedAt":  null,
+                         "replyTo":  null,
+                         "forwardedFrom":  null,
+                         "attachments":  [
+
+                                         ],
+                         "isSavedByMe":  false,
+                         "isPinned":  false
+                     },
+                     {
+                         "id":  238,
+                         "conversationId":  59,
+                         "senderId":  2746,
+                         "senderName":  "Sara Chat Test",
+                         "senderAvatarUrl":  null,
+                         "text":  "Nima Test به گروه اضافه شد",
+                         "isDeleted":  false,
+                         "isEdited":  false,
+                         "sentAt":  "2026-07-18T15:57:14.503",
+                         "editedAt":  null,
+                         "replyTo":  null,
+                         "forwardedFrom":  null,
+                         "attachments":  [
+
+                                         ],
+                         "isSavedByMe":  false,
+                         "isPinned":  false
+                     },
+                     {
+                         "id":  239,
+                         "conversationId":  59,
+                         "senderId":  2746,
+                         "senderName":  "Sara Chat Test",
+                         "senderAvatarUrl":  null,
+                         "text":  "pin-reload-test",
+                         "isDeleted":  false,
+                         "isEdited":  false,
+                         "sentAt":  "2026-07-18T15:57:16.71",
+                         "editedAt":  null,
+                         "replyTo":  null,
+                         "forwardedFrom":  null,
+                         "attachments":  [
+
+                                         ],
+                         "isSavedByMe":  false,
+                         "isPinned":  true
+                     }
+                 ],
+    "hasMore":  false,
+    "oldestMessageId":  237
+}

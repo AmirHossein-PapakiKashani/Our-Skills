@@ -1,0 +1,792 @@
+﻿{
+    "variable":  [
+                     {
+                         "key":  "baseUrl",
+                         "value":  "http://localhost:5144"
+                     },
+                     {
+                         "key":  "rangeFrom",
+                         "value":  "2026-07-25T16:53:43.596Z"
+                     },
+                     {
+                         "key":  "rangeTo",
+                         "value":  "2026-08-01T16:53:43.596Z"
+                     },
+                     {
+                         "key":  "taskDue",
+                         "value":  "1405/05/05"
+                     },
+                     {
+                         "key":  "eventStart",
+                         "value":  "2026-07-26T16:53:43.596Z"
+                     },
+                     {
+                         "key":  "eventEnd",
+                         "value":  "2026-07-26T17:53:43.596Z"
+                     }
+                 ],
+    "info":  {
+                 "name":  "Calendar Phase 9 â€” Task Deadlines on Range B5",
+                 "schema":  "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+             },
+    "item":  [
+                 {
+                     "name":  "0. Auth (Setup)",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_sara\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Login U1\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u1\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Profile U1\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u1\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_reza\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Login U2\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u2\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Profile U2\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u2\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_kian\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U4",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Login U4\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u4\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U4",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Profile U4\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u4\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "1. Setup",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"title\":\"Phase9 calendar deadline\",\"description\":\"Newman seed\",\"assignedToUserId\":{{userId_u1}},\"formId\":null,\"formDataId\":null,\"dueDate\":\"{{taskDue}}\",\"priority\":1}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Task",
+                                                                  "path":  [
+                                                                               "Task"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup Create task deadline",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Setup task 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const id = pm.response.json();",
+                                                                                    "pm.expect(id).to.be.a(\u0027number\u0027).above(0);",
+                                                                                    "pm.collectionVariables.set(\u0027taskId\u0027, id.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/List",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "List"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup List calendars",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Setup calendars 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const list = pm.response.json();",
+                                                                                    "const personal = list.find(c =\u003e c.type === \u0027Personal\u0027 || c.Type === \u0027Personal\u0027) || list[0];",
+                                                                                    "pm.collectionVariables.set(\u0027calendarId\u0027, (personal.id || personal.Id).toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"calendarId\":{{calendarId}},\"title\":\"Phase9 range event\",\"type\":\"Meeting\",\"startAt\":\"{{eventStart}}\",\"endAt\":\"{{eventEnd}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":false,\"participantUserIds\":[]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup Create event",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027Setup event 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.collectionVariables.set(\u0027eventId\u0027, pm.response.json().toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "2. B5 Task Deadlines",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "from",
+                                                                                    "value":  "2028-01-01T00:00:00Z"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "to",
+                                                                                    "value":  "2028-01-07T00:00:00Z"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "includeTaskDeadlines",
+                                                                                    "value":  "true"
+                                                                                }
+                                                                            ],
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Range?from=2028-01-01T00:00:00Z\u0026to=2028-01-07T00:00:00Z\u0026includeTaskDeadlines=true",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Range"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "B5-1 Empty range",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027B5-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.expect(pm.response.json()).to.be.an(\u0027array\u0027);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "from",
+                                                                                    "value":  "{{rangeFrom}}"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "to",
+                                                                                    "value":  "{{rangeTo}}"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "includeTaskDeadlines",
+                                                                                    "value":  "true"
+                                                                                }
+                                                                            ],
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Range?from={{rangeFrom}}\u0026to={{rangeTo}}\u0026includeTaskDeadlines=true",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Range"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "B5-2 Events and task deadlines",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027B5-2 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const items = pm.response.json();",
+                                                                                    "pm.test(\u0027B5-2 has Event\u0027, () =\u003e pm.expect(items.some(i =\u003e i.kind === \u0027Event\u0027)).to.be.true);",
+                                                                                    "pm.test(\u0027B5-2 has TaskDeadline\u0027, () =\u003e pm.expect(items.some(i =\u003e i.kind === \u0027TaskDeadline\u0027)).to.be.true);",
+                                                                                    "const tid = parseInt(pm.collectionVariables.get(\u0027taskId\u0027), 10);",
+                                                                                    "const td = items.find(i =\u003e i.kind === \u0027TaskDeadline\u0027 \u0026\u0026 i.taskId === tid);",
+                                                                                    "pm.test(\u0027B5-2 seeded task present\u0027, () =\u003e pm.expect(!!td).to.be.true);",
+                                                                                    "pm.test(\u0027B5-2 title prefix Due:\u0027, () =\u003e pm.expect(td.title).to.match(/^Due: /));",
+                                                                                    "pm.test(\u0027B5-2 type Deadline\u0027, () =\u003e pm.expect(td.type).to.eql(\u0027Deadline\u0027));",
+                                                                                    "pm.test(\u0027B5-2 color black\u0027, () =\u003e pm.expect(td.color).to.eql(\u0027#000000\u0027));",
+                                                                                    "pm.test(\u0027B5-2 eventId null on task\u0027, () =\u003e pm.expect(td.eventId).to.be.null);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "from",
+                                                                                    "value":  "{{rangeFrom}}"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "to",
+                                                                                    "value":  "{{rangeTo}}"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "includeTaskDeadlines",
+                                                                                    "value":  "false"
+                                                                                }
+                                                                            ],
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Range?from={{rangeFrom}}\u0026to={{rangeTo}}\u0026includeTaskDeadlines=false",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Range"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "B5-3 includeTaskDeadlines=false",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027B5-3 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const items = pm.response.json();",
+                                                                                    "pm.test(\u0027B5-3 no TaskDeadline\u0027, () =\u003e pm.expect(items.every(i =\u003e i.kind !== \u0027TaskDeadline\u0027)).to.be.true);",
+                                                                                    "pm.test(\u0027B5-3 still has Event\u0027, () =\u003e pm.expect(items.some(i =\u003e i.kind === \u0027Event\u0027)).to.be.true);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "from",
+                                                                                    "value":  "2027-03-08T00:00:00Z"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "to",
+                                                                                    "value":  "2026-08-01T00:00:00Z"
+                                                                                }
+                                                                            ],
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Range?from=2027-03-08T00:00:00Z\u0026to=2026-08-01T00:00:00Z",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Range"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "B5-5 to \u003c= from 400",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027B5-5 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "from",
+                                                                                    "value":  "2026-01-01T00:00:00Z"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "to",
+                                                                                    "value":  "2026-05-01T00:00:00Z"
+                                                                                }
+                                                                            ],
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Range?from=2026-01-01T00:00:00Z\u0026to=2026-05-01T00:00:00Z",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Range"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "B5-6 range \u003e 92 days 400",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027B5-6 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "from",
+                                                                                    "value":  "{{rangeFrom}}"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "to",
+                                                                                    "value":  "{{rangeTo}}"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "includeTaskDeadlines",
+                                                                                    "value":  "true"
+                                                                                }
+                                                                            ],
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Range?from={{rangeFrom}}\u0026to={{rangeTo}}\u0026includeTaskDeadlines=true",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Range"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "P9-1 U4 cannot see U1 task",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027P9-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const items = pm.response.json();",
+                                                                                    "const tid = parseInt(pm.collectionVariables.get(\u0027taskId\u0027), 10);",
+                                                                                    "pm.test(\u0027P9-1 other user task hidden\u0027, () =\u003e pm.expect(items.every(i =\u003e i.taskId !== tid)).to.be.true);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"title\":\"Phase9 assigned to U2\",\"description\":\"assigned seed\",\"assignedToUserId\":{{userId_u2}},\"formId\":null,\"formDataId\":null,\"dueDate\":\"{{taskDue}}\",\"priority\":1}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Task",
+                                                                  "path":  [
+                                                                               "Task"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "P9-2 U2 sees assigned task",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027P9-2 create assigned 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.collectionVariables.set(\u0027taskIdU2\u0027, pm.response.json().toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "from",
+                                                                                    "value":  "{{rangeFrom}}"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "to",
+                                                                                    "value":  "{{rangeTo}}"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "includeTaskDeadlines",
+                                                                                    "value":  "true"
+                                                                                }
+                                                                            ],
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Range?from={{rangeFrom}}\u0026to={{rangeTo}}\u0026includeTaskDeadlines=true",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Range"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "P9-2b U2 range has assigned task",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }pm.test(\u0027P9-2b 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const items = pm.response.json();",
+                                                                                    "const tid = parseInt(pm.collectionVariables.get(\u0027taskIdU2\u0027), 10);",
+                                                                                    "pm.test(\u0027P9-2b assigned task visible\u0027, () =\u003e pm.expect(items.some(i =\u003e i.kind === \u0027TaskDeadline\u0027 \u0026\u0026 i.taskId === tid)).to.be.true);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 }
+             ]
+}

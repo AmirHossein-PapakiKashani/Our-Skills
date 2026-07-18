@@ -1,0 +1,69 @@
+---
+description: HARD GATE — codebase-memory MCP and RTK are mandatory before any code exploration or shell command
+alwaysApply: true
+---
+
+# Enforcement Gate (ZERO TOLERANCE)
+
+This rule overrides convenience. If you skip it, you are violating project policy.
+
+## Gate A — Before ANY code exploration (first tool call of the turn)
+
+**STOP.** Your first tool call for code questions MUST be one of:
+
+| Order | MCP tool (server: `codebase-memory-mcp`) |
+|-------|------------------------------------------------------------------------|
+| 1 | `detect_changes` — if you will edit code this turn |
+| 2 | `search_graph` or `search_code` — find symbols / text |
+| 3 | `get_code_snippet` — read a known symbol |
+
+**FORBIDDEN as first exploration tool:** `Grep`, `Glob`, broad `Read`, `Task/explore` that uses Grep internally.
+
+### Allowed exceptions (document in one line why)
+
+- File type not in graph: `.razor`, `.json`, `.css`, `.md`, `.yaml`, `.http`
+- User wrote: "use grep" / "raw grep"
+- MCP `index_status` shows not indexed AND user was told to re-index
+
+## Gate B — Grep / Glob decision (every time)
+
+```
+About to call Grep or Glob?
+  → Is this C# / handler / endpoint / class / namespace search?
+      YES → USE search_graph OR search_code. DO NOT GREP.
+  → Is glob *.cs or **/Application/** or **/Domain/**?
+      YES → USE search_graph with file_pattern. DO NOT GLOB.
+  → Only .razor / .json / .md?
+      YES → Grep/Glob allowed.
+```
+
+**If you used Grep/Glob as fallback:** your reply MUST include:
+`MCP fallback reason: <why search_graph/search_code failed>`
+
+## Gate C — Every Shell command
+
+```
+❌ git status
+✅ rtk git status
+```
+
+- Prefix **every** segment in chains: `rtk cmd1 ; rtk cmd2`
+- Hook `rtk hook cursor` rewrites Shell automatically — still show `RTK ▸ rtk <command>` in chat
+- Raw command only when actively debugging verbose output (`rtk proxy <cmd>` preferred)
+
+## Gate D — Subagents (`Task` tool)
+
+When launching `explore` or `generalPurpose` subagents on this repo, your prompt MUST include:
+
+```
+MANDATORY: Use codebase-memory MCP (search_graph, search_code, get_code_snippet).
+FORBIDDEN: Grep, Glob, ripgrep for .cs files.
+Shell: prefix with rtk.
+```
+
+## Self-check before sending reply
+
+- [ ] Code search used MCP first?
+- [ ] If Grep/Glob used → stated MCP fallback reason?
+- [ ] Shell commands prefixed with `rtk`?
+- [ ] Shown `RTK ▸` line for shell commands?

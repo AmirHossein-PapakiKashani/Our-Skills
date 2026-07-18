@@ -1,0 +1,20 @@
+{
+    "mcpServers": {
+      "codebase-memory-mcp": {
+        "command": "C:/Users/PC 1/AppData/Local/Programs/codebase-memory-mcp/codebase-memory-mcp.exe",
+        "args": []
+      },
+      "microsoft-learn": {
+        "name": "microsoft-learn",
+        "type": "http",
+        "url": "https://learn.microsoft.com/api/mcp"
+      },
+      "postman": {
+        "type": "http",
+        "url": "https://mcp.postman.com/mcp",
+        "headers": {
+          "Authorization": "Bearer ${env:POSTMAN_API_KEY}"
+        }
+      }
+    }
+  }

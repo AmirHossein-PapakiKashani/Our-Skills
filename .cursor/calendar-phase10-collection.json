@@ -1,0 +1,1377 @@
+﻿{
+    "variable":  [
+                     {
+                         "key":  "baseUrl",
+                         "value":  "http://localhost:5144"
+                     },
+                     {
+                         "key":  "slotStart",
+                         "value":  "2026-09-07T01:44:10.257Z"
+                     },
+                     {
+                         "key":  "slotEnd",
+                         "value":  "2026-09-07T02:44:10.257Z"
+                     },
+                     {
+                         "key":  "slot2Start",
+                         "value":  "2026-09-08T01:44:10.257Z"
+                     },
+                     {
+                         "key":  "slot2End",
+                         "value":  "2026-09-08T02:44:10.257Z"
+                     },
+                     {
+                         "key":  "slot3Start",
+                         "value":  "2026-09-09T01:44:10.257Z"
+                     },
+                     {
+                         "key":  "slot3End",
+                         "value":  "2026-09-09T02:44:10.257Z"
+                     },
+                     {
+                         "key":  "slot4Start",
+                         "value":  "2026-09-10T01:44:10.257Z"
+                     },
+                     {
+                         "key":  "slot4End",
+                         "value":  "2026-09-10T02:44:10.257Z"
+                     },
+                     {
+                         "key":  "slot5Start",
+                         "value":  "2026-09-11T01:44:10.257Z"
+                     },
+                     {
+                         "key":  "slot5End",
+                         "value":  "2026-09-11T02:44:10.257Z"
+                     },
+                     {
+                         "key":  "slotFreeStart",
+                         "value":  "2026-09-12T01:44:10.257Z"
+                     },
+                     {
+                         "key":  "slotFreeEnd",
+                         "value":  "2026-09-12T02:44:10.257Z"
+                     },
+                     {
+                         "key":  "slotFree2Start",
+                         "value":  "2026-09-13T01:44:10.257Z"
+                     },
+                     {
+                         "key":  "slotFree2End",
+                         "value":  "2026-09-13T02:44:10.257Z"
+                     }
+                 ],
+    "info":  {
+                 "name":  "Calendar Phase 10 â€” Conflict Blocking 409",
+                 "schema":  "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+             },
+    "item":  [
+                 {
+                     "name":  "0. Auth (Setup)",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_sara\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027Login U1\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u1\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027Profile U1\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u1\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_reza\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027Login U2\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u2\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027Profile U2\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u2\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_nima\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U3",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027Login U3\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u3\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u3}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U3",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027Profile U3\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u3\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_kian\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U4",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027Login U4\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u4\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U4",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027Profile U4\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027userId_u4\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "1. Setup busy events",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/List",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "List"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup List calendars U1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027calendars 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const list = pm.response.json();",
+                                                                                    "const personal = list.find(c =\u003e c.type === \u0027Personal\u0027 || c.Type === \u0027Personal\u0027) || list[0];",
+                                                                                    "pm.collectionVariables.set(\u0027calendarId\u0027, (personal.id || personal.Id).toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/List",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "List"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup List calendars U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027U2 calendars 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const list = pm.response.json();",
+                                                                                    "const personal = list.find(c =\u003e c.type === \u0027Personal\u0027 || c.Type === \u0027Personal\u0027) || list[0];",
+                                                                                    "pm.collectionVariables.set(\u0027calendarIdU2\u0027, (personal.id || personal.Id).toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/List",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "List"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup List calendars U4",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027U4 calendars 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const list = pm.response.json();",
+                                                                                    "const personal = list.find(c =\u003e c.type === \u0027Personal\u0027 || c.Type === \u0027Personal\u0027) || list[0];",
+                                                                                    "pm.collectionVariables.set(\u0027calendarIdU4\u0027, (personal.id || personal.Id).toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"calendarId\":{{calendarIdU2}},\"title\":\"P10 U2 busy\",\"type\":\"Meeting\",\"startAt\":\"{{slotStart}}\",\"endAt\":\"{{slotEnd}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":false,\"participantUserIds\":[]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup U2 busy creator slot1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027U2 busy event 200\u0027, () =\u003e assertStatus(200));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"calendarId\":{{calendarId}},\"title\":\"P10 U3 invited busy\",\"type\":\"Meeting\",\"startAt\":\"{{slot2Start}}\",\"endAt\":\"{{slot2End}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":false,\"participantUserIds\":[{{userId_u3}}]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup U3 busy as invitee slot2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027U3 invite event 200\u0027, () =\u003e assertStatus(200));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"calendarId\":{{calendarId}},\"title\":\"P10 U1 self busy\",\"type\":\"Meeting\",\"startAt\":\"{{slot3Start}}\",\"endAt\":\"{{slot3End}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":false,\"participantUserIds\":[]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup U1 busy creator slot3",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027U1 busy event 200\u0027, () =\u003e assertStatus(200));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"calendarId\":{{calendarId}},\"title\":\"P10 editable\",\"type\":\"Meeting\",\"startAt\":\"{{slot4Start}}\",\"endAt\":\"{{slot4End}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":false,\"participantUserIds\":[{{userId_u2}}]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup U1 editable event slot4",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027editable event 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.collectionVariables.set(\u0027editableEventId\u0027, pm.response.json().toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"calendarId\":{{calendarIdU2}},\"title\":\"P10 U2 slot5 busy\",\"type\":\"Meeting\",\"startAt\":\"{{slot5Start}}\",\"endAt\":\"{{slot5End}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":false,\"participantUserIds\":[]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup U2 busy slot5 for meeting request",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027U2 slot5 busy 200\u0027, () =\u003e assertStatus(200));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"calendarId\":{{calendarIdU4}},\"title\":\"P10 D1 host\",\"type\":\"Meeting\",\"startAt\":\"{{slot2Start}}\",\"endAt\":\"{{slot2End}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":false,\"participantUserIds\":[]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup U4 host for D1 at slot2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027D1 host event 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.collectionVariables.set(\u0027d1HostEventId\u0027, pm.response.json().toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "2. Conflict scenarios",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"calendarId\":{{calendarId}},\"title\":\"P10 B1 happy\",\"type\":\"Info\",\"startAt\":\"{{slotFreeStart}}\",\"endAt\":\"{{slotFreeEnd}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":false,\"participantUserIds\":[]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "B1-HP create no conflict",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027B1-HP 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.collectionVariables.set(\u0027happyEventId\u0027, pm.response.json().toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"calendarId\":{{calendarId}},\"title\":\"P10 B1 invitee conflict\",\"type\":\"Meeting\",\"startAt\":\"{{slotStart}}\",\"endAt\":\"{{slotEnd}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":false,\"participantUserIds\":[{{userId_u2}}]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "B1-C1 invitee conflict 409",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027B1-C1 409\u0027, () =\u003e assertStatus(409));",
+                                                                                    "pm.test(\u0027B1-C1 detail\u0027, () =\u003e assertConflictDetail());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"calendarId\":{{calendarId}},\"title\":\"P10 B1 self conflict\",\"type\":\"Meeting\",\"startAt\":\"{{slot3Start}}\",\"endAt\":\"{{slot3End}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":false,\"participantUserIds\":[]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "B1-C2 creator self conflict 409",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027B1-C2 409\u0027, () =\u003e assertStatus(409));",
+                                                                                    "pm.test(\u0027B1-C2 detail\u0027, () =\u003e assertConflictDetail());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"id\":{{editableEventId}},\"calendarId\":{{calendarId}},\"title\":\"P10 editable conflict\",\"type\":\"Meeting\",\"startAt\":\"{{slotStart}}\",\"endAt\":\"{{slotEnd}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":false,\"participantUserIds\":[{{userId_u2}}],\"editScope\":\"All\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "PUT",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "B2-C1 time change invitee conflict 409",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027B2-C1 409\u0027, () =\u003e assertStatus(409));",
+                                                                                    "pm.test(\u0027B2-C1 detail\u0027, () =\u003e assertConflictDetail());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"eventId\":{{d1HostEventId}},\"userIds\":[{{userId_u3}}]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event/Participant",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event",
+                                                                               "Participant"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "D1-C1 add busy participant 409",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027D1-C1 409\u0027, () =\u003e assertStatus(409));",
+                                                                                    "pm.test(\u0027D1-C1 detail\u0027, () =\u003e assertConflictDetail());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":{{userId_u2}},\"title\":\"P10 E1 conflict\",\"description\":\"x\",\"location\":\"\",\"startAt\":\"{{slot5Start}}\",\"endAt\":\"{{slot5End}}\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E1-C1 meeting request target busy 409",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027E1-C1 409\u0027, () =\u003e assertStatus(409));",
+                                                                                    "pm.test(\u0027E1-C1 detail\u0027, () =\u003e assertConflictDetail());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":{{userId_u2}},\"title\":\"P10 E1 happy\",\"description\":\"x\",\"location\":\"\",\"startAt\":\"{{slotFree2Start}}\",\"endAt\":\"{{slotFree2End}}\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E1-HP meeting request free slot",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027E1-HP 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.collectionVariables.set(\u0027meetingRequestId\u0027, pm.response.json().toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"calendarId\":{{calendarIdU2}},\"title\":\"P10 race conflict\",\"type\":\"Meeting\",\"startAt\":\"{{slotFree2Start}}\",\"endAt\":\"{{slotFree2End}}\",\"isAllDay\":false,\"isPersonal\":false,\"visibleOnlyToParticipants\":false,\"participantUserIds\":[]}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/Event",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "Event"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E2-setup conflict on pending slot",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027E2 race event 200\u0027, () =\u003e assertStatus(200));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"requestId\":{{meetingRequestId}}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Approve",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Approve"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E2-C1 approve now conflicted 409",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertConflictDetail() {",
+                                                                                    "  const body = pm.response.json();",
+                                                                                    "  const d = body.detail || \"\";",
+                                                                                    "  pm.expect(d.length).to.be.above(10);",
+                                                                                    "  // \"Ú©Ø§Ø±Ø¨Ø±\" via unicode escapes â€” avoids PowerShell/JSON mojibake in scripts",
+                                                                                    "  pm.expect(d).to.include(\"\\u06a9\\u0627\\u0631\\u0628\\u0631\");",
+                                                                                    "}pm.test(\u0027E2-C1 409\u0027, () =\u003e assertStatus(409));",
+                                                                                    "pm.test(\u0027E2-C1 detail\u0027, () =\u003e assertConflictDetail());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 }
+             ]
+}

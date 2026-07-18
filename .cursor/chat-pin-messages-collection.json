@@ -1,0 +1,336 @@
+{
+  "info": {
+    "name": "Elay Customer — Chat Pin Messages",
+    "description": "Scenario contract tests for Pin / Unpin / GetPinned APIs. Run folder 0 Auth first, then folders 1–3.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "a1b2c3d4-pin-chat-elay-20260711"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5144" },
+    { "key": "token_u1", "value": "" },
+    { "key": "token_u2", "value": "" },
+    { "key": "token_u3", "value": "" },
+    { "key": "token_u4", "value": "" },
+    { "key": "conversationId_pv", "value": "" },
+    { "key": "conversationId_group", "value": "" },
+    { "key": "conversationId_channel", "value": "" },
+    { "key": "messageId_pv", "value": "" },
+    { "key": "messageId_group", "value": "" },
+    { "key": "messageId_channel", "value": "" },
+    { "key": "wrongConversationId", "value": "999999" },
+    { "key": "wrongMessageId", "value": "999999" }
+  ],
+  "item": [
+    {
+      "name": "0. Auth (Setup)",
+      "item": [
+        {
+          "name": "Login U1 (chattest_sara)",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Login U1 status 200', () => pm.response.to.have.status(200));",
+                "const body = pm.response.json();",
+                "pm.collectionVariables.set('token_u1', body.accessToken);"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"chattest_sara\",\n  \"password\": \"Test@12345\",\n  \"deviceInfo\": {\n    \"deviceID\": \"pin-test-u1\",\n    \"deviceName\": \"postman-pin\",\n    \"deviceVersion\": \"16\",\n    \"appVersion\": \"2.113.0\",\n    \"platform\": \"android\"\n  }\n}"
+            },
+            "url": "{{baseUrl}}/Auth/Login"
+          }
+        },
+        {
+          "name": "Login U2 (chattest_reza)",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Login U2 status 200', () => pm.response.to.have.status(200));",
+                "pm.collectionVariables.set('token_u2', pm.response.json().accessToken);"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"chattest_reza\",\n  \"password\": \"Test@12345\",\n  \"deviceInfo\": {\n    \"deviceID\": \"pin-test-u2\",\n    \"deviceName\": \"postman-pin\",\n    \"deviceVersion\": \"16\",\n    \"appVersion\": \"2.113.0\",\n    \"platform\": \"android\"\n  }\n}"
+            },
+            "url": "{{baseUrl}}/Auth/Login"
+          }
+        },
+        {
+          "name": "Login U3 (chattest_nima)",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Login U3 status 200', () => pm.response.to.have.status(200));",
+                "pm.collectionVariables.set('token_u3', pm.response.json().accessToken);"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"chattest_nima\",\n  \"password\": \"Test@12345\",\n  \"deviceInfo\": {\n    \"deviceID\": \"pin-test-u3\",\n    \"deviceName\": \"postman-pin\",\n    \"deviceVersion\": \"16\",\n    \"appVersion\": \"2.113.0\",\n    \"platform\": \"android\"\n  }\n}"
+            },
+            "url": "{{baseUrl}}/Auth/Login"
+          }
+        },
+        {
+          "name": "Login U4 (chattest_kian)",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Login U4 status 200', () => pm.response.to.have.status(200));",
+                "pm.collectionVariables.set('token_u4', pm.response.json().accessToken);"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"chattest_kian\",\n  \"password\": \"Test@12345\",\n  \"deviceInfo\": {\n    \"deviceID\": \"pin-test-u4\",\n    \"deviceName\": \"postman-pin\",\n    \"deviceVersion\": \"16\",\n    \"appVersion\": \"2.113.0\",\n    \"platform\": \"android\"\n  }\n}"
+            },
+            "url": "{{baseUrl}}/Auth/Login"
+          }
+        },
+        {
+          "name": "Setup PV conversation",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('PV setup 200', () => pm.response.to.have.status(200));",
+                "pm.collectionVariables.set('conversationId_pv', pm.response.json().id.toString());"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token_u1}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"targetUserId\": 2747\n}" },
+            "url": "{{baseUrl}}/chat/conversations/pv"
+          }
+        },
+        {
+          "name": "Send PV message",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('PV message 200', () => pm.response.to.have.status(200));",
+                "pm.collectionVariables.set('messageId_pv', pm.response.json().id.toString());"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "body": {
+              "mode": "formdata",
+              "formdata": [{ "key": "text", "value": "Pin test PV message", "type": "text" }]
+            },
+            "url": "{{baseUrl}}/chat/conversations/{{conversationId_pv}}/messages"
+          }
+        }
+      ]
+    },
+    {
+      "name": "1. Pin Message (POST)",
+      "item": [
+        {
+          "name": "PIN-PV-H01 Pin in PV happy path",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('PIN-PV-H01 status 200', () => pm.response.to.have.status(200));"]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/conversations/{{conversationId_pv}}/messages/{{messageId_pv}}/pin"
+          }
+        },
+        {
+          "name": "PIN-PV-H02 Idempotent pin",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('PIN-PV-H02 status 200', () => pm.response.to.have.status(200));"]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u2}}" }],
+            "url": "{{baseUrl}}/chat/conversations/{{conversationId_pv}}/messages/{{messageId_pv}}/pin"
+          }
+        },
+        {
+          "name": "PIN-PV-E02 Wrong conversation",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('PIN-PV-E02 status 400', () => pm.response.to.have.status(400));",
+                "pm.test('PIN-PV-E02 message not in conversation', () => pm.response.text().includes('این پیام متعلق به این مکالمه نیست'));"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/conversations/{{wrongConversationId}}/messages/{{messageId_pv}}/pin"
+          }
+        },
+        {
+          "name": "PIN-PV-E04 Message not found",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('PIN-PV-E04 status 400', () => pm.response.to.have.status(400));",
+                "pm.test('PIN-PV-E04 not found', () => pm.response.text().includes('پیام یافت نشد'));"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/conversations/{{conversationId_pv}}/messages/{{wrongMessageId}}/pin"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Unpin Message (DELETE)",
+      "item": [
+        {
+          "name": "UNPIN-H01 Unpin happy path",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('UNPIN-H01 status 200', () => pm.response.to.have.status(200));"]
+            }
+          }],
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u2}}" }],
+            "url": "{{baseUrl}}/chat/conversations/{{conversationId_pv}}/messages/{{messageId_pv}}/pin"
+          }
+        },
+        {
+          "name": "UNPIN-E01 Not pinned",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('UNPIN-E01 status 400', () => pm.response.to.have.status(400));",
+                "pm.test('UNPIN-E01 not pinned', () => pm.response.text().includes('این پیام پین نشده است'));"
+              ]
+            }
+          }],
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/conversations/{{conversationId_pv}}/messages/{{messageId_pv}}/pin"
+          }
+        },
+        {
+          "name": "Re-pin for GET tests",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('Re-pin status 200', () => pm.response.to.have.status(200));"]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/conversations/{{conversationId_pv}}/messages/{{messageId_pv}}/pin"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Get Pinned (GET)",
+      "item": [
+        {
+          "name": "GET-H01 List pins happy path",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('GET-H01 status 200', () => pm.response.to.have.status(200));",
+                "const pins = pm.response.json();",
+                "pm.test('GET-H01 is array', () => pm.expect(pins).to.be.an('array'));",
+                "pm.test('GET-H01 has pinned message', () => {",
+                "  const msgId = parseInt(pm.collectionVariables.get('messageId_pv'));",
+                "  pm.expect(pins.some(p => p.message.id === msgId && p.message.isPinned === true)).to.be.true;",
+                "});"
+              ]
+            }
+          }],
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/conversations/{{conversationId_pv}}/pins"
+          }
+        },
+        {
+          "name": "GET-H02 isPinned in message list",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('GET-H02 status 200', () => pm.response.to.have.status(200));",
+                "const page = pm.response.json();",
+                "const msgId = parseInt(pm.collectionVariables.get('messageId_pv'));",
+                "const msg = page.messages.find(m => m.id === msgId);",
+                "pm.test('GET-H02 isPinned true', () => pm.expect(msg.isPinned).to.eql(true));"
+              ]
+            }
+          }],
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/conversations/{{conversationId_pv}}/messages?pageSize=20"
+          }
+        }
+      ]
+    }
+  ]
+}

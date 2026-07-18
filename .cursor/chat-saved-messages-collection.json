@@ -1,0 +1,272 @@
+{
+  "info": {
+    "name": "Elay Customer — Chat Saved Messages",
+    "description": "Scenario contract tests for Save / Unsave / GetSaved APIs. Run folder 0 Auth first, then folders 1–3.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "b2c3d4e5-saved-chat-elay-20260711"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5144" },
+    { "key": "token_u1", "value": "" },
+    { "key": "token_u2", "value": "" },
+    { "key": "token_u3", "value": "" },
+    { "key": "token_u4", "value": "" },
+    { "key": "userId_u2", "value": "" },
+    { "key": "conversationId_pv", "value": "" },
+    { "key": "messageId_pv", "value": "" },
+    { "key": "messageId_group", "value": "" },
+    { "key": "wrongMessageId", "value": "999999" }
+  ],
+  "item": [
+    {
+      "name": "0. Auth & Setup",
+      "item": [
+        {
+          "name": "Login U1 (chattest_sara)",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Login U1 200', () => pm.response.to.have.status(200));",
+                "pm.collectionVariables.set('token_u1', pm.response.json().accessToken);"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"chattest_sara\",\n  \"password\": \"Test@12345\",\n  \"deviceInfo\": {\n    \"deviceID\": \"saved-u1\",\n    \"deviceName\": \"postman-saved\",\n    \"deviceVersion\": \"16\",\n    \"appVersion\": \"2.113.0\",\n    \"platform\": \"android\"\n  }\n}"
+            },
+            "url": "{{baseUrl}}/Auth/Login"
+          }
+        },
+        {
+          "name": "Login U2-U4",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Login U2 200', () => pm.response.to.have.status(200));",
+                "pm.collectionVariables.set('token_u2', pm.response.json().accessToken);"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"chattest_reza\",\n  \"password\": \"Test@12345\",\n  \"deviceInfo\": { \"deviceID\": \"saved-u2\", \"deviceName\": \"t\", \"deviceVersion\": \"16\", \"appVersion\": \"2.113.0\", \"platform\": \"android\" }\n}"
+            },
+            "url": "{{baseUrl}}/Auth/Login"
+          }
+        },
+        {
+          "name": "Profile U2 (userId)",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.collectionVariables.set('userId_u2', pm.response.json().userId.toString());"
+              ]
+            }
+          }],
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u2}}" }],
+            "url": "{{baseUrl}}/chat/profile"
+          }
+        },
+        {
+          "name": "Setup PV + message",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('PV 200', () => pm.response.to.have.status(200));",
+                "pm.collectionVariables.set('conversationId_pv', pm.response.json().id.toString());"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/conversations/pv/{{userId_u2}}"
+          }
+        },
+        {
+          "name": "Send PV message",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.collectionVariables.set('messageId_pv', pm.response.json().id.toString());"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "body": {
+              "mode": "formdata",
+              "formdata": [{ "key": "text", "value": "Saved test PV", "type": "text" }]
+            },
+            "url": "{{baseUrl}}/chat/conversations/{{conversationId_pv}}/messages"
+          }
+        }
+      ]
+    },
+    {
+      "name": "1. Save Message (POST)",
+      "item": [
+        {
+          "name": "SAVE-H01 Save PV happy path",
+          "event": [{
+            "listen": "test",
+            "script": { "type": "text/javascript", "exec": ["pm.test('SAVE-H01 200', () => pm.response.to.have.status(200));"] }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/messages/{{messageId_pv}}/save"
+          }
+        },
+        {
+          "name": "SAVE-H04 Idempotent save",
+          "event": [{
+            "listen": "test",
+            "script": { "type": "text/javascript", "exec": ["pm.test('SAVE-H04 200', () => pm.response.to.have.status(200));"] }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/messages/{{messageId_pv}}/save"
+          }
+        },
+        {
+          "name": "SAVE-E01 Message not found",
+          "event": [{
+            "listen": "test",
+            "script": { "type": "text/javascript", "exec": ["pm.test('SAVE-E01 400', () => pm.response.to.have.status(400));"] }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/messages/{{wrongMessageId}}/save"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Unsave Message (DELETE)",
+      "item": [
+        {
+          "name": "UNSAVE-H01 Unsave happy path",
+          "event": [{
+            "listen": "test",
+            "script": { "type": "text/javascript", "exec": ["pm.test('UNSAVE-H01 200', () => pm.response.to.have.status(200));"] }
+          }],
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/messages/{{messageId_pv}}/save"
+          }
+        },
+        {
+          "name": "UNSAVE-E02 Double unsave",
+          "event": [{
+            "listen": "test",
+            "script": { "type": "text/javascript", "exec": ["pm.test('UNSAVE-E02 400', () => pm.response.to.have.status(400));"] }
+          }],
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/messages/{{messageId_pv}}/save"
+          }
+        },
+        {
+          "name": "SAVE-H05 Re-save after unsave",
+          "event": [{
+            "listen": "test",
+            "script": { "type": "text/javascript", "exec": ["pm.test('SAVE-H05 200', () => pm.response.to.have.status(200));"] }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/messages/{{messageId_pv}}/save"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Get Saved (GET)",
+      "item": [
+        {
+          "name": "GET-H01 List saved messages",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('GET-H01 200', () => pm.response.to.have.status(200));",
+                "const page = pm.response.json();",
+                "const msgId = parseInt(pm.collectionVariables.get('messageId_pv'));",
+                "pm.test('contains saved PV', () => pm.expect(page.data.some(x => x.message.id === msgId)).to.be.true);"
+              ]
+            }
+          }],
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/messages/saved?PageIndex=0&PageSize=20"
+          }
+        },
+        {
+          "name": "SAVE-R01 isSavedByMe in message list",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "const page = pm.response.json();",
+                "const msgId = parseInt(pm.collectionVariables.get('messageId_pv'));",
+                "const m = page.messages.find(x => x.id === msgId);",
+                "pm.test('isSavedByMe true', () => pm.expect(m.isSavedByMe).to.eql(true));"
+              ]
+            }
+          }],
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/conversations/{{conversationId_pv}}/messages?pageSize=20"
+          }
+        },
+        {
+          "name": "GET-P01 Pagination PageSize=1",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "const p = pm.response.json();",
+                "pm.test('count=1', () => pm.expect(p.count).to.eql(1));"
+              ]
+            }
+          }],
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_u1}}" }],
+            "url": "{{baseUrl}}/chat/messages/saved?PageIndex=0&PageSize=1"
+          }
+        }
+      ]
+    }
+  ]
+}

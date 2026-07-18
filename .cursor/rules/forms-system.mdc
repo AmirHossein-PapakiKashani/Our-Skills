@@ -1,0 +1,80 @@
+---
+description: Forms system — templates, fields, categories, cloning, sync, permits, and form lifecycle in Elay Backend
+globs:
+  - "**/FormTemplate/**"
+  - "**/FormField/**"
+  - "**/FormFiled/**"
+  - "**/FormCategory/**"
+  - "**/Category/**"
+  - "**/CustomerForm*"
+  - "**/FormSelection*"
+  - "**/FormTemplateSync/**"
+  - "**/FormTemplatePropagate*"
+  - "**/FormPropagate*"
+  - "**/FormData/**"
+  - "**/PermitBaseForm/**"
+  - "**/PermitNew/**"
+  - "**/PermitForms/**"
+  - "**/CheckList/**"
+  - "**/Anomaly/**"
+  - "**/Emergency/**"
+  - "**/FormsTemplate/**"
+  - "**/FormFieldType*"
+  - "**/FormFiledType*"
+  - "**/FormFieldHelper*"
+  - "**/FormFiledHelper*"
+  - "**/FormTemplateModel*"
+  - "**/CustomerAllFormTemplate*"
+  - "**/SyncService*"
+  - "**/SyncBackgroundService*"
+  - "**/SyncOption*"
+  - "**/CustomerChangedService*"
+alwaysApply: false
+---
+
+# Rule: Forms System
+
+Whenever you work on any file related to forms, fields, categories, customer assignment, sync, permits, or form submissions:
+
+**Before making any change, read this file in full:**
+
+```
+FORMS_SYSTEM.md
+```
+
+Located at the **project root** (`FORMS_SYSTEM.md`).
+
+## What the document covers
+
+- Three-layer architecture (Admin / Customer API+UI / mobile app)
+- Admin base-data vs customer-specific mode (`CustomerId null` vs set)
+- `FormCategory` entity and mandatory `CategoryId`
+- All `FormType` values including `PermitNew` and `PermitStep`
+- Three clone/propagate flows:
+  - `CustomerFormEditCommand` — assign forms to customer
+  - `FormSelectionEditCommand` — permit child attach
+  - `FormTemplatePropagateToCustomersCommand` — push base edits to customer copies in Admin
+- `OrginalId` tracking and in-memory `ParentField` / `GroupParent` rebuild
+- `FormFieldType` enum (`Numeric`, `MobileNumber`, `Group` = composite)
+- Field settings: `Force`, `ParentValue`, `Locked` (Customer sync)
+- Sync pipeline: `SyncService` order, **`Sync` appsettings** (`InitialDelayMinutes`, `IntervalMinutes`, file parallelism), manual trigger in Customer NavMenu
+- `GET /CustomerForms` (Admin) and `FormTemplateSyncCommand` (Customer, batch save)
+- Report file sync: HEAD skip + parallel download
+- Access: `FormRole` vs PermitNew workflow
+- Sort commands: `FormTemplateOrderCommand`, `FormFieldOrderCommand`
+- Performance notes (Section 18) and sensitive rules
+
+## Severity
+
+**This system is highly sensitive.** A wrong change to cloning, `OrginalId`, `IsActive`, or sync can corrupt customer form data across tenants.
+
+## Quick pre-change checklist
+
+- [ ] Am I in Admin base data or a customer context? (`CustomerId`)
+- [ ] Is this customer assignment (`CustomerFormEditCommand`), permit child attach (`FormSelectionEditCommand`), or base propagate (`FormTemplatePropagateToCustomersCommand`)?
+- [ ] Does my clone logic rebuild field parent/group links before zeroing IDs?
+- [ ] For propagate: two-phase save (IDs → remap `ParentFieldId`/`GroupId` by `OrginalId`)?
+- [ ] Am I using `IsActive = false` instead of hard delete?
+- [ ] For PermitNew, am I using workflow — not only `FormRole`?
+- [ ] Propagate updates Admin only — Customer still needs `ISyncService.Sync()`?
+- [ ] Did I preserve intentional typos (`FormFiled`, `OrginalId`)?

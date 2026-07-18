@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "^(Bash|Shell)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \".cursor\\hooks\\customer-api-release-policy.ps1\"",
+            "timeout": 30,
+            "statusMessage": "Checking Customer API release publish"
+          }
+        ]
+      }
+    ]
+  }
+}

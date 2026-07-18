@@ -1,0 +1,1591 @@
+{
+    "variable":  [
+                     {
+                         "key":  "baseUrl",
+                         "value":  "http://localhost:5144"
+                     },
+                     {
+                         "key":  "token_u1",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "token_u2",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "token_u3",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "token_u4",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "userId_u1",
+                         "value":  "2746"
+                     },
+                     {
+                         "key":  "userId_u2",
+                         "value":  "2747"
+                     },
+                     {
+                         "key":  "userId_u3",
+                         "value":  "2748"
+                     },
+                     {
+                         "key":  "userId_u4",
+                         "value":  "2749"
+                     },
+                     {
+                         "key":  "requestId",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "rejectRequestId",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "cancelRequestId",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "approvedEventId",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "mrStart",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "mrEnd",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "mrStart2",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "mrEnd2",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "mrRejectStart",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "mrRejectEnd",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "mrCancelStart",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "mrCancelEnd",
+                         "value":  ""
+                     },
+                     {
+                         "key":  "timesReady",
+                         "value":  ""
+                     }
+                 ],
+    "info":  {
+                 "description":  "E1-E7. Using test users from: references/postman-test-users.md. SMS priority for notifications.",
+                 "name":  "Calendar Phase 6 â€” MeetingRequest",
+                 "schema":  "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+             },
+    "event":  [
+                  {
+                      "script":  {
+                                     "exec":  [
+                                                  "if (pm.collectionVariables.get(\u0027timesReady\u0027) === \u00271\u0027) { return; }",
+                                                  "const dayMs = 86400000;",
+                                                  "const slot = Math.floor(Date.now() / 60000);",
+                                                  "const base = Date.UTC(2034, 0, 10, 10, 0, 0);",
+                                                  "const start = new Date(base + (slot % 40000) * dayMs);",
+                                                  "function iso(d) { return d.toISOString().replace(/\\\\.\\\\d{3}Z$/, \u0027Z\u0027); }",
+                                                  "function addHours(d,h){ return new Date(d.getTime()+h*3600000); }",
+                                                  "function addDays(d,n){ return new Date(d.getTime()+n*dayMs); }",
+                                                  "pm.collectionVariables.set(\u0027mrStart\u0027, iso(start));",
+                                                  "pm.collectionVariables.set(\u0027mrEnd\u0027, iso(addHours(start,1)));",
+                                                  "pm.collectionVariables.set(\u0027mrStart2\u0027, iso(addDays(start,2)));",
+                                                  "pm.collectionVariables.set(\u0027mrEnd2\u0027, iso(addHours(addDays(start,2),1)));",
+                                                  "pm.collectionVariables.set(\u0027mrRejectStart\u0027, iso(addDays(start,4)));",
+                                                  "pm.collectionVariables.set(\u0027mrRejectEnd\u0027, iso(addHours(addDays(start,4),1)));",
+                                                  "pm.collectionVariables.set(\u0027mrCancelStart\u0027, iso(addDays(start,6)));",
+                                                  "pm.collectionVariables.set(\u0027mrCancelEnd\u0027, iso(addHours(addDays(start,6),1)));",
+                                                  "pm.collectionVariables.set(\u0027timesReady\u0027,\u00271\u0027);"
+                                              ],
+                                     "type":  "text/javascript"
+                                 },
+                      "listen":  "prerequest"
+                  }
+              ],
+    "item":  [
+                 {
+                     "name":  "0. Auth (Setup)",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_sara\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027Login U1\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u1\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027Profile U1\u0027,()=\u003eassertStatus(200)); pm.expect(pm.response.json().userId).to.eql(2746); pm.collectionVariables.set(\u0027userId_u1\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_reza\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027Login U2\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u2\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027Profile U2\u0027,()=\u003eassertStatus(200)); pm.expect(pm.response.json().userId).to.eql(2747); pm.collectionVariables.set(\u0027userId_u2\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_nima\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U3",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027Login U3\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u3\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u3}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U3",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027Profile U3\u0027,()=\u003eassertStatus(200)); pm.expect(pm.response.json().userId).to.eql(2748); pm.collectionVariables.set(\u0027userId_u3\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"username\":\"chattest_kian\",\"password\":\"Test@12345\",\"deviceInfo\":{\"deviceID\":\"BE2A.250530.026.F3\",\"deviceName\":\"postman-test-device\",\"deviceVersion\":\"16\",\"appVersion\":\"2.113.0\",\"platform\":\"android\"}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Auth/Login",
+                                                                  "path":  [
+                                                                               "Auth",
+                                                                               "Login"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Login U4",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027Login U4\u0027,()=\u003eassertStatus(200)); pm.collectionVariables.set(\u0027token_u4\u0027, pm.response.json().accessToken);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/chat/profile",
+                                                                  "path":  [
+                                                                               "chat",
+                                                                               "profile"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Profile U4",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027Profile U4\u0027,()=\u003eassertStatus(200)); pm.expect(pm.response.json().userId).to.eql(2749); pm.collectionVariables.set(\u0027userId_u4\u0027, pm.response.json().userId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "1. E1 Create",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":{{userId_u2}},\"title\":\"Phase6 Budget Sync\",\"description\":\"Q3\",\"location\":\"Room A\",\"startAt\":\"{{mrStart}}\",\"endAt\":\"{{mrEnd}}\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E1-1 Create happy",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E1-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const id = pm.response.json();",
+                                                                                    "pm.expect(id).to.be.a(\u0027number\u0027).above(0);",
+                                                                                    "pm.collectionVariables.set(\u0027requestId\u0027, id.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":{{userId_u2}},\"title\":\"A\",\"startAt\":\"{{mrStart2}}\",\"endAt\":\"{{mrEnd2}}\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E1-2 Invalid title",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E1-2 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":{{userId_u2}},\"title\":\"Bad Time\",\"startAt\":\"{{mrEnd}}\",\"endAt\":\"{{mrStart}}\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E1-3 Bad time",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E1-3 400\u0027,()=\u003eassertStatus(400)); pm.test(\u0027detail\u0027,()=\u003eassertHasDetail());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":{{userId_u1}},\"title\":\"Self Meet\",\"startAt\":\"{{mrStart2}}\",\"endAt\":\"{{mrEnd2}}\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E1-4 Self target",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E1-4 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":999999,\"title\":\"Missing User\",\"startAt\":\"{{mrStart2}}\",\"endAt\":\"{{mrEnd2}}\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E1-5 Target not found",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E1-5 404\u0027,()=\u003eassertStatus(404));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "2. E4 E5 E6 Read",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "page",
+                                                                                    "value":  "0"
+                                                                                }
+                                                                            ],
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Pending?page=0",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Pending"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E4-1 Pending for U2",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E4-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const p = pm.response.json();",
+                                                                                    "pm.expect(p.data || p.Data).to.be.an(\u0027array\u0027);",
+                                                                                    "pm.expect(p.totalCount ?? p.TotalCount).to.be.at.least(1);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "page",
+                                                                                    "value":  "0"
+                                                                                }
+                                                                            ],
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Sent?page=0",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Sent"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E5-1 Sent for U1",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E5-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const p = pm.response.json();",
+                                                                                    "pm.expect(p.data || p.Data).to.be.an(\u0027array\u0027).that.is.not.empty;"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/{{requestId}}",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "{{requestId}}"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E6-1 Get by id",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E6-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const d = pm.response.json();",
+                                                                                    "pm.expect(d.status).to.eql(\u0027Pending\u0027);",
+                                                                                    "pm.expect(d.title).to.be.a(\u0027string\u0027).and.not.empty;"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/{{requestId}}",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "{{requestId}}"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u4}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E6-3 Outsider forbidden",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E6-3 403\u0027,()=\u003eassertStatus(403));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/999999",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "999999"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E6-2 Not found",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E6-2 404\u0027,()=\u003eassertStatus(404));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "3. E2 Approve",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"requestId\":{{requestId}}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Approve",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Approve"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u3}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E2-3 U3 cannot approve",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E2-3 403\u0027,()=\u003eassertStatus(403));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"requestId\":{{requestId}}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Approve",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Approve"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E2-1 U2 approve",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E2-1 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "const eventId = pm.response.json();",
+                                                                                    "pm.expect(eventId).to.be.a(\u0027number\u0027).above(0);",
+                                                                                    "pm.collectionVariables.set(\u0027approvedEventId\u0027, eventId.toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"requestId\":{{requestId}}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Approve",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Approve"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E2-4 Already processed",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E2-4 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"requestId\":999999}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Approve",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Approve"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E2-2 Not found",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E2-2 404\u0027,()=\u003eassertStatus(404));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "4. E3 Reject + E7 Cancel",
+                     "item":  [
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":{{userId_u3}},\"title\":\"Phase6 Reject Flow\",\"startAt\":\"{{mrRejectStart}}\",\"endAt\":\"{{mrRejectEnd}}\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup Create for reject",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027setup reject 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.collectionVariables.set(\u0027rejectRequestId\u0027, pm.response.json().toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"requestId\":{{rejectRequestId}},\"reason\":\"nope\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Reject",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Reject"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E3-3 U2 cannot reject",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E3-3 403\u0027,()=\u003eassertStatus(403));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"requestId\":{{rejectRequestId}},\"reason\":\"busy week\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Reject",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Reject"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u3}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E3-1 U3 reject",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E3-1 200\u0027,()=\u003eassertStatus(200)); pm.expect(pm.response.json()).to.eql(true);"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"requestId\":{{rejectRequestId}}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Reject",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Reject"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u3}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E3-4 Already processed reject",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E3-4 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"targetUserId\":{{userId_u4}},\"title\":\"Phase6 Cancel Flow\",\"startAt\":\"{{mrCancelStart}}\",\"endAt\":\"{{mrCancelEnd}}\"}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "Setup Create for cancel",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027setup cancel 200\u0027, () =\u003e assertStatus(200));",
+                                                                                    "pm.collectionVariables.set(\u0027cancelRequestId\u0027, pm.response.json().toString());"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"requestId\":{{cancelRequestId}}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Cancel",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Cancel"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u2}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E7-3 U2 cannot cancel",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E7-3 403\u0027,()=\u003eassertStatus(403));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"requestId\":{{cancelRequestId}}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Cancel",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Cancel"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E7-1 U1 cancel",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E7-1 200\u0027,()=\u003eassertStatus(200));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  },
+                                  {
+                                      "request":  {
+                                                      "body":  {
+                                                                   "raw":  "{\"requestId\":{{cancelRequestId}}}",
+                                                                   "options":  {
+                                                                                   "raw":  {
+                                                                                               "language":  "json"
+                                                                                           }
+                                                                               },
+                                                                   "mode":  "raw"
+                                                               },
+                                                      "method":  "POST",
+                                                      "url":  {
+                                                                  "host":  [
+                                                                               "{{baseUrl}}"
+                                                                           ],
+                                                                  "raw":  "{{baseUrl}}/Calendar/MeetingRequest/Cancel",
+                                                                  "path":  [
+                                                                               "Calendar",
+                                                                               "MeetingRequest",
+                                                                               "Cancel"
+                                                                           ]
+                                                              },
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{token_u1}}"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ]
+                                                  },
+                                      "name":  "E7-4 Cancel not pending",
+                                      "event":  [
+                                                    {
+                                                        "script":  {
+                                                                       "exec":  [
+                                                                                    "function assertStatus(code) { pm.response.to.have.status(code); }",
+                                                                                    "function assertHasDetail() {",
+                                                                                    "  const j = pm.response.json();",
+                                                                                    "  const hay = (j.detail || j.title || \u0027\u0027);",
+                                                                                    "  pm.expect(hay).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                                                    "}pm.test(\u0027E7-4 400\u0027,()=\u003eassertStatus(400));"
+                                                                                ],
+                                                                       "type":  "text/javascript"
+                                                                   },
+                                                        "listen":  "test"
+                                                    }
+                                                ]
+                                  }
+                              ]
+                 }
+             ]
+}

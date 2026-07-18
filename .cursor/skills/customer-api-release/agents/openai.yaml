@@ -1,0 +1,4 @@
+interface:
+  display_name: "Customer API Release"
+  short_description: "Publish and package Customer API"
+  default_prompt: "Use -api-release to publish the Customer API and create the Release RAR package."
