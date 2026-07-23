@@ -1,0 +1,6 @@
+{
+  "uri": "postman://instructions",
+  "name": "instructions",
+  "description": "Instructions for using the Postman MCP server",
+  "mimeType": "text/markdown"
+}

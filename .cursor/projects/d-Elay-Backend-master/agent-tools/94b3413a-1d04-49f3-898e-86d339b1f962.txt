@@ -1,0 +1,1164 @@
+npm warn deprecated har-validator@5.1.5: this library is no longer supported
+npm warn deprecated uuid@3.4.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated @faker-js/faker@5.5.3: Please update to a newer version.
+newman
+
+Elay Customer â€” Chat Module (Day 12 Integration Tests)
+
+□ 0. Auth (Setup)
+└ Login U1 (chattest_sara)
+  POST http://localhost:5144/Auth/Login [400 Bad Request, 412B, 5s]
+  1. Login U1 returns 200
+  2. Login U1 has accessToken
+
+└ Profile U1
+  GET http://localhost:5144/chat/profile [401 Unauthorized, 150B, 10ms]
+  3. Profile U1 returns 200
+  4⠄ JSONError in test-script
+
+└ Login U2 (chattest_reza)
+  POST http://localhost:5144/Auth/Login [400 Bad Request, 412B, 5s]
+  5. Login U2 returns 200
+  6. Login U2 has accessToken
+
+└ Profile U2
+  GET http://localhost:5144/chat/profile [401 Unauthorized, 150B, 2ms]
+  7. Profile U2 returns 200
+  8⠄ JSONError in test-script
+
+└ Login U3 (chattest_nima)
+  POST http://localhost:5144/Auth/Login [400 Bad Request, 412B, 7ms]
+  9. Login U3 returns 200
+ 10. Login U3 has accessToken
+
+└ Profile U3
+  GET http://localhost:5144/chat/profile [401 Unauthorized, 150B, 3ms]
+ 11. Profile U3 returns 200
+ 12⠄ JSONError in test-script
+
+└ Login U4 (chattest_kian)
+  POST http://localhost:5144/Auth/Login [400 Bad Request, 412B, 11ms]
+ 13. Login U4 returns 200
+ 14. Login U4 has accessToken
+
+└ Profile U4
+  GET http://localhost:5144/chat/profile [401 Unauthorized, 150B, 3ms]
+ 15. Profile U4 returns 200
+ 16⠄ JSONError in test-script
+
+□ 1. Home (List, Search, Create)
+└ P01 - Create PV Happy Path
+  POST http://localhost:5144/chat/conversations/pv/ [404 Not Found, 197B, 7ms]
+ 17. P01 status 200
+ 18⠄ JSONError in test-script
+
+└ P02 - Invalid Target User Id
+  POST http://localhost:5144/chat/conversations/pv/0 [401 Unauthorized, 150B, 9ms]
+ 19. P02 status 400
+ 20. P02 invalid user id message
+
+└ P03 - Self Chat Guard
+  POST http://localhost:5144/chat/conversations/pv/ [404 Not Found, 197B, 4ms]
+ 21. P03 status 400
+ 22. P03 cannot chat with yourself
+
+└ P04 - Target User Not Found
+  POST http://localhost:5144/chat/conversations/pv/999999 [401 Unauthorized, 150B, 4ms]
+ 23. P04 status 400
+ 24. P04 not found message
+
+└ P05 - Idempotency Same PV
+  POST http://localhost:5144/chat/conversations/pv/ [404 Not Found, 197B, 3ms]
+ 25. P05 status 200
+ 26⠄ JSONError in test-script
+
+└ P08 - Unauthorized No Token
+  POST http://localhost:5144/chat/conversations/pv/ [404 Not Found, 197B, 2ms]
+ 27. P08 status 401
+
+└ H01 - List Conversations
+  GET http://localhost:5144/chat/conversations [401 Unauthorized, 150B, 8.7s]
+ 28. H01 status 200
+ 29. H01 returns array
+
+└ H02 - Search Conversations Partial
+  GET http://localhost:5144/chat/conversations?search=reza [401 Unauthorized, 150B, 3ms]
+ 30. H02 status 200
+ 31⠄ JSONError in test-script
+
+└ H03 - Search Conversations Nonsense
+  GET http://localhost:5144/chat/conversations?search=zzznonsense999 [401 Unauthorized, 150B, 3ms]
+ 32. H03 status 200
+ 33. H03 empty array not error
+
+└ H04 - Search Users Reza
+  GET http://localhost:5144/chat/users?search=reza [401 Unauthorized, 150B, 4ms]
+ 34. H04 status 200
+ 35⠄ JSONError in test-script
+
+└ H05 - Search Users Nonsense
+  GET http://localhost:5144/chat/users?search=zzznonsense999 [401 Unauthorized, 150B, 4ms]
+ 36. H05 status 200
+ 37. H05 empty array
+
+□ 2. Profile
+└ PR01 - Get Profile
+  GET http://localhost:5144/chat/profile [401 Unauthorized, 150B, 4ms]
+ 38. PR01 status 200
+ 39⠄ JSONError in test-script
+
+└ PR02 - Update DisplayName
+  PUT http://localhost:5144/chat/profile (node:9736) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[401 Unauthorized, 150B, 8ms]
+ 40. PR02 update status 200
+
+└ PR02b - Verify Profile Persisted
+  GET http://localhost:5144/chat/profile [401 Unauthorized, 150B, 5ms]
+ 41. PR02b status 200
+ 42. PR02b displayName persisted
+
+└ PR03 - Update Profile No Fields
+  PUT http://localhost:5144/chat/profile [401 Unauthorized, 150B, 4ms]
+ 43. PR03 status 400
+ 44. PR03 at least one field required
+
+└ PR04 - DisplayName Too Long
+  PUT http://localhost:5144/chat/profile [401 Unauthorized, 150B, 3ms]
+ 45. PR04 status 400
+ 46. PR04 max length error
+
+□ 3. PV â€” Send, Attach, Reply, Forward, Edit, Delete
+└ M01 - Send PV Message Happy Path
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 3ms]
+ 47. M01 send status 200
+ 48⠄ JSONError in test-script
+
+└ M01b - Verify PV Message Persisted
+  GET http://localhost:5144/chat/conversations//messages?pageSize=20 [404 Not Found, 197B, 2ms]
+ 49. M01b status 200
+ 50⠄ JSONError in test-script
+
+└ PV - Reply To Message
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 5ms]
+ 51. Reply status 200
+ 52. Reply has replyTo
+
+└ PV - Forward Message
+  POST http://localhost:5144/chat/messages/{{messageId_pv_u1}}/forward [404 Not Found, 197B, 4ms]
+ 53. Forward status 200
+
+└ PV - Edit Message
+  PUT http://localhost:5144/chat/messages/{{messageId_pv_u1}} [404 Not Found, 197B, 4ms]
+ 54. Edit status 200
+
+└ M05 - Empty Message Validation
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 4ms]
+ 55. M05 status 400
+ 56. M05 empty message error
+
+└ M06 - Conversation Not Found
+  POST http://localhost:5144/chat/conversations/999999/messages [401 Unauthorized, 150B, 18.6s]
+ 57. M06 status 400
+ 58. M06 not found
+
+└ M07 - Non Participant Forbidden
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 6ms]
+ 59. M07 status 400
+ 60. M07 not a participant
+
+└ PV - Delete Message
+  DELETE http://localhost:5144/chat/messages/{{messageId_pv_u1}} [404 Not Found, 197B, 5ms]
+ 61. Delete PV message status 200
+
+□ 4. PV â€” Block & Mute (mutual block scenarios)
+└ B01 - U1 Blocks U2
+  POST http://localhost:5144/chat/users//block [404 Not Found, 197B, 4ms]
+ 62. B01 status 200
+
+└ B02 (M02) - Blocker Sends After Block
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 6ms]
+ 63. B02 status 400
+ 64. B02 user blocked message
+
+└ B03 (M03) - Blocked User Sends
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 4ms]
+ 65. B03 status 400
+ 66. B03 user blocked message
+
+└ B04 (M04) - Create Ripple Group While Blocked
+  POST http://localhost:5144/chat/groups [401 Unauthorized, 150B, 3ms]
+ 67. B04 group create status 200
+ 68⠄ JSONError in test-script
+
+└ B04b - U2 Sends In Group While Block Active
+  POST http://localhost:5144/chat/conversations/{{conversationId_block_ripple}}/messages [404 Not Found, 197B, 3ms]
+ 69. B04b group send succeeds despite PV block
+
+└ P06 - Create PV While Block Active
+  POST http://localhost:5144/chat/conversations/pv/ [404 Not Found, 197B, 3ms]
+ 70. P06 status 200 despite block
+ 71⠄ JSONError in test-script
+
+└ P07 - PV Still In Conversation List After Block
+  GET http://localhost:5144/chat/conversations [401 Unauthorized, 150B, 3ms]
+ 72. P07 status 200
+ 73⠄ JSONError in test-script
+
+└ B05 - U1 Unblocks U2
+  DELETE http://localhost:5144/chat/users//block [404 Not Found, 197B, 3ms]
+ 74. B05 unblock status 200
+
+└ B06 - Post Unblock Send Success
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 4ms]
+ 75. B06 send status 200
+
+□ 5. Group â€” Create, Members, Send, Leave, Delete Message
+└ G01 - Create Group Happy Path
+  POST http://localhost:5144/chat/groups [401 Unauthorized, 150B, 3ms]
+ 76. G01 status 200
+ 77⠄ JSONError in test-script
+
+└ G02 - Empty Group Name
+  POST http://localhost:5144/chat/groups [401 Unauthorized, 150B, 3ms]
+ 78. G02 status 400
+ 79. G02 group name required
+
+└ G03 - Empty MemberUserIds
+  POST http://localhost:5144/chat/groups [401 Unauthorized, 150B, 5ms]
+ 80. G03 status 400
+ 81. G03 at least one member
+
+└ G04 - Non Admin Add Member Rejected
+  POST http://localhost:5144/chat/groups//members [404 Not Found, 197B, 3ms]
+ 82. G04 status 400
+ 83. G04 not group admin
+
+└ G05 - Admin Add Member U4
+  POST http://localhost:5144/chat/groups//members [404 Not Found, 197B, 4ms]
+ 84. G05 status 200
+
+└ G06 - Admin Remove Member U4
+  DELETE http://localhost:5144/chat/groups//members/ [404 Not Found, 197B, 4ms]
+ 85. G06 status 200
+
+└ G07 - Non Admin Remove Member Rejected
+  DELETE http://localhost:5144/chat/groups//members/ [404 Not Found, 197B, 4ms]
+ 86. G07 status 400
+ 87. G07 not group admin
+
+└ G08 - Member Send Group Message
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 3ms]
+ 88. G08 status 200
+ 89⠄ JSONError in test-script
+
+└ G08b - Admin Send Group Message
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 2ms]
+ 90. G08b status 200
+ 91⠄ JSONError in test-script
+
+└ G09 - Admin Delete U3 Message
+  DELETE http://localhost:5144/chat/messages/ [404 Not Found, 197B, 3ms]
+ 92. G09 delete status 200
+
+└ G10 - Non Admin Delete U1 Message Rejected
+  DELETE http://localhost:5144/chat/messages/ [404 Not Found, 197B, 4ms]
+ 93. G10 status 400
+ 94. G10 cannot delete message
+
+└ G11 - U3 Leave Group
+  POST http://localhost:5144/chat/conversations//leave [404 Not Found, 197B, 3ms]
+ 95. G11 leave status 200
+
+└ G12 - Admin Leave Group
+  POST http://localhost:5144/chat/conversations//leave [404 Not Found, 197B, 2ms]
+ 96. G12 leave status 200
+
+└ G12b - Group Detail After Admin Leave
+  GET http://localhost:5144/chat/conversations/ [401 Unauthorized, 150B, 2ms]
+ 97. G12b detail status 200
+ 98⠄ JSONError in test-script
+
+└ PG01 - Messages Default PageSize
+  GET http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 2ms]
+ 99. PG01 status 200
+100⠄ JSONError in test-script
+
+└ PG02 - Messages PageSize Cap 50
+  GET http://localhost:5144/chat/conversations//messages?pageSize=100 [404 Not Found, 197B, 2ms]
+101. PG02 status 200
+102⠄ JSONError in test-script
+
+└ PG03 - Messages Search Known Text
+  GET http://localhost:5144/chat/conversations//messages?search=Group%20message [404 Not Found, 197B, 2ms]
+103. PG03 status 200
+104⠄ JSONError in test-script
+
+└ PG04 - Messages Search Nonexistent
+  GET http://localhost:5144/chat/conversations//messages?search=zzznonsense999 [404 Not Found, 197B, 3ms]
+105. PG04 status 200
+106. PG04 empty messages array
+
+□ 6. Channel â€” Create, Members, Send, Leave, Delete Message
+└ C01 - Create Channel Happy Path
+  POST http://localhost:5144/chat/channels [401 Unauthorized, 150B, 4ms]
+107. C01 status 200
+108⠄ JSONError in test-script
+
+└ C02 - Duplicate Handle Conflict
+  POST http://localhost:5144/chat/channels [401 Unauthorized, 150B, 3ms]
+109. C02 status 409
+110. C02 duplicate handle
+
+└ C03 - Invalid Handle Format
+  POST http://localhost:5144/chat/channels [401 Unauthorized, 150B, 5ms]
+111. C03 status 400
+112. C03 handle regex error
+
+└ C04 - Member Cannot Send In Channel
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 5ms]
+113. C04 status 400
+114. C04 channel members cannot send
+
+└ C05 - Admin Sends In Channel
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 4ms]
+115. C05 status 200
+
+└ C06 - Non Admin Add Channel Member Rejected
+  POST http://localhost:5144/chat/channels//members [404 Not Found, 197B, 4ms]
+116. C06 status 400
+117. C06 not channel admin
+
+└ C07 - Admin Add Channel Member U3
+  POST http://localhost:5144/chat/channels//members [404 Not Found, 197B, 2ms]
+118. C07 status 200
+
+└ C08 - Member Leave Channel
+  POST http://localhost:5144/chat/conversations//leave [404 Not Found, 197B, 2ms]
+119. C08 leave status 200
+
+□ 7. Notification
+└ N01 - Notification For PV Message
+  GET http://localhost:5144/Notification?page=0 [401 Unauthorized, 150B, 16.8s]
+120. N01 status 200
+121⠄ JSONError in test-script
+
+└ N02a - U2 Mute PV Conversation
+  POST http://localhost:5144/chat/conversations//mute [404 Not Found, 197B, 3ms]
+122. N02a mute status 200
+
+└ N02b - U2 Notification Count Before Send
+  GET http://localhost:5144/Notification?page=0 [401 Unauthorized, 150B, 5ms]
+123. N02b status 200
+124⠄ JSONError in test-script
+
+└ N02c - U1 Send While U2 Muted
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 3ms]
+125. N02c send status 200
+
+└ N02 - No New Notification While Muted
+  GET http://localhost:5144/Notification?page=0 [401 Unauthorized, 150B, 3ms]
+126. N02 status 200
+127⠄ JSONError in test-script
+
+└ N03a - U2 Unmute PV Conversation
+  POST http://localhost:5144/chat/conversations//mute [404 Not Found, 197B, 4ms]
+128. N03a unmute status 200
+
+└ N03b - U1 Send After Unmute
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 5ms]
+129. N03b send status 200
+
+└ N03 - New Notification After Unmute
+  GET http://localhost:5144/Notification?page=0 [401 Unauthorized, 150B, 3ms]
+130. N03 status 200
+131⠄ JSONError in test-script
+
+□ 8. SignalR Smoke Test (WebSocket, single request)
+└ SR01 - SignalR WebSocket Smoke (Blocked)
+  GET http://localhost:5144/hubs/chat [401 Unauthorized, 150B, 2ms]
+  √  SR01 marked Blocked â€” SignalR handshake not supported in Postman WS
+  ┌
+  │ 'SR01 Blocked: use SignalR client with access_token qu
+  │ ery on /hubs/chat'
+  └
+
+┌─────────────────────────┬──────────────────┬──────────────────┐
+│                         │         executed │           failed │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              iterations │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│                requests │               77 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│            test-scripts │               77 │               26 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│      prerequest-scripts │                0 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              assertions │              106 │              105 │
+├─────────────────────────┴──────────────────┴──────────────────┤
+│ total run duration: 1m 1s                                     │
+├───────────────────────────────────────────────────────────────┤
+│ total data received: 656B (approx)                            │
+├───────────────────────────────────────────────────────────────┤
+│ average response time: 709ms [min: 2ms, max: 18.6s, s.d.: 3s] │
+└───────────────────────────────────────────────────────────────┘
+
+    #  failure         detail                                                                                                             
+                                                                                                                                          
+ 001.  AssertionError  Login U1 returns 200                                                                                               
+                       expected response to have status code 200 but got 400                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "0. Auth (Setup) / Login U1 (chattest_sara)"                                                                
+                                                                                                                                          
+ 002.  AssertionError  Login U1 has accessToken                                                                                           
+                       expected undefined to be a string                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "0. Auth (Setup) / Login U1 (chattest_sara)"                                                                
+                                                                                                                                          
+ 003.  AssertionError  Profile U1 returns 200                                                                                             
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "0. Auth (Setup) / Profile U1"                                                                              
+                                                                                                                                          
+ 004.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "0. Auth (Setup) / Profile U1"                                                                              
+                                                                                                                                          
+ 005.  AssertionError  Login U2 returns 200                                                                                               
+                       expected response to have status code 200 but got 400                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "0. Auth (Setup) / Login U2 (chattest_reza)"                                                                
+                                                                                                                                          
+ 006.  AssertionError  Login U2 has accessToken                                                                                           
+                       expected undefined to be a string                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "0. Auth (Setup) / Login U2 (chattest_reza)"                                                                
+                                                                                                                                          
+ 007.  AssertionError  Profile U2 returns 200                                                                                             
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "0. Auth (Setup) / Profile U2"                                                                              
+                                                                                                                                          
+ 008.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "0. Auth (Setup) / Profile U2"                                                                              
+                                                                                                                                          
+ 009.  AssertionError  Login U3 returns 200                                                                                               
+                       expected response to have status code 200 but got 400                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "0. Auth (Setup) / Login U3 (chattest_nima)"                                                                
+                                                                                                                                          
+ 010.  AssertionError  Login U3 has accessToken                                                                                           
+                       expected undefined to be a string                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "0. Auth (Setup) / Login U3 (chattest_nima)"                                                                
+                                                                                                                                          
+ 011.  AssertionError  Profile U3 returns 200                                                                                             
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "0. Auth (Setup) / Profile U3"                                                                              
+                                                                                                                                          
+ 012.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "0. Auth (Setup) / Profile U3"                                                                              
+                                                                                                                                          
+ 013.  AssertionError  Login U4 returns 200                                                                                               
+                       expected response to have status code 200 but got 400                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "0. Auth (Setup) / Login U4 (chattest_kian)"                                                                
+                                                                                                                                          
+ 014.  AssertionError  Login U4 has accessToken                                                                                           
+                       expected undefined to be a string                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "0. Auth (Setup) / Login U4 (chattest_kian)"                                                                
+                                                                                                                                          
+ 015.  AssertionError  Profile U4 returns 200                                                                                             
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "0. Auth (Setup) / Profile U4"                                                                              
+                                                                                                                                          
+ 016.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "0. Auth (Setup) / Profile U4"                                                                              
+                                                                                                                                          
+ 017.  AssertionError  P01 status 200                                                                                                     
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / P01 - Create PV Happy Path"                                               
+                                                                                                                                          
+ 018.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "1. Home (List, Search, Create) / P01 - Create PV Happy Path"                                               
+                                                                                                                                          
+ 019.  AssertionError  P02 status 400                                                                                                     
+                       expected response to have status code 400 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / P02 - Invalid Target User Id"                                             
+                                                                                                                                          
+ 020.  JSONError       P02 invalid user id message                                                                                        
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / P02 - Invalid Target User Id"                                             
+                                                                                                                                          
+ 021.  AssertionError  P03 status 400                                                                                                     
+                       expected response to have status code 400 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / P03 - Self Chat Guard"                                                    
+                                                                                                                                          
+ 022.  JSONError       P03 cannot chat with yourself                                                                                      
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / P03 - Self Chat Guard"                                                    
+                                                                                                                                          
+ 023.  AssertionError  P04 status 400                                                                                                     
+                       expected response to have status code 400 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / P04 - Target User Not Found"                                              
+                                                                                                                                          
+ 024.  JSONError       P04 not found message                                                                                              
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / P04 - Target User Not Found"                                              
+                                                                                                                                          
+ 025.  AssertionError  P05 status 200                                                                                                     
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / P05 - Idempotency Same PV"                                                
+                                                                                                                                          
+ 026.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "1. Home (List, Search, Create) / P05 - Idempotency Same PV"                                                
+                                                                                                                                          
+ 027.  AssertionError  P08 status 401                                                                                                     
+                       expected response to have status code 401 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / P08 - Unauthorized No Token"                                              
+                                                                                                                                          
+ 028.  AssertionError  H01 status 200                                                                                                     
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / H01 - List Conversations"                                                 
+                                                                                                                                          
+ 029.  JSONError       H01 returns array                                                                                                  
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / H01 - List Conversations"                                                 
+                                                                                                                                          
+ 030.  AssertionError  H02 status 200                                                                                                     
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / H02 - Search Conversations Partial"                                       
+                                                                                                                                          
+ 031.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "1. Home (List, Search, Create) / H02 - Search Conversations Partial"                                       
+                                                                                                                                          
+ 032.  AssertionError  H03 status 200                                                                                                     
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / H03 - Search Conversations Nonsense"                                      
+                                                                                                                                          
+ 033.  JSONError       H03 empty array not error                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / H03 - Search Conversations Nonsense"                                      
+                                                                                                                                          
+ 034.  AssertionError  H04 status 200                                                                                                     
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / H04 - Search Users Reza"                                                  
+                                                                                                                                          
+ 035.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "1. Home (List, Search, Create) / H04 - Search Users Reza"                                                  
+                                                                                                                                          
+ 036.  AssertionError  H05 status 200                                                                                                     
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / H05 - Search Users Nonsense"                                              
+                                                                                                                                          
+ 037.  JSONError       H05 empty array                                                                                                    
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "1. Home (List, Search, Create) / H05 - Search Users Nonsense"                                              
+                                                                                                                                          
+ 038.  AssertionError  PR01 status 200                                                                                                    
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "2. Profile / PR01 - Get Profile"                                                                           
+                                                                                                                                          
+ 039.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "2. Profile / PR01 - Get Profile"                                                                           
+                                                                                                                                          
+ 040.  AssertionError  PR02 update status 200                                                                                             
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "2. Profile / PR02 - Update DisplayName"                                                                    
+                                                                                                                                          
+ 041.  AssertionError  PR02b status 200                                                                                                   
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "2. Profile / PR02b - Verify Profile Persisted"                                                             
+                                                                                                                                          
+ 042.  JSONError       PR02b displayName persisted                                                                                        
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "2. Profile / PR02b - Verify Profile Persisted"                                                             
+                                                                                                                                          
+ 043.  AssertionError  PR03 status 400                                                                                                    
+                       expected response to have status code 400 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "2. Profile / PR03 - Update Profile No Fields"                                                              
+                                                                                                                                          
+ 044.  JSONError       PR03 at least one field required                                                                                   
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "2. Profile / PR03 - Update Profile No Fields"                                                              
+                                                                                                                                          
+ 045.  AssertionError  PR04 status 400                                                                                                    
+                       expected response to have status code 400 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "2. Profile / PR04 - DisplayName Too Long"                                                                  
+                                                                                                                                          
+ 046.  JSONError       PR04 max length error                                                                                              
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "2. Profile / PR04 - DisplayName Too Long"                                                                  
+                                                                                                                                          
+ 047.  AssertionError  M01 send status 200                                                                                                
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / M01 - Send PV Message Happy Path"                   
+                                                                                                                                          
+ 048.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / M01 - Send PV Message Happy Path"                   
+                                                                                                                                          
+ 049.  AssertionError  M01b status 200                                                                                                    
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / M01b - Verify PV Message Persisted"                 
+                                                                                                                                          
+ 050.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / M01b - Verify PV Message Persisted"                 
+                                                                                                                                          
+ 051.  AssertionError  Reply status 200                                                                                                   
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / PV - Reply To Message"                              
+                                                                                                                                          
+ 052.  JSONError       Reply has replyTo                                                                                                  
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / PV - Reply To Message"                              
+                                                                                                                                          
+ 053.  AssertionError  Forward status 200                                                                                                 
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / PV - Forward Message"                               
+                                                                                                                                          
+ 054.  AssertionError  Edit status 200                                                                                                    
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / PV - Edit Message"                                  
+                                                                                                                                          
+ 055.  AssertionError  M05 status 400                                                                                                     
+                       expected response to have status code 400 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / M05 - Empty Message Validation"                     
+                                                                                                                                          
+ 056.  JSONError       M05 empty message error                                                                                            
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / M05 - Empty Message Validation"                     
+                                                                                                                                          
+ 057.  AssertionError  M06 status 400                                                                                                     
+                       expected response to have status code 400 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / M06 - Conversation Not Found"                       
+                                                                                                                                          
+ 058.  JSONError       M06 not found                                                                                                      
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / M06 - Conversation Not Found"                       
+                                                                                                                                          
+ 059.  AssertionError  M07 status 400                                                                                                     
+                       expected response to have status code 400 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / M07 - Non Participant Forbidden"                    
+                                                                                                                                          
+ 060.  JSONError       M07 not a participant                                                                                              
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / M07 - Non Participant Forbidden"                    
+                                                                                                                                          
+ 061.  AssertionError  Delete PV message status 200                                                                                       
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "3. PV â€” Send, Attach, Reply, Forward, Edit, Delete / PV - Delete Message"                                
+                                                                                                                                          
+ 062.  AssertionError  B01 status 200                                                                                                     
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / B01 - U1 Blocks U2"                                      
+                                                                                                                                          
+ 063.  AssertionError  B02 status 400                                                                                                     
+                       expected response to have status code 400 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / B02 (M02) - Blocker Sends After Block"                   
+                                                                                                                                          
+ 064.  JSONError       B02 user blocked message                                                                                           
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / B02 (M02) - Blocker Sends After Block"                   
+                                                                                                                                          
+ 065.  AssertionError  B03 status 400                                                                                                     
+                       expected response to have status code 400 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / B03 (M03) - Blocked User Sends"                          
+                                                                                                                                          
+ 066.  JSONError       B03 user blocked message                                                                                           
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / B03 (M03) - Blocked User Sends"                          
+                                                                                                                                          
+ 067.  AssertionError  B04 group create status 200                                                                                        
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / B04 (M04) - Create Ripple Group While Blocked"           
+                                                                                                                                          
+ 068.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / B04 (M04) - Create Ripple Group While Blocked"           
+                                                                                                                                          
+ 069.  AssertionError  B04b group send succeeds despite PV block                                                                          
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / B04b - U2 Sends In Group While Block Active"             
+                                                                                                                                          
+ 070.  AssertionError  P06 status 200 despite block                                                                                       
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / P06 - Create PV While Block Active"                      
+                                                                                                                                          
+ 071.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / P06 - Create PV While Block Active"                      
+                                                                                                                                          
+ 072.  AssertionError  P07 status 200                                                                                                     
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / P07 - PV Still In Conversation List After Block"         
+                                                                                                                                          
+ 073.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / P07 - PV Still In Conversation List After Block"         
+                                                                                                                                          
+ 074.  AssertionError  B05 unblock status 200                                                                                             
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / B05 - U1 Unblocks U2"                                    
+                                                                                                                                          
+ 075.  AssertionError  B06 send status 200                                                                                                
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "4. PV â€” Block & Mute (mutual block scenarios) / B06 - Post Unblock Send Success"                         
+                                                                                                                                          
+ 076.  AssertionError  G01 status 200                                                                                                     
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G01 - Create Group Happy Path"                 
+                                                                                                                                          
+ 077.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G01 - Create Group Happy Path"                 
+                                                                                                                                          
+ 078.  AssertionError  G02 status 400                                                                                                     
+                       expected response to have status code 400 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G02 - Empty Group Name"                        
+                                                                                                                                          
+ 079.  JSONError       G02 group name required                                                                                            
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G02 - Empty Group Name"                        
+                                                                                                                                          
+ 080.  AssertionError  G03 status 400                                                                                                     
+                       expected response to have status code 400 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G03 - Empty MemberUserIds"                     
+                                                                                                                                          
+ 081.  JSONError       G03 at least one member                                                                                            
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G03 - Empty MemberUserIds"                     
+                                                                                                                                          
+ 082.  AssertionError  G04 status 400                                                                                                     
+                       expected response to have status code 400 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G04 - Non Admin Add Member Rejected"           
+                                                                                                                                          
+ 083.  JSONError       G04 not group admin                                                                                                
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G04 - Non Admin Add Member Rejected"           
+                                                                                                                                          
+ 084.  AssertionError  G05 status 200                                                                                                     
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G05 - Admin Add Member U4"                     
+                                                                                                                                          
+ 085.  AssertionError  G06 status 200                                                                                                     
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G06 - Admin Remove Member U4"                  
+                                                                                                                                          
+ 086.  AssertionError  G07 status 400                                                                                                     
+                       expected response to have status code 400 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G07 - Non Admin Remove Member Rejected"        
+                                                                                                                                          
+ 087.  JSONError       G07 not group admin                                                                                                
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G07 - Non Admin Remove Member Rejected"        
+                                                                                                                                          
+ 088.  AssertionError  G08 status 200                                                                                                     
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G08 - Member Send Group Message"               
+                                                                                                                                          
+ 089.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G08 - Member Send Group Message"               
+                                                                                                                                          
+ 090.  AssertionError  G08b status 200                                                                                                    
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G08b - Admin Send Group Message"               
+                                                                                                                                          
+ 091.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G08b - Admin Send Group Message"               
+                                                                                                                                          
+ 092.  AssertionError  G09 delete status 200                                                                                              
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G09 - Admin Delete U3 Message"                 
+                                                                                                                                          
+ 093.  AssertionError  G10 status 400                                                                                                     
+                       expected response to have status code 400 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G10 - Non Admin Delete U1 Message Rejected"    
+                                                                                                                                          
+ 094.  JSONError       G10 cannot delete message                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G10 - Non Admin Delete U1 Message Rejected"    
+                                                                                                                                          
+ 095.  AssertionError  G11 leave status 200                                                                                               
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G11 - U3 Leave Group"                          
+                                                                                                                                          
+ 096.  AssertionError  G12 leave status 200                                                                                               
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G12 - Admin Leave Group"                       
+                                                                                                                                          
+ 097.  AssertionError  G12b detail status 200                                                                                             
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G12b - Group Detail After Admin Leave"         
+                                                                                                                                          
+ 098.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / G12b - Group Detail After Admin Leave"         
+                                                                                                                                          
+ 099.  AssertionError  PG01 status 200                                                                                                    
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / PG01 - Messages Default PageSize"              
+                                                                                                                                          
+ 100.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / PG01 - Messages Default PageSize"              
+                                                                                                                                          
+ 101.  AssertionError  PG02 status 200                                                                                                    
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / PG02 - Messages PageSize Cap 50"               
+                                                                                                                                          
+ 102.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / PG02 - Messages PageSize Cap 50"               
+                                                                                                                                          
+ 103.  AssertionError  PG03 status 200                                                                                                    
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / PG03 - Messages Search Known Text"             
+                                                                                                                                          
+ 104.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / PG03 - Messages Search Known Text"             
+                                                                                                                                          
+ 105.  AssertionError  PG04 status 200                                                                                                    
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / PG04 - Messages Search Nonexistent"            
+                                                                                                                                          
+ 106.  JSONError       PG04 empty messages array                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "5. Group â€” Create, Members, Send, Leave, Delete Message / PG04 - Messages Search Nonexistent"            
+                                                                                                                                          
+ 107.  AssertionError  C01 status 200                                                                                                     
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C01 - Create Channel Happy Path"             
+                                                                                                                                          
+ 108.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C01 - Create Channel Happy Path"             
+                                                                                                                                          
+ 109.  AssertionError  C02 status 409                                                                                                     
+                       expected response to have status code 409 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C02 - Duplicate Handle Conflict"             
+                                                                                                                                          
+ 110.  JSONError       C02 duplicate handle                                                                                               
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C02 - Duplicate Handle Conflict"             
+                                                                                                                                          
+ 111.  AssertionError  C03 status 400                                                                                                     
+                       expected response to have status code 400 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C03 - Invalid Handle Format"                 
+                                                                                                                                          
+ 112.  JSONError       C03 handle regex error                                                                                             
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C03 - Invalid Handle Format"                 
+                                                                                                                                          
+ 113.  AssertionError  C04 status 400                                                                                                     
+                       expected response to have status code 400 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C04 - Member Cannot Send In Channel"         
+                                                                                                                                          
+ 114.  JSONError       C04 channel members cannot send                                                                                    
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C04 - Member Cannot Send In Channel"         
+                                                                                                                                          
+ 115.  AssertionError  C05 status 200                                                                                                     
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C05 - Admin Sends In Channel"                
+                                                                                                                                          
+ 116.  AssertionError  C06 status 400                                                                                                     
+                       expected response to have status code 400 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C06 - Non Admin Add Channel Member Rejected" 
+                                                                                                                                          
+ 117.  JSONError       C06 not channel admin                                                                                              
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at assertion:1 in test-script                                                                                      
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C06 - Non Admin Add Channel Member Rejected" 
+                                                                                                                                          
+ 118.  AssertionError  C07 status 200                                                                                                     
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C07 - Admin Add Channel Member U3"           
+                                                                                                                                          
+ 119.  AssertionError  C08 leave status 200                                                                                               
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "6. Channel â€” Create, Members, Send, Leave, Delete Message / C08 - Member Leave Channel"                  
+                                                                                                                                          
+ 120.  AssertionError  N01 status 200                                                                                                     
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "7. Notification / N01 - Notification For PV Message"                                                       
+                                                                                                                                          
+ 121.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "7. Notification / N01 - Notification For PV Message"                                                       
+                                                                                                                                          
+ 122.  AssertionError  N02a mute status 200                                                                                               
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "7. Notification / N02a - U2 Mute PV Conversation"                                                          
+                                                                                                                                          
+ 123.  AssertionError  N02b status 200                                                                                                    
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "7. Notification / N02b - U2 Notification Count Before Send"                                                
+                                                                                                                                          
+ 124.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "7. Notification / N02b - U2 Notification Count Before Send"                                                
+                                                                                                                                          
+ 125.  AssertionError  N02c send status 200                                                                                               
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "7. Notification / N02c - U1 Send While U2 Muted"                                                           
+                                                                                                                                          
+ 126.  AssertionError  N02 status 200                                                                                                     
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "7. Notification / N02 - No New Notification While Muted"                                                   
+                                                                                                                                          
+ 127.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "7. Notification / N02 - No New Notification While Muted"                                                   
+                                                                                                                                          
+ 128.  AssertionError  N03a unmute status 200                                                                                             
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "7. Notification / N03a - U2 Unmute PV Conversation"                                                        
+                                                                                                                                          
+ 129.  AssertionError  N03b send status 200                                                                                               
+                       expected response to have status code 200 but got 404                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "7. Notification / N03b - U1 Send After Unmute"                                                             
+                                                                                                                                          
+ 130.  AssertionError  N03 status 200                                                                                                     
+                       expected response to have status code 200 but got 401                                                              
+                       at assertion:0 in test-script                                                                                      
+                       inside "7. Notification / N03 - New Notification After Unmute"                                                     
+                                                                                                                                          
+ 131.  JSONError                                                                                                                          
+                       No data, empty input at 1:1                                                                                        
+                                                                                                                                          
+                       ^                                                                                                                  
+                       at test-script                                                                                                     
+                       inside "7. Notification / N03 - New Notification After Unmute"                                                     

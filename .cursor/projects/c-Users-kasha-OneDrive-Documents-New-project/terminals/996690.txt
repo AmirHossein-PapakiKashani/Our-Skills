@@ -1,0 +1,16 @@
+---
+pid: 24716
+cwd: "C:\\Users\\kasha\\OneDrive\\Documents\\New project"
+command: "rtk python -c \"import subprocess,sys; subprocess.check_call([sys.executable,'-m','pip','install','markdown','--quiet'])\""
+started_at: 2026-07-15T21:34:45.227Z
+running_for_ms: 31656    
+---
+
+[notice] A new release of pip is available: 24.3.1 -> 26.1.2
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+---
+exit_code: 0
+elapsed_ms: 35045
+ended_at: 2026-07-15T21:35:20.272Z
+---

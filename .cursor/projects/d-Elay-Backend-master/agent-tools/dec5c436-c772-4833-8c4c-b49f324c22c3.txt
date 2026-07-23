@@ -1,0 +1,350 @@
+# Issue: git-lfs/git-lfs #4234
+
+- Repository: git-lfs/git-lfs | Git extension for versioning large files | 14K stars | Go
+
+## Git lfs connection to Azure DevOps Server with ntlm causes HTTP Error 401. The requested resource requires user authentication
+
+- Author: [@IS-GYG](https://github.com/IS-GYG)
+- State: closed (completed)
+- Labels: help-wanted
+- Created: 2020-09-04T17:51:54Z
+- Updated: 2022-11-15T16:37:31Z
+- Closed: 2020-10-08T17:13:42Z
+- Closed by: [@IS-GYG](https://github.com/IS-GYG)
+
+**Describe the bug**
+Have a repo that has binary files being tracked by git lfs.
+Pushing binary works. But any form of pull causes the following error form the server
+
+HTTP Error 401. The requested resource requires user authentication.
+
+Git Lfs logs it as
+
+batch response: No credentials are available in the security package
+
+**To Reproduce**
+Try pulling from a and Azure DevOps server with binary being tracked by git lfs :
+
+git pull
+
+or
+
+git lfs fetch
+
+**Expected behavior**
+All binaries are fetched by git lfs
+
+**System environment**
+Client - Windows 10
+Server- Azure Dev Ops
+git-lfs/2.11.0 (GitHub; windows amd64; go 1.14.2; git 48b28d97)
+
+**Output of `git lfs env`**
+
+```
+Endpoint=https://serverurl.com/tfs/collation/Project/_git/Repo.git/info/lfs (auth=ntlm)
+LocalWorkingDir=C:\WorkSpace\Repo
+LocalGitDir=C:\WorkSpace\Repo\.git
+LocalGitStorageDir=C:\WorkSpace\Repo\.git
+LocalMediaDir=C:\WorkSpace\Repo\.git\lfs\objects
+LocalReferenceDirs=
+TempDir=C:\WorkSpace\Repo\.git\lfs\tmp
+ConcurrentTransfers=10
+TusTransfers=false
+BasicTransfersOnly=false
+SkipDownloadErrors=false
+FetchRecentAlways=false
+FetchRecentRefsDays=7
+FetchRecentCommitsDays=0
+FetchRecentRefsIncludeRemotes=true
+PruneOffsetDays=3
+PruneVerifyRemoteAlways=false
+PruneRemoteName=origin
+LfsStorageDir=C:\WorkSpace\Repo\.git\lfs
+AccessDownload=ntlm
+AccessUpload=ntlm
+DownloadTransfers=basic,lfs-standalone-file
+UploadTransfers=basic,lfs-standalone-file
+GIT_EXEC_PATH=C:/Program Files/Git/mingw64/libexec/git-core
+GIT_LFS_PATH=C:\Program Files\Git LFS
+git config filter.lfs.process = "git-lfs filter-process"
+git config filter.lfs.smudge = "git-lfs smudge -- %f"
+git config filter.lfs.clean = "git-lfs clean -- %f"
+```
+
+**Additional context**
+GIT-Trace output:
+
+```
+$ GIT_TRACE=1 git merge --ff-only origin/master
+13:33:50.690080 exec-cmd.c:237          trace: resolved executable dir: C:/Program Files/Git/mingw64/bin
+13:33:50.693083 git.c:442               trace: built-in: git merge --ff-only origin/master
+Updating cf43f1b..b95a19f
+13:33:50.712111 run-command.c:663       trace: run_command: 'git-lfs filter-process'
+13:33:50.828091 trace git-lfs: exec: git 'version'
+13:33:51.712707 trace git-lfs: exec: git 'config' '-l'
+13:33:51.835744 trace git-lfs: Install hook: pre-push, force=false, path=C:\WorkSpace\Repo\.git\hooks\pre-push, upgrading...
+13:33:51.838746 trace git-lfs: Install hook: post-checkout, force=false, path=C:\WorkSpace\Repo\.git\hooks\post-checkout, upgrading...
+13:33:51.841746 trace git-lfs: Install hook: post-commit, force=false, path=C:\WorkSpace\Repo\.git\hooks\post-commit, upgrading...
+13:33:51.844746 trace git-lfs: Install hook: post-merge, force=false, path=C:\WorkSpace\Repo\.git\hooks\post-merge, upgrading...
+13:33:51.845745 trace git-lfs: Initialize filter-process
+13:33:51.847746 trace git-lfs: exec: git '-c' 'filter.lfs.smudge=' '-c' 'filter.lfs.clean=' '-c' 'filter.lfs.process=' '-c' 'filter.lfs.required=false' 'rev-parse' 'HEAD' '--symbolic-full-name' 'HEAD'
+13:33:51.980747 trace git-lfs: tq: running as batched queue, batch size of 100
+13:33:51.981747 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Circle Skins/Circle Skin 1.png"
+13:33:51.987746 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Circle Skins/Circle Skin 1.psd"
+13:33:51.988745 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Circle Skins/Circle Skin 3.png"
+13:33:51.989746 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Circle Skins/Circle Skin 3.psd"
+13:33:51.990746 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Circle Skins/Circle skin 2.png"
+13:33:51.991748 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Circle Skins/Circle skin 2.psd"
+13:33:51.993747 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Adinkrahene Icon Skin.png"
+13:33:51.994747 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Adinkrahene Icon Skin.psd"
+13:33:51.997748 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Akofena Icon Skin.png"
+13:33:52.000756 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Akofena Icon Skin.psd"
+13:33:52.001760 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Boa Me Icon Skin.png"
+13:33:52.003757 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Boa Me Icon Skin.psd"
+13:33:52.004771 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Dane Icon Skin.png"
+13:33:52.005756 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Dane Icon Skin.psd"
+13:33:52.006746 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Duafe Icon Skin.png"
+13:33:52.009747 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Duafe Icon Skin.psd"
+13:33:52.011747 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Ewia Icon Skin.png"
+13:33:52.012747 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Ewia Icon Skin.psd"
+13:33:52.014758 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Nkyinkyim Icon Skin.png"
+13:33:52.015748 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Nkyinkyim Icon Skin.psd"
+13:33:52.017749 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Ntontan Icon Skin.png"
+13:33:52.018747 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Ntontan Icon Skin.psd"
+13:33:52.019748 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Nyame Dua Ico Skin.png"
+13:33:52.020749 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Nyame Dua Ico Skin.psd"
+13:33:52.022746 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Wiase Icon Skin.png"
+13:33:52.023749 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Icon Skins/Wiase Icon Skin.psd"
+Updating files: 100% (26/26), done.
+13:33:52.024748 trace git-lfs: tq: sending batch of size 26
+13:33:52.024748 trace git-lfs: api: batch 26 files
+13:33:52.025746 trace git-lfs: HTTP: POST https://serverurl.com/tfs/coallation/Project/_git/Repo.git/info/lfs/objects/batch
+13:34:07.797747 trace git-lfs: HTTP: 401
+13:34:07.797747 trace git-lfs: HTTP: POST https://serverurl.com/tfs/coallation/Project/_git/Repo.git/info/lfs/objects/batch
+13:34:07.827749 trace git-lfs: HTTP: 401
+13:34:07.828748 trace git-lfs: HTTP: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD><TITLE>Not Authorized</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=us-ascii"></HEAD>
+<BODY><h2>Not Authorized</h2>
+<hr><p>HTTP Error 401. The requested resource requires user authentication.</p>
+</BODY></HTML>
+
+13:34:07.832748 trace git-lfs: api error: No credentials are available in the security package
+13:34:07.833748 trace git-lfs: tq: running as batched queue, batch size of 100
+13:34:07.834749 trace git-lfs: filepathfilter: accepting "Design/Game/Skins/Circle Skins/Circle Skin 1.png"
+Downloading Design/Game/Skins/Circle Skins/Circle Skin 1.png (660 KB)
+13:34:07.835750 trace git-lfs: tq: running as batched queue, batch size of 100
+13:34:07.835750 trace git-lfs: tq: sending batch of size 1
+13:34:07.835750 trace git-lfs: api: batch 1 files
+13:34:07.835750 trace git-lfs: HTTP: POST https://serverurl.com/tfs/coallation/Project/_git/Repo.git/info/lfs/objects/batch
+13:34:07.853748 trace git-lfs: HTTP: 401
+13:34:07.853748 trace git-lfs: HTTP: POST https://serverurl.com/tfs/coallation/Project/_git/Repo.git/info/lfs/objects/batch
+13:34:07.872750 trace git-lfs: HTTP: 401
+13:34:07.872750 trace git-lfs: HTTP: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD><TITLE>Not Authorized</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=us-ascii"></HEAD>
+<BODY><h2>Not Authorized</h2>
+<hr><p>HTTP Error 401. The requested resource requires user authentication.</p>
+</BODY></HTML>
+
+13:34:07.873755 trace git-lfs: api error: No credentials are available in the security package
+Error downloading object: Design/Game/Skins/Circle Skins/Circle Skin 1.png (ad5c51b): Smudge error: Error downloading Design/Game/Skins/Circle Skins/Circle Skin 1.png (ad5c51bca79546f4c49bce1e4920beddde9133ab10a6018dc955ab80303ee176): batch response: No credentials are available in the security package
+
+Errors logged to C:\WorkSpace\Repo\.git\lfs\logs\20200904T133407.8737551.log
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: Design/Game/Skins/Circle Skins/Circle Skin 1.pnC: smudge filter lfs failed
+```
+
+---
+
+### Timeline
+
+**@bk2204** commented · Sep 4, 2020 at 6pm
+
+> Hey,
+> 
+> This looks like an NTLM problem of some sort. I believe that message means that the NTLM code can't find the credentials, but I don't know why that happens. You didn't include the version of Git LFS in your bug report, but it may be worth trying the latest version to see if it's fixed if you haven't already.
+> 
+> If not, then we'd need someone with access to a Windows system using NTLM to look into this, since none of the core team routinely uses Azure DevOps, NTLM, or Windows. You can also try using Kerberos support, which should be available in recent versions, instead of NTLM and see if that works better; it's also far more secure than NTLM.
+
+**bk2204** added label `help-wanted` · Sep 4, 2020 at 6pm
+
+**@IS-GYG** commented · Sep 4, 2020 at 6:29pm · Author
+
+> Hi @bk2204 thanks, for you follow-up, sent you pm with access to a windows server.
+> Will try to see if I can get Kerberos properly configured with Azure DevOps
+> As for the version of git lfs :
+> 
+> git-lfs/2.11.0 (GitHub; windows amd64; go 1.14.2; git 48b28d97)
+
+**bk2204** was mentioned · Sep 4, 2020 at 6:29pm
+
+**@IS-GYG** commented · Sep 7, 2020 at 7:55pm · Author · edited
+
+> @bk2204 So our work around for Git LFS (setting the config to basic) works intermittently. After looking at the logs, it seems like git lfs will override basic authentication to ntlm in the config file if the server returns ntlm as the authentication method.
+> Is there a way to have a build that always goes with the what is set in the config file regardless of what the server says, or go with what the server says first (negotiate or ntlm) and finally fall back to basic authentication if those fail?
+> 
+> Commit https://github.com/git-lfs/git-lfs/commit/4c1042d281b8b63b8fe4b68a433ee82ad866d95c, which added support for kerberos seems to a good starting point for such a change
+
+**bk2204** was mentioned · Sep 7, 2020 at 7:55pm
+
+**@bk2204** commented · Sep 8, 2020 at 1:59pm
+
+> We should only reset the authentication to the default if we get a 401 when authenticating. That would be what `getAuthAccess` does in `lfsapi/auth.go` and that's only called when we get an auth error. Is there a situation where you're getting a 401 unexpectedly in your pushes?
+
+**@IS-GYG** commented · Sep 8, 2020 at 10:57pm · Author · edited
+
+> @bk2204 , pushes work correctly, it is pulls that fail (just on the lfs), hence any downstream(clone, fetch etc.. ) operation fails with
+> 
+> ` Error 401. The requested resource requires user authentication.`
+> which git lfs logs as
+> `15:22:35.401208 trace git-lfs: api error: No credentials are available in the security package`
+
+**bk2204** was mentioned · Sep 8, 2020 at 10:57pm
+
+**@bk2204** commented · Sep 9, 2020 at 2:40pm
+
+> Can you try [the branch `fallback-auth` on my remote](https://github.com/bk2204/git-lfs/tree/fallback-auth) to see if it will honor your setting of `basic` without trying to fall back to NTLM? The CI system should produce (unsigned) binaries if you want to wait for them.
+
+**@IS-GYG** commented · Sep 12, 2020 at 11:37pm · Author
+
+> @bk2204 thanks for the build. I just tested it, and unfortunately, when set to basic, it causes git lfs to run in an infinite loop:
+> 
+> Below is the log snapshot of what is being running infinitely:
+> 
+> ```
+> < HTTP/1.1 401 Unauthorized
+> < Content-Length: 1293
+> < Activityid: a21447b9-a9d4-4ba4-b268-9983070e2184
+> < Content-Type: text/html
+> < Date: Sat, 12 Sep 2020 23:32:41 GMT
+> < Lfs-Authenticate: NTLM
+> < P3p: CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+> < Www-Authenticate: Bearer
+> < Www-Authenticate: Basic realm="https://tfs.domain.com/tfs"
+> < Www-Authenticate: Negotiate
+> < X-Content-Type-Options: nosniff
+> < X-Powered-By: ASP.NET
+> < X-Tfs-Processid: fc31f5dd-cb87-4fe1-959e-c1daddbadef3
+> < X-Tfs-Session: a21447b9-a9d4-4ba4-b268-9983070e2184
+> < X-Vss-E2eid: a21447b9-a9d4-4ba4-b268-9983070e2184
+> <
+> 19:32:42.600570 exec-cmd.c:237 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 19:32:42.603573 git.c:442 trace: built-in: git credential reject
+> 19:32:42.604572 run-command.c:663 trace: run_command: 'git credential-manager erase'
+> 19:32:42.657573 exec-cmd.c:237 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 19:32:42.660573 git.c:702 trace: exec: git-credential-manager erase
+> 19:32:42.660573 run-command.c:663 trace: run_command: git-credential-manager erase
+> 19:32:42.749574 ...\Common.cs:744 trace: [Main] git-credential-manager (v1.20.0) 'erase'
+> 19:32:42.819573 ...\Git\Where.cs:348 trace: [FindGitInstallations] found 1 Git installation(s).
+> 19:32:42.826574 ...Configuration.cs:222 trace: [LoadGitConfiguration] git All config read, 50 entries.
+> 19:32:42.830573 ...\Common.cs:513 trace: [LoadOperationArguments] modalPrompt = 'True'.
+> 19:32:42.874575 ...\Common.cs:85 trace: [CreateAuthentication] detecting authority type for 'https://username@tfs.domain.com/'.
+> 19:32:42.887575 ...\Common.cs:224 trace: [CreateAuthentication] authority for 'https://username@tfs.domain.com/' is basic with NTLM=Auto.
+> 19:32:42.887575 ...\Common.cs:252 trace: [DeleteCredentials] deleting basic credentials for 'https://username@tfs.domain.com/'.
+> 19:32:42.891576 ...aseSecureStore.cs:59 trace: [Delete] credentials not found for 'git:https://username@tfs.domain.com'.
+> 19:32:42.918576 run-command.c:663 trace: run_command: 'git credential-manager erase'
+> 19:32:42.968579 exec-cmd.c:237 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 19:32:42.970577 git.c:702 trace: exec: git-credential-manager erase
+> 19:32:42.970577 run-command.c:663 trace: run_command: git-credential-manager erase
+> 19:32:43.048578 ...\Common.cs:744 trace: [Main] git-credential-manager (v1.20.0) 'erase'
+> 19:32:43.122581 ...\Git\Where.cs:348 trace: [FindGitInstallations] found 1 Git installation(s).
+> 19:32:43.130581 ...Configuration.cs:222 trace: [LoadGitConfiguration] git All config read, 50 entries.
+> 19:32:43.135581 ...\Common.cs:513 trace: [LoadOperationArguments] modalPrompt = 'True'.
+> 19:32:43.223581 ...\Common.cs:85 trace: [CreateAuthentication] detecting authority type for 'https://username@tfs.domain.com/'.
+> 19:32:43.238584 ...\Common.cs:224 trace: [CreateAuthentication] authority for 'https://username@tfs.domain.com/' is basic with NTLM=Auto.
+> 19:32:43.238584 ...\Common.cs:252 trace: [DeleteCredentials] deleting basic credentials for 'https://username@tfs.domain.com/'.
+> 19:32:43.243583 ...aseSecureStore.cs:59 trace: [Delete] credentials not found for 'git:https://username@tfs.domain.com'.
+> 19:32:43.282584 trace git-lfs: api: http response indicates "basic" authentication. Resubmitting...
+> 19:32:43.283584 trace git-lfs: creds: git credential fill ("https", "tfs.domain.com", "")
+> 19:32:43.301584 exec-cmd.c:237 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 19:32:43.304583 git.c:442 trace: built-in: git credential fill
+> 19:32:43.305584 run-command.c:663 trace: run_command: 'git credential-manager get'
+> 19:32:43.360585 exec-cmd.c:237 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 19:32:43.362585 git.c:702 trace: exec: git-credential-manager get
+> 19:32:43.362585 run-command.c:663 trace: run_command: git-credential-manager get
+> 19:32:43.446584 ...\Common.cs:744 trace: [Main] git-credential-manager (v1.20.0) 'get'
+> 19:32:43.514588 ...\Git\Where.cs:348 trace: [FindGitInstallations] found 1 Git installation(s).
+> 19:32:43.522585 ...Configuration.cs:222 trace: [LoadGitConfiguration] git All config read, 50 entries.
+> 19:32:43.525585 ...\Common.cs:513 trace: [LoadOperationArguments] modalPrompt = 'True'.
+> 19:32:43.594588 ...\Common.cs:85 trace: [CreateAuthentication] detecting authority type for 'https://tfs.domain.com/'.
+> 19:32:43.605588 ...\Common.cs:224 trace: [CreateAuthentication] authority for 'https://tfs.domain.com/' is basic with NTLM=Auto.
+> 19:32:43.605588 ...\Common.cs:765 trace: [QueryCredentials] querying 'Auto' for credentials.
+> 19:32:43.612586 ...\Common.cs:780 trace: [QueryCredentials] credentials found.
+> 19:32:43.647589 trace git-lfs: Filled credentials for https://tfs.domain.com/tfs/ExternDev/Git-LFS-Test/_git/Git-LFS-Test
+> 19:32:43.647589 trace git-lfs: HTTP: POST https://tfs.domain.com/tfs/ExternDev/Git-LFS-Test/_git/Git-LFS-Test.git/info/lfs/objects/batch
+> > POST /tfs/ExternDev/Git-LFS-Test/_git/Git-LFS-Test.git/info/lfs/objects/batch HTTP/1.1
+> > Host: tfs.domain.com
+> > Accept: application/vnd.git-lfs+json; charset=utf-8
+> > Authorization: Basic * * * * *
+> > Content-Length: 203
+> > Content-Type: application/vnd.git-lfs+json; charset=utf-8
+> > User-Agent: git-lfs/2.12.0 (GitHub; windows amd64; go 1.14.7; git f7b2c254)
+> >
+> {"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}{"operation":"download","objects":[{"oid":"abf9ad87960f325de0fd33f290104a60f92a01e8c717923c937381f11166aa66","size":30470}],"transfers":["lfs-standalone-file","basic"],"ref":{"name":"refs/heads/master"}}19:32:43.676587 trace git-lfs: HTTP: 401
+> 
+> ```
+
+**bk2204** was mentioned · Sep 12, 2020 at 11:37pm
+
+**@IS-GYG** commented · Sep 13, 2020 at 12:16am · Author · edited
+
+> Update:
+> So after experimenting with our server and network setup, I was able to properly setup Kerberos, and ensure that it properly works.
+> Kerberos works with git, but we have to set
+> 
+> `git config --global http.emptyAuth true`
+> 
+> I got the clue from this stack overflow answer:
+> [https://stackoverflow.com/questions/53304117/is-it-possible-to-authenticate-to-a-remote-git-repository-using-the-default-wind](https://stackoverflow.com/questions/53304117/is-it-possible-to-authenticate-to-a-remote-git-repository-using-the-default-wind)
+> 
+> But git lfs still doesn't work when trying to fetch binaries.
+> 
+> One thing that I did notice though, even if the newest version of git lfs is suppose to support Kerberos, Azure DevOps Server seems to want git lfs to work through nltm (or basic)
+> 
+> If you look at the header of the first 401, the server returns this
+> 
+> ```
+> < Lfs-Authenticate: NTLM
+> < P3p: CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+> < Www-Authenticate: Bearer
+> < Www-Authenticate: Basic realm="https://tfs.domain.com/tfs"
+> < Www-Authenticate: Negotiate
+> < X-Content-Type-Options: nosniff
+> < X-Powered-By: ASP.NET
+> ```
+> 
+> Seems like AzureDevops Git-LFS module is setup to only do NTLM (or basic) even when negotiate is available.
+> 
+> Maybe this can give a clue?
+
+**@bk2204** commented · Sep 14, 2020 at 2pm
+
+> Is Git Credential Manager for Windows prompting for credentials or is it just trying to guess each time? If the latter, does my new work if you disable Git Credential Manager for Windows and use a different credential helper, like `store`? Did it work for `Basic` with the old code with the existing credential manager?
+> 
+> In the old code, we would definitely have chosen NTLM here; in the new code, we should choose Kerberos here unless a default is set (such as Basic).
+
+**bk2204** mentioned this in issue [#4247: Remove NTLM support](https://github.com/git-lfs/git-lfs/issues/4247) · Sep 14, 2020 at 2:09pm
+
+**@IS-GYG** commented · Oct 8, 2020 at 5:13pm · Author
+
+> @bk2204 , We have finally been able to resolve the issue. After all these years it turns out that Kerberos wasn't properly configure for our Azure DevOps instance. We finally insure that Kerberos was full working (and initially disable NTLM). Once we confirmed that Kerberos was full working, we had to re-enable NTLM (as a fallback) so that Git LFS can work. From what I understand, the Git LFS portion of AzureDevOps uses NTLM (or basic authentication), for it's Git LFS communication. But once Kerberos is properly configured NTLM will work with SSPI. The catch here is that it means you have to be logged into your Active Directory account (my issue was that I was logged into my normal Microsoft Account, but the credential manager store my Active Directory credentials), on windows. This isn't a major issue for our core devs (who are already logged into their AD account on the windows machine), but can be an issue for our remote contractors (will have to mandate that they login with an AD account and have it create a profile on their pc).
+> 
+> In short, there issue wasn't 100% with Git LFS client (although this wont have worked in previous version of GIT LFS when NTLM wasn't supported).
+> 
+> In conclusion, Git LFS still needs NTLM support (because for now Azure DevOPS Git LFS uses NTLM even if the Git part of it uses Kerberos, this is something will have to bring up with Microsoft).
+> 
+> Will go ahead and close this issue. On the other hand I am worried that #4247 might cause a regression if we upgrade (we are on version 2.11.0).
+> 
+> Thanks again for your support all these times
+
+**IS-GYG** closed this · Oct 8, 2020 at 5:13pm
+
+**bk2204** was mentioned · Oct 8, 2020 at 5:13pm
+
+**@ganegaar** commented · Nov 15, 2022 at 4:37pm
+
+> I found that, in my case at least, the issue is with Windows Hello login. If I use, username / pwd to login to the domain when login into my computer, the issue does not come. The reason is described here:
+> [https://katystech.blog/azure/azure-ad-and-windows-hello-sso-to-on-premise-resources](https://katystech.blog/azure/azure-ad-and-windows-hello-sso-to-on-premise-resources)

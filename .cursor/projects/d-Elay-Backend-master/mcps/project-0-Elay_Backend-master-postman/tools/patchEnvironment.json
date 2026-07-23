@@ -1,0 +1,151 @@
+{
+  "name": "patchEnvironment",
+  "description": "Updates specific environment properties, such as its name and variables.\n\n**Note:**\n\n- You can only perform one type of operation at a time. For example, you cannot perform an \\`add\\` and \\`replace\\` operation in the same call.\n- The request body size cannot exceed the maximum allowed size of 30MB.\n- If you receive an HTTP \\`411 Length Required\\` error response, manually pass the \\`Content-Length\\` header and its value in the request header.\n- To add a description to an existing variable, use the \\`add\\` operation.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "environmentId": {
+        "type": "string",
+        "description": "The environment's ID."
+      },
+      "body": {
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "op": {
+                  "type": "string",
+                  "description": "The `add` operation."
+                },
+                "path": {
+                  "type": "string",
+                  "description": "The [JSON Pointer syntax](https://datatracker.ietf.org/doc/html/rfc6901) that indicates the entry to update, in `/values/#` format, where `#` is the entry ID. The first record begins at the `0` value."
+                },
+                "value": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean",
+                      "description": "If true, the variable is enabled."
+                    },
+                    "key": {
+                      "type": "string",
+                      "description": "The variable's name."
+                    },
+                    "value": {
+                      "type": "string",
+                      "description": "The variable's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "secret",
+                        "default"
+                      ],
+                      "description": "The variable's type:\n- `secret` — The variable value is masked.\n- `default` — The variable value is visible in plain text.\n"
+                    },
+                    "description": {
+                      "type": "string",
+                      "maxLength": 512,
+                      "description": "The variable's description."
+                    }
+                  },
+                  "additionalProperties": false,
+                  "description": "Information about the environment's variables."
+                }
+              },
+              "required": [
+                "op",
+                "path",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "op": {
+                  "type": "string",
+                  "description": "The `replace` operation."
+                },
+                "path": {
+                  "type": "string",
+                  "description": "The `/name` value."
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The environment's updated name."
+                }
+              },
+              "required": [
+                "op",
+                "path",
+                "value"
+              ],
+              "additionalProperties": false,
+              "description": "Information about the environment."
+            }
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "op": {
+                  "type": "string",
+                  "description": "The `replace` operation."
+                },
+                "path": {
+                  "type": "string",
+                  "description": "The [JSON Pointer syntax](https://datatracker.ietf.org/doc/html/rfc6901) that indicates the entry to update, in `/values/#/{value}` format, where:\n- `#` — The entry ID. The first record begins at the `0` value.\n- `{value}` — The variable property to update. Accepts `key`, `value`, `type`, and `enable`.\n"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The variable's value."
+                }
+              },
+              "required": [
+                "op",
+                "path",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "op": {
+                  "type": "string",
+                  "description": "The `remove` operation."
+                },
+                "path": {
+                  "type": "string",
+                  "description": "The [JSON Pointer syntax](https://datatracker.ietf.org/doc/html/rfc6901) that indicates the entry to update, in `/values/#` format, where `#` is the entry ID. The first record begins at the `0` value."
+                }
+              },
+              "required": [
+                "op",
+                "path"
+              ],
+              "additionalProperties": false
+            }
+          }
+        ]
+      }
+    },
+    "required": [
+      "environmentId",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

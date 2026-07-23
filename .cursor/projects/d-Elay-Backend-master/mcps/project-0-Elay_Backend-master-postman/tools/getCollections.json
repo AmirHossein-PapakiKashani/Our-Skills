@@ -1,0 +1,32 @@
+{
+  "name": "getCollections",
+  "description": "The workspace ID query is required for this endpoint. If not provided, the LLM should ask the user to provide it.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "workspace": {
+        "type": "string",
+        "description": "The workspace's ID."
+      },
+      "name": {
+        "type": "string",
+        "description": "Filter results by collections whose name exactly matches the given value. Partial or substring matches are not supported."
+      },
+      "limit": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 99,
+        "description": "The maximum number of rows to return in the response."
+      },
+      "offset": {
+        "type": "integer",
+        "description": "The zero-based offset of the first item to return."
+      }
+    },
+    "required": [
+      "workspace"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

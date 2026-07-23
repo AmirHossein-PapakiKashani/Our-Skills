@@ -1,0 +1,594 @@
+Part 9: Adult Advanced Life Support | American Heart Association CPR & First Aid
+
+## Part 9: Adult Advanced Life Support
+
+2025 American Heart Association Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care
+
+Expand All
+
+1Abstract
+
+## Abstract
+
+In these 2025 Advanced Life Support Guidelines, the American Heart Association provides comprehensive recommendations for the resuscitation and management of adults experiencing cardiac arrest, respiratory arrest, and life-threatening cardiovascular emergencies. Based on structured evidence reviews and the latest clinical research, these guidelines offer evidence-based strategies to optimize survival and patient outcomes. The 2025 guidelines provide guidance for the treatment of cardiac arrest, including ventricular fibrillation, pulseless ventricular tachycardia, asystole, and pulseless electrical activity, as well as peri-arrest conditions such as atrial fibrillation and flutter with rapid ventricular response. Recommendations are made for defibrillation, electrical cardioversion, advanced airway management, drug therapies, and intravenous access. Additionally, guidelines are provided for the use of double sequential defibrillation, head-up cardiopulmonary resuscitation, and point-of-care ultrasound in the advanced life support setting. Termination of resuscitation rules have been refined to guide decision-making based on the emergency medical services professional’s scope of practice. Finally, these guidelines also underscore the importance of identifying causative versus secondary arrhythmias to inform the appropriate timing of therapeutic strategies.
+
+2Top 10 Take-Home Messages
+
+## Top 10 Take-Home Messages for Adult Advanced Life Support
+
+1. A rapid assessment of clinical stability is essential to direct the appropriate advanced life support (ALS) treatment, and these guidelines go into greater depth to describe how poor organ perfusion manifests as instability.
+2. Higher first-shock energy settings (≥200 J) are preferable to lower settings for cardioversion of atrial fibrillation and atrial flutter.
+3. Updated termination of resuscitation (TOR) guidelines emphasize rule application based on emergency medical services (EMS) scope of practice (basic life support [BLS], ALS, or universal TOR rule [UTOR]), and that end-tidal carbon dioxide (ETCO2) should not be used in isolation to end resuscitative efforts.
+4. The usefulness of vector change (VC) and double sequential defibrillation (DSD) has not been established as therapies for shock-refractory ventricular fibrillation (VF); however, further investigation of these techniques, patient candidacy, and the development of new technology to optimize shock delivery are necessary.
+5. Head-up cardiopulmonary resuscitation (CPR) use is discouraged outside of the setting of rigorous clinical trials with appropriate subject protections.
+6. Recommendations regarding outdated or extraordinary procedures that have been replaced by modern equivalents with better efficacy (eg, administration of intra-arrest medications via an in-place endotracheal tube) have been removed.
+7. Use of point of care ultrasonography (POCUS) by experienced professionals during cardiac arrest may be considered to diagnose reversible causes if it can be done without interrupting resuscitative efforts (ie, CPR).
+8. Polymorphic ventricular tachycardia is always unstable and should be treated immediately with defibrillation, because delays in shock delivery worsen outcomes.
+9. Intravenous (IV) access remains the first-line choice for drug administration during cardiac arrest; however, intraosseous (IO) access is a reasonable alternative if IV access is not feasible or delayed.
+10. Arrythmias can be both the cause of and a manifestation of clinical instability. Evaluating the proximal cause of that instability will direct professionals to the most judicious use of these guidelines.
+
+3Preamble
+
+## Preamble
+
+In the United States, cardiac arrest remains a significant public health challenge. The incidence of EMS-treated OHCA is 83.4 individuals per 100 000 population annually.1 Despite advancements in resuscitation science, training, and systems of care, survival to hospital discharge after EMS-treated OHCA remains low, at approximately 10%. Immediate interventions, such as high-quality CPR and timely defibrillation, are crucial for improving outcomes.
+
+In-hospital cardiac arrest (IHCA) occurs in approximately 1 in 100 hospitalized adults. Data indicates that about 72.2% of these patients achieve return of spontaneous circulation (ROSC), with survival to hospital discharge rates around 24.2%. Among those who survive to discharge, approximately 85% have favorable neurological outcomes. These statistics underscore the importance of ALS interventions, including advanced airway management, pharmacologic therapies, and coordinated postresuscitation care, in both prehospital and in-hospital settings.
+
+The International Liaison Committee on Resuscitation (ILCOR) emphasizes the “Formula for Survival,” which identifies 3 critical components for improved outcomes: guidelines based on sound science, effective education of resuscitation professionals, and well-functioning systems of care.2 The 2025 ALS guidelines build upon these principles by incorporating the latest evidence, promoting high-quality education for ALS professionals, and describing the critical decisions required to provide lifesaving emergency cardiovascular care.
+
+This document outlines the American Heart Association (AHA) recommendations for ALS interventions, drawing from rigorous evidence evaluation and expert consensus. Recommendations are tailored to the scope and practice of ALS professionals, focusing on enhancing survival and functional recovery. The 2025 ALS guidelines aim to provide a framework for continued advancements in resuscitation science while highlighting areas for future research and innovation.1
+
+4Introduction 4.1Scope of the Guidelines
+
+## Scope of the Guidelines
+
+The 2025 ALS guidelines provide evidence-based recommendations for health care professionals managing adult cardiac arrest and life-threatening cardiovascular emergencies. These guidelines are tailored to professionals with advanced training in resuscitation techniques, incorporating a wide range of pharmacologic and device-based therapies and critical interventions to optimize survival and neurological outcomes.
+
+This document complements the separately published 2025 BLS guidelines, which address foundational resuscitation practices for lay rescuers and BLS- and ALS-trained health care professionals. Importantly, the ALS guidelines address prehospital resuscitation, in-hospital resuscitation, and TOR recommendations when resuscitation has been unsuccessful. There is a recognition that in the literature there is differential use of the terms return of spontaneous circulation (ROSC) versus return of circulation. For the purposes of these guidelines, after CPR, when return of circulation is achieved by mechanical means (eg, extracorporeal membrane oxygenation), we use return of circulation; when due to cardiac function, we use ROSC. Specific recommendations about the training of ALS resuscitation professionals are provided in Part 12: Resuscitation Education Science,1 recommendations about incorporating ALS professionals or procedures into systems of care are provided in Part 4: Systems of Care,2 recommendations about caring for the adult patient following ROSC are provided in Part 11: Post–Cardiac Arrest Care,3 and recommendations about ethical considerations in delivering or withholding ALS care are provided in Part 3:Ethical Considerations of Resuscitation.4
+
+4.2Organization of the ALS Writing Group
+
+## Organization of the ALS Writing Group
+
+The ALS Writing Group included experts in emergency medicine, EMS, cardiology, critical care, public health, nursing, and education, along with AHA staff and science editors. Members disclosed potential conflicts of interest before and every 90 days during appointment, aligning with the AHA’s policies to ensure unbiased guideline development. Disclosure information for writing group members is in Appendix 1.
+
+4.3Methodology and Evidence Review
+
+## Methodology and Evidence Review
+
+These guidelines are based on evidence evaluation conducted by the ALS Writing Group.5 Evidence review processes included systematic reviews, scoping reviews, and annual focused evidence updates, composed by ILCOR, affiliates, and individual Writing Group Members, to support robust and transparent guideline development. Each of these resulted in a description of the literature and exhaustive discussion among Writing Group members that facilitated guideline development. Details of evidence evaluation can be found in Part 2: Evidence Evaluation and Guidelines Development.6
+
+4.4Class of Recommendation and Level of Evidence
+
+## Class of Recommendation and Level of Evidence
+
+Each recommendation in the 2025 ALS guidelines is assigned a Class of Recommendation (COR) to reflect its strength and a Level of Evidence (LOE). The LOE is based on the quality, quantity, relevance, and consistency of the available evidence. In determining the COR, the writing group considered the LOE and other factors, including systems issues, economic factors, and ethical factors such as equity, acceptability, and feasibility. For further explanation, refer to Part 2: Evidence Evaluation and Guidelines Development.6
+
+4.5Guideline Structure
+
+## Guideline Structure
+
+The 2025 ALS guidelines are organized into knowledge chunks, which are modular, and organized into sections addressing specific clinical topics.7 Each module includes a table of recommendations, a brief synopsis, supporting rationale, and references. Flow diagrams and tables clarify the cascade of clinical decision-making, and hyperlinked references provide access to studies and resources.
+
+4.6Document Review and Approval
+
+## Document Review and Approval
+
+Each section of the 2025 ALS guidelines underwent rigorous review by subject matter experts and independent peer reviewers. All guidelines were reviewed and approved for publication by the AHA Science Advisory and Coordinating Committee and the AHA Executive Committee. Disclosure information for peer reviewers is listed in Appendix 2.
+
+4.7References 5Defibrillation
+
+| Recommendations for Defibrillation Indication, Type, and Energy |
+| --- |
+| COR | LOE | Recommendations |
+| 1 | B-NR | 1. In adult patients with cardiac arrest, defibrillators (using biphasic or monophasic waveforms) are recommended to treat tachyarrhythmias requiring a shock such as ventricular fibrillation or pulseless ventricular tachycardia. |
+| 2a | B-R | 2. Biphasic waveform defibrillation is preferred over monophasic waveform defibrillation for treatment of tachyarrhythmias in adult patients with cardiac arrest. |
+| 2a | B-NR | 3. A single shock strategy is preferred to stacked shocks for defibrillation in adult patients with cardiac arrest. |
+| 2a | C-LD | 4. It is reasonable that selection of fixed versus escalating energy levels for subsequent shocks for adults in cardiac arrest with presumed shock-refractory arrhythmias be based on the specific manufacturer’s instructions for that waveform. |
+| 2b | B-R | 5. If using a defibrillator capable of escalating energies, higher energy for second and subsequent shocks may be considered if the initial shock fails to restore a perfusing rhythm in adult patients with cardiac arrest. |
+| 2b | C-LD | 6. In the absence of conclusive evidence that one biphasic waveform is superior to another in termination of ventricular fibrillation, it may be reasonable to use the manufacturer’s recommended energy dose for the first shock in adult patients with cardiac arrest. If this is not known, defibrillation at the maximal dose may be considered. |
+
+## Synopsis
+
+Along with CPR, early defibrillation is critical to survival when sudden cardiac arrest is caused by ventricular fibrillation or pulseless ventricular tachycardia (VF/pVT).1,2 Defibrillation is most successful when administered as soon as possible after the onset of VF/pVT. Conversely, when VF/pVT is prolonged, depletion of the heart’s energy reserves can compromise the efficacy of defibrillation unless replenished by a prescribed period of CPR before rhythm analysis. Figure 1 describes the algorithm for performing shocks and other ALS interventions. Minimizing disruptions in CPR surrounding shock administration is a high priority. Currently marketed defibrillators use proprietary shock waveforms that differ in their electrical characteristics. These deliver different peak currents even at the same programmed energy setting, making comparisons of shock efficacy between devices challenging. Technologies have been developed to diagnose the underlying cardiac rhythm during CPR and to derive prognostic information from the ventricular waveform that may guide patient management. These technologies require further validation before routine use.
+
+While investigations continue to evaluate the optimal waveform and current, escalating energy may also be effective in termination of VF or pVT. Furthermore, optimized pad placement for defibrillation is an important factor in shock success (see Recommendation-Specific Supportive Text, items 4 and 5, and the section Vector Change and Double Sequential Defibrillation).
+
+#### Recommendation-Specific Supportive Text
+
+1. Emergent electric defibrillation is highly effective at terminating VF/pVT and other hemodynamic destabilizing tachyarrhythmias (please see sections on wide-complex and narrow-complex tachycardias or atrial fibrillation/flutter as appropriate).
+
+2. Biphasic waveform defibrillators (which deliver pulses of opposite polarity) expose patients to a much lower peak electric current with equivalent or greater efficacy for terminating atrial3 and ventricular tachyarrhythmias than monophasic (single polarity) defibrillators.4-10 These potential differences in safety and efficacy favor preferential use of a biphasic defibrillator, when available. Biphasic defibrillators have largely replaced monophasic shock defibrillators which were last commercially manufactured in the late 1990s, however, some may still be in use.
+
+3. The rationale for a single shock strategy, in which CPR is immediately resumed after the first shock rather than after serial “stacked” shocks (if required) is based upon several considerations. These include the high success rate of the first shock with biphasic waveforms (lessening the need for successive shocks), the declining success of immediate second and third serial shocks when the first shock has failed,11 and the protracted interruption in CPR required for a series of stacked shocks. A single shock strategy results in shorter interruptions in CPR and a significantly improved survival to hospital admission and discharge (although not 1-year survival) compared with serial “stacked” shocks.12-14 It is unknown whether stacked shocks or single shocks are more effective in settings of a monitored witnessed arrest, specifically, an in-patient cardiac arrest or cardiac arrest after cardiac surgery where the rhythm change is monitored in real time. (See the section on cardiac arrest after cardiac surgery in Part 10.)15
+
+4. and 5. Commercially available defibrillators either provide fixed energy settings or allow for escalating energy settings; both approaches are highly effective in terminating VF/pVT.16 An optimal energy setting for initial or subsequent biphasic defibrillation, whether fixed or escalating, has not been identified and is best deferred to the defibrillator’s manufacturer. When a manufacturer's specified setting is unknown, another approach is to apply the maximum dose setting for that device. A randomized trial comparing fixed 150 J biphasic defibrillation with escalating higher shock energies (200–300–360 J) observed similar rates of successful defibrillation and conversion to an organized rhythm after the first shock. However, among patients who required multiple shocks, escalating shock energy resulted in a significantly higher rate of conversion to an organized rhythm, although overall survival did not differ between the 2 treatment groups.17 An observational study comparing fixed 200 J biphasic defibrillation against escalating (200-300-360 J) shocks had similar findings.18 Different strategies to increase current delivery from biphasic waveform shock have been described, including optimizing pad-skin contact, applying manual pressure to pads during shock delivery (with appropriate self-protective insulation precautions), or vector change of pads. Vector change and double sequential defibrillation are described below.19
+
+6. There is no conclusive evidence of superiority of one biphasic shock waveform over another for defibrillation.20 Given the variability in electric characteristics between proprietary biphasic waveforms, energy settings are prespecified by the manufacturer for each specific device.
+
+---
+
+Figure 1 – Adult Cardiac Arrest Circular Algorithm CPR indicates cardiopulmonary resuscitation; ET, endotracheal; IO, intraosseous; IV, intravenous; pVT, pulseless ventricular tachycardia; and VF, ventricular fibrillation.
+
+PDF Download
+
+6Ancillary Waveform Technology
+
+| Recommendations for Ancillary Waveform Technology |
+| --- |
+| COR | LOE | Recommendations |
+| 2b | C-LD | 1. The effectiveness of artifact-filtering algorithms for analysis of electrocardiogram rhythms during chest compressions for adults in cardiac arrest has not been established. |
+| 2b | C-LD | 2. The effectiveness of VF waveform analysis to guide the acute management of adults with cardiac arrest has not been established. |
+
+## Synopsis
+
+CPR obscures interpretation of the underlying rhythm because of the artifact created by chest compressions on the electrocardiogram. This makes it difficult to plan the next step of care and can potentially delay or even misdirect drug therapies if given empirically (blindly) on the basis of the patient’s presumed, but not actual, underlying rhythm. Time taken for rhythm analysis also disrupts CPR. Artifact-filtering and other innovative techniques to identify the underlying rhythm beneath ongoing CPR can surmount these challenges and minimize interruptions in chest compressions while offering a diagnostic advantage to better direct therapies.1-6 These still require further testing and validation before routine use.
+
+#### Recommendation-Specific Supportive Text
+
+1. Despite the theoretical advantages, no study has evaluated artifact-filtering technologies in a real-time clinical setting or validated their clinical effectiveness compared to current resuscitation strategies. At present, filtering algorithms are strictly used for visual (manual) rhythm interpretation and not for automated VF/VT rhythm detection in automated external defibrillators during ongoing CPR. Further investigation and clinical validation are necessary before these technologies are adopted into routine clinical practice.7
+2. The electric characteristics of the VF waveform are known to change over time.8 VF waveform analysis may be of value in predicting the success of defibrillation or other therapies during the course of resuscitation.9-11 The prospect of basing therapies on a prognostic analysis of the VF waveform in real time is an exciting and developing avenue of new research. However, the validity, reliability, and clinical effectiveness of an approach that prompts or withholds shock or other therapies on the basis of predictive analyses is currently uncertain. The only prospective clinical trial comparing a standard shock-first protocol with a waveform analysis–guided shock algorithm was underpowered, however, observed no difference in ROSC.12 The consensus of the writing group is that there is currently insufficient evidence to support the routine use of waveform analysis to guide resuscitation care, but it is an area in which further research with clinical validation is needed and encouraged.
+
+7Vector Change and Double Sequential Defibrillation
+
+| Recommendations for Vector Change and Double Sequential Defibrillation |
+| --- |
+| COR | LOE | Recommendations |
+| 2b | B-R | 1. The usefulness of vector change for adults in cardiac arrest with persisting VF/pVT after ≥ 3 consecutive shocks has not been established. |
+| 2b | B-R | 2. The usefulness of double sequential defibrillation for adults in cardiac arrest with persisting VF/pVT after ≥3 consecutive shocks has not been established. |
+
+## Synopsis
+
+Combined with CPR, successful defibrillation is essential to survival from cardiac arrest caused by VF/VT.1,2 Defibrillation delivers shock energy (joules), creating a current across the thorax from pad-to-pad.3 Its success is influenced by a variety of factors independent of energy setting, including the electrical resistance of tissues encountered (typically highest at the skin-pad interface) that can dramatically reduce current delivery, 4,5,6,7 pad positions (and resulting shock “vector”) that encompass the heart anatomically8,9-11 and concomitant high quality CPR. When these are all properly managed, biphasic shock can be highly effective (greater than 75% success) in terminating VF/pVT.12,13
+
+Shock-resistant” and “shock-refractory” are commonly used to describe VF/pVT that continues to be seen on rhythm checks after repeated shocks. In some cases this is due to true failure of shock to terminate VF/pVT, resulting in ongoing, incessant VF/pVT. Causes of such shock failure can be related to correctable deficiencies in defibrillation technique that are best addressed before employing alternate shock strategies such as pad repositioning (vector change) or double sequential defibrillation (DSD). Conversely, evidence indicates a far more common mechanism for VF/pVT that continues to be seen on post-shock rhythm checks (~80% of instances) is not due to shock failure, but rather to VF/pVT’s recurrence following successful termination by shock, an event that is obscured by the ensuing period of CPR. When CPR is later paused for rhythm/pulse checks, VF/pVT then seen is attributed to shock failure rather than to its recurrence after successful termination, which is more often the actual case.12,14,15 This distinction is important since recurrent VF/pVT may be better remedied by post-shock rhythm stabilization therapy rather than altering an already successful defibrillation technique. Thus labels like “shock-refractory” can be misleading when they conflate different mechanisms for post-shock VF/pVT, for which different treatment strategies may be required. Accordingly, we propose using “persisting VF/pVT” in these guidelines for patients who remain in VF/pVT arrest after ≥3 consecutive shocks, when its actual mechanism (incessant VF/pVT due to true shock failure vs recurrent VF/pVT following successful termination by shock) is not known with certainty.
+
+#### Recommendation-Specific Supportive Text
+
+1. and 2. Prior systematic reviews of low-quality evidence have not reported benefit from DSD for persisting VF. 16-20 Defibrillator pad relocation, called vector change (VC), an inherent feature of DSD, was evaluated in only one trial as a stand-alone measure. That trial (DOSE-VF), compared standard defibrillation, VC, and DSD in patients with cardiac arrest in whom VF continued to be seen on rhythm checks after 3 standard shocks. It found significant improvement in survival at hospital discharge with VC and DSD compared to standard defibrillation by intention-to-treat, but notably not when trial findings were analyzed by the treatment strategy patients actually received.21 Furthermore, in a secondary exploratory analysis a significant survival benefit from DSD was only observed in the 17% of study patients in whom VF was incessant, and not in the vast majority (83%) of patients in whom VF recurred after a successful shock.22 The interval between each sequential “double” shock required for successfully terminating VF has also been shown experimentally23,24 and demonstrated in DOSE-VF itself 25 to require a level of precision (separated by milliseconds) unlikely to be consistently achievable by manual activation of two defibrillators. Based on its review, ILCOR’s 2023 International Consensus on CPR and Emergency Cardiovascular Care Science With Treatment Recommendations (CoSTR) judged the overall supportive evidence as relatively weak when issuing “may be considered” recommendations for VC and DSD.26 The adoption of VC or DSD into routine clinical practice for persisting VF/pVT (by whatever mechanism) thus requires further investigation, given its diagnostic and technological requirements.27 These include technologies that can reliably distinguish recurrent from incessant post-shock VF during ongoing CPR,28 provide the precise timing interval needed between shocks, and best direct if, how, when, and in whom such a strategy may be applicable.
+
+8Nondefibrillation Electrical Therapies for Cardiac Arrest
+
+| Nondefibrillation Electrical Therapies for Cardiac Arrest |
+| --- |
+| COR | LOE | Recommendations |
+| 3: No Benefit | B-R | 1. Routine use of electrical pacing is not recommended during the resuscitation of an established adult cardiac arrest. |
+
+## Synopsis
+
+In addition to defibrillation, alternative electrical therapies have been explored as possible treatment options during cardiac arrest. Transcutaneous pacing has been studied during cardiac arrest with bradyasystolic cardiac rhythm. In theory, the heart will respond to electrical stimuli by producing myocardial contraction and generating forward movement of blood, but clinical trials have not shown pacing to improve patient outcomes.
+
+Other pseudo-electrical therapies, such as cough CPR, fist or percussion pacing, and precordial thump have all been described as temporizing measures in select patients who are either peri-arrest or in the initial seconds of witnessed cardiac arrest (before losing consciousness in the case of cough CPR) when definitive therapy is not readily available.1 These therapies are described elsewhere (see Part 10. Special Circumstances 2 for more on precordial thump, fist pacing, and cough CPR).
+
+#### Recommendation-Specific Supportive Text
+
+1. Existing evidence, including observational and quasi–randomized controlled trial (RCT) data, suggests that pacing by a transcutaneous, transvenous, or trans myocardial approach during cardiac arrest does not improve the likelihood of ROSC or survival, regardless of the timing of pacing administration in established asystole, location of arrest (in-hospital or out-of-hospital), or primary cardiac rhythm (asystole, pulseless electrical activity).3-7 Protracted interruptions in chest compressions while the success of pacing is assessed can be detrimental to survival. Specifically, attempts at electrical pacing may delay evidence-based resuscitative measures, such as CPR. It is not known whether the timing of pacing initiation may influence pacing success such that pacing may be useful in the initial minute of select cases of witnessed, monitored cardiac arrest (see Part 10. Special Circumstances, Cardiac Arrest After Cardiac Surgery2). If pacing is attempted during cardiac arrest related to the special circumstances described above, professionals are cautioned that its performance could be at the expense of high-quality CPR. Of note, this recommendation addressing electrical pacing is specifically focused upon patients in cardiac arrest and does not address prevention of cardiac arrest nor does it address the utility of overdrive pacing for arrhythmia.
+
+9Vascular Access in Cardiac Arrest Management
+
+| Recommendations for Vascular Access in Cardiac Arrest Management |
+| --- |
+| COR | LOE | Recommendations |
+| 1 | A | 1. It is recommended that professionals first attempt establishing intravenous access for drug administration in adult patients in cardiac arrest. |
+| 2a | A | 2. Intraosseous access is reasonable if initial attempts at intravenous access are unsuccessful or not feasible for adult patients in cardiac arrest. |
+| 2b | C-LD | 3. For appropriately trained professionals, central venous access may be considered for adult patients in cardiac arrest if attempts to establish intravenous and intraosseous access are unsuccessful or not feasible. |
+
+## Synopsis
+
+Traditionally, peripheral IV access has been used to administer medication during cardiac arrest. However, obtaining IV access under emergent conditions can be challenging because of patient characteristics and operator experience leading to delay in pharmacological treatments. Alternatives to IV access for drug administration include IO, central venous, intracardiac, and endotracheal routes. Intracardiac drug administration was discouraged in the “2000 American Heart Association Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care” due to its specialized skill set requirements, potential for morbidity, and the availability of other access options.1 Similarly, drug administration via secured endotracheal tube results in low blood concentrations and unpredictable pharmacological effects and has also been removed from the guidelines.2 Central venous access is primarily used in a hospital setting because it requires specialized training to acquire and maintain proficiency.
+
+#### Recommendation-Specific Supportive Text
+
+1. and 2. The peripheral IV route for vascular access has traditionally been preferred for emergency drug and fluid administration during adult resuscitation. The pharmacokinetic properties, acute effects, and clinical efficacy of emergency drugs have primarily been described for IV administration.3-6 However, observational studies have noted a significant increase in the use of IO access in adult OHCA, despite the absence of high-quality evidence.7,8 Three recent large RCTs evaluated the clinical effectiveness of initial IO access compared with initial IV access in adult OHCA and found no differences in clinical outcomes.9-11 Each RCT used a superiority design; therefore, the absence of outcome differences between the two groups does not indicate equivalence. An ILCOR systematic review, including data from these RCTs, found that the use of IO access compared with IV access did not result in a statistically significant improvement in outcomes, including survival to discharge, survival with favorable neurological outcome, or health-related quality of life.12 This systematic review noted lower odds of achieving sustained ROSC for the IO route compared with the IV route (odds ratio [OR] 0.89; 95% CI, 0.80–0.99).12 Patient, EMS professional, or circumstantial characteristics may limit successful IV access or make IV access infeasible. In these cases, the available evidence supports IO access as an alternative. The optimal anatomical location for IO access (ie, tibial or humeral) remains a knowledge gap.
+
+1. Drug administration through central venous access can achieve faster circulation times and higher plasma concentrations in adults in cardiac arrest when compared with peripheral IV administration.13-15 However, data comparing clinical outcomes from cardiac arrest based on different access routes, including central venous access, remain limited. A small, single- center study reported higher rates of ROSC among participants who were randomized to femoral or internal jugular vein access compared to those with peripheral IV access, although with a high risk of bias.16 If central venous access is attempted by appropriately trained professionals, special attention is required to avoid delays in chest compressions or defibrillation.
+
+10Vasopressor Medications in Adult Cardiac Arrest
+
+| Recommendations for Vasopressor Management in Cardiac Arrest |
+| --- |
+| COR | LOE | Recommendations |
+| 1 | B-R | 1. Administration of epinephrine is recommended for adult patients in cardiac arrest. |
+| 2a | B-R | 2. It is reasonable to administer epinephrine (1 mg) every 3 to 5 min for adult patients in cardiac arrest. |
+| 2a | B-NR | 3. With respect to timing, for adult patients in cardiac arrest with a nonshockable rhythm, it is reasonable to administer epinephrine as soon as feasible. |
+| 2a | B-NR | 4. With respect to timing, for adult patients in cardiac arrest with a shockable rhythm, it is reasonable to administer epinephrine after initial defibrillation attempts have failed. |
+| 3: No Benefit | B-R | 5. Vasopressin alone or vasopressin in combination with epinephrine offers no advantage as a substitute for epinephrine for adult patients in cardiac arrest. |
+| 3: No Benefit | B-R | 6. High-dose epinephrine is not recommended for routine use for adult patients in cardiac arrest. |
+
+## Synopsis
+
+The potent vasopressor effects of epinephrine have been recognized for nearly 150 years. Vasopressors increase coronary perfusion pressure and increase the likelihood of ROSC. Epinephrine has been shown to increase ROSC and survival to hospital admission in placebo-controlled RCTs, cohort studies, and registry studies, but there is limited evidence to support improvement in survival to hospital discharge or functional neurologic outcome. Studies comparing different dosing intervals, high-dose epinephrine, and low-dose epinephrine against standard-dose epinephrine (1mg every 3–5 minutes) have not demonstrated an advantage in survival outcomes. Defining the optimal number of doses or maximum dose of epinephrine is a critical knowledge gap and more research is needed.
+
+Vasopressin, a naturally occurring antidiuretic hormone, has been studied as an alternative to epinephrine during cardiac resuscitation. In high doses, vasopressin acts as a potent vasoconstrictor and, like epinephrine, increases systemic vascular resistance and raises coronary perfusion pressure. However, there have been no clinical trials demonstrating an advantage to using vasopressin alone or vasopressin in addition epinephrine over standard-dose epinephrine alone.
+
+#### Recommendation-Specific Supportive Text
+
+1. There have been no new RCTs comparing epinephrine to placebo since the publication of the 2020 ALS guidelines. There is consistent and compelling evidence from previous RCTs, cohort, and registry studies to support a potent effect of epinephrine on ROSC, survival to hospital admission, and survival to hospital discharge.1,2 However, studies have failed to show an increase in survival with functional neurologic outcome.2-5 A secondary analysis of the PARAMEDIC2 (Prehospital Assessment of the Role of Adrenaline: Measuring the Effectiveness of Drug Administration in Cardiac Arrest) trial found 12- month survival favored epinephrine, whereas there was no significance difference in 6-month survival with functional neurologic outcome between arms.6 While there is no evidence supporting improvement in neurologic outcome, epinephrine does improve short-term survival, a prerequisite to meaningful recovery. In the absence of a feasible, intra- arrest method of determining the likelihood of favorable neurological outcome, epinephrine remains standard therapy to treat cardiac arrest.
+2. Existing clinical trials have used a protocol of 1 mg of epinephrine administered every 3 to 5 minutes.3-6 Operationally, administering epinephrine every second cycle of CPR, after the initial dose, meets this recommendation.
+3. Multiple observational studies have demonstrated an association between earlier epinephrine administration and ROSC.2 A post-hoc analysis of the PARAMEDIC2 trial found that the effectiveness of epinephrine, compared to placebo, converges at approximately 20 minutes of pulselessness where there is no difference in survival to hospital discharge, 30-day survival, or functional neurologic outcome with longer times to initial epinephrine administration.7
+4. Systematic reviews and meta-analyses of RCTs and cohort studies have found that epinephrine is associated with improved ROSC in all rhythms, but the benefit in shockable rhythms is less than in nonshockable rhythms.2-4,8 One observational study of IHCA demonstrated 10% lower risk-adjusted survival in hospitals with the highest rates of epinephrine administration prior to initial defibrillation when compared with those hospitals with the lowest rates.9 The optimal timing for epinephrine in relation to defibrillation is unknown. In patients with shockable rhythms, this literature supports prioritizing rapid defibrillation and administering epinephrine after initial attempts with CPR and defibrillation are not successful.
+5. When compared to placebo, administration of vasopressin improves ROSC regardless of presenting rhythms and increases survival to hospital admission and discharge in nonshockable rhythms.10 However, multiple systematic reviews and meta-analyses of RCTs and observational studies have found no difference in survival outcomes when comparing vasopressin alone or vasopressin combined with epinephrine versus epinephrine alone.2,10-12
+6. Multiple RCTs have compared administration of high-dose epinephrine with standard-dose, but the definition of high-dose epinephrine varies widely by study. There were no new RCTs published since the 2020 Guidelines comparing standard-dose epinephrine to any high-dose epinephrine. Systematic reviews and meta-analysis of RCTs have yielded mixed results.10,12 One registry-based study found dosing epinephrine more frequently than the standard interval may be potentially harmful.13 High-dose intramuscular (IM) epinephrine for the treatment of OHCA, with a different pharmacokinetic profile than traditional IV administration, has also been evaluated. One single-center, before-after study of 1405 OHCA patients receiving an initial IM dose of epinephrine followed by standard IV/IO administration shortened time to epinephrine administration and improved survival to hospital admission, hospital survival, and favorable neurologic status at hospital discharge. However, the study design could not account for multiple confounders, such as temporal trends, misclassification, and resuscitation characteristics.14 Further study is needed to evaluate the potential benefit of high-dose IM epinephrine in cardiac arrest.
+
+11Nonvasopressor Medications during Cardiac Arrest
+
+| Recommendations for Nonvasopressor Medications in Adult Cardiac Arrest |
+| --- |
+| COR | LOE | Recommendations |
+| 2b | B-R | 1. For adults in cardiac arrest amiodarone or lidocaine may be considered for ventricular fibrillation (VF) or pulseless ventricular tachycardia (pVT) that is unresponsive to defibrillation. |
+| 2b | C-LD | 2. For adults in cardiac arrest, the use of β-blockers, bretylium, procainamide, or sotalol for VF/pVT unresponsive to defibrillation is of uncertain benefit. |
+| 2b | C-LD | 3. For adults in cardiac arrest, the use of steroids is of uncertain benefit. |
+| 3: No Benefit | B-R | 4. For adults in cardiac arrest, routine administration of calcium is not recommended. |
+| 3: No Benefit | B-R | 5. For adults in cardiac arrest, routine administration of sodium bicarbonate is not recommended. |
+| 3: No Benefit | B-R | 6. For adults in cardiac arrest, routine administration of magnesium is not recommended. |
+
+## Synopsis
+
+Pharmacological treatment of cardiac arrest is provided (if indicated) when ROSC is not achieved by CPR and defibrillation.1 Treatments include vasopressor agents such as epinephrine (discussed in Recommendations for Vasopressor Medications During Cardiac Arrest) as well as drugs without direct hemodynamic effects (nonvasopressors) and their administration is delineated in Figure 2. The latter group includes antiarrhythmic medications (which include β- blockers), magnesium, sodium bicarbonate, calcium, and steroids, many of which are commonly administered by health care professionals, including EMS, during cardiac arrest. Although theoretically attractive and of modest benefit in animal studies, none of these therapies have definitively demonstrated improvement in survival after cardiac arrest. Some, however, offer potential benefit in selected populations and circumstances.
+
+Guidance for the treatment of cardiac arrest due to hyperkalemia, including the use of calcium and sodium bicarbonate for this indication, is presented in Electrolyte Abnormalities within Part 10. Special Circumstances.2 In addition, Part 10 offers guidance for the management of cardiac arrest due to toxic ingestion that discusses the administration of these medications in these specific circumstances. Guidance for management of torsades de pointes is presented in Recommendations for Polymorphic VT later in these guidelines.
+
+#### Recommendation-Specific Supportive Text
+
+1. The 2023 AHA focused update on adult advanced cardiovascular life support3 and ILCOR’s 2024 CoSTR summary4 addressed administration of parenteral antiarrhythmic medications to patients with cardiac arrest unresponsive to defibrillation. A large, randomized, placebo-controlled prehospital trial found amiodarone and lidocaine each improved survival to hospital admission over placebo, however, there was no difference in survival to hospital discharge.5 Secondary analyses of both drugs found improved survival to hospital discharge in bystander-witnessed arrest, with a significant interaction between active drug effect and witnessed arrest status, as did amiodarone in EMS-witnessed arrest. When administered within 8 minutes of ALS-capable EMS arrival, amiodarone also improved survival to hospital admission, discharge, and functional survival at hospital discharge.6 This suggests the potential for a small, time-dependent therapeutic window in patients with rapidly recognized and treated cardiac arrest. Data are insufficient to definitively distinguish between the effectiveness of lidocaine and amiodarone, nor their benefit when given in combination.
+2. No new evidence emerged from a 2025 ILCOR evidence update7 regarding the use of other parenteral antiarrhythmic agents in cardiac arrest. These include bretylium tosylate (which was recently reintroduced in the United States market with no new evidence on its effectiveness or safety); sotalol (which requires a slow infusion and has unknown benefit when given as a bolus in cardiac arrest8), procainamide (also requiring slow infusion, and of uncertain benefit when given by rapid infusion as a second-line agent in cardiac arrest9), and beta blockers (for which the ILCOR update found insufficient evidence to recommend for or against use).10 The effectiveness of these drugs administered in combination for cardiac arrest has not been systematically addressed and remains a knowledge gap. Nifekalant is currently unavailable in the United States and is therefore excluded from this recommendation.
+3. Both the 2023 AHA focused update and ILCOR’s 2023 CoSTR summary identified no new compelling data to alter previous recommendations regarding the use of steroids bundled with a vasopressor agent in cardiac arrest.3,11 A large multicenter, blinded, placebo-controlled randomized trial of IHCA deploying this drug combination found an improved rate of ROSC but not survival to hospital discharge or neurological outcome, failing to confirm results of 2 previous single center trials.12 Observational studies combining intra-arrest corticosteroids with standard resuscitation have demonstrated mixed outcomes.13-15 An ongoing registered clinical trial (NCT06203847) may provide further clarity.
+4. The 2023 AHA focused update,3 ILCOR’s 2023 CoSTR summary,11 and a systematic review including 3 RCTs,16 found routine calcium administration during cardiac arrest, including cases of refractory asystole and pulseless electrical activity, did not improve survival to hospital discharge or neurological outcome, with a cautionary trend toward potential harm. A Get With the Guidelines registry report also found no evidence of benefit from calcium administration, independent of rhythm presentation, during IHCA.17 Although the findings of registry data are confounded by temporal bias (ie, calcium administered as a last resort during prolonged resuscitations, where outcomes are already likely poor), the randomized trial data, designed to mitigate that bias, found no evidence of benefit when calcium was administered immediately after the first dose of epinephrine.18 Administration of calcium in special circumstances such as hyperkalemia and toxic ingestion is discussed elsewhere as noted above.
+5. The 2023 AHA focused update found routine administration of sodium bicarbonate in cardiac arrest was of no benefit.3 However, recent observational data examining prehospital administration of sodium bicarbonate in pulseless electrical activity and asystole suggests a potential association with improved survival.19 As observed with calcium, issues of resuscitation time bias may also apply to bicarbonate, resulting in difficulty interpreting the findings.20,21 Although contemporary evidence is insufficient to change the recommendation, there may be clinical equipoise to warrant further clinical trials to assess its utility in nonshockable presenting rhythms. Use of sodium bicarbonate in special circumstances such as hyperkalemia is discussed elsewhere as noted above.
+6. The 2024 ILCOR CoSTR found intra-arrest magnesium administration did not improve ROSC, survival, or neurological outcome regardless of the presenting cardiac arrest rhythm,22-25 nor was it useful for monomorphic VT.26 Magnesium’s efficacy in the treatment of torsade de pointes is addressed later in this Part (see Treatment of Adults With Polymorphic Ventricular Tachycardia).
+
+---
+
+Figure 2 – Adult Cardiac Arrest Algorithm CPR indicates cardiopulmonary resuscitation; ET, endotracheal; IO, intraosseous; IV, intravenous; PEA, pulseless electrical activity; pVT, pulseless ventricular tachycardia; and VF, ventricular fibrillation.
+
+PDF Download Accessible Version
+
+12Adjuncts for Performance of CPR
+
+| Recommendations for Adjuncts to CPR |
+| --- |
+| COR | LOE | Recommendations |
+| 2b | B-NR | 1. An abrupt increase in end-tidal CO2 may be used to detect ROSC during chest compressions in adults in cardiac arrest or when a rhythm check reveals an organized rhythm. |
+| 2b | C-LD | 2. Use of point-of-care ultrasonography during adult cardiac arrest resuscitation to diagnose reversible causes is not well established. |
+| 2b | C-LD | 3. Use of point-of-care echocardiography to assess cardiac function for prognostication during adult cardiac arrest resuscitation is not well established. |
+| 2b | C-LD | 4. When supplemental oxygen is available, it may be reasonable to use the maximal feasible inspired oxygen concentration during CPR for adults with cardiac arrest. |
+| 2b | C-LD | 5. Measurement of arterial blood gases during CPR has uncertain benefit in adults with cardiac arrest. |
+| 2b | C-LD | 6. In adult patients with cardiac arrest, it may be reasonable to use physiological parameters such as arterial blood pressure or end-tidal CO2 when feasible to monitor and optimize CPR quality. |
+| 2b | C-EO | 7. Arterial pressure monitoring by arterial line may be used to detect ROSC during chest compressions or when a rhythm check reveals an organized rhythm in adults with cardiac arrest. |
+| 3: No Benefit | C-LD | 8. Head-up cardiopulmonary resuscitation in adults with cardiac arrest is not recommended except in setting of clinical trials. |
+
+## Synopsis
+
+The foundation of cardiac arrest resuscitation focuses on high-quality CPR, early defibrillation when indicated, and guideline-directed pharmacologic therapies and airway management strategies. With appropriate expertise and resources, adjuncts to standard cardiac arrest resuscitation provide additional data to support and enhance care delivery. Adjuncts—such as POCUS, ETCO2 monitoring, blood gas analysis, or arterial lines—may enable the incorporation of precise physiologic parameters to optimize individual resuscitation.
+
+Head-up CPR seeks to augment conventional supine CPR to increase cerebral perfusion pressure with the goal of improving neurologically favorable outcome. Head-up CPR has been studied as a bundle of care combining mechanical chest compressions, an impedance threshold device, and application of an automated device to control sequential elevation of the head and thorax during compressions.
+
+While emerging but limited data exist for many of these CPR adjuncts, more research is needed to inform future guidelines.
+
+#### Recommendation-Specific Supportive Text
+
+1. ETCO2 values during CPR serve as a surrogate for cardiac output.1,2 A secondary analysis of the Pragmatic Airway Resuscitation Trial found that temporal increases in ETCO2 were associated with ROSC.3 A systematic review of 8 observational studies found that an abrupt increase in ETCO2 was a predictor of ROSC; however, no absolute cutoff value was identified.4 Data suggests that a sudden increase greater than 10 mmHg may indicate ROSC,5,6 although ROSC can still occur with ETCO2 increases of less than 10 mmHg.7 These findings may be influenced by other factors known to impact ETCO2, including minute ventilation, CPR quality, the administration of epinephrine or sodium bicarbonate, airway management strategies, and the etiology of cardiac arrest.8,9
+2. Multiple observational studies report the use of POCUS during cardiac arrest to aid in the identification of potentially reversible causes of cardiac arrest, such as pulmonary embolism, cardiac tamponade, effusion, myocardial infarction, aortic dissection, and hypovolemia. However, evidence for diagnosing these target conditions is limited by inconsistent clinical protocols, sonographic measures, and operator experience, resulting in a high degree of heterogeneity among the studies with a high concern for bias.10 Furthermore, the use of POCUS has been associated with longer interruptions in chest compressions, longer duration of resuscitation, and higher rates of interventions.11,12 Therefore, even when a user with adequate skill and expertise uses POCUS during cardiac arrest, attention to minimizing interruptions in CPR is a priority.10,13-16
+3. POCUS has been used to assess cardiac activity and, in the absence of cardiac motion in conjunction with other modalities, to terminate resuscitative efforts.14,17-20 However, only a small number of observational studies, with significant limitations, including variability in the definitions of sonographic findings, describe its use in this setting.21-23 A single small RCT, multiple systematic reviews, and a meta-analysis of observational studies have consistently found no improvement in outcomes with the use of POCUS during cardiac arrest.23-25 Future research that standardizes image acquisition and other study methodology to examine the utility of POCUS for this indication are required. An alternative modality, transesophageal echocardiography, has the potential to provide high-quality imaging of cardiac structure and function without interrupting CPR. However, the utility of transesophageal echocardiography during CPR remains a knowledge gap.
+4. No adult human trials directly compare levels of inspired oxygen concentration during CPR. Retrospective studies have found that higher intra-arrest partial pressure of oxygen in the alveoli is associated with survival to hospital admission,26 survival to hospital discharge,27 and survival with favorable neurological outcome.28 However, these findings may be influenced by patient selection, airway management strategies, and the quality of resuscitation.
+5. Small prospective studies with significant limitations have found arterial blood gas parameters, such as partial pressure of oxygen and partial pressure of carbon dioxide, to be predictive of ROSC.29,30 However, both partial pressure of oxygen and partial pressure of carbon dioxide are dependent on cardiac output and can be influenced by patient factors and the quality of CPR. Additionally, numerous retrospective studies have assessed intra- arrest blood gas analysis as a predictive tool for outcomes but suffer from similar limitations, compounded by their retrospective design.26-28,31-38
+6. A retrospective study from the AHA’s Get With the Guidelines-Resuscitation found the use of ETCO2 or diastolic blood pressure monitoring during CPR was associated with increased rate of ROSC.39 ETCO2 values reflect pulmonary circulation and cardiac output1,2 and are positively correlated with increased compression depth40-42 and release velocity.40,41 Multiple systematic reviews have found numeric ETCO2 measures to be a predictor of ROSC.4,43 An ETCO2 less than 10 mm Hg is generally associated with poor outcomes, whereas values above 10 mm Hg, and ideally above 20 mm Hg, are associated with increased rates of ROSC.43 The combination of the association of higher ETCO2 with ROSC and the findings that CPR quality can increase ETCO2 suggests that targeting compressions to a value of at least 10 mm Hg, and ideally 20 mm Hg or greater, may indicate mechanically adequate technique. Other factors known to impact ETCO2 values need to be considered, including minute ventilation, drug administration, airway management strategies, and cardiac arrest etiology. ETCO2 monitoring is most reliable when measured through an endotracheal tube, but it can also be used with a supraglottic airway or bag-mask ventilation with unclear utility. When an invasive arterial line is in place, arterial diastolic pressure can approximate coronary perfusion pressure and myocardial perfusion during CPR.44 The use of diastolic blood pressure monitoring during cardiac arrest is associated with higher ROSC, but there are inadequate adult data to suggest any specific pressure in adults.
+7. If an arterial line is in place, the development of an arterial waveform or a sudden increase in diastolic pressure during a rhythm check showing an organized rhythm may indicate ROSC.45 When a waveform is present, it is important to ensure it correlates with a palpable pulse to verify ROSC. The placement of an arterial line requires appropriate expertise and resources; however, placement during cardiac arrest may detract from the provision of high-quality CPR.
+8. Original work evaluating head-up CPR was done in porcine models, which demonstrated conflicting evidence of efficacy.46,47 A recent ILCOR systematic review identified no randomized controlled trials and only 3 observational studies, each with significant methodological limitations.48-50 With these and other challenges the systematic review identified, for the outcome of survival to discharge and survival to discharge with favorable neurological outcome, evidence on Head up CPR was considered very low–certainty of evidence downgraded for serious risk of bias. Taken together, current evidence regarding head-up CPR is limited in the absence of RCTs or appropriate comparisons. Furthermore, implementation of this approach requires specialized equipment (automated positioning device, mechanical CPR device, an impedance threshold device) and significant training. Based on this, there is currently insufficient evidence for its use outside of well-designed clinical trials, although future work is needed to evaluate this adjunct.
+
+13Termination of Resuscitative Measures
+
+| Recommendations for Termination of Resuscitation |
+| --- |
+| COR | LOE | Recommendations |
+| 1 | B-NR | 1. When TOR is being considered, BLS prehospital professionals should use the BLS TOR rule for adult patients in OHCA, where ALS is not available or may be significantly delayed. |
+| 2a | B-NR | 2. It is reasonable for ALS prehospital professionals to use the ALS TOR rule to terminate resuscitation efforts in the field for adult patients with OHCA. |
+| 2a | B-NR | 3. In a tiered EMS system with both ALS and BLS professionals, it is reasonable to use the Universal TOR rule for adult patients with OHCA. |
+| 2b | C-LD | 4. In intubated adult patients, failure to achieve an end-tidal CO2 of greater than 10 mm Hg by waveform capnography after 20 minutes of ALS resuscitation may be considered as a component of a multimodal approach to decide when to end resuscitative efforts. |
+| 3: Harm | C-EO | 5. In nonintubated adult patients, a specific end-tidal CO2 cutoff value at any time during CPR should not be used as an indication to end resuscitative efforts. |
+
+## Synopsis
+
+OHCA is a resource-intensive condition associated with low rates of survival. It is important for EMS professionals to differentiate patients in whom continued resuscitation is futile from patients with a chance of survival who should receive continued resuscitation and transportation to hospital. This will aid in both resource use and optimizing a patient’s chance for survival. Using a validated TOR rule will help ensure accuracy in determining futility in cardiac arrest patients. Though many TOR rules have been proposed,3 TOR rules that have been highly studied in North America include the BLS, ALS, and UTOR rules (Figures 3 and 4).
+
+TOR rules are applicable for the specific scope of practice of the EMS agency upon which they were validated. For example, an EMS agency with only BLS-trained professionals (first responders or emergency medical technicians [EMTs]) the BLS TOR rule is appropriate; for an EMS agency with only ALS-trained professionals, the ALS TOR rule is appropriate; and for an agency or system with both BLS - and ALS - trained professionals (commonly referred to as a tiered-response system) the UTOR rule is appropriate.
+
+These TOR rules are inappropriate for populations in which they have not been validated, such as for patients with overdose, trauma, or IHCA. Further research is needed to evaluate the appropriate application of existing TOR rules to gain a clearer understanding of the risks and benefits associated with their use.
+
+#### Recommendation-Specific Supportive Text
+
+1. In a meta-analysis of 7 published BLS TOR studies primarily in North America (33,795 patients pooled from retrospective and prospective observational studies), only 0.13% (95% CI, 0.03%–0.58%) of patients who fulfilled the BLS termination criteria survived to hospital discharge.1 A 2024 international meta-analysis2 of 6 reclassified retrospective validation studies from EMS systems primarily in Asia suggests that the specificity of the BLS rule, when generalized outside of North America may be lower than previously reported. The analysis reclassified EMS agencies, included heterogeneous methodologies and response characteristics, and relied heavily on retrospective data. These limitations highlight the importance of further rigorous, prospective research to validate the specificity and applicability of BLS TOR rules by diverse EMS agencies.
+2. In a meta-analysis of 2 published retrospective observational studies (10,178 patients) of the ALS TOR rule, only 0.01% (95% CI, 0.00%–0.07%) of patients who fulfilled the ALS termination criteria survived to hospital discharge.1 The same 2024 international meta- analysis described above2 analyzed 17 published studies on ALS TOR patients, finding a pooled specificity of 96% (95% CI, 0.93–0.99).
+3. The UTOR rule, which uses the same criteria as the BLS rule (ie, arrest not witnessed by EMS professionals; no shock delivered; no ROSC), has been prospectively validated in combined BLS/ALS, or tiered response, EMS agencies.3 Although the rule did not have adequate specificity after 6 minutes of resuscitation (false-positive rate: 2.1%) it did achieve better than 99% specificity after approximately 15 minutes of attempted resuscitation while still reducing transportation by half. A retrospective analysis found that the application of the UTOR rule at 20 minutes of resuscitation was able to predict futility, identifying over 99% of survivors and patients with good neurological outcome.4 Another meta-analysis2 also examined the UTOR rule in 19 studies, many of which had initially been classified as employing the BLS TOR rule in tiered BLS + ALS EMS systems. After reclassification, the pooled specificity of the UTOR rule was reported to be 88% (95% CI, 0.88–0.94). Notably, 10 of the 11 reclassified studies were conducted outside of North America.
+4. In intubated patients, an ETCO2 measurement of less than 10 mm Hg indicates little to no cardiac output. Several small retrospective studies provide evidence showing that an ETCO2 less than 10 mm Hg after 20 minutes of ALS resuscitation is strongly but not perfectly predictive of futility.5-8 These small observational studies suffer from a high risk of bias. Alternative ETCO2 thresholds, time points, and changes in ETCO2 over time have been proposed.9-12 The use of ETCO2 alone to predict patient outcome needs to be validated in a large prospective study.2 No data is available that addresses ETCO2 measurement with supraglottic airways and predicts poor outcomes. Additionally, isolated ETCO2 values greater than 20 mmHg, at later stages of resuscitation, should not be used in isolation as a potential indicator for continued resuscitation, particularly when other prognostic indicators are not favorable. High-quality studies assessing the role of ETCO2 for termination of resuscitation in patients on mechanical CPR have not been conducted and are an active area of research.
+5. No studies were found that specifically examined the use of ETCO2 in cardiac arrest patients without an advanced airway. It is not known whether ETCO2 values during bag- mask ventilation are as reliable as those with an advanced airway in place. There is insufficient evidence to support a universal “cutoff value” of ETCO2 for decisions about TOR in a nonintubated patient.
+
+---
+
+Figure 3. BLS/Universal Termination of Resuscitation Rules. AED indicates automated external defibrillator; BLS, basic life support.
+
+PDF Download Accessible Version
+
+---
+
+Figure 4. ALS Termination of Resuscitation Rule ALS indicates advanced life support; CPR, cardiopulmonary resuscitation.
+
+PDF Download Accessible Version
+
+14Advanced Airway Placement During Resuscitation
+
+| Recommendations for Advanced Airway Placement During Resuscitation |
+| --- |
+| COR | LOE | Recommendations |
+| 1 | B-NR | 1. Frequent experience or frequent retraining is recommended for health care professionals who perform endotracheal intubation in adults with cardiac arrest. |
+| 1 | C-LD | 2. If advanced airway placement will interrupt chest compressions, health care professionals should defer insertion of the airway until the adult in cardiac arrest fails to respond to initial CPR and defibrillation attempts or obtains ROSC. |
+| 1 | C-LD | 3. Continuous waveform capnography is recommended in addition to clinical assessment as the most reliable method of confirming and monitoring correct placement of an endotracheal tube in adults with cardiac arrest. |
+| 1 | C-EO | 4. Emergency medical services systems that perform prehospital intubation in adults with cardiac arrest should provide a program of ongoing quality improvement to minimize complications and track overall supraglottic airway and endotracheal tube placement success rates. |
+| 2a | B-R | 5. If an advanced airway is used for adults with OHCA, a supraglottic airway can be acceptable in settings with low endotracheal intubation success rate or minimal training opportunities. |
+| 2a | B-R | 6. If an advanced airway is used, either a supraglottic airway or endotracheal tube can be used for adults with OHCA in settings with high endotracheal intubation success rates or optimal training opportunities for endotracheal tube placement. |
+| 2a | B-NR | 7. If an advanced airway is used for adults in cardiac arrest in the in-hospital setting by expert health care professionals trained in these procedures, either a supraglottic airway or endotracheal tube can be used. |
+| 2b | B-R | 8. Either bag-mask ventilation or an advanced airway strategy may be considered during CPR for adult cardiac arrest in any setting depending on the situation and skill set of the professional. |
+| 2b | C-LD | 9. If an advanced airway is in place, it may be reasonable for the clinician to deliver 1 breath every 6 s (10 breaths/min) while continuous chest compressions are being performed. |
+
+## Synopsis
+
+Airway management during cardiac arrest usually commences with a basic strategy such as BMV. In addition, it may be helpful for professionals to become proficient in one advanced airway strategy—endotracheal intubation (ETI) or supraglottic airway (SGA) insertion —as well as a second (backup) strategy for use if they are unable to establish the first-choice airway adjunct. Because placement of an advanced airway may result in interruption of chest compressions, a malpositioned device, or hyperventilation, professionals need weigh these risks against potential benefits. The 2019 focused update on use of advanced airways and Part 3: Adult Basic and Advanced Life Support from the 2020 Guidelines addressed the use of advanced airways in cardiac arrest. The 2020 Guidelines state that BMV or an advanced airway strategy may be considered during CPR for adult cardiac arrest in any setting.1,2 A key aspect of airway management decision-making is the health care professional’s airway management skill and experience, frequent retraining and ongoing quality improvement to minimize airway management complications. Thus, the ultimate decision of the use, type, and timing of an advanced airway will require consideration of a host of patient and professional characteristics that are not easily defined in a global recommendation (Figure 5).
+
+#### Recommendation-Specific Supportive Text
+
+1. Frequent retraining is important to maintain a health care professional’s psychomotor airway management skills.3,4 The manner in which this training is best accomplished is unclear. Research is necessary to address the specific type, amount, and frequency of training experiences that optimize airway management performance during cardiac arrest.
+
+2. Although an advanced airway can be placed without interrupting chest compressions,5 interruptions frequently occur. Therefore, health care professionals should weigh the potential benefits of an advanced airway with the benefits of maintaining a high chest compression fraction.6-8 This is particularly true in cardiac arrest patients with shockable rhythms where CPR and defibrillation must take priority due to the strong association of early CPR and defibrillation with enhanced survival with favorable neurological outcome. In contrast, in arrests with non-shockable rhythms, early airway management is possible in resuscitations where CPR performance and epinephrine administration have already been optimized.
+
+3. In a small clinical trial and several observational studies, waveform capnography was 100% specific for confirming endotracheal tube position during cardiac arrest.9-11 The sensitivity of waveform capnography decreases after a prolonged cardiac arrest.9-11 The use of waveform capnography to assess the placement of other advanced airways (eg, Combitube, laryngeal mask airway) has not been studied.
+
+4. The writing group acknowledges the critical roles of tracking the overall success rate for systems performing ETI. This data will allow systems to make informed decisions as to whether practice should allow for ETI, move toward SGA, or simply use BMV for patients in cardiac arrest; recommendations will vary depending on the overall success rate in a given system. There is a clear need for further research with both patient- and professional- centered outcomes to assess the impact of prehospital quality improvement on selecting and maintaining the most appropriate airway management approach for EMS professionals within an agency.
+
+5. and 6. One RCT of OHCA comparing SGA (iGel) to ETI in a non–physician-based EMS system (ETI success, 69%) found no difference in survival or survival with favorable neurologic outcome at hospital discharge.12 A second RCT of OHCA comparing SGA (laryngeal tube) to ETI in a non–physician-based EMS system (ETI success, 52%) found both higher survival to hospital discharge and higher survival to hospital discharge with good neurologic outcome in the patients managed with SGA.13 A recent systematic review noted that while SGAs may be associated with faster placement and increased rate of ROSC, there is no clear survival benefit to SGA or ETI, and the effect of SGA versus ETI on neurological survival remains uncertain.14 Outcomes likely depend on patient and professional characteristics, especially EMS professional exposure to initial and ongoing advanced airway training and experience. Precise thresholds for high or low ETI success rates have not been identified. The decision to place an advanced airway requires an understanding of patient and professional characteristics that are not easily defined in a global recommendation. There is a need for further research, specifically on the interface between patient factors and the experience, training, tools and skills of the professional.
+
+7. IHCA recommendations on advanced airway management have been extrapolated from OHCA. There is currently no high-certainty evidence that suggests benefit for any specific airway management strategy for IHCA. There is a need for further research to identify the IHCA patient and professional characteristics in airway management that impact clinical outcomes.
+
+8. A 2024 ILCOR CoSTR summary15 demonstrated no new data to change the recommendation regarding the use of BMV or advanced airway strategies. One large RCT of OHCA comparing BMV to ETI in a physician-based EMS system showed no significant benefit for either technique for 28-day survival or survival with favorable neurological outcome.16 The success rate of ETI in this study was 98%, suggesting a relatively optimal setting for the potential success of ETI as an intervention. Further research is required to determine equivalence or superiority between the two approaches for acute airway management, as well as any potential benefit of a stepwise approach (eg, BVM followed by advanced airway placement).
+
+9. A 2017 systematic review identified 1 observational human study and 10 animal studies comparing different ventilation rates after advanced airway placement.17 While no clear benefit from a rate of 10 breaths per minute was identified, no other rate was found to be superior. A 2017 ILCOR systematic review did not identify any new evidence to alter this recommendation, which was reiterated in the “2017 AHA Focused Update on Adult BLS and CPR Quality: An Update to the AHA Guidelines for CPR and Emergency Cardiovascular Care.”18,19
+
+---
+
+Figure 5. Schematic representation of ALS recommendations for use of advanced airways during CPR. *Frequent experience or frequent retraining is recommended for health care professionals who perform endotracheal intubation. ALS indicates advanced life support; CPR, cardiopulmonary resuscitation; and EMS, emergency medical services.
+
+PDF Download
+
+15Wide-Complex Tachycardia
+
+| Recommendations for the Management of Adult Patients With Wide-Complex Tachycardia |
+| --- |
+| COR | LOE | Recommendations |
+| 1 | B-NR | 1. Synchronized cardioversion is recommended for acute treatment of adult patients with hemodynamically unstable wide-complex tachycardia. |
+| 1 | B-NR | 2. Synchronized cardioversion is recommended for acute treatment of adult patients with hemodynamically stable wide-complex tachycardia when vagal maneuvers and pharmacological therapy is ineffective or contraindicated. |
+| 2b | B-R | 3. Administration of IV amiodarone, procainamide, or sotalol may be considered for the treatment of adults with wide-complex tachycardia. |
+| 2b | B-NR | 4. In hemodynamically stable adult patients with regular monomorphic wide-complex tachycardia, IV adenosine may be considered for treatment or aiding rhythm diagnosis when the cause of the rhythm cannot be determined. |
+| 3: Harm | B-NR | 5. Verapamil and diltiazem should not be administered for adult patients with wide- complex tachycardia. |
+| 3: Harm | C-LD | 6. Adenosine should not be administered for adult patients with hemodynamically unstable, irregularly irregular, or polymorphic wide-complex tachycardia. |
+
+## Synopsis
+
+Wide-complex tachycardia (WCT) is generally defined as a rhythm greater than 150/min with a QRS duration of 0.12 second or more.1,2 There are 4 means of achieving a wide QRS complex: (1) conduction of ventricular origin, (2) left or right bundle branch block, (3) conduction through a bypass tract, and (4) ventricular pacing. Rarely, hyperkalemia or sodium channel blockade can present with a WCT. Thus, WCTs can be ventricular (VT or VF), or supraventricular tachycardias resulting from mechanisms 2, 3, or 4. WCT can have a monomorphic or nonmonomorphic (ie, polymorphic) QRS. Polymorphic QRS complexes are typical of torsades de pointes, VF, or AF with a bypass tract. Most other rhythms are monomorphic. Patients with WCT can be hemodynamically stable or unstable. Hemodynamically stable patients with WCT allow the professional time to obtain a 12-lead electrocardiogram, place an IV, and administer IV drugs, while patients who are unstable require prompt cardioversion [Figure 6].
+
+#### Recommendation-Specific Supportive Text
+
+1. In hemodynamically unstable patients with WCT it is critical to promptly restore sinus rhythm. If the patient is unstable as a result of the WCT (eg, systolic blood pressure less than 80 mm Hg or altered mentation) immediate synchronized cardioversion is warranted.3
+2. In stable patients with WCT, vagal maneuvers or adenosine may be attempted; however, if the patient remains in WCT following these therapies, synchronized cardioversion is recommended. If time and clinical stability permits, administration of procedural sedation may be appropriate.3
+3. Amiodarone has a relatively slow onset of action, and some solutes may cause hypotension. IV procainamide can also cause hypotension and must be infused no faster than 50 mg/min. IV sotalol is a newer agent without these concerns for hypotension. Direct comparisons of efficacy are generally between lidocaine and these three antiarrhythmic medications. Lidocaine’s kinetic properties are less effective for VT at hemodynamically tolerated rates than amiodarone, procainamide, or sotalol,4 and it is unclear if lidocaine is more efficacious than placebo. Conclusions based on limited available evidence from small heterogeneous human studies for the treatment of stable, monomorphic VT, procainamide and sotalol each appear to have similar efficacy; amiodarone was not more effective than procainamide.5-9 Avoiding co-administration of these drugs is important because their combined effects may be arrhythmogenic. When any of these drugs are administered, the immediate availability of a defibrillator is encouraged because each drug may convert a WCT to a more rapid, malignant (ie, hemodynamically unstable) form, depending upon its underlying cause.
+4. Adenosine blocks the atrioventricular (AV) node and decreases automaticity. Thus, WCTs in which the AV node is part of the circuit will be terminated by an effective dose of adenosine as described in therapies for narrow-complex tachycardia (NCT). Adequate adenosine administration may momentarily block the AV node, allowing the underlying rhythm to be correctly assessed. Therefore, adenosine can be diagnostic and therapeutic in a stable, regular, monomorphic WCT.10,11
+5. Verapamil is a calcium channel blocker that slows AV node conduction, shortens the refractory period of accessory pathways, and acts both as a negative inotrope and vasodilator. The vasodilatory effects are relatively profound, and thus, hypotension is common with administration. Verapamil will not terminate a WCT of ventricular origin and may cause profound hypotension leading to shock and cardiac arrest.12,13
+6. Adenosine will not terminate a WCT of ventricular origin, may cause profound hypotension leading to shock, or precipitate VF and cardiac arrest.14,15
+
+---
+
+Figure 6. Adult Tachyarrhythmia With a Pulse Algorithm CHF indicates congestive heart failure; ECG, electrocardiogram; IV, intravenous; NS, normal saline; and VT, ventricular tachycardia.8
+
+PDF Download
+
+16Polymorphic Ventricular Tachycardia
+
+| Recommendations for Treatment of Adults With Polymorphic Ventricular Tachycardia |
+| --- |
+| COR | LOE | Recommendations |
+| 1 | B-NR | 1. Immediate unsynchronized shock is recommended for adults with sustained polymorphic ventricular tachycardia. |
+| 2b | C-LD | 2. Magnesium may be considered for treatment of adults with recurrences of polymorphic ventricular tachycardia associated with a long QT interval (torsades de pointes). |
+| 2b | C-LD | 3. IV lidocaine, amiodarone, and measures to treat myocardial ischemia may be considered to treat recurrences of polymorphic VT in adults in the absence of a prolonged QT interval. |
+| 3: No Benefit | C-LD | 4. Routine use of magnesium is not recommended for the treatment of polymorphic VT in adults with a normal QT interval. |
+
+## Synopsis
+
+Polymorphic VT refers to a wide-complex tachycardia of ventricular origin with differing configurations of the QRS complex from beat to beat. However, the most critical feature in the diagnosis and treatment of polymorphic VT is not the morphology of the rhythm but rather what is known (or suspected) about the patient’s underlying QT interval. It is often difficult to know whether the tachycardia is pVT or ventricular fibrillation (VF). Most VF begins with pVT and if pVT is prolonged it will usually degenerate into VF [Figure 7].
+
+Torsades de pointes is a form of polymorphic VT that is associated with a prolonged heart rate–corrected QT interval when the rhythm is normal and VT is not present. The risk for developing torsades increases when the corrected QT interval is greater than 500 milliseconds and accompanied by bradycardia.1 Torsades can be due to an inherited genetic abnormality2 or can be caused by drugs and electrolyte imbalances that lengthen the QT interval.3
+
+Conversely, polymorphic VT not associated with a long QT is most often due to acute myocardial ischemia.4,5 Other potential causes include catecholaminergic polymorphic VT, a genetic abnormality in which polymorphic VT is provoked by exercise or emotion6; “short QT” syndrome, a form of polymorphic VT associated with an unusually short QT interval (corrected QT interval less than 330–370 milliseconds) 7,8; idiopathic right ventricular outflow tract polymorphic VT; and bidirectional VT seen in digitalis toxicity in which the axis of alternate QRS complexes shifts by 180°.9 There are no RCTs examining the acute pharmacological treatment of polymorphic VT. Supportive data, with and without long corrected QT interval, are largely based on case reports and case series.
+
+#### Recommendation-Specific Supportive Text
+
+1. Regardless of the underlying QT interval, all forms of polymorphic VT are considered hemodynamically and electrically unstable. Episodes of polymorphic VT may repeatedly recur and remit spontaneously, become sustained, or degenerate to VF. When the QRS complex of a VT is of uniform morphology, electric cardioversion synchronized to the QRS complex minimizes the risk of provoking VF during the vulnerable period of the cardiac cycle (T wave). In contrast, polymorphic VT cannot be synchronized reliably because of the differing characteristics of each QRS complex and requires high-energy (maximum manufacturer’s setting) unsynchronized shock. Assessment of a patient’s mental status is important when the appropriateness of sedation is considered before defibrillation. While effective in terminating polymorphic VT, defibrillation may not prevent its recurrence, for which pharmacological therapies are often required and the primary focus of subsequent recommendations.
+2. Torsades de pointes typically presents in a recurring pattern of self-terminating, hemodynamically unstable polymorphic VT in context of a known or suspected long QT abnormality, often with an associated bradycardia. Termination of torsades by defibrillation may not prevent its recurrence, which requires additional pharmacological interventions. In small case series, IV magnesium has been effective in suppressing and preventing recurrences.10-13 Magnesium is believed to suppress fluctuations in the myocardial action potential that can trigger torsades.14 Correcting electrolyte abnormalities, particularly hypokalemia, is also advisable. Treatment of torsades with antiarrhythmic medications may prolong the QT interval and promote the arrhythmia. When given acutely, β-adrenergic blockers can also precipitate torsades by causing or worsening bradycardia. In patients with bradycardia or pause-precipitated torsades, expert consultation is best sought for additional measures such as overdrive pacing or isoproterenol.15 There is literature to support instances of medication induced torsades, so prevention of drug induced prolonged QT is an important priority for professionals.
+3. Polymorphic VT that is clearly not associated with QT prolongation, is most often triggered by acute myocardial ischemia or infarction and often rapidly degenerates into VF.3,5 Polymorphic VT may be difficult to differentiate from VF initially, but, as with other ventricular arrhythmias (VT and VF), is terminated with immediate defibrillation. However, termination of polymorphic VT with defibrillation may not prevent its recurrence, requiring additional pharmacological measures. No RCTs have been performed to determine the optimal pharmacological management of polymorphic VT. Treatment of causative myocardial ischemia (eg, β-adrenergic blockers or emergent coronary intervention) as well as lidocaine and amiodarone,16-22 in concert with defibrillation, may be synergetic when the arrhythmia is sustained. β-Adrenergic blockers have also been shown to reduce the incidence of ventricular arrhythmias in acute coronary syndromes.23,24 Expert consultation is advisable when alternative causes of polymorphic VT are suspected, for which β-adrenergic blockers and antiarrhythmics may also have efficacy.6,25 "2018 AHA Focused Update on Advanced Cardiovascular Life Support Use of Antiarrhythmic Drugs During and Immediately After Cardiac Arrest."26
+4. In the absence of long QT, magnesium has not been shown to be effective in the treatment of polymorphic VT10 or other ventricular tachyarrhythmias.12 A single case series with 5 patients showed no benefit of magnesium administration for polymorphic VT with normal QT. Since the 2018 AHA focused update on antiarrhythmic drugs during and immediately after cardiac arrest no new evidence has been identified.
+
+17Regular Narrow-Complex Tachycardia
+
+| Recommendations for the Treatment of Regular Narrow-Complex Tachycardia in Adults |
+| --- |
+| COR | LOE | Recommendations |
+| 1 | B-R | 1. Vagal maneuvers are recommended for acute treatment of adult patients with regular narrow-complex tachycardias. |
+| 1 | B-R | 2. Adenosine is recommended for acute treatment of adult patients with regular narrow- complex tachycardias. |
+| 1 | B-NR | 3. Synchronized cardioversion is recommended for acute treatment of adult patients with hemodynamically unstable narrow-complex tachycardias. |
+| 1 | B-NR | 4. Synchronized cardioversion is recommended for acute treatment of adult patients with hemodynamically stable narrow-complex tachycardias when vagal maneuvers and pharmacological therapy is ineffective or contraindicated. |
+| 2a | B-R | 5. Intravenous diltiazem or verapamil can be effective for acute treatment of adult patients with hemodynamically stable narrow-complex tachycardias that are regular. |
+| 2a | C-LD | 6. Intravenous diltiazem or verapamil can be effective for acute treatment of adult patients with hemodynamically stable narrow-complex tachycardias that are regular. |
+
+## Synopsis
+
+In most patients narrow complex tachycardias (NCTs), which include sinus tachycardia, atrial flutter, AV nodal reentrant tachycardia, AV reentrant tachycardia, and other atrial tachycardia, and previously referred to imprecisely as supraventricular tachycardia, generally are not hemodynamically unstable., and health care professionals have an opportunity to attempt vagal maneuvers. Adenosine may also be effective in terminating arrhythmias in these patients. For hemodynamically unstable patients with NCTs, electrical therapies are warranted [Figure 6]. However, there must be a reasonable expectation that the NCT is causing instability rather than being a manifestation of instability caused by another clinical diagnosis (eg, sepsis).
+
+Hemodynamically unstable patients with NCT may have hypotension, acutely altered mental status, signs of shock, chest pain, or acute heart failure. Most patients with NCTs have conversion success rates of up to 98% with vagal maneuvers, pharmacological management, or both, described below (eg, adenosine, diltiazem, verapamil).
+
+If nasally administered calcium channel blockers become available in the future, they will be evaluated for their efficacy and safety and considered for inclusion in these guidelines and the corresponding treatment algorithm.1-3
+
+These recommendations are supported by the 2015 American College of Cardiology, AHA, and Heart Rhythm Society Guidelines for the Management of Adult Patients With Supraventricular Tachycardia and a 2025 evidence update.
+
+#### Recommendation-Specific Supportive Text
+
+1. The Valsalva maneuver is effective in terminating 20 to 30% of NCTs.4,5 With modified techniques, termination improves to up to 50%.6-9 Vagal maneuvers include having the patient blow into a 10 cc syringe, bearing down, and carotid massage. However, more effective approaches have been described, such as passive leg raise, supine repositioning, and passive leg elevation immediately after Valsalva, blowing into a syringe attached to a sphygmomanometer, and pressing the epigastric region 10 seconds after Valsalva. When performing carotid message, caution is advised because the technique can precipitate a stroke in patients with carotid atherosclerosis.
+2. Adenosine has demonstrated very high rates of conversion of AV nodal reentrant tachycardia, AV reentrant tachycardia, and many atrial tachycardias.10 It also blocks the AV node, confirming a diagnosis of atrial flutter or fibrillation. Adenosine has a very short half-life and may be less effective if infused in a peripheral vein. Adequate dosing is assured by alteration of the NCT, including termination or the patient’s symptoms of flushing and a feeling of dread. Adenosine may have profound effects in patients with central lines or post–heart transplant patients; 1 mg IV may be adequate to terminate the NCT. Adenosine can cause severe bronchospasm in patients with asthma, and thus, is contraindicated.
+3. In hemodynamically unstable patients with NCT, it is critical to promptly restore sinus rhythm. If unstable, immediate cardioversion is warranted.11
+4. Cardioversion can be used to treat stable patients with NCT not responsive to vagal maneuvers and pharmacological therapy.11 Assessment of a patient’s mental status and clinical stability is important when the appropriateness of sedation is considered before cardioversion.
+5. IV diltiazem and verapamil convert NCT to normal sinus rhythm in 64% to 98% of patients. The efficacy of verapamil is similar to adenosine but with significant concerns for inducing hypotension.12-18 Diltiazem and verapamil are particularly useful in patients with recurrent supraventricular tachycardia after treatment with adenosine because they are longer acting. Hypotension is a common side effect, and these medications must be infused slowly.19 For patients with NCT and suspicion of systolic heart failure, diltiazem and verapamil are best avoided.
+6. Intravenous β-adrenergic blockers are generally safe and have been shown to terminate NCT in adult patients with hemodynamically stable narrow-complex tachycardias that are regular.
+
+18Atrial Fibrillation or Flutter with Rapid Ventricular Response 18.1Electrical Therapies
+
+| Recommendations for Electrical Therapies for Atrial Fibrillation/Flutter |
+| --- |
+| COR | LOE | Recommendations |
+| 1 | C-LD | 1. In adult patients with hemodynamic instability attributable to atrial fibrillation or atrial flutter with rapid ventricular rates, immediate electrical cardioversion should be performed to restore sinus rhythm. |
+| 1 | C-LD | 2. Urgent direct-current cardioversion of new onset atrial fibrillation or atrial flutter with rapid ventricular rates in the setting of acute coronary syndrome is recommended for adult patients with hemodynamic compromise, ongoing ischemia, or inadequate rate control. |
+| 2a | B-R | 3. For synchronized cardioversion of atrial fibrillation in adults using any currently US- approved biphasic waveform defibrillator, an initial energy setting of at least 200 J is reasonable and incremented in the event of shock failure, depending on the biphasic defibrillator used. |
+| 2b | B-R | 4. The usefulness of double synchronized cardioversion of atrial fibrillation in adults as an initial treatment strategy is uncertain. |
+| 2b | C-LD | 5. For synchronized cardioversion of atrial flutter in adults, an initial energy setting of 200 J may be reasonable and incremented in the event of shock failure, depending on the biphasic defibrillator used. |
+| 2b | C-LD | 6. The usefulness of double synchronized cardioversion as a rescue treatment for shock- refractory atrial fibrillation in adults is uncertain. |
+
+## Synopsis
+
+Atrial fibrillation (AF) is a disorganized atrial rhythm due to multiple reentry (self- circulating) circuits throughout atrial myocardium. Atrial flutter is a more organized tachyarrhythmia caused by a single macro reentrant atrial circuit. The two arrhythmias are common, often co-exist, and are treated similarly. Treating AF/flutter with rapid ventricular rates depends on hemodynamic stability. Unstable patients and those with rate-related ischemia often need urgent electrical cardioversion [Figure 7]. Stable patients can be treated pharmacologically to achieve rate or rhythm-control. Conversion of AF/flutter greater than 48 hours in nonanticoagulated patients risks thromboembolic events. For acute Af/flutter assessed as less than 48 hours, decision making is more nuanced requiring expert consultation unless emergent cardioversion is needed. Pre-excited AF/flutter (Wolff- Parkinson-White) is covered under Wide-Complex Tachycardias.1
+
+Electrical cardioversion is influenced by many factors. Technical features (beyond energy setting) affecting shock success include pad dimensions, pad location, minimizing impedance barriers, shock waveform, and timing (proper electrocardiogram synchronization).2,3 Clinical factors influencing cardioversion outcome include body habitus, cardiac status (ventricular function, atrial size), rhythm duration, and concomitant medication use. Any of these, alone or together, can affect outcome as much or more than the energy setting itself.4,5 Apart from energy, electrical cardioversion requires regard for the details of how the procedure itself is conducted and the characteristics of the patient in whom it is performed.6
+
+These recommendations are supported by the “2023 ACC/AHA/ACCP/HRS Guideline for the Management of Atrial Fibrillation” and a 2025 evidence update.
+
+#### Recommendation-Specific Supportive Text
+
+1. and 2. Uncontrolled tachycardia may impair ventricular filling, cardiac output, and coronary perfusion while increasing myocardial oxygen demand. While an expeditious trial of medications, intravenous fluids, or both may be appropriate in some cases, unstable patients or patients with ongoing cardiac ischemia caused or exacerbated by atrial fibrillation/flutter require prompt cardioversion.7-9 One should also consider whether the arrhythmia is causative or secondary to a rapid ventricular response driven by underlying factors (eg, sepsis), as this may guide initial pharmacologic strategies for hemodynamic stabilization. Limited data exist on these strategies in hemodynamically unstable patients; however, the hemodynamic benefits of successful cardioversion have been documented.10,11 In addition, risk of hypotension and hypoperfusion with negative inotropes have been demonstrated even in normotensive patients.12-14 Hemodynamically unstable patients and those with ongoing cardiac ischemia are likely to benefit from improved hemodynamic status from immediate restoration of sinus rhythm and avoidance of hypotension caused by pharmacological therapies. Depending on the clinical scenario, patients cardioverted from atrial fibrillation/flutter of greater than 48 hours’ duration are candidates for anticoagulation. Appropriate selection of patients and medications for anticoagulation are addressed elsewhere and beyond the scope of these guidelines.1
+
+3. Guidance for monophasic waveform cardioversion of AF/flutter is found in previous guidelines,15 displaced by biphasic waveforms due to their greater efficacy. Given proprietary differences in electrical characteristics, guidelines previously deferred biphasic cardioversion energy settings to manufacturer specifications.16 However, interim randomized head-to-head trials together with a network meta-analysis involving greater than 3000 AF patients found that 200-J shocks achieved greater than 90% cumulative cardioversion success across all 3 biphasic platforms currently available in the United States.6,17-21 Previous guidelines advocated lower energy settings over concerns that higher energies posed greater risk for cardiac injury and complications.18,22-25 Subsequent clinical studies observed no association between starting biphasic shock energies of up to 360 J with energy-associated elevations in cardiac-specific enzymes, post cardioversion arrhythmias, cardiac dysfunction, or other sequelae.26-28 Notably, low-energy monophasic shocks were significantly more likely to provoke VF when cardioverting AF, and AF when cardioverting atrial flutter than a 200-J or greater setting.29 This observation is consistent with the upper limit of vulnerability principle: that an energy threshold exists above which a shock will not induce fibrillation.30,31 A higher starting energy was also found to be more efficient than “starting low, titrating higher” approaches, achieved greater first-shock cardioversion success, required fewer overall shocks, and could shorten the period of anesthesia needed for serial shock attempts.18,22 Considering efficacy, safety, efficiency, simplicity, and consistency with other professional guidelines, evidence supports a starting energy of 200 J.16-21 Regardless of energy setting, appropriate sedation for cardioversion is advisable in awake patients, given shock is a painful procedure.
+
+4. One approach to synchronized cardioversion is double synchronized cardioversion. Administering 2 simultaneously-synchronized high-energy shocks from separate defibrillators and pads has been described anecdotally, in small case series, and a single randomized trial. As an “initial” cardioversion strategy, a modestly-sized randomized trial comprised of class II obesity patients (39% had prior cardioversion attempts) found first shock efficacy improved with 400 J double synchronized cardioversion vs. 200 J synchronized cardioversion (98% versus 87%, p=0.002).32 Although not consistently reported, double synchronized cardioversion has not been associated with proarrhythmia, hemodynamic complications, cardiac-specific enzyme elevation,28 or post procedure discomfort but has caused defibrillator damage.33 A concern in all studies has been the vagueness of procedural specifications, particularly how 2 independently-initiated shocks from separate defibrillators being reliably simultaneously-synchronized was assured.34 Given the high success of optimal synchronized cardioversion using biphasic waveforms, the incremental benefit from double synchronized cardioversion is modest.
+
+5. Organized rhythms like atrial flutter, caused by a discrete reentry circuit, require less energy for termination than AF, whose multiple reentry circuits broadly engulf the atrial myocardium.35 However, periodic transitions between the two arrhythmias are common. Distinguishing AF from flutter in an emergent setting with only single-lead monitoring can be challenging. Studies evaluating rectilinear and truncated exponential biphasic waveforms available in the United States, while indirect and fewer in number than for AF, have shown comparable cumulative cardioversion success for atrial flutter between these waveforms at the same energy settings, ranging from 50% to 75% at 50 J, improving to 85% to 90% at 100 J, and approaching 100% at 200 J.23,28,36,37,38 Using a higher (200 J) initial energy setting for flutter cardioversion also affords shorter procedural times without causing cardiac injury or compromising safety,23,26,36-38 accompanied by a lower risk of provoking AF or undertreating AF if mistaken as flutter.27,36 The likelihood of greater efficacy, efficiency, and simplicity, without safety concerns, supports a starting energy of 200 J for flutter cardioversion using any currently US-marketed biphasic defibrillator; incremented in the event of shock failure, depending on the defibrillator’s features.23,28,36,37
+
+6. Shock-refractory AF, defined as AF that remains incessant after maximum-energy shocks, is relatively uncommon with biphasic shock waveforms, and distinguished from recurrent AF, which returns after an initially successful shock. As in many situations, shock success can be optimized by minimizing transthoracic impedance3 by improving pad-skin contact and applying pad pressure; relocating pads to redirect the shock vector; or adding antiarrhythmic drugs to alter the defibrillation threshold.2,5,6,39- 40 Another possibility is the use of double synchronized cardioversion.41 Data on this approach are limited including procedural uncertainties described above (item 4). Observational studies found double-synchronized cardioversion to be successful in 75% to 100% of patients who had previously failed standard cardioversion.41,42,43 Alternatively, a large prospective observational study evaluated a systematic approach to shock-refractory AF. It found applied pad pressure improved synchronized cardioversion success from 87% to 93% and with pad repositioning to 96%, after which the added increment from double-synchronized cardioversion only modestly improved to 98%.2
+
+---
+
+Figure 7. Electrical Cardioversion Algorithm IV indicates intravenous; VT, ventricular tachycardia.
+
+PDF Download
+
+18.2Medical Therapies
+
+| Recommendations for Medical Therapies for Atrial Fibrillation/Flutter |
+| --- |
+| COR | LOE | Recommendations |
+| 1 | B-NR | 1. IV administration of a β-adrenergic blocker or nondihydropyridine calcium channel antagonist is recommended to slow the ventricular heart rate in the acute setting in adult patients with atrial fibrillation or atrial flutter with rapid ventricular response without preexcitation. |
+| 2a | B-NR | 2. IV amiodarone can be useful for rate control in critically ill adult patients with atrial fibrillation with rapid ventricular response without preexcitation. |
+| 3: Harm | C-LD | 3. In adult patients with preexcitation atrial fibrillation or atrial flutter, digoxin, nondihydropyridine calcium channel antagonists, β-adrenergic blockers, and IV amiodarone should not be administered because they may increase the ventricular response and result in VF. |
+| 3: Harm | C-EO | 4. Nondihydropyridine calcium channel antagonists and IV β-adrenergic blockers should not be used in adult patients with left ventricular systolic dysfunction and decompensated heart failure because these may lead to further hemodynamic compromise. |
+
+## Synopsis
+
+Control of rapid heart rates in the emergency setting are achievable using an intravenous nondihydropyridine calcium channel antagonist (eg, diltiazem, verapamil) or β-adrenergic blocker (eg, metoprolol, esmolol). Pharmacologic rhythm control (chemical cardioversion) employs intravenous drugs such as amiodarone, procainamide, or sotalol to convert AF/flutter to sinus rhythm and prevent its recurrence. Amiodarone is unique in that it can also be used for rate control in patients with heart failure in whom calcium channel or β-adrenergic blockers may not be tolerated.
+
+These recommendations are supported by the "2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation" and a 2025 evidence update.1
+
+#### Recommendation-Specific Supportive Text
+
+1. Clinical trial evidence shows that nondihydropyridine calcium channel antagonists (eg, diltiazem, verapamil) and β-adrenergic blockers (eg, metoprolol, esmolol, propranolol), are effective for rate control in patients with atrial fibrillation/flutter.2-9 Systematic reviews show that IV diltiazem improves heart rate control in atrial fibrillation/flutter without preexcitation with rapid ventricular response when compared to IV metoprolol.10-18 However, most of the included studies were limited by small sample size, retrospective data, and many did not report relevant clinical outcomes and comorbidities. Randomized clinical trials examining verapamil are lacking, thus, diltiazem is generally preferred.
+2. Amiodarone is effective for rate control in patients with atrial fibrillation/flutter without preexcitation in patients with contraindications for nondihydropyridine calcium channel antagonists or β-adrenergic blockers.2-9 Digoxin is less commonly used in the acute setting because of the slow onset of effect.19-21 In an observational study, the optimal amiodarone dosing for heart rate control (less than 115–80 beats/min) was examined in 80 critically ill patients, most with cardiogenic shock or sepsis.22 The dose needed to achieve heart rate control was nearly twice as high in patients with persistent versus paroxysmal atrial arrhythmias, but patients who were taking amiodarone prior to intensive care unit admission required lower doses.
+3. Based on limited case reports and small case series, there is concern that patients with concomitant preexcitation and atrial fibrillation or atrial flutter may develop VF in response to accelerated ventricular response after the administration of AV nodal blocking agents such as digoxin, nondihydropyridine calcium channel antagonists, β-adrenergic blockers, or IV amiodarone.23-26 In this setting, cardioversion is recommended as the most appropriate management.
+4. Because of their negative inotropic effect, nondihydropyridine calcium channel antagonists (eg, diltiazem, verapamil) may further decompensate patients with left ventricular systolic dysfunction and symptomatic heart failure.7 Patients with heart failure with preserved ejection fraction may tolerate better nondihydropyridine calcium channel antagonists. While β-blockers can be safe in patients with cardiomyopathy, they can be harmful in patients who are decompensated.20,21,27 Limited evidence suggests that intravenous diltiazem may cause increased risk of decompensation compared to intravenous β- adrenergic blockers, but more data are needed to support preferential use.28 Multiple studies have demonstrated β-adrenergic blockers are safe for use in patients with chronic obstructive pulmonary disease.29
+
+Refer to Table 2.
+
+# Table 2. IV Medications Commonly Used for Acute Rate Control in Atrial Fibrillation and Atrial Flutter
+
+| Table 2. IV Medications Commonly Used for Acute Rate Control in Atrial Fibrillation and Atrial Flutter |
+| --- |
+| Medication | Bolus dose | Infusion rate | Notes |
+| Nondihydropyridine calcium channel blockers |
+| Diltiazem | 0.25 mg/kg IV bolus over 2 min | 5–10 mg/h | Avoid in hypotension, heart failure, cardiomyopathy, and acute coronary syndromes |
+| Verapamil | 0.075–0.15 mg/kg IV bolus over 2 min; may give an additional dose after 30 min if no response | 0.005 mg/kg per min | Avoid in hypotension, heart failure, cardiomyopathy, acute and coronary syndromes |
+| β-Adrenergic blockers |
+| Metoprolol | 2.5–5 mg over 2 min, up to 3 doses | Avoid in decompensated heart failure |
+| Esmolol | 500 mcg/kg IV over 1 min | 50–300 mcg/kg per min | Short duration of action; avoid in decompensated heart failure |
+| Propranolol | 1 mg IV over 1 min, up to 3 doses | Avoid in decompensated heart failure |
+| Other medications |
+| Amiodarone | 300 mg IV over 1 h | 10–50 mg/h over 24 h | Multiple dosing schemes exist for amiodarone |
+| Digoxin | 0.25 mg IV, repeated to maximum dose 1.5 mg over 24 h | Typically used as adjunctive therapy with another option from above; caution in patients with renal impairment |
+
+19Initial Management of Bradycardia
+
+| Recommendations for Initial Management of Bradycardia |
+| --- |
+| COR | LOE | Recommendations |
+| 1 | C-EO | 1. In adult patients presenting with acute symptomatic bradycardia, evaluation and treatment of reversible causes are recommended. |
+| 2a | B-NR | 2. In adult patients with acute bradycardia associated with hemodynamic compromise, administration of atropine is reasonable to increase heart rate. |
+| 2a | C-LD | 3. In adult patients with persistent hemodynamically unstable bradycardia refractory to medical therapy, temporary transvenous pacing is reasonable to increase heart rate and improve symptoms. |
+| 2b | C-LD | 4. If bradycardia is unresponsive to atropine, IV adrenergic agonists with rate-accelerating effects (eg, epinephrine, dopamine) or transcutaneous pacing may be effective while the adult patient is prepared for emergent transvenous temporary pacing if required. |
+| 2b | C-EO | 5. Immediate pacing might be considered in unstable adult patients with high-degree AV block when IV/IO access is not available. |
+
+## Synopsis
+
+Bradycardia has historically been defined as a ventricular heart rate of less than 60/min. However, the “2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay” adopted a lower threshold of less than 50/min, reflecting population studies that commonly use this lower cutoff.1 Bradycardia can be a normal finding in healthy adults, athletes, or during sleep.1 The clinical manifestation of bradycardia ranges from stable (asymptomatic) through symptomatic to unstable (symptomatic and associated with signs of poor perfusion). Patients with symptomatic bradycardia can present with dizziness or lightheadedness, acute altered mental status, ischemic chest discomfort, acute heart failure, hypotension, or syncope due to decreased cardiac output and tissue hypoperfusion. Clinicians must evaluate bradycardia within the clinical context to determine whether it is a manifestation of another underlying disease process (eg, myocardial ischemia, hypoxia, electrolyte disturbance, acidosis, hypothermia) or the primary driver of the clinical presentation. Immediate treatment of symptomatic bradycardia as described in Figure 8 is focused on both supporting perfusion and identifying and reversing the underlying cause(s). The 2018 ACC/AHA/HRS Guideline provides comprehensive recommendations on the evaluation and management of chronic stable and unstable bradycardia.
+
+These recommendations remain supported by the 2018 ACC/AHA/HRS Guideline and a 2025 evidence update.
+
+#### Recommendation-Specific Supportive Text
+
+1. Symptomatic bradycardia may be caused by a number of potentially reversible or treatable causes, including myocardial ischemia, hypoxemia, hypothyroidism, infections, structural heart disease, increased vagal tone, metabolic derangement, electrolyte abnormalities, or medications/toxins.1 Bradycardia may be difficult to resolve without addressing the underlying cause(s), underscoring the importance of evaluating potential etiologies while simultaneously initiating emergent stabilization measures. A large retrospective review of prehospital patients undergoing transcutaneous pacing identified hypoxia and initial nonbradycardic rhythms as factors associated with pacing failure and increased mortality, emphasizing the critical need to address underlying causes alongside stabilization efforts.2
+2. Atropine has been shown to be effective for the treatment of symptomatic bradycardia in observational studies.3-7 In a study in patients with OHCA and a nonshockable heart rhythm (asystole or pulseless electrical activity), the addition of atropine following epinephrine was a predictor of survival to hospital admission.8 In a study among patients with IHCA, the administration of atropine for nonshockable heart rhythms did not improve survival.9
+3. When symptomatic bradycardia is refractory to medical management, cardiac pacing is a reasonable alternative. Transcutaneous pacing is noninvasive, can be performed quickly at bedside, and is typically used as a bridge to placement of a temporary transvenous pacing catheter. Transcutaneous pacing is often painful in the conscious patient and procedural tolerance may necessitate sedation. Evidence for transvenous pacing consists of limited observational studies, many of which have focused on indications and the relatively high complication rate (including bloodstream infections and pneumothorax, among others).10-13 When the heart rate does not improve with medications and shock persists, transvenous pacing can improve the heart rate and symptoms until more definitive treatment (correction of underlying cause or permanent pacemaker placement) can be implemented.
+4. If atropine is ineffective, alternative agents to increase heart rate and blood pressure or transcutaneous pacing are reasonable alternatives. For medical management of a periarrest patient, epinephrine has gained popularity, including IV infusion and use of “push-dose” administration for acute bradycardia and hypotension. Studies on push-dose epinephrine for bradycardia specifically are lacking, although limited data support its use for hypotension.14,15 Use of push-dose vasopressors require careful attention to correct dosing. Medication errors and adverse hemodynamic effects have been reported.16 Dopamine infusion can also increase heart rate.17 There are limited studies comparing medications to transcutaneous pacing for the treatment of bradycardia. A randomized feasibility study in patients failing atropine compared dopamine to transcutaneous pacing and found no difference in survival to discharge.17 Whether to trial transcutaneous pacing, epinephrine, dopamine, or other vasoactive agent will likely, therefore, depend on clinician experience and resources available.
+5. For severe symptomatic bradycardia causing shock, if no IV or IO access is available, immediate transcutaneous pacing while access is being pursued may be undertaken. A 2006 systematic review involving seven studies of transcutaneous pacing for symptomatic bradycardia and bradyasystolic cardiac arrest in the prehospital setting did not find a benefit from pacing compared with standard ALS, although a subgroup analysis from a single trial suggested a possible benefit in patients with symptomatic bradycardia.18 More recent studies have underscored persistent challenges for clinicians in achieving and maintaining both electrical and mechanical capture during pacing.19,20 These difficulties may limit patient benefit in certain scenarios, emphasizing the need for improved methods to distinguish true electrical capture from false capture. Future research is needed to determine optimal pad placement and develop reliable methods for confirming initial and sustained capture, such as the practicality and preferred location of pulse palpation, hemodynamic findings, pulse oximetry characteristics, continuous ETCO₂ monitoring, and ultrasound.
+
+---
+
+Figure 8 – Adult Bradycardia with a Pulse Algorithm
+
+PDF Download Accessible Version
+
+20Article Information
+
+The American Heart Association requests that this document be cited as follows: Wigginton JG, Agarwal S, Bartos JA, Coute RA, Drennan IR, Haamid A, Kudenchuk PJ, Link MS, Panchal AR, Pelter MM, Del Rios M, Rodriguez AJ, Perman SM, Sanko S, Kotini-Shah P, Kurz MC. Part 9: advanced life support: 2025 American Heart Association guidelines for cardiopulmonary resuscitation and emergency cardiovascular care. Circulation. 2025;152(suppl 2):S538–S577. doi: 10.1161/CIR.0000000000001376
+
+20.1Authors
+
+- Jane G. Wigginton, MD, MSCS, Vice Chair
+- Sachin Agarwal, MD, MPH
+- Jason A, Bartos, MD, PhD
+- Ryan A. Coute, DO
+- Ian R. Drennan, ACP, PhD
+- Ameera Haamid, MD
+- Peter J. Kudenchuk, MD
+- Mark S. Link, MD
+- Ashish R. Panchal, MD, PhD
+- Michele M. Pelter, RN, PhD
+- Marina Del Rios, MD, MS
+- Amber J Rodriguez, PhD
+- Sarah M. Perman, MD, MSCE
+- Stephen Sanko, MD
+- Pavitra Kotini-Shah, MD
+- Michael C. Kurz, MD, MS, Chair
+
+20.2Acknowledgments
+
+The ALS Writing Group would like to acknowledge Drs Matthew Neth and Sean Morgan of the BLS Writing Group for their contributions to recommendations regarding Adjuncts for Performance of CPR.
+
+20.3Disclosures
+
+Author Disclosures
+
+Open table in a new window.
+
+Reviewer Disclosures
+
+Open table in a new window.

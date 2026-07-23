@@ -1,0 +1,956 @@
+  Determining projects to restore...
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.threading.tasks.extensions/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.identity.stores/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.collections.immutable/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.memory/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.numerics.vectors/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.threading.channels/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.buffers/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection.abstractions/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Serilog.Sinks.File.7.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.sinks.file/7.0.0/serilog.sinks.file.7.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/serilog.sinks.file/7.0.0/serilog.sinks.file.7.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.io.pipelines/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.analyzers/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.AspNetCore.OpenApi.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.openapi/9.0.11/microsoft.aspnetcore.openapi.9.0.11.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.openapi/9.0.11/microsoft.aspnetcore.openapi.9.0.11.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Ardalis.Specification.9.3.1' from 'https://api.nuget.org/v3-flatcontainer/ardalis.specification/9.3.1/ardalis.specification.9.3.1.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/ardalis.specification/9.3.1/ardalis.specification.9.3.1.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.Extensions.Logging.Abstractions.10.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging.abstractions/10.0.0/microsoft.extensions.logging.abstractions.10.0.0.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.NETCore.App.Ref.9.0.16' from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.ref/9.0.16/microsoft.netcore.app.ref.9.0.16.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.ref/9.0.16/microsoft.netcore.app.ref.9.0.16.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Humanizer.Core.2.14.1' from 'https://api.nuget.org/v3-flatcontainer/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.io.pipelines/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'.
+  The HTTP request to 'GET https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json' has timed out after 100000ms.
+  Failed to download package 'System.IdentityModel.Tokens.Jwt.8.15.0' from 'https://api.nuget.org/v3-flatcontainer/system.identitymodel.tokens.jwt/8.15.0/system.identitymodel.tokens.jwt.8.15.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/system.identitymodel.tokens.jwt/8.15.0/system.identitymodel.tokens.jwt.8.15.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.Extensions.DependencyModel.9.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencymodel/9.0.0/microsoft.extensions.dependencymodel.9.0.0.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Humanizer.Core.2.14.1' from 'https://api.nuget.org/v3-flatcontainer/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.IdentityModel.Protocols.OpenIdConnect.8.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.protocols.openidconnect/8.0.1/microsoft.identitymodel.protocols.openidconnect.8.0.1.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.IdentityModel.Protocols.OpenIdConnect.8.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.protocols.openidconnect/8.0.1/microsoft.identitymodel.protocols.openidconnect.8.0.1.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.Extensions.DependencyModel.9.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencymodel/9.0.0/microsoft.extensions.dependencymodel.9.0.0.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/namotion.reflection/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/nswag.generation.aspnetcore/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/njsonschema/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/njsonschema.newtonsoftjson/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/nswag.annotations/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.binder/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/njsonschema.yaml/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/nswag.core.yaml/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Microsoft.OpenApi.1.6.17' from 'https://api.nuget.org/v3-flatcontainer/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Microsoft.Extensions.Diagnostics.HealthChecks.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks/9.0.11/microsoft.extensions.diagnostics.healthchecks.9.0.11.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.Data.SqlClient.5.2.2' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.2.2/microsoft.data.sqlclient.5.2.2.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.2.2/microsoft.data.sqlclient.5.2.2.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Mono.TextTemplating.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/mono.texttemplating/3.0.0/mono.texttemplating.3.0.0.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.Extensions.DependencyModel.9.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencymodel/9.0.0/microsoft.extensions.dependencymodel.9.0.0.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.io.pipelines/index.json'.
+  The HTTP request to 'GET https://api.nuget.org/v3-flatcontainer/system.io.pipelines/index.json' has timed out after 100000ms.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Microsoft.Extensions.Caching.Memory.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/9.0.11/microsoft.extensions.caching.memory.9.0.11.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Microsoft.Data.SqlClient.5.2.2' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.2.2/microsoft.data.sqlclient.5.2.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Microsoft.Extensions.Configuration.Binder.9.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.binder/9.0.0/microsoft.extensions.configuration.binder.9.0.0.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/njsonschema/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'System.Diagnostics.DiagnosticSource.10.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/10.0.0/system.diagnostics.diagnosticsource.10.0.0.nupkg'.
+  The HTTP request to 'GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/10.0.0/system.diagnostics.diagnosticsource.10.0.0.nupkg' has timed out after 100000ms.
+  Failed to download package 'NJsonSchema.Yaml.11.5.2' from 'https://api.nuget.org/v3-flatcontainer/njsonschema.yaml/11.5.2/njsonschema.yaml.11.5.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Microsoft.Extensions.DependencyModel.9.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencymodel/9.0.0/microsoft.extensions.dependencymodel.9.0.0.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'NSwag.Generation.AspNetCore.14.6.3' from 'https://api.nuget.org/v3-flatcontainer/nswag.generation.aspnetcore/14.6.3/nswag.generation.aspnetcore.14.6.3.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.io.pipelines/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Serilog.Formatting.Compact.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/3.0.0/serilog.formatting.compact.3.0.0.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'NJsonSchema.NewtonsoftJson.11.5.2' from 'https://api.nuget.org/v3-flatcontainer/njsonschema.newtonsoftjson/11.5.2/njsonschema.newtonsoftjson.11.5.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Microsoft.Data.SqlClient.5.2.2' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.2.2/microsoft.data.sqlclient.5.2.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Microsoft.Extensions.Configuration.Binder.9.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.binder/9.0.0/microsoft.extensions.configuration.binder.9.0.0.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Serilog.Sinks.Debug.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.sinks.debug/3.0.0/serilog.sinks.debug.3.0.0.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.Extensions.DependencyModel.9.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencymodel/9.0.0/microsoft.extensions.dependencymodel.9.0.0.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Serilog.Formatting.Compact.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/3.0.0/serilog.formatting.compact.3.0.0.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.io.pipelines/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'NJsonSchema.Yaml.11.5.2' from 'https://api.nuget.org/v3-flatcontainer/njsonschema.yaml/11.5.2/njsonschema.yaml.11.5.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Microsoft.Extensions.Configuration.Binder.9.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.binder/9.0.0/microsoft.extensions.configuration.binder.9.0.0.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Microsoft.Data.SqlClient.5.2.2' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.2.2/microsoft.data.sqlclient.5.2.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'NJsonSchema.NewtonsoftJson.11.5.2' from 'https://api.nuget.org/v3-flatcontainer/njsonschema.newtonsoftjson/11.5.2/njsonschema.newtonsoftjson.11.5.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'NSwag.Generation.AspNetCore.14.6.3' from 'https://api.nuget.org/v3-flatcontainer/nswag.generation.aspnetcore/14.6.3/nswag.generation.aspnetcore.14.6.3.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CodeAnalysis.CSharp.Workspaces' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   No such host is known. (api.nuget.org:443)
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   No such host is known.
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CodeAnalysis.CSharp.Workspaces' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   No such host is known. (api.nuget.org:443) [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   No such host is known. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Serilog.Formatting.Compact.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/3.0.0/serilog.formatting.compact.3.0.0.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'NJsonSchema.Yaml.11.5.2' from 'https://api.nuget.org/v3-flatcontainer/njsonschema.yaml/11.5.2/njsonschema.yaml.11.5.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Microsoft.Data.SqlClient.5.2.2' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.2.2/microsoft.data.sqlclient.5.2.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'NSwag.Generation.AspNetCore.14.6.3' from 'https://api.nuget.org/v3-flatcontainer/nswag.generation.aspnetcore/14.6.3/nswag.generation.aspnetcore.14.6.3.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'NJsonSchema.NewtonsoftJson.11.5.2' from 'https://api.nuget.org/v3-flatcontainer/njsonschema.newtonsoftjson/11.5.2/njsonschema.newtonsoftjson.11.5.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'System.IO.Pipelines' from remote source 'https://api.nuget.org/v3-flatcontainer/system.io.pipelines/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   No such host is known. (api.nuget.org:443) [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   No such host is known. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'NJsonSchema.11.5.2' from 'https://api.nuget.org/v3-flatcontainer/njsonschema/11.5.2/njsonschema.11.5.2.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'NJsonSchema.Yaml.11.5.2' from 'https://api.nuget.org/v3-flatcontainer/njsonschema.yaml/11.5.2/njsonschema.yaml.11.5.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.Data.SqlClient.5.2.2' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.2.2/microsoft.data.sqlclient.5.2.2.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : No such host is known. (api.nuget.org:443) [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   No such host is known. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'NSwag.Generation.AspNetCore.14.6.3' from 'https://api.nuget.org/v3-flatcontainer/nswag.generation.aspnetcore/14.6.3/nswag.generation.aspnetcore.14.6.3.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Serilog.Formatting.Compact.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/3.0.0/serilog.formatting.compact.3.0.0.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301: Failed to retrieve information about 'Newtonsoft.Json' from remote source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   No such host is known. (api.nuget.org:443)
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   No such host is known.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.logging/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'NJsonSchema.Yaml.11.5.2' from 'https://api.nuget.org/v3-flatcontainer/njsonschema.yaml/11.5.2/njsonschema.yaml.11.5.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'NJsonSchema.11.5.2' from 'https://api.nuget.org/v3-flatcontainer/njsonschema/11.5.2/njsonschema.11.5.2.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'NSwag.Generation.AspNetCore.14.6.3' from 'https://api.nuget.org/v3-flatcontainer/nswag.generation.aspnetcore/14.6.3/nswag.generation.aspnetcore.14.6.3.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Serilog.Formatting.Compact.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/3.0.0/serilog.formatting.compact.3.0.0.nupkg'.
+  No such host is known. (api.nuget.org:443)
+    No such host is known.
+  Failed to download package 'Namotion.Reflection.3.4.3' from 'https://api.nuget.org/v3-flatcontainer/namotion.reflection/3.4.3/namotion.reflection.3.4.3.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' from 'https://api.nuget.org/v3-flatcontainer/stimulsoft.reports.engine.netcore/2023.1.1/stimulsoft.reports.engine.netcore.2023.1.1.nupkg'.
+  The response ended prematurely, with at least 4063856 additional bytes expected. (ResponseEnded)
+  Failed to download package 'Microsoft.Extensions.Logging.Abstractions.8.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.Data.SqlClient.5.2.2' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to restore D:\Elay_Backend-master\Customer\Api\Api.csproj (in 4.88 min).
+  Restored D:\Elay_Backend-master\Share\Share\Share.csproj (in 4.96 min).
+  Restored D:\Elay_Backend-master\Customer\Core\Domain\Domain.csproj (in 5.06 min).
+  Restored D:\Elay_Backend-master\Share\SharedKernel.Domain\SharedKernel.Domain.csproj (in 5.06 min).
+  Failed to download package 'Serilog.Sinks.Debug.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.sinks.debug/3.0.0/serilog.sinks.debug.3.0.0.nupkg'.
+  The HTTP request to 'GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.debug/3.0.0/serilog.sinks.debug.3.0.0.nupkg' has timed out after 100000ms.
+  Failed to download package 'FreeSpire.Doc.14.4.0' from 'https://api.nuget.org/v3-flatcontainer/freespire.doc/14.4.0/freespire.doc.14.4.0.nupkg'.
+  The response ended prematurely, with at least 8321120 additional bytes expected. (ResponseEnded)
+  Failed to download package 'Microsoft.Data.SqlClient.5.1.6' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.1.6/microsoft.data.sqlclient.5.1.6.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.formats.asn1/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'Newtonsoft.Json' from remote source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   No such host is known. (api.nuget.org:443) [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   No such host is known. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to restore D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj (in 7.02 min).
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.threading/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.runtime/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.codedom/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Runtime.CompilerServices.Unsafe.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.data.odbc/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.globalization/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.data.oledb/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/sixlabors.fonts/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.win32.systemevents/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.threading.thread/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/stimulsoft.svg/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.identity.core/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp.drawing/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.abstractions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Text.Encoding.CodePages.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.resources.extensions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.win32.systemevents/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.data.oledb/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp.drawing/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.codedom/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.identity.core/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.data.odbc/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/sixlabors.fonts/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.threading.thread/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Runtime.CompilerServices.Unsafe.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.globalization/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Text.Encoding.CodePages.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.runtime/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/stimulsoft.svg/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.resources.extensions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.threading/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.abstractions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.threading.thread/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.data.oledb/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.win32.systemevents/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/sixlabors.fonts/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Text.Encoding.CodePages.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.globalization/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.data.odbc/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.identity.core/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Runtime.CompilerServices.Unsafe.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.abstractions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.threading/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.resources.extensions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.runtime/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'Newtonsoft.Json' from remote source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   No such host is known. (api.nuget.org:443) [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   No such host is known. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'Newtonsoft.Json' from remote source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   No such host is known. (api.nuget.org:443) [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   No such host is known. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'System.Runtime.CompilerServices.Unsafe.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.globalization/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.data.odbc/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.abstractions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.threading/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.resources.extensions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Buffers.4.5.1' from 'https://api.nuget.org/v3-flatcontainer/system.buffers/4.5.1/system.buffers.4.5.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.http.features/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Extensions.Dependencyinjection.Abstractions.2.1.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection.abstractions/2.1.0/microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Memory.4.5.5' from 'https://api.nuget.org/v3-flatcontainer/system.memory/4.5.5/system.memory.4.5.5.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.entityframeworkcore.abstractions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/mapster.core/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.entityframeworkcore.analyzers/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/harfbuzzsharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Text.Encoding.CodePages.4.7.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/4.7.0/system.text.encoding.codepages.4.7.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.primitives/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.text.encodings.web/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.IdentityModel.Tokens.8.15.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.tokens/8.15.0/microsoft.identitymodel.tokens.8.15.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.VisualBasic.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/4.4.0/microsoft.codeanalysis.visualbasic.4.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.4.0/microsoft.codeanalysis.csharp.4.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.IdentityModel.JsonWebTokens.8.15.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/8.15.0/microsoft.identitymodel.jsonwebtokens.8.15.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SixLabors.Fonts.1.0.0-beta19' from 'https://api.nuget.org/v3-flatcontainer/sixlabors.fonts/1.0.0-beta19/sixlabors.fonts.1.0.0-beta19.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Reflection.Emit.Lightweight.4.7.0' from 'https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/4.7.0/system.reflection.emit.lightweight.4.7.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Data.OleDb.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.data.oledb/6.0.0/system.data.oledb.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Runtime.CompilerServices.Unsafe.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.globalization/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.threading/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Extensions.Identity.Core.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.identity.core/9.0.11/microsoft.extensions.identity.core.9.0.11.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.resources.extensions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.text.encodings.web/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Win32.Registry.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.IdentityModel.JsonWebTokens.8.15.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/8.15.0/microsoft.identitymodel.jsonwebtokens.8.15.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Buffers.4.5.1' from 'https://api.nuget.org/v3-flatcontainer/system.buffers/4.5.1/system.buffers.4.5.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.4.0/microsoft.codeanalysis.csharp.4.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.entityframeworkcore.abstractions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Extensions.Dependencyinjection.Abstractions.2.1.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection.abstractions/2.1.0/microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/harfbuzzsharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Text.Encoding.CodePages.4.7.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/4.7.0/system.text.encoding.codepages.4.7.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.primitives/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.IdentityModel.Tokens.8.15.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.tokens/8.15.0/microsoft.identitymodel.tokens.8.15.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Data.OleDb.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.data.oledb/6.0.0/system.data.oledb.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SixLabors.Fonts.1.0.0-beta19' from 'https://api.nuget.org/v3-flatcontainer/sixlabors.fonts/1.0.0-beta19/sixlabors.fonts.1.0.0-beta19.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Reflection.Emit.Lightweight.4.7.0' from 'https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/4.7.0/system.reflection.emit.lightweight.4.7.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'System.Globalization' from remote source 'https://api.nuget.org/v3-flatcontainer/system.globalization/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'System.Globalization' from remote source 'https://api.nuget.org/v3-flatcontainer/system.globalization/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Microsoft.EntityFrameworkCore.Analyzers.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.entityframeworkcore.analyzers/9.0.11/microsoft.entityframeworkcore.analyzers.9.0.11.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.Extensions.Caching.Abstractions.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.abstractions/9.0.11/microsoft.extensions.caching.abstractions.9.0.11.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.entityframeworkcore.abstractions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'System.Threading' from remote source 'https://api.nuget.org/v3-flatcontainer/system.threading/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'System.Threading' from remote source 'https://api.nuget.org/v3-flatcontainer/system.threading/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'SixLabors.ImageSharp.2.1.3' from 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/2.1.3/sixlabors.imagesharp.2.1.3.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'System.Resources.Extensions' from remote source 'https://api.nuget.org/v3-flatcontainer/system.resources.extensions/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'System.Resources.Extensions' from remote source 'https://api.nuget.org/v3-flatcontainer/system.resources.extensions/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CSharp' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.csharp/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Microsoft.AspNetCore.Http.Features.2.3.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.http.features/2.3.0/microsoft.aspnetcore.http.features.2.3.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CSharp' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.csharp/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Microsoft.Win32.Registry.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'System.Buffers.4.5.1' from 'https://api.nuget.org/v3-flatcontainer/system.buffers/4.5.1/system.buffers.4.5.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.IdentityModel.Tokens.8.15.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.tokens/8.15.0/microsoft.identitymodel.tokens.8.15.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/harfbuzzsharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'System.Text.Encoding.CodePages.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg'.
+  Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'System.Runtime.CompilerServices.Unsafe.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Microsoft.Extensions.Dependencyinjection.Abstractions.2.1.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection.abstractions/2.1.0/microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.text.encodings.web/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Mapster.Core.1.2.1' from 'https://api.nuget.org/v3-flatcontainer/mapster.core/1.2.1/mapster.core.1.2.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.4.0/microsoft.codeanalysis.csharp.4.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.Extensions.Identity.Core.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.identity.core/9.0.11/microsoft.extensions.identity.core.9.0.11.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'System.Data.Odbc.6.0.1' from 'https://api.nuget.org/v3-flatcontainer/system.data.odbc/6.0.1/system.data.odbc.6.0.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'SkiaSharp.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp/3.116.1/skiasharp.3.116.1.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.primitives/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'System.Text.Encoding.CodePages.4.7.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/4.7.0/system.text.encoding.codepages.4.7.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.IdentityModel.JsonWebTokens.8.15.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/8.15.0/microsoft.identitymodel.jsonwebtokens.8.15.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'System.Threading.Thread.4.3.0' from 'https://api.nuget.org/v3-flatcontainer/system.threading.thread/4.3.0/system.threading.thread.4.3.0.nupkg'.
+  Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'System.Memory.4.5.5' from 'https://api.nuget.org/v3-flatcontainer/system.memory/4.5.5/system.memory.4.5.5.nupkg'.
+  Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.Extensions.Logging.Abstractions.8.0.3' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging.abstractions/8.0.3/microsoft.extensions.logging.abstractions.8.0.3.nupkg'.
+  Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'System.Threading.Thread.4.3.0' from 'https://api.nuget.org/v3-flatcontainer/system.threading.thread/4.3.0/system.threading.thread.4.3.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Memory.4.5.5' from 'https://api.nuget.org/v3-flatcontainer/system.memory/4.5.5/system.memory.4.5.5.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SixLabors.Fonts.1.0.0-beta19' from 'https://api.nuget.org/v3-flatcontainer/sixlabors.fonts/1.0.0-beta19/sixlabors.fonts.1.0.0-beta19.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'System.Runtime.CompilerServices.Unsafe.6.0.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'System.Runtime.CompilerServices.Unsafe.6.0.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.Data.SqlClient.5.0.1' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.Data.SqlClient.5.0.1' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'System.Memory.4.5.5' from 'https://api.nuget.org/v3-flatcontainer/system.memory/4.5.5/system.memory.4.5.5.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/harfbuzzsharp/index.json'.
+  A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (api.nuget.org:443)
+    A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/index.json'.
+  A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (api.nuget.org:443)
+    A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+  Failed to download package 'Microsoft.Extensions.Dependencyinjection.Abstractions.2.1.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection.abstractions/2.1.0/microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg'.
+  A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (api.nuget.org:443)
+    A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.entityframeworkcore.abstractions/index.json'.
+  A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (api.nuget.org:443)
+    A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+  Failed to download package 'Microsoft.AspNetCore.Http.Features.2.3.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.http.features/2.3.0/microsoft.aspnetcore.http.features.2.3.0.nupkg'.
+  A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (api.nuget.org:443)
+    A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+  Failed to download package 'System.Data.Odbc.6.0.1' from 'https://api.nuget.org/v3-flatcontainer/system.data.odbc/6.0.1/system.data.odbc.6.0.1.nupkg'.
+  A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (api.nuget.org:443)
+    A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+  Failed to download package 'Microsoft.Win32.Registry.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg'.
+  A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (api.nuget.org:443)
+    A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+  Failed to download package 'Microsoft.EntityFrameworkCore.Analyzers.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.entityframeworkcore.analyzers/9.0.11/microsoft.entityframeworkcore.analyzers.9.0.11.nupkg'.
+  A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (api.nuget.org:443)
+    A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+  Failed to download package 'System.Text.Encoding.CodePages.4.7.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/4.7.0/system.text.encoding.codepages.4.7.0.nupkg'.
+  A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (api.nuget.org:443)
+    A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.primitives/index.json'.
+  A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (api.nuget.org:443)
+    A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+  Failed to download package 'SkiaSharp.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp/3.116.1/skiasharp.3.116.1.nupkg'.
+  A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (api.nuget.org:443)
+    A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.primitives/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/harfbuzzsharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.entityframeworkcore.abstractions/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.AspNetCore.Http.Features.2.3.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.http.features/2.3.0/microsoft.aspnetcore.http.features.2.3.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SkiaSharp.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp/3.116.1/skiasharp.3.116.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.AspNetCore.Http.Features.2.3.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.http.features/2.3.0/microsoft.aspnetcore.http.features.2.3.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'Microsoft.Extensions.Primitives' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.primitives/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'Microsoft.EntityFrameworkCore.Abstractions' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.entityframeworkcore.abstractions/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Microsoft.Win32.Registry.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'System.Text.Encoding.CodePages.4.7.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/4.7.0/system.text.encoding.codepages.4.7.0.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to restore D:\Elay_Backend-master\Customer\Core\Application\Application.csproj (in 11.7 min).
+
+Build FAILED.
+
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CodeAnalysis.CSharp.Workspaces' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   No such host is known. (api.nuget.org:443)
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   No such host is known.
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CodeAnalysis.CSharp.Workspaces' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   No such host is known. (api.nuget.org:443) [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   No such host is known. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'System.IO.Pipelines' from remote source 'https://api.nuget.org/v3-flatcontainer/system.io.pipelines/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   No such host is known. (api.nuget.org:443) [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   No such host is known. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.Data.SqlClient.5.2.2' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.2.2/microsoft.data.sqlclient.5.2.2.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : No such host is known. (api.nuget.org:443) [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   No such host is known. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301: Failed to retrieve information about 'Newtonsoft.Json' from remote source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   No such host is known. (api.nuget.org:443)
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   No such host is known.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.Data.SqlClient.5.2.2' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'Newtonsoft.Json' from remote source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   No such host is known. (api.nuget.org:443) [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   No such host is known. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'Newtonsoft.Json' from remote source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   No such host is known. (api.nuget.org:443) [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   No such host is known. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'Newtonsoft.Json' from remote source 'https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   No such host is known. (api.nuget.org:443) [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   No such host is known. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'System.Globalization' from remote source 'https://api.nuget.org/v3-flatcontainer/system.globalization/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'System.Globalization' from remote source 'https://api.nuget.org/v3-flatcontainer/system.globalization/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'System.Threading' from remote source 'https://api.nuget.org/v3-flatcontainer/system.threading/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'System.Threading' from remote source 'https://api.nuget.org/v3-flatcontainer/system.threading/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'System.Resources.Extensions' from remote source 'https://api.nuget.org/v3-flatcontainer/system.resources.extensions/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'System.Resources.Extensions' from remote source 'https://api.nuget.org/v3-flatcontainer/system.resources.extensions/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CSharp' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.csharp/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CSharp' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.csharp/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'System.Runtime.CompilerServices.Unsafe.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'System.Runtime.CompilerServices.Unsafe.6.0.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'System.Runtime.CompilerServices.Unsafe.6.0.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.Data.SqlClient.5.0.1' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.Data.SqlClient.5.0.1' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'Microsoft.Extensions.Primitives' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.primitives/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'Microsoft.EntityFrameworkCore.Abstractions' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.entityframeworkcore.abstractions/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+    0 Warning(s)
+    25 Error(s)
+
+Time Elapsed 00:11:44.17
+
+

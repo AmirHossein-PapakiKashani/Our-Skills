@@ -1,112 +1,27 @@
 ---
-description: Mandatory RTK prefix on all shell commands to minimize token usage (Elay Backend / Windows)
+description: Mandatory RTK prefix on all shell commands (all projects)
 alwaysApply: true
 ---
 
-# RTK — Token-Optimized Shell Commands (Mandatory)
+# RTK — Mandatory Shell Prefix
 
-> **ZERO TOLERANCE.** See `00-enforcement-gate.mdc`. Hook auto-rewrites Shell via `rtk rewrite` — you must still type `rtk` yourself.
-
-**Every shell command MUST be prefixed with `rtk`.** No exceptions except active debugging.
-
-**Visibility:** Before each Shell tool call in chat, show on its own line:
-`RTK ▸ rtk <exact command>`
-This proves compliance; skipping it is a policy violation.
-
-RTK (Rust Token Killer) compresses command output by 60–99% with zero behavior change.
-If RTK has no filter for a command, it passes through unchanged — **always safe to prefix**.
-
-A `preToolUse` hook (`.cursor/hooks.json`) also auto-rewrites shell commands via `rtk rewrite`.
-You must still write `rtk` yourself — do not rely on the hook alone.
-
----
-
-## Universal Rule
+Every shell command MUST be prefixed with `rtk`.
 
 ```
-❌ git status
-✅ rtk git status
-
-❌ dotnet build Elay.sln
-✅ rtk dotnet build Elay.sln
-
-❌ cmd1 && cmd2
-✅ rtk cmd1 && rtk cmd2
+❌ git status / dotnet build / npm test
+✅ rtk git status / rtk dotnet build / rtk npm test
 ```
 
-In PowerShell chains, prefix **each** segment:
+PowerShell chains — prefix **each** segment:
+
 ```powershell
 rtk git add . ; rtk git commit -m "msg"
 ```
 
----
+Visibility: before each Shell tool call show:
 
-## Elay Backend — .NET Commands
+`RTK ▸ rtk <exact command>`
 
-This is a **C# / .NET** solution (`Elay.sln`). Prefer these RTK-wrapped commands:
+If RTK has no filter, it passes through — still prefix.
 
-| Task | Command |
-|------|---------|
-| Build (compact) | `rtk dotnet build Elay.sln` |
-| Build single project | `rtk dotnet build Customer/Api/Api.csproj` |
-| Test (compact) | `rtk dotnet test` |
-| Restore | `rtk dotnet restore Elay.sln` |
-| Format | `rtk dotnet format` |
-| EF migrations list | `rtk err dotnet ef migrations list --project Customer/Infrastructure` |
-
-RTK has native `dotnet` subcommands: `build`, `test`, `restore`, `format`.
-For other `dotnet` commands (e.g. `ef`), use `rtk err dotnet <cmd>`.
-
----
-
-## Standard Commands (All Projects)
-
-```bash
-# Git (59–80% savings)
-rtk git status          rtk git diff            rtk git log
-
-# Files & Search — LAST RESORT only (codebase-memory MCP must be tried first)
-rtk grep <pattern>      rtk find <pattern>
-rtk read <file>         rtk ls <path>           rtk diff <file>
-
-# Analysis (70–90% savings)
-rtk err <cmd>           rtk log <file>          rtk json <file>
-rtk summary <cmd>       rtk deps                rtk env
-
-# GitHub (26–87% savings)
-rtk gh pr view <n>      rtk gh run list         rtk gh issue list
-```
-
----
-
-## Token Optimization Stack (Use Both)
-
-| Layer | Tool | Saves tokens on |
-|-------|------|-----------------|
-| Code exploration | `codebase-memory-mcp` (`search_graph`, `search_code`, `get_code_snippet`) | Finding symbols, call chains, architecture |
-| Shell output | `rtk` | Git, build, test — and **only as last-resort** `rtk grep` |
-
-**NEVER** use Cursor `Grep`/`Glob`/broad `Read` for code search — use codebase-memory MCP first (see `codebase-memory.mdc`).
-**NEVER** run raw shell commands when RTK can filter the output.
-
----
-
-## Exceptions (Rare)
-
-| Situation | Action |
-|-----------|--------|
-| Active debugging / need full verbose output | Raw command, no `rtk` prefix |
-| Interactive command (`git rebase -i`, etc.) | Not supported — avoid interactive commands |
-| Unknown if RTK supports command | Prefix anyway — passes through if unsupported |
-
----
-
-## Anti-Patterns
-
-```
-❌ Using Cursor Grep/Glob before codebase-memory search_graph/search_code
-❌ Running 10+ file reads via shell without rtk
-❌ dotnet build without rtk dotnet (dumps thousands of lines)
-❌ git log without rtk (wastes tokens on large repos)
-❌ Skipping rtk because "output is small" — habit matters, prefix always
-```
+Exception: active debugging of verbose output (`rtk proxy <cmd>` preferred).

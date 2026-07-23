@@ -1,0 +1,12 @@
+{
+  "name": "getAuthenticatedUser",
+  "description": "Gets information about the authenticated user.\n- This endpoint provides “current user” context (\\`user.id\\`, \\`username\\`, \\`teamId\\`, roles).\n- When a user asks for “my …” (e.g., “my workspaces, my information, etc.”), call this first to resolve the user ID.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {}
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

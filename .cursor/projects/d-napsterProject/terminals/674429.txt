@@ -1,0 +1,27 @@
+---
+pid: 31604
+cwd: "D:\\napsterProject\\src\\NapsternetVClient"
+command: "Get-Process -Name \"NapsternetVClient\" -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep -Seconds 1; cd D:\\napsterProject\\src\\NapsternetVClient; dotnet build -c Debug 2>&1"
+started_at: 2026-07-06T21:19:46.693Z
+running_for_ms: 30018    
+---
+  Determining projects to restore...
+  Restored D:\napsterProject\src\NapsternetVClient\NapsternetVClient.csproj (in 381 ms).
+D:\napsterProject\src\NapsternetVClient\Utilities\CryptoHelper.cs(62,32): warning SYSLIB0060: 'Rfc2898DeriveBytes.Rfc2898DeriveBytes(string, byte[], int, HashAlgorithmName)' is obsolete: 'The constructors on Rfc2898DeriveBytes are obsolete. Use the static Pbkdf2 method instead.' (https://aka.ms/dotnet-warnings/SYSLIB0060) [D:\napsterProject\src\NapsternetVClient\NapsternetVClient_q2fuvcf0_wpftmp.csproj]
+D:\napsterProject\src\NapsternetVClient\Utilities\CryptoHelper.cs(62,32): warning SYSLIB0060: 'Rfc2898DeriveBytes.Rfc2898DeriveBytes(string, byte[], int, HashAlgorithmName)' is obsolete: 'The constructors on Rfc2898DeriveBytes are obsolete. Use the static Pbkdf2 method instead.' (https://aka.ms/dotnet-warnings/SYSLIB0060) [D:\napsterProject\src\NapsternetVClient\NapsternetVClient.csproj]
+  NapsternetVClient -> D:\napsterProject\src\NapsternetVClient\bin\Debug\net10.0-windows\NapsternetVClient.dll
+
+Build succeeded.
+
+D:\napsterProject\src\NapsternetVClient\Utilities\CryptoHelper.cs(62,32): warning SYSLIB0060: 'Rfc2898DeriveBytes.Rfc2898DeriveBytes(string, byte[], int, HashAlgorithmName)' is obsolete: 'The constructors on Rfc2898DeriveBytes are obsolete. Use the static Pbkdf2 method instead.' (https://aka.ms/dotnet-warnings/SYSLIB0060) [D:\napsterProject\src\NapsternetVClient\NapsternetVClient_q2fuvcf0_wpftmp.csproj]
+D:\napsterProject\src\NapsternetVClient\Utilities\CryptoHelper.cs(62,32): warning SYSLIB0060: 'Rfc2898DeriveBytes.Rfc2898DeriveBytes(string, byte[], int, HashAlgorithmName)' is obsolete: 'The constructors on Rfc2898DeriveBytes are obsolete. Use the static Pbkdf2 method instead.' (https://aka.ms/dotnet-warnings/SYSLIB0060) [D:\napsterProject\src\NapsternetVClient\NapsternetVClient.csproj]
+    2 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:07.11
+
+---
+exit_code: 0
+elapsed_ms: 33912
+ended_at: 2026-07-06T21:20:20.605Z
+---

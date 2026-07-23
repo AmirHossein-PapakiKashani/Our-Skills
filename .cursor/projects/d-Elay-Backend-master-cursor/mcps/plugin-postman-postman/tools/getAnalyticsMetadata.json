@@ -1,0 +1,58 @@
+{
+  "name": "getAnalyticsMetadata",
+  "description": "Returns a catalog of analytics resources and their corresponding metrics for use with the GET /analytics endpoint. These metrics provide insights on API usage, success, workspace, and team trends in Postman.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "include": {
+        "type": "string",
+        "description": "A comma-separated list of the additional information to include in the response. Accepts the `parameters` and `response` values.\n\nWhen you pass this query parameter and its values, the response provides detailed information, including parameters and response schemas for the given metrics.\n"
+      },
+      "resources": {
+        "type": "string",
+        "description": "A comma-separated list of resource types to filter the metrics by. Accepts the `user`, `workspace`, `team`, and `ai` values."
+      },
+      "metrics": {
+        "type": "string",
+        "enum": [
+          "active_users",
+          "workspace_active_users",
+          "elements_in_workspace",
+          "active_workspaces",
+          "api_calls",
+          "active_collections",
+          "response_status",
+          "pending_invites",
+          "needs_attention",
+          "success_rate",
+          "user_requests",
+          "user_api_journey",
+          "workspace_distribution",
+          "internal_workspace_distribution",
+          "license_consumption",
+          "members",
+          "last_autoflex_cycle",
+          "partner_engagement_funnel",
+          "collection_error_aggregate",
+          "agent_mode_users",
+          "new_vs_returning_users",
+          "agent_mode_sessions",
+          "messages_sent",
+          "credit_usage",
+          "credit_usage_by_model",
+          "usage_leaderboard",
+          "peak_activity",
+          "activity_distribution",
+          "top_agent_models_by_usage"
+        ],
+        "description": "A comma-separated list of metrics values to use to filter the response.\n\nIf you don't pass this query parameter, then the response returns all metadata for all available metrics.\n"
+      }
+    },
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

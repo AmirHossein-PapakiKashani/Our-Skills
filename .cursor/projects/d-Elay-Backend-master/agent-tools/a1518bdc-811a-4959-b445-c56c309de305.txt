@@ -1,0 +1,565 @@
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+newman
+
+Elay Customer â€” Calendar Integration (Groups A+B)
+
+Folder 0. Auth (Setup)
+Sub-folder Login Admin (a.kashani)
+  POST http://localhost:5144/Auth/Login [200 OK, 809B, 411ms]
+  1⠄ SyntaxError in test-script
+
+Sub-folder Profile Admin
+  GET http://localhost:5144/chat/profile [401 Unauthorized, 128B, 3ms]
+  2⠄ SyntaxError in test-script
+
+Sub-folder Login Sara (chattest_sara)
+  POST http://localhost:5144/Auth/Login [200 OK, 805B, 296ms]
+  3⠄ SyntaxError in test-script
+
+Sub-folder Profile Sara
+  GET http://localhost:5144/chat/profile [401 Unauthorized, 128B, 2ms]
+  4⠄ SyntaxError in test-script
+
+Sub-folder Login Reza (chattest_reza)
+  POST http://localhost:5144/Auth/Login [200 OK, 798B, 358ms]
+  5⠄ SyntaxError in test-script
+
+Sub-folder Profile Reza
+  GET http://localhost:5144/chat/profile [401 Unauthorized, 128B, 4ms]
+  6⠄ SyntaxError in test-script
+
+Folder A1. Calendar List
+Sub-folder A1-1 â€” List auto-create personal
+  GET http://localhost:5144/Calendar/List [401 Unauthorized, 128B, 5ms]
+  7⠄ SyntaxError in test-script
+
+Sub-folder A1-2 â€” List multiple calendars
+  GET http://localhost:5144/Calendar/List [401 Unauthorized, 128B, 5ms]
+  8⠄ SyntaxError in test-script
+
+Sub-folder A1-3 â€” No token 401
+  GET http://localhost:5144/Calendar/List [401 Unauthorized, 128B, 7ms]
+  Pass  A1-3 status 401
+
+Folder A2. Calendar Create
+Sub-folder A2-1 â€” Create Personal happy
+  POST http://localhost:5144/Calendar [401 Unauthorized, 128B, 5ms]
+  9⠄ SyntaxError in test-script
+
+Sub-folder A2-2 â€” Empty title 400
+  POST http://localhost:5144/Calendar [401 Unauthorized, 128B, 3ms]
+ 10⠄ SyntaxError in test-script
+
+Sub-folder A2-3 â€” Title too short 400
+  POST http://localhost:5144/Calendar [401 Unauthorized, 128B, 3ms]
+ 11⠄ SyntaxError in test-script
+
+Sub-folder A2-4 â€” Unit without orgPositionId 400
+  POST http://localhost:5144/Calendar [401 Unauthorized, 128B, 3ms]
+ 12⠄ SyntaxError in test-script
+
+Sub-folder A2-5 â€” Unit missing position 404
+  POST http://localhost:5144/Calendar [401 Unauthorized, 128B, 17.8s]
+ 13⠄ SyntaxError in test-script
+
+Sub-folder A2-6 â€” Organization forbidden 403
+  POST http://localhost:5144/Calendar [401 Unauthorized, 128B, 4ms]
+ 14⠄ SyntaxError in test-script
+
+Folder A3. Calendar Update
+Sub-folder A3-1 â€” Update calendar happy
+  PUT http://localhost:5144/Calendar [401 Unauthorized, 128B, 2ms]
+ 15⠄ SyntaxError in test-script
+
+Sub-folder A3-2 â€” Invalid title 400
+  PUT http://localhost:5144/Calendar [401 Unauthorized, 128B, 3ms]
+ 16⠄ SyntaxError in test-script
+
+Sub-folder A3-3 â€” Calendar not found 404
+  PUT http://localhost:5144/Calendar [401 Unauthorized, 128B, 3ms]
+ 17⠄ SyntaxError in test-script
+
+Sub-folder A3-4 â€” Edit forbidden 403
+  PUT http://localhost:5144/Calendar [401 Unauthorized, 128B, 2ms]
+ 18⠄ SyntaxError in test-script
+
+Folder A4. Calendar Delete Setup
+Sub-folder A4-Setup â€” Create disposable calendar
+  POST http://localhost:5144/Calendar [401 Unauthorized, 128B, 3ms]
+ 19⠄ SyntaxError in test-script
+
+Folder A4. Calendar Delete
+Sub-folder A4-1 â€” Delete authorized calendar 200
+  DELETE http://localhost:5144/Calendar/ [405 Method Not Allowed, 224B, 4ms]
+ 20⠄ SyntaxError in test-script
+
+Sub-folder A4-2 â€” Delete missing 404
+  DELETE http://localhost:5144/Calendar/999999 [401 Unauthorized, 128B, 3ms]
+ 21⠄ SyntaxError in test-script
+
+Sub-folder A4-3 â€” Delete forbidden 403
+  DELETE http://localhost:5144/Calendar/ [405 Method Not Allowed, 224B, 3ms]
+ 22⠄ SyntaxError in test-script
+
+Sub-folder A4-4 â€” Default personal cannot delete 400
+  DELETE http://localhost:5144/Calendar/ [405 Method Not Allowed, 224B, 3ms]
+ 23⠄ SyntaxError in test-script
+
+Folder B1. Event Create
+Sub-folder B1-1 â€” Create event happy
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 2ms]
+ 24⠄ SyntaxError in test-script
+
+Sub-folder B1-2 â€” Empty title 400
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 3ms]
+ 25⠄ SyntaxError in test-script
+
+Sub-folder B1-3 â€” endAt <= startAt 400
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 18.9s]
+ 26⠄ SyntaxError in test-script
+
+Sub-folder B1-4 â€” Description too long 400
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 5ms]
+ 27⠄ SyntaxError in test-script
+
+Sub-folder B1-6 â€” Calendar not found 404
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 2ms]
+ 28⠄ SyntaxError in test-script
+
+Sub-folder B1-7 â€” Write forbidden 403
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 3ms]
+ 29⠄ SyntaxError in test-script
+
+Sub-folder B1-8 â€” Invitee not found 404
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 4ms]
+ 30⠄ SyntaxError in test-script
+
+Sub-folder B1-9 â€” Conflict 409
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 4ms]
+ 31⠄ SyntaxError in test-script
+
+Sub-folder B1-10 â€” Negative reminder 400
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 3ms]
+ 32⠄ SyntaxError in test-script
+
+Sub-folder B1-Recur â€” Invalid recurrence (both ends) 400
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 2ms]
+ 33⠄ SyntaxError in test-script
+
+Sub-folder B1-RecurOK â€” Weekly recurring event
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 2ms]
+ 34⠄ SyntaxError in test-script
+
+Sub-folder B1-Private â€” VisibleOnly event
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 4ms]
+ 35⠄ SyntaxError in test-script
+
+Folder B2. Event Update
+Sub-folder B2-1 â€” Non-recurring edit 200
+  PUT http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 19.1s]
+ 36⠄ SyntaxError in test-script
+
+Sub-folder B2-2 â€” Recurring ThisOnly 200
+  PUT http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 2ms]
+ 37⠄ SyntaxError in test-script
+
+Sub-folder B2-4 â€” Recurring All 200
+  PUT http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 4ms]
+ 38⠄ SyntaxError in test-script
+
+Sub-folder B2-6 â€” Missing occurrenceDate 400
+  PUT http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 4ms]
+ 39⠄ SyntaxError in test-script
+
+Sub-folder B2-7 â€” Event not found 404
+  PUT http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 4ms]
+ 40⠄ SyntaxError in test-script
+
+Sub-folder B2-8 â€” Edit forbidden 403
+  PUT http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 4ms]
+ 41⠄ SyntaxError in test-script
+
+Folder B4. Event Get
+Sub-folder B4-1 â€” Get event detail 200
+  GET http://localhost:5144/Calendar/Event/ [405 Method Not Allowed, 232B, 3ms]
+ 42⠄ SyntaxError in test-script
+
+Sub-folder B4-2 â€” Event not found 404
+  GET http://localhost:5144/Calendar/Event/999999 [401 Unauthorized, 128B, 3ms]
+ 43⠄ SyntaxError in test-script
+
+Sub-folder B4-3 â€” Visible only forbidden 403
+  GET http://localhost:5144/Calendar/Event/ [405 Method Not Allowed, 232B, 2ms]
+ 44⠄ SyntaxError in test-script
+
+Folder B5. Calendar Range
+Sub-folder B5-1 â€” Empty far future range 200
+  GET http://localhost:5144/Calendar/Range?from=2027-01-01T00:00:00Z&to=2027-01-07T00:00:00Z&includeTaskDeadlines=false [401 Unauthorized, 128B, 2ms]
+ 45⠄ SyntaxError in test-script
+
+Sub-folder B5-2 â€” Range with events 200
+  GET http://localhost:5144/Calendar/Range?from=2026-08-01T00:00:00Z&to=2026-08-31T00:00:00Z&includeTaskDeadlines=true [401 Unauthorized, 128B, 3ms]
+ 46⠄ SyntaxError in test-script
+
+Sub-folder B5-3 â€” includeTaskDeadlines=false
+  GET http://localhost:5144/Calendar/Range?from=2026-08-01T00:00:00Z&to=2026-08-31T00:00:00Z&includeTaskDeadlines=false [401 Unauthorized, 128B, 4ms]
+ 47⠄ SyntaxError in test-script
+
+Sub-folder B5-4 â€” Recurring expansion
+  GET http://localhost:5144/Calendar/Range?from=2026-08-01T00:00:00Z&to=2026-08-31T00:00:00Z&includeTaskDeadlines=false [401 Unauthorized, 128B, 19s]
+ 48⠄ SyntaxError in test-script
+
+Sub-folder B5-5 â€” to <= from 400
+  GET http://localhost:5144/Calendar/Range?from=2026-08-10T00:00:00Z&to=2026-08-01T00:00:00Z [401 Unauthorized, 128B, 4ms]
+ 49⠄ SyntaxError in test-script
+
+Sub-folder B5-6 â€” Range > 92 days 400
+  GET http://localhost:5144/Calendar/Range?from=2026-01-01T00:00:00Z&to=2026-05-01T00:00:00Z [401 Unauthorized, 128B, 2ms]
+ 50⠄ SyntaxError in test-script
+
+Folder B3. Event Delete Setup
+Sub-folder B3-Setup â€” Disposable non-recurring event
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 3ms]
+ 51⠄ SyntaxError in test-script
+
+Sub-folder B3-Setup â€” Disposable recurring for ThisOnly
+  POST http://localhost:5144/Calendar/Event [401 Unauthorized, 128B, 4ms]
+ 52⠄ SyntaxError in test-script
+
+Folder B3. Event Delete
+Sub-folder B3-1 â€” Delete non-recurring 200
+  DELETE http://localhost:5144/Calendar/Event?id=&editScope=All [401 Unauthorized, 128B, 3ms]
+ 53⠄ SyntaxError in test-script
+
+Sub-folder B3-2 â€” Recurring ThisOnly cancel 200
+  DELETE http://localhost:5144/Calendar/Event?id=&editScope=ThisOnly&occurrenceDate=2026-09-14T00:00:00Z [401 Unauthorized, 128B, 4ms]
+ 54⠄ SyntaxError in test-script
+
+Sub-folder B3-4 â€” Recurring All delete 200
+  DELETE http://localhost:5144/Calendar/Event?id=&editScope=All [401 Unauthorized, 128B, 2ms]
+ 55⠄ SyntaxError in test-script
+
+Sub-folder B3-5 â€” Missing occurrenceDate 400
+  DELETE http://localhost:5144/Calendar/Event?id=&editScope=ThisOnly [401 Unauthorized, 128B, 4ms]
+ 56⠄ SyntaxError in test-script
+
+Sub-folder B3-6 â€” Event not found 404
+  DELETE http://localhost:5144/Calendar/Event?id=999999&editScope=All [401 Unauthorized, 128B, 3ms]
+ 57⠄ SyntaxError in test-script
+
+Sub-folder B3-7 â€” Delete forbidden 403
+  DELETE http://localhost:5144/Calendar/Event?id=&editScope=All [401 Unauthorized, 128B, 19.1s]
+ 58⠄ SyntaxError in test-script
+
+--------------------------------------------------------------------
+|                         |           executed |            failed |
+--------------------------+--------------------+--------------------
+|              iterations |                  1 |                 0 |
+--------------------------+--------------------+--------------------
+|                requests |                 59 |                 0 |
+--------------------------+--------------------+--------------------
+|            test-scripts |                 59 |                58 |
+--------------------------+--------------------+--------------------
+|      prerequest-scripts |                  1 |                 0 |
+--------------------------+--------------------+--------------------
+|              assertions |                  1 |                 0 |
+--------------------------------------------------------------------
+| total run duration: 1m 40.4s                                     |
+--------------------------------------------------------------------
+| total data received: 1.67kB (approx)                             |
+--------------------------------------------------------------------
+| average response time: 1617ms [min: 2ms, max: 19.1s, s.d.: 5.2s] |
+--------------------------------------------------------------------
+
+   #  failure      detail                                                                           
+                                                                                                    
+ 01.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "0. Auth (Setup) / Login Admin (a.kashani)"                               
+                                                                                                    
+ 02.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "0. Auth (Setup) / Profile Admin"                                         
+                                                                                                    
+ 03.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "0. Auth (Setup) / Login Sara (chattest_sara)"                            
+                                                                                                    
+ 04.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "0. Auth (Setup) / Profile Sara"                                          
+                                                                                                    
+ 05.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "0. Auth (Setup) / Login Reza (chattest_reza)"                            
+                                                                                                    
+ 06.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "0. Auth (Setup) / Profile Reza"                                          
+                                                                                                    
+ 07.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A1. Calendar List / A1-1 â€” List auto-create personal"                  
+                                                                                                    
+ 08.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A1. Calendar List / A1-2 â€” List multiple calendars"                    
+                                                                                                    
+ 09.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A2. Calendar Create / A2-1 â€” Create Personal happy"                    
+                                                                                                    
+ 10.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A2. Calendar Create / A2-2 â€” Empty title 400"                          
+                                                                                                    
+ 11.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A2. Calendar Create / A2-3 â€” Title too short 400"                      
+                                                                                                    
+ 12.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A2. Calendar Create / A2-4 â€” Unit without orgPositionId 400"           
+                                                                                                    
+ 13.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A2. Calendar Create / A2-5 â€” Unit missing position 404"                
+                                                                                                    
+ 14.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A2. Calendar Create / A2-6 â€” Organization forbidden 403"               
+                                                                                                    
+ 15.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A3. Calendar Update / A3-1 â€” Update calendar happy"                    
+                                                                                                    
+ 16.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A3. Calendar Update / A3-2 â€” Invalid title 400"                        
+                                                                                                    
+ 17.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A3. Calendar Update / A3-3 â€” Calendar not found 404"                   
+                                                                                                    
+ 18.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A3. Calendar Update / A3-4 â€” Edit forbidden 403"                       
+                                                                                                    
+ 19.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A4. Calendar Delete Setup / A4-Setup â€” Create disposable calendar"     
+                                                                                                    
+ 20.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A4. Calendar Delete / A4-1 â€” Delete authorized calendar 200"           
+                                                                                                    
+ 21.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A4. Calendar Delete / A4-2 â€” Delete missing 404"                       
+                                                                                                    
+ 22.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A4. Calendar Delete / A4-3 â€” Delete forbidden 403"                     
+                                                                                                    
+ 23.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "A4. Calendar Delete / A4-4 â€” Default personal cannot delete 400"       
+                                                                                                    
+ 24.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B1. Event Create / B1-1 â€” Create event happy"                          
+                                                                                                    
+ 25.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B1. Event Create / B1-2 â€” Empty title 400"                             
+                                                                                                    
+ 26.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B1. Event Create / B1-3 â€” endAt <= startAt 400"                        
+                                                                                                    
+ 27.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B1. Event Create / B1-4 â€” Description too long 400"                    
+                                                                                                    
+ 28.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B1. Event Create / B1-6 â€” Calendar not found 404"                      
+                                                                                                    
+ 29.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B1. Event Create / B1-7 â€” Write forbidden 403"                         
+                                                                                                    
+ 30.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B1. Event Create / B1-8 â€” Invitee not found 404"                       
+                                                                                                    
+ 31.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B1. Event Create / B1-9 â€” Conflict 409"                                
+                                                                                                    
+ 32.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B1. Event Create / B1-10 â€” Negative reminder 400"                      
+                                                                                                    
+ 33.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B1. Event Create / B1-Recur â€” Invalid recurrence (both ends) 400"      
+                                                                                                    
+ 34.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B1. Event Create / B1-RecurOK â€” Weekly recurring event"                
+                                                                                                    
+ 35.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B1. Event Create / B1-Private â€” VisibleOnly event"                     
+                                                                                                    
+ 36.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B2. Event Update / B2-1 â€” Non-recurring edit 200"                      
+                                                                                                    
+ 37.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B2. Event Update / B2-2 â€” Recurring ThisOnly 200"                      
+                                                                                                    
+ 38.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B2. Event Update / B2-4 â€” Recurring All 200"                           
+                                                                                                    
+ 39.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B2. Event Update / B2-6 â€” Missing occurrenceDate 400"                  
+                                                                                                    
+ 40.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B2. Event Update / B2-7 â€” Event not found 404"                         
+                                                                                                    
+ 41.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B2. Event Update / B2-8 â€” Edit forbidden 403"                          
+                                                                                                    
+ 42.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B4. Event Get / B4-1 â€” Get event detail 200"                           
+                                                                                                    
+ 43.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B4. Event Get / B4-2 â€” Event not found 404"                            
+                                                                                                    
+ 44.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B4. Event Get / B4-3 â€” Visible only forbidden 403"                     
+                                                                                                    
+ 45.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B5. Calendar Range / B5-1 â€” Empty far future range 200"                
+                                                                                                    
+ 46.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B5. Calendar Range / B5-2 â€” Range with events 200"                     
+                                                                                                    
+ 47.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B5. Calendar Range / B5-3 â€” includeTaskDeadlines=false"                
+                                                                                                    
+ 48.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B5. Calendar Range / B5-4 â€” Recurring expansion"                       
+                                                                                                    
+ 49.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B5. Calendar Range / B5-5 â€” to <= from 400"                            
+                                                                                                    
+ 50.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B5. Calendar Range / B5-6 â€” Range > 92 days 400"                       
+                                                                                                    
+ 51.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B3. Event Delete Setup / B3-Setup â€” Disposable non-recurring event"    
+                                                                                                    
+ 52.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B3. Event Delete Setup / B3-Setup â€” Disposable recurring for ThisOnly" 
+                                                                                                    
+ 53.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B3. Event Delete / B3-1 â€” Delete non-recurring 200"                    
+                                                                                                    
+ 54.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B3. Event Delete / B3-2 â€” Recurring ThisOnly cancel 200"               
+                                                                                                    
+ 55.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B3. Event Delete / B3-4 â€” Recurring All delete 200"                    
+                                                                                                    
+ 56.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B3. Event Delete / B3-5 â€” Missing occurrenceDate 400"                  
+                                                                                                    
+ 57.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B3. Event Delete / B3-6 â€” Event not found 404"                         
+                                                                                                    
+ 58.  SyntaxError                                                                                   
+                   Unexpected token '.'                                                             
+                   at test-script                                                                   
+                   inside "B3. Event Delete / B3-7 â€” Delete forbidden 403"                        
+EXIT=1

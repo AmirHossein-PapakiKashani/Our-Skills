@@ -1,0 +1,214 @@
+{
+  "name": "updateCollectionResponse",
+  "description": "Updates a response in a collection. For a complete list of properties, see the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).\n\n**Note:**\n\n- You must pass a collection ID (\\`12ece9e1-2abf-4edc-8e34-de66e74114d2\\`), not a collection UID (\\`12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\\`), in this endpoint.\n- This endpoint acts like a PATCH method. It only updates the values that you pass in the request body (for example, the \\`name\\` property). The endpoint does not update the entire resource.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "responseId": {
+        "type": "string",
+        "description": "The response's ID."
+      },
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's ID."
+      },
+      "name": {
+        "type": "string",
+        "description": "The response's name."
+      },
+      "description": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "The response's description."
+      },
+      "url": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "The associated request's URL."
+      },
+      "method": {
+        "type": "string",
+        "enum": [
+          "GET",
+          "PUT",
+          "POST",
+          "PATCH",
+          "DELETE",
+          "COPY",
+          "HEAD",
+          "OPTIONS",
+          "LINK",
+          "UNLINK",
+          "PURGE",
+          "LOCK",
+          "UNLOCK",
+          "PROPFIND",
+          "VIEW"
+        ],
+        "description": "The request's HTTP method."
+      },
+      "headers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "description": "The header's key, such as `Content-Type` or `X-Custom-Header`."
+            },
+            "value": {
+              "type": "string",
+              "description": "The header key's value."
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "The header's description."
+            }
+          },
+          "required": [
+            "key",
+            "value"
+          ],
+          "additionalProperties": false,
+          "description": "Information about the header."
+        },
+        "description": "A list of headers."
+      },
+      "dataMode": {
+        "type": "string",
+        "enum": [
+          "raw",
+          "urlencoded",
+          "formdata",
+          "binary",
+          "graphql"
+        ],
+        "description": "The associated request body's data mode."
+      },
+      "rawModeData": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "The associated request body's raw mode data."
+      },
+      "dataOptions": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "raw": {
+                "type": "object",
+                "properties": {
+                  "language": {
+                    "type": "string",
+                    "description": "The raw mode data's language type."
+                  }
+                },
+                "additionalProperties": false,
+                "description": "Options for the `raw` data mode."
+              },
+              "urlencoded": {
+                "type": "object",
+                "additionalProperties": {},
+                "description": "Options for the `urlencoded` data mode."
+              },
+              "params": {
+                "type": "object",
+                "additionalProperties": {},
+                "description": "Options for the `params` data mode."
+              },
+              "binary": {
+                "type": "object",
+                "additionalProperties": {},
+                "description": "Options for the `binary` data mode."
+              },
+              "graphql": {
+                "type": "object",
+                "additionalProperties": {},
+                "description": "Options for the `graphql` data mode."
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Additional configurations and options set for the request body's various data modes."
+      },
+      "responseCode": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "number",
+            "description": "The response's HTTP response status code."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the status code."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The response's HTTP response code information."
+      },
+      "status": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "The response's HTTP status text."
+      },
+      "time": {
+        "type": "string",
+        "description": "The time taken by the request to complete, in milliseconds."
+      },
+      "cookies": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "The response's cookie data."
+      },
+      "mime": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "The response's MIME type."
+      },
+      "text": {
+        "type": "string",
+        "description": "The raw text of the response body."
+      },
+      "language": {
+        "type": "string",
+        "description": "The response body's language type."
+      },
+      "rawDataType": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "The response's raw data type."
+      },
+      "requestObject": {
+        "type": "string",
+        "description": "A JSON-stringified representation of the associated request."
+      }
+    },
+    "required": [
+      "responseId",
+      "collectionId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

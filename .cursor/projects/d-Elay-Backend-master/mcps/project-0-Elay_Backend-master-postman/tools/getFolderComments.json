@@ -1,0 +1,23 @@
+{
+  "name": "getFolderComments",
+  "description": "Gets all comments left by users in a folder.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's unique ID."
+      },
+      "folderId": {
+        "type": "string",
+        "description": "The folder's unique ID."
+      }
+    },
+    "required": [
+      "collectionId",
+      "folderId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

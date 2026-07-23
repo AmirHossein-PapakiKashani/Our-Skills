@@ -1,0 +1,442 @@
+  Determining projects to restore...
+  Failed to download package 'System.Threading.4.3.0' from 'https://api.nuget.org/v3-flatcontainer/system.threading/4.3.0/system.threading.4.3.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/system.threading/4.3.0/system.threading.4.3.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/4.8.0/microsoft.codeanalysis.workspaces.common.4.8.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/4.8.0/microsoft.codeanalysis.workspaces.common.4.8.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'SkiaSharp.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp/3.116.1/skiasharp.3.116.1.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/skiasharp/3.116.1/skiasharp.3.116.1.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.Common.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/5.0.0/microsoft.codeanalysis.common.5.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/5.0.0/microsoft.codeanalysis.common.5.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'SixLabors.ImageSharp.2.1.3' from 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/2.1.3/sixlabors.imagesharp.2.1.3.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/2.1.3/sixlabors.imagesharp.2.1.3.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.4.0/microsoft.codeanalysis.csharp.4.4.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.4.0/microsoft.codeanalysis.csharp.4.4.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.Data.SqlClient.5.1.6' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.1.6/microsoft.data.sqlclient.5.1.6.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.1.6/microsoft.data.sqlclient.5.1.6.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/4.8.0/microsoft.codeanalysis.workspaces.common.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SkiaSharp.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp/3.116.1/skiasharp.3.116.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Common.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/5.0.0/microsoft.codeanalysis.common.5.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SixLabors.ImageSharp.2.1.3' from 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/2.1.3/sixlabors.imagesharp.2.1.3.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.4.0/microsoft.codeanalysis.csharp.4.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Data.SqlClient.5.1.6' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.1.6/microsoft.data.sqlclient.5.1.6.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/4.8.0/microsoft.codeanalysis.workspaces.common.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SkiaSharp.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp/3.116.1/skiasharp.3.116.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Common.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/5.0.0/microsoft.codeanalysis.common.5.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SixLabors.ImageSharp.2.1.3' from 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/2.1.3/sixlabors.imagesharp.2.1.3.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.4.0/microsoft.codeanalysis.csharp.4.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Data.SqlClient.5.1.6' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.1.6/microsoft.data.sqlclient.5.1.6.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/4.8.0/microsoft.codeanalysis.workspaces.common.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SkiaSharp.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp/3.116.1/skiasharp.3.116.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Common.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/5.0.0/microsoft.codeanalysis.common.5.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.11.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.11.0/microsoft.codeanalysis.csharp.4.11.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.11.0/microsoft.codeanalysis.csharp.4.11.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.Common.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/5.0.0/microsoft.codeanalysis.workspaces.common.5.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/5.0.0/microsoft.codeanalysis.workspaces.common.5.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'SixLabors.ImageSharp.2.1.3' from 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/2.1.3/sixlabors.imagesharp.2.1.3.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.4.0/microsoft.codeanalysis.csharp.4.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Data.SqlClient.5.1.6' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.1.6/microsoft.data.sqlclient.5.1.6.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/4.8.0/microsoft.codeanalysis.workspaces.common.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SkiaSharp.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp/3.116.1/skiasharp.3.116.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Common.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/5.0.0/microsoft.codeanalysis.common.5.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.11.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.11.0/microsoft.codeanalysis.csharp.4.11.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.Common.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/5.0.0/microsoft.codeanalysis.workspaces.common.5.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SixLabors.ImageSharp.2.1.3' from 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/2.1.3/sixlabors.imagesharp.2.1.3.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'SixLabors.ImageSharp.2.1.3' from 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/2.1.3/sixlabors.imagesharp.2.1.3.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'SixLabors.ImageSharp.2.1.3' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'SixLabors.ImageSharp.2.1.3' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.Identity.Client.4.61.3' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identity.client/4.61.3/microsoft.identity.client.4.61.3.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.identity.client/4.61.3/microsoft.identity.client.4.61.3.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.VisualBasic.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/4.4.0/microsoft.codeanalysis.visualbasic.4.4.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/4.4.0/microsoft.codeanalysis.visualbasic.4.4.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.Identity.Client.4.61.3' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identity.client/4.61.3/microsoft.identity.client.4.61.3.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.VisualBasic.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/4.4.0/microsoft.codeanalysis.visualbasic.4.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.VisualBasic.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/4.4.0/microsoft.codeanalysis.visualbasic.4.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.VisualBasic.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/4.4.0/microsoft.codeanalysis.visualbasic.4.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.VisualBasic.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/4.4.0/microsoft.codeanalysis.visualbasic.4.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.VisualBasic.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/4.4.0/microsoft.codeanalysis.visualbasic.4.4.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.VisualBasic.4.4.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Microsoft.CodeAnalysis.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/4.8.0/microsoft.codeanalysis.common.4.8.0.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.Workspaces.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/4.8.0/microsoft.codeanalysis.workspaces.common.4.8.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/4.8.0/microsoft.codeanalysis.workspaces.common.4.8.0.nupkg' timed out because no data was received for 60000ms. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   The operation has timed out. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.Common.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/5.0.0/microsoft.codeanalysis.common.5.0.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/5.0.0/microsoft.codeanalysis.common.5.0.0.nupkg' timed out because no data was received for 60000ms. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   The operation has timed out. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Text.Encoding.CodePages.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.Common.5.0.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.Workspaces.Common.4.8.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to restore D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj (in 9.43 min).
+  Failed to download package 'Microsoft.CodeAnalysis.Common.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/4.4.0/microsoft.codeanalysis.common.4.4.0.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Common.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/4.4.0/microsoft.codeanalysis.common.4.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.11.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.11.0/microsoft.codeanalysis.csharp.4.11.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.11.0/microsoft.codeanalysis.csharp.4.11.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.11.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.11.0/microsoft.codeanalysis.csharp.4.11.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'DocumentFormat.OpenXml.3.1.1' from 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/3.1.1/documentformat.openxml.3.1.1.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/3.1.1/documentformat.openxml.3.1.1.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Text.Encoding.CodePages.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Text.Encoding.CodePages.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Text.Encoding.CodePages.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Text.Encoding.CodePages.6.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.11.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.11.0/microsoft.codeanalysis.csharp.4.11.0.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'DocumentFormat.OpenXml.3.1.1' from 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/3.1.1/documentformat.openxml.3.1.1.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.4.0/microsoft.codeanalysis.csharp.4.4.0.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.4.0/microsoft.codeanalysis.csharp.4.4.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.CSharp.4.4.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.Common.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/5.0.0/microsoft.codeanalysis.workspaces.common.5.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/5.0.0/microsoft.codeanalysis.workspaces.common.5.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.Data.SqlClient.5.1.6' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.1.6/microsoft.data.sqlclient.5.1.6.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'Microsoft.Data.SqlClient' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'Microsoft.Data.SqlClient' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'SkiaSharp.NativeAssets.macOS.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp.nativeassets.macos/3.116.1/skiasharp.nativeassets.macos.3.116.1.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/4.8.0/microsoft.codeanalysis.common.4.8.0.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SkiaSharp.NativeAssets.macOS.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp.nativeassets.macos/3.116.1/skiasharp.nativeassets.macos.3.116.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'DocumentFormat.OpenXml.3.1.1' from 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/3.1.1/documentformat.openxml.3.1.1.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CodeAnalysis.CSharp' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   The SSL connection could not be established, see inner exception.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/4.8.0/microsoft.codeanalysis.common.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SkiaSharp.NativeAssets.macOS.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp.nativeassets.macos/3.116.1/skiasharp.nativeassets.macos.3.116.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'DocumentFormat.OpenXml.3.1.1' from 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/3.1.1/documentformat.openxml.3.1.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CodeAnalysis.CSharp' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   The SSL connection could not be established, see inner exception.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to restore D:\Elay_Backend-master\Customer\Api\Api.csproj (in 19.59 min).
+  Failed to download package 'Microsoft.CodeAnalysis.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/4.8.0/microsoft.codeanalysis.common.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SkiaSharp.NativeAssets.macOS.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp.nativeassets.macos/3.116.1/skiasharp.nativeassets.macos.3.116.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'DocumentFormat.OpenXml.3.1.1' from 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/3.1.1/documentformat.openxml.3.1.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/4.8.0/microsoft.codeanalysis.common.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'SkiaSharp.NativeAssets.macOS.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp.nativeassets.macos/3.116.1/skiasharp.nativeassets.macos.3.116.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'DocumentFormat.OpenXml.3.1.1' from 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/3.1.1/documentformat.openxml.3.1.1.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/4.8.0/microsoft.codeanalysis.common.4.8.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'SkiaSharp.NativeAssets.macOS.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp.nativeassets.macos/3.116.1/skiasharp.nativeassets.macos.3.116.1.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/skiasharp.nativeassets.macos/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/skiasharp.nativeassets.macos/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/skiasharp.nativeassets.macos/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'DocumentFormat.OpenXml.3.1.1' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to restore D:\Elay_Backend-master\Customer\Core\Application\Application.csproj (in 20.32 min).
+  3 of 6 projects are up-to-date for restore.
+
+Build FAILED.
+
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'SixLabors.ImageSharp.2.1.3' from 'https://api.nuget.org/v3-flatcontainer/sixlabors.imagesharp/2.1.3/sixlabors.imagesharp.2.1.3.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'SixLabors.ImageSharp.2.1.3' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'SixLabors.ImageSharp.2.1.3' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.VisualBasic.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/4.4.0/microsoft.codeanalysis.visualbasic.4.4.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.VisualBasic.4.4.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.Workspaces.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/4.8.0/microsoft.codeanalysis.workspaces.common.4.8.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.common/4.8.0/microsoft.codeanalysis.workspaces.common.4.8.0.nupkg' timed out because no data was received for 60000ms. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   The operation has timed out. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.Common.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/5.0.0/microsoft.codeanalysis.common.5.0.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/5.0.0/microsoft.codeanalysis.common.5.0.0.nupkg' timed out because no data was received for 60000ms. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   The operation has timed out. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.Common.5.0.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.Workspaces.Common.4.8.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.4.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.4.0/microsoft.codeanalysis.csharp.4.4.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.CSharp.4.4.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.Data.SqlClient.5.0.1' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301: Failed to retrieve information about 'Microsoft.Data.SqlClient' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Infrastructure\Infrastructure.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301: Failed to retrieve information about 'Microsoft.Data.SqlClient' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Application\Application.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CodeAnalysis.CSharp' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   The SSL connection could not be established, see inner exception.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CodeAnalysis.CSharp' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   The SSL connection could not be established, see inner exception.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'DocumentFormat.OpenXml.3.1.1' from 'https://api.nuget.org/v3-flatcontainer/documentformat.openxml/3.1.1/documentformat.openxml.3.1.1.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.Common.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.common/4.8.0/microsoft.codeanalysis.common.4.8.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'SkiaSharp.NativeAssets.macOS.3.116.1' from 'https://api.nuget.org/v3-flatcontainer/skiasharp.nativeassets.macos/3.116.1/skiasharp.nativeassets.macos.3.116.1.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'DocumentFormat.OpenXml.3.1.1' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+    0 Warning(s)
+    21 Error(s)
+
+Time Elapsed 00:20:21.80
+
+

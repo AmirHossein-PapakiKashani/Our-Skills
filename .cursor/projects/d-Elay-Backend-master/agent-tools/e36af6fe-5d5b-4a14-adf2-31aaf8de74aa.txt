@@ -1,0 +1,248 @@
+# Antigravity 2.0: split `antigravity` into `antigravity-ide` / `antigravity-cli`, expand features, and handle Gemini CLI deprecation
+
+- State: closed
+- Author: dyoshikawa
+- Created: 2026-05-26T01:27:27Z
+- Updated: 2026-05-27T08:58:37Z
+- Repository: dyoshikawa/rulesync
+- Number: #1679
+
+## Labels
+
+- enhancement
+- considering
+
+---
+
+## Summary
+
+Google launched **Antigravity 2.0** at I/O 2026 (May 19, 2026), shipping two distinct products — the **Antigravity IDE** (desktop app) and a new **Antigravity CLI** (`agy`, Go-based) — and announced that **Gemini CLI is being retired on June 18, 2026** for most users. Because the IDE and CLI use **separate global-scope config trees**, this issue proposes to **split rulesync's single `antigravity` target into `antigravity-ide` and `antigravity-cli`**, expand the feature coverage to match v2 (MCP, hooks, subagents, permissions, global scope), and define how rulesync handles the Gemini CLI deprecation.
+
+> **Decision (updated):** Go with the **split** approach. The earlier "keep unified" lean was based on the assumption that the IDE and CLI share config; verification against the official docs (see the [verification comment](https://github.com/dyoshikawa/rulesync/issues/1679#issuecomment-4539312691)) showed that **project-scope files are shared but global-scope paths diverge** (`~/.gemini/antigravity/` for the IDE vs `~/.gemini/antigravity-cli/` for the CLI), which a single target cannot satisfy simultaneously.
+
+## Motivation / Purpose
+
+- rulesync's current `antigravity` target was built against the **November 2025** (v1) IDE and supports only **3 features**: rules, commands (workflows), skills — all project scope, no MCP/hooks/subagents/permissions (`src/types/tool-targets.ts`, `README.md:94`).
+- Antigravity 2.0 ships **two products with distinct global config trees**, so one identifier cannot generate correct global-scope output for both.
+- The Antigravity CLI **fully replaces Gemini CLI**, preserving Agent Skills, Hooks, Subagents, MCP, and Extensions (now "plugins") ([Google Developers Blog](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/), [CLI Migration doc](https://antigravity.google/docs/gcli-migration)). rulesync's `geminicli` target is its richest integration (8 features), so its users need a concrete `geminicli → antigravity-cli` migration path.
+
+## Background from Research
+
+### Antigravity 2.0 launch & Gemini CLI deprecation
+
+- Antigravity first shipped **November 2025**; **Antigravity 2.0** (updated desktop app + new CLI) launched at Google I/O 2026 on **May 19, 2026** ([TechCrunch](https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/)).
+- **June 18, 2026**: Gemini CLI and the Gemini Code Assist IDE extensions **stop serving requests** for Google AI Pro/Ultra and free Gemini Code Assist for individuals. **Enterprise** (GCA Standard/Enterprise, GCA for GitHub via Google Cloud) is **unaffected** ([Google Developers Blog](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/), [The Register](https://www.theregister.com/ai-ml/2026/05/20/bye-bye-gemini-cli-google-nudges-devs-toward-antigravity/)).
+- Antigravity CLI keeps "the most critical features of Gemini CLI" but **"there won't be 1:1 feature parity right out of the gate"** ([Google Developers Blog](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/)).
+
+### Verified config layout (official docs rendered via `playwright-cli` on 2026-05-26)
+
+Full details and quotes are in the [verification comment](https://github.com/dyoshikawa/rulesync/issues/1679#issuecomment-4539312691). Summary:
+
+| Concern | Antigravity **IDE** | Antigravity **CLI** | Notes |
+| --- | --- | --- | --- |
+| Global rules | `~/.gemini/GEMINI.md` | `~/.gemini/GEMINI.md` | shared |
+| Workspace rules | `.agents/rules/*.md` (+ root `GEMINI.md`/`AGENTS.md`) | same context files (`GEMINI.md`, `AGENTS.md`, `.agents/rules/`) | shared; `.agent/` (singular) is **back-compat**, `.agents/` (plural) is the **new default** |
+| Workflows / commands | `.agents/workflows/`, global `~/.gemini/antigravity/global_workflows/` | (slash commands via skills) | |
+| Workspace skills | `.agents/skills/ /SKILL.md` | `.agents/skills/ /SKILL.md` | shared; `.agent/skills` back-compat |
+| Global skills | `~/.gemini/antigravity/skills/` | `~/.gemini/antigravity-cli/skills/` | **diverges**; `~/.gemini/skills/` is the Gemini-inherited shared location |
+| Workspace MCP | (MCP Store / `mcp_config.json`) | `.agents/mcp_config.json` | |
+| Global MCP | `~/.gemini/antigravity/mcp_config.json` | `~/.gemini/antigravity-cli/mcp_config.json` | **diverges**; `mcpServers`, `serverUrl` (not `url`), `disabledTools` |
+| Hooks | `hooks.json` in `.agents/` or `~/.gemini/config/` | `hooks.json` in `.agents/` or `~/.gemini/config/` | events `PreToolUse`/`PostToolUse`/`PreInvocation`/`PostInvocation`/`Stop`; Claude-Code-like matcher shape (NOT `geminicli-hooks.ts`) |
+| Permissions | (Agent Settings UI) | `~/.gemini/antigravity-cli/settings.json` → `permissions.allow`/`deny` (`command(...)`) | CLI is file-configurable |
+| Plugins | — | `~/.gemini/antigravity-cli/plugins/ /` (bundles skills/agents/rules/`mcp_config.json`/`hooks.json`) | bundle format |
+
+Rule activation types (Manual / Always On / Model Decision / Glob) match rulesync's existing `AntigravityRuleFrontmatter`; SKILL.md frontmatter is `name` (optional) + `description` (required); rules/workflows/skills files are limited to 12,000 chars ([Rules doc](https://antigravity.google/docs/rules-workflows), [Skills doc](https://antigravity.google/docs/skills)).
+
+## Proposed Specification
+
+### 1. Split `antigravity` → `antigravity-ide` + `antigravity-cli`
+
+Add two new target identifiers and retire the single `antigravity` identifier:
+
+- **`antigravity-ide`** — the desktop editor. Inherits the current `antigravity` behavior (IDE paths) and adds global scope.
+- **`antigravity-cli`** — the `agy` CLI. New target covering the Gemini-CLI-class feature set.
+- **`antigravity`** — keep as a **deprecated alias for `antigravity-ide`** (the current implementation already targets IDE paths: `.agent/...`, `~/.gemini/antigravity/skills/`), so existing `rulesync.jsonc` configs keep working. Emit a deprecation note pointing to the two new identifiers. (Final alias policy — see Open Questions.)
+
+Both new identifiers must be registered in `src/types/tool-targets.ts` (`ALL_TOOL_TARGETS`) and wired into every feature processor's factory map plus `rules-processor.ts` conventions.
+
+### 2. Per-target feature/scope plan
+
+**`antigravity-ide`** (default output `.agents/`, back-compat read of `.agent/`):
+
+| Feature | Project | Global | Path(s) |
+| --- | :-: | :-: | --- |
+| rules | ✅ | ✅ | `.agents/rules/`; global `~/.gemini/GEMINI.md` |
+| commands (workflows) | ✅ | ✅ | `.agents/workflows/`; global `~/.gemini/antigravity/global_workflows/` |
+| skills | ✅ | ✅ | `.agents/skills/`; global `~/.gemini/antigravity/skills/` |
+| mcp | ✅ | ✅ | global `~/.gemini/antigravity/mcp_config.json` (workspace path TBD) |
+| hooks | ✅ | ✅ | `.agents/hooks.json`; global `~/.gemini/config/hooks.json` |
+
+**`antigravity-cli`** (default output `.agents/`):
+
+| Feature | Project | Global | Path(s) |
+| --- | :-: | :-: | --- |
+| rules | ✅ | ✅ | `GEMINI.md`/`AGENTS.md` + `.agents/rules/`; global `~/.gemini/GEMINI.md` |
+| skills | ✅ | ✅ | `.agents/skills/`; global `~/.gemini/antigravity-cli/skills/` |
+| mcp | ✅ | ✅ | `.agents/mcp_config.json`; global `~/.gemini/antigravity-cli/mcp_config.json` |
+| hooks | ✅ | ✅ | `.agents/hooks.json`; global `~/.gemini/config/hooks.json` |
+| permissions | | ✅ | `~/.gemini/antigravity-cli/settings.json` (`permissions.allow`/`deny`) |
+| subagents | ? | ? | standalone path unconfirmed (bundled under plugins `agents/`) — see Open Questions |
+
+Note: project-scope outputs (`.agents/rules/`, `.agents/skills/`, `.agents/hooks.json`) are **identical** for both targets; selecting both simply writes the same files idempotently. The split exists to get **global scope** right.
+
+### 3. Implementation checklist (per `.claude/rules/feature-change-guidelines.md`)
+
+- New classes: `antigravity-ide-*` / `antigravity-cli-*` for each supported feature (reuse the existing antigravity rule/command/skill logic for the IDE; reuse `geminicli-mcp.ts` patterns for MCP with `serverUrl`/`disabledTools`).
+- A **new Antigravity hooks generator** in the `hooks.json` (Claude-Code-like) shape — do **not** reuse `geminicli-hooks.ts`.
+- Default the directory output to `.agents/` (plural); continue reading `.agent/` (singular) on import for back-compat.
+- Update `rules-processor.ts` `additionalConventions`, review frontmatter precedence, run `pnpm dev gitignore` to refresh `.gitignore`, and implement project+global scope where the product supports it.
+- Keep README/`docs/**` "Supported Tools and Features" + "Each File Format" in sync, and **preserve/extend the e2e happy-path Tool × Feature matrix** for both new targets.
+
+### 4. Gemini CLI deprecation handling
+
+- **Do not remove `geminicli`.** Enterprise access continues past June 18, 2026, countless existing `GEMINI.md`/`.gemini/` repos depend on it, and CLAUDE.md requires preserving the e2e matrix. Removal would be breaking.
+- **Mark `geminicli` deprecated in docs** (README matrix + a note with the June 18, 2026 date and the enterprise exception) and point users to **`antigravity-cli`** as the successor.
+- Once `antigravity-cli` covers rules/skills/mcp/hooks/subagents/permissions, document a **`geminicli → antigravity-cli` migration** in `docs/` (mirrors Google's own `agy plugin import gemini`).
+
+### Acceptance criteria
+
+- `antigravity-ide` and `antigravity-cli` registered and wired through all feature processors; `antigravity` kept as a deprecated alias.
+- Feature/scope coverage implemented per the tables above, with global-scope paths correct per product.
+- README/`docs/**` updated for the split and the `geminicli` deprecation note.
+- e2e happy-path tests cover the new Tool × Feature cells for both targets.
+
+## Open Questions
+
+1. **`antigravity` alias policy** — Keep `antigravity` as a permanent deprecated alias for `antigravity-ide`, or schedule its removal in a future major? Should selecting `antigravity` emit a warning?
+2. **CLI subagents** — Is there a standalone, file-based subagents config for `antigravity-cli` outside the plugin bundle (`~/.gemini/antigravity-cli/plugins/ /agents/`)? If subagents are only definable via plugins or the `define_subagent` tool, rulesync may not be able to generate them directly.
+3. **Plugins** — "Plugins" are a bundle (skills + agents + rules + mcp + hooks). This doesn't fit rulesync's per-feature model; treat as out of scope, or add a dedicated bundle feature later?
+4. **IDE permissions / global MCP workspace path** — The IDE manages permissions via UI (no obvious file to generate). Confirm the IDE's *workspace* MCP path (the docs only clearly state the global `~/.gemini/antigravity/mcp_config.json`).
+5. **`.agents/` default migration** — Confirm flipping the default output from `.agent/` (singular) to `.agents/` (plural) for rules/workflows/skills, while keeping `.agent/` readable on import.
+
+## References
+
+### Official Antigravity docs (rendered via `playwright-cli`, 2026-05-26)
+
+- https://antigravity.google/docs/rules-workflows — Rules & Workflows: `.agents/rules/` default (`.agent/rules` back-compat), global `~/.gemini/GEMINI.md`, trigger types, `@` mentions, 12k char limit.
+- https://antigravity.google/docs/skills — Skills: workspace `.agents/skills/`, global `~/.gemini/antigravity/skills/`, `.agent/skills` back-compat, SKILL.md frontmatter.
+- https://antigravity.google/docs/hooks — Hooks: `hooks.json` in `.agents/` or `~/.gemini/config/`; events PreToolUse/PostToolUse/PreInvocation/PostInvocation/Stop.
+- https://antigravity.google/docs/mcp — MCP: `~/.gemini/antigravity/mcp_config.json`, `mcpServers`, `serverUrl`, `disabledTools`.
+- https://antigravity.google/docs/gcli-migration — Gemini CLI → Antigravity CLI migration; CLI-vs-Gemini-CLI path tables for skills & MCP; `agy plugin import gemini`.
+- https://antigravity.google/docs/cli-features — CLI features: plugins `~/.gemini/antigravity-cli/plugins/`, `~/.gemini/antigravity-cli/settings.json` permissions, subagents `/agents`.
+
+### Announcements / coverage
+
+- https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/ — Official: Gemini CLI → Antigravity CLI, June 18, 2026 deprecation, preserved features, enterprise exception.
+- https://github.com/google-gemini/gemini-cli/discussions/27274 — Official GitHub discussion mirroring the announcement.
+- https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/ — Antigravity 2.0 launch (desktop + CLI) at I/O 2026.
+- https://www.theregister.com/ai-ml/2026/05/20/bye-bye-gemini-cli-google-nudges-devs-toward-antigravity/ — Independent corroboration of the deprecation timeline and enterprise exception.
+
+### Codebase references (current state)
+
+- `src/types/tool-targets.ts` — `ALL_TOOL_TARGETS` (single `antigravity`, plus `geminicli`).
+- `src/features/rules/antigravity-rule.ts` — `.agent/rules/`, `supportsGlobal: false`.
+- `src/features/commands/antigravity-command.ts` — `.agent/workflows/`.
+- `src/features/skills/antigravity-skill.ts` — project `.agent/skills/`, global `~/.gemini/antigravity/skills/`.
+- `src/features/mcp/geminicli-mcp.ts`, `src/features/hooks/geminicli-hooks.ts`, `src/features/permissions/geminicli-permissions.ts` — reusable patterns / shape references.
+- `src/features/rules/rules-processor.ts` — `additionalConventions` per target.
+- `README.md:79` (`geminicli`, 8 features) / `README.md:94` (`antigravity`, 3 features) — current matrix.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+## Timeline
+
+- dyoshikawa added label "enhancement"
+
+- dyoshikawa added label "question"
+
+- dyoshikawa added label "considering"
+
+**dyoshikawa** commented on 2026-05-26T02:33:53Z:
+
+> ## Verified against the official Antigravity docs (rendered via `playwright-cli`)
+> 
+> The `antigravity.google/docs/*` pages are JS-rendered SPAs that plain HTTP fetch could not read, so I rendered them with a headless browser. The findings below **resolve several Open Questions** in the issue body and **materially change the unify-vs-split recommendation**.
+> 
+> ### Resolved: `.agent/` vs `.agents/` (Open Question #2)
+> 
+> Both the Rules and Skills docs state the same thing explicitly:
+> 
+> > Workspace rules live in the `.agents/rules` folder of your workspace or git root. **Note: Antigravity now defaults to `.agents/rules`, but still maintains backward support for `.agent/rules`.** — [Rules doc](https://antigravity.google/docs/rules-workflows)
+> 
+> > **Note: Antigravity now defaults to `.agents/skills`, but still maintains backward support for `.agent/skills`.** — [Skills doc](https://antigravity.google/docs/skills)
+> 
+> **Conclusion:** the new default is `.agents/` (plural). rulesync currently emits `.agent/` (singular) for rules/workflows/skills (`src/features/rules/antigravity-rule.ts`, `src/features/commands/antigravity-command.ts`, `src/features/skills/antigravity-skill.ts`) — still valid via backward support, but we should migrate the default output to `.agents/`.
+> 
+> ### Resolved: global skills path (Open Question #3) — and the Dazbo claim is wrong for the IDE
+> 
+> The official Skills doc lists global skills at `~/.gemini/antigravity/skills/ /` ([Skills doc](https://antigravity.google/docs/skills)) — i.e. **rulesync's current global path is correct for the IDE**, contradicting the earlier secondary source that claimed it "doesn't work." The CLI uses a different path (see table below).
+> 
+> ### Resolved: hooks config (Open Question #4)
+> 
+> > Hooks are configured in a `hooks.json` file located in your customization directory (e.g., `.agents/` in your workspace or `~/.gemini/config/`). — [Hooks doc](https://antigravity.google/docs/hooks)
+> 
+> Events: `PreToolUse`, `PostToolUse`, `PreInvocation`, `PostInvocation`, `Stop`. The `PreToolUse`/`PostToolUse` entries use a regex `matcher` against tool names (e.g. `run_command`) plus a `hooks` array of `{ type: "command", command, timeout }` — structurally close to Claude Code's hooks, **not** the Gemini CLI hooks shape in `src/features/hooks/geminicli-hooks.ts`. So Antigravity needs its own hooks generator.
+> 
+> ### MCP format (verified)
+> 
+> The IDE MCP config is `~/.gemini/antigravity/mcp_config.json` with a top-level `mcpServers` object; each server uses `command`/`args`/`env`/`cwd` (stdio) or `serverUrl`/`headers` (remote), and supports `disabledTools` ([MCP doc](https://antigravity.google/docs/mcp)). Note **`serverUrl`**, not `url`/`httpUrl`. This maps cleanly onto the existing `src/features/mcp/geminicli-mcp.ts` patterns (incl. `disabledTools`).
+> 
+> ### ⚠️ Critical for the unify-vs-split decision (Open Question #1): global-scope paths DIFFER between CLI and IDE
+> 
+> The earlier body said CLI and IDE "share config." That is only true at **project/workspace scope**. The [CLI Migration doc](https://antigravity.google/docs/gcli-migration) and [CLI Features doc](https://antigravity.google/docs/cli-features) show that **global-scope paths diverge**:
+> 
+> | Concern | Antigravity **IDE** | Antigravity **CLI** | Shared / project |
+> | --- | --- | --- | --- |
+> | Global rules | `~/.gemini/GEMINI.md` | `~/.gemini/GEMINI.md` | shared (also `GEMINI.md`/`AGENTS.md` in workspace) |
+> | Workspace rules | `.agents/rules/` (← `.agent/rules/`) | same context files (`GEMINI.md`, `AGENTS.md`) | shared |
+> | Global skills | `~/.gemini/antigravity/skills/` | `~/.gemini/antigravity-cli/skills/` | + inherited `~/.gemini/skills/` |
+> | Workspace skills | `.agents/skills/` (← `.agent/skills/`) | `.agents/skills/` | shared |
+> | Global MCP | `~/.gemini/antigravity/mcp_config.json` | `~/.gemini/antigravity-cli/mcp_config.json` | — |
+> | Workspace MCP | (MCP Store / mcp_config) | `.agents/mcp_config.json` | — |
+> | Plugins | — | `~/.gemini/antigravity-cli/plugins/ /` (bundles skills/agents/rules/mcp_config.json/hooks.json) | — |
+> | Settings/Permissions | — | `~/.gemini/antigravity-cli/settings.json` (`permissions.allow`/`deny`, `command(...)`) | — |
+> 
+> **Implication:** a single unified `antigravity` target is fine for **project scope** (identical outputs), but **global scope requires CLI vs IDE divergence** (`~/.gemini/antigravity/` vs `~/.gemini/antigravity-cli/`). Two viable designs:
+> 
+> - **(A) Keep one `antigravity` target**, and make the *global*-scope paths configurable per-feature (e.g. a `variant: "ide" | "cli"` option), defaulting to one. Pro: small `--targets` surface; Con: a single global generate can't satisfy both products at once.
+> - **(B) Split into `antigravity-ide` and `antigravity-cli`** (optionally keep `antigravity` as an alias = IDE). Pro: global-scope correctness for each product, clean mental model now that Google ships two distinct products; Con: larger matrix, duplicated project-scope outputs.
+> 
+> Given Google now officially documents **two separate products with distinct global config trees**, **(B) split** looks more defensible than the body's original "keep unified" lean — at minimum we need a mechanism to target the CLI's `~/.gemini/antigravity-cli/` tree. Maintainer decision still needed.
+> 
+> ### Antigravity CLI = full Gemini CLI feature surface (reinforces the deprecation plan)
+> 
+> The CLI natively supports rules, skills, MCP, hooks, subagents, and permissions, plus plugins; `agy plugin import gemini` migrates Gemini CLI extensions to plugins, and the CLI "loads in the same context files and global Agent Skills as Gemini CLI" ([CLI Migration doc](https://antigravity.google/docs/gcli-migration)). This confirms the proposed **`geminicli` → `antigravity(-cli)`** migration path and that expanding `antigravity` to MCP/hooks/subagents/permissions is the right scope.
+> 
+> ### Newly answerable / remaining questions
+> 
+> - Adopt `.agents/` as the default output dir (keep reading/writing `.agent/` for back-compat)? — recommend **yes, default to `.agents/`**.
+> - Add **permissions** support for `antigravity-cli` (`settings.json` `permissions.allow`/`deny`)? Likely yes.
+> - "**Plugins**" are a bundle format (skills+agents+rules+mcp+hooks). Out of scope for rulesync's per-feature model, or worth a future feature? (Probably out of scope.)
+> - Hooks generator must follow the Antigravity (`hooks.json`, Claude-Code-like) shape, **not** reuse `geminicli-hooks.ts`.
+> 
+> ### Sources (official docs, rendered May 26, 2026)
+> 
+> - https://antigravity.google/docs/rules-workflows — Rules & Workflows (`.agents/rules`, `~/.gemini/GEMINI.md`, trigger types Manual/Always On/Model Decision/Glob, `@` mentions, 12k char limit)
+> - https://antigravity.google/docs/skills — Skills (workspace `.agents/skills/`, global `~/.gemini/antigravity/skills/`, `.agent/skills` back-compat, SKILL.md frontmatter `name`/`description`)
+> - https://antigravity.google/docs/hooks — Hooks (`hooks.json` in `.agents/` or `~/.gemini/config/`, events PreToolUse/PostToolUse/PreInvocation/PostInvocation/Stop)
+> - https://antigravity.google/docs/mcp — MCP (`~/.gemini/antigravity/mcp_config.json`, `mcpServers`, `serverUrl`, `disabledTools`)
+> - https://antigravity.google/docs/gcli-migration — Gemini CLI → Antigravity CLI migration (CLI vs Gemini CLI path tables for skills & MCP, `agy plugin import gemini`)
+> - https://antigravity.google/docs/cli-features — CLI features (plugins under `~/.gemini/antigravity-cli/plugins/`, `~/.gemini/antigravity-cli/settings.json` permissions, subagents `/agents`)
+
+- dyoshikawa removed label "question"
+
+- Renamed from "Antigravity 2.0 (IDE + new CLI): expand support, decide unify vs split, and handle Gemini CLI deprecation" to "Antigravity 2.0: split `antigravity` into `antigravity-ide` / `antigravity-cli`, expand features, and handle Gemini CLI deprecation"
+
+- Referenced by issue #1706: Antigravity CLI subagents: confirm standalone file format and decide rulesync support
+
+- Referenced by PR #1708: feat(antigravity): split antigravity into antigravity-ide and antigravity-cli (Antigravity 2.0)
+
+- dyoshikawa closed
+
+- Referenced in commit 817f747
+
+- Referenced by issue #1663: Decide how to handle Gemini CLI support
+
+- Referenced by issue #1747: Follow up Google Antigravity IDE upstream updates: global MCP/skills relocated to ~/.gemini/config, hooks events + schema-shape gaps
+
+- Referenced by issue #1749: Follow up Google Antigravity CLI upstream updates: global MCP relocated to ~/.gemini/config, hooks events + schema-shape gaps

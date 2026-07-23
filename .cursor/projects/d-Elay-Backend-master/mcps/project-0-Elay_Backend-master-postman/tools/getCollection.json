@@ -1,0 +1,30 @@
+{
+  "name": "getCollection",
+  "description": "Get information about a collection. By default this tool returns the lightweight collection map (metadata + recursive itemRefs).\nUse the model parameter to opt in to Postman's full API responses:\n- model=minimal — root-level folder/request IDs only\n- model=full — full Postman collection payload.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionId": {
+        "type": "string",
+        "description": "The collection ID must be in the form <OWNER_ID>-<UUID> (e.g. 12345-33823532ab9e41c9b6fd12d0fd459b8b)."
+      },
+      "access_key": {
+        "type": "string",
+        "description": "A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint."
+      },
+      "model": {
+        "type": "string",
+        "enum": [
+          "minimal",
+          "full"
+        ],
+        "description": "Optional response shape override. Omit to receive the lightweight collection map. Set to `minimal` for the Postman minimal model or `full` for the complete collection payload."
+      }
+    },
+    "required": [
+      "collectionId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,191 +1,30 @@
 ---
-description: Mandatory codebase-memory MCP usage for all code exploration and changes in Elay Backend
+description: Mandatory codebase-memory MCP for code exploration (all projects)
 alwaysApply: true
 ---
 
-# Codebase Intelligence — Elay Backend (Mandatory)
+# Codebase-Memory — Mandatory
 
-> **ZERO TOLERANCE.** See also `00-enforcement-gate.mdc`. A `preToolUse` hook **denies** Grep/Glob for `.cs` and most patterns — MCP is not optional.
+MCP: `codebase-memory-mcp` or `user-codebase-memory-mcp`.
 
-This project is indexed by **codebase-memory-mcp** (MCP server: `codebase-memory-mcp`, configured in `.cursor/mcp.json`).
-The knowledge graph lives in `.codebase-memory/` (~9,900 nodes, ~22,500 edges).
-**You MUST query the graph before exploring or changing code.** Do not guess file locations.
+## Tool order
 
-## HARD RULE — Tool call order
+| Need | Tool |
+|------|------|
+| Structure / routes | `get_architecture` |
+| Symbol by name | `search_graph` |
+| Concept / meaning | `search_graph` + `semantic_query` |
+| String / error text | `search_code` |
+| Callers / impact | `trace_path` |
+| Symbol body | `get_code_snippet` |
+| Diff blast radius | `detect_changes` |
 
-| Step | Required action | Built-in tool |
-|------|-----------------|---------------|
-| 0 | `detect_changes` if editing | — |
-| 1 | `search_graph` / `search_code` | **NOT** Grep/Glob |
-| 2 | `get_code_snippet` / `trace_path` | **NOT** Read 5+ files |
-| 3 | `Read` one file you will edit | OK after step 1–2 |
-| 4 | Grep/Glob fallback | **Only** after MCP empty + reason stated |
+**Never** start with Grep/Glob for source. Global hook blocks most source greps.
 
-**Calling `Grep` or `Glob` for `*.cs`, handlers, endpoints, or class names is a policy violation.**
-The project hook will return `permission: deny` and feed this message back to you.
-
-## Project Context (Elay.sln)
-
-| Area | Path | Role |
-|------|------|------|
-| **Customer** | `Customer/` | Main tenant app — Api, Blazor UI, CQRS Application, Domain, Infrastructure |
-| **Admin** | `Admin/` | Admin panel — same layer structure as Customer |
-| **Share** | `Share/` | Shared kernel (`Share/`, `SharedKernel.Domain/`) |
-
-**Layer conventions (both Admin & Customer):**
-- `Api/EndPoint/` — Minimal API endpoints (`*EndPoint.cs`)
-- `Core/Application/Features/` — MediatR Commands/Queries + `*Handler.cs`
-- `Core/Domain/` — Entities, models, helpers
-- `Infrastructure/` — EF Core, migrations (`Infrastructure/Migrations/`), services
-- `UI/Components/` — Blazor pages, ViewModels (`*ViewModel.cs`)
-
-When searching, **scope by bounded context** (`Customer/**` vs `Admin/**`) unless the task spans both.
-
----
-
-## Universal Rule — Before ANY Code Work
-
-1. Call **`get_architecture`** to understand structure, entry points, routes, and hotspots.
-2. Call **`search_graph`** to find related symbols, files, and dependencies.
-3. Call **`search_code`** to check existing implementations before creating new ones.
-4. Call **`trace_path`** (or `trace_call_path`) when modifying a function — find all callers and affected files.
-
-**Never assume file locations — always query the graph first.**
-**Never create a new endpoint, handler, service, or ViewModel without first searching for existing ones.**
-
-Prefer **`get_code_snippet`** over `Read`. Never use `Grep`/`Glob` when `search_graph` or `search_code` can answer.
-
----
-
-## Workflow: Bug Fix
-
-1. `search_code` — search for the error message, exception type, or function/class name.
-2. `trace_path` / `trace_call_path` — trace inbound callers to find root cause.
-3. `detect_changes` — after fixing, verify blast radius of your edit.
-4. Only then implement the fix.
-
-**Elay-specific patterns to search:**
-- API layer: `*EndPoint.cs` in `Api/EndPoint/`
-- Business logic: `*Handler.cs` in `Core/Application/Features/`
-- UI: `*.razor`, `*ViewModel.cs` in `UI/Components/`
-
----
-
-## Workflow: New Feature
-
-1. `get_architecture` — confirm where the feature belongs (Admin vs Customer, which layer).
-2. `search_graph` — find similar existing features (e.g. another `*EndPoint` + `*Command` + `*Handler` chain).
-3. `search_graph` with `semantic_query` — find conceptually related code when names differ.
-4. Mirror existing CQRS patterns: Command/Query → Handler → EndPoint → (optional) Blazor ViewModel.
-5. `trace_path` — verify integration points before wiring new code.
-
----
-
-## Workflow: Refactor / Rename
-
-1. `trace_path` with `direction: "both"` — map full call chain.
-2. `detect_changes` — classify risk before and after edits.
-3. Check both **Admin** and **Customer** if the symbol is duplicated across bounded contexts.
-
----
-
-## Useful `search_graph` Filters for This Repo
+## New repo
 
 ```
-name_pattern: ".*EndPoint"       label: "Class"     file_pattern: "Customer/Api/**"
-name_pattern: ".*Handler"       label: "Class"     file_pattern: "**/Application/**"
-name_pattern: ".*ViewModel"     label: "Class"     file_pattern: "**/UI/**"
-name_pattern: ".*Configuration" label: "Class"     file_pattern: "**/Infrastructure/**"
-semantic_query: ["<concept>"]   # e.g. "jwt auth", "form permit", "chat message"
+index_status → index_repository(repo_path, mode=full, persistence=true)
 ```
 
----
-
-## Tool Priority (use in this order)
-
-| Need | Tool (MCP: `codebase-memory-mcp`) |
-|------|-----------------------------------|
-| Big-picture overview | `get_architecture` |
-| Find symbol by name/label | `search_graph` |
-| Find code by meaning | `search_graph` + `semantic_query` |
-| Full-text / error message / string literal | `search_code` |
-| Call chain / impact | `trace_path` or `trace_call_path` |
-| Read specific symbol body | `get_code_snippet` |
-| Git diff blast radius | `detect_changes` |
-| Complex graph traversal | `query_graph` (Cypher) |
-| Persist design decisions | `manage_adr` |
-
----
-
-## FORBIDDEN: Grep / Glob / Read as Primary Search
-
-**You MUST NOT use Cursor built-in `Grep`, `Glob`, or broad `Read` for code exploration.**
-These tools are **last-resort fallbacks only** — after codebase-memory returns nothing useful.
-
-**Enforcement:** `.cursor/hooks/block-grep-glob.ps1` denies Grep/Glob unless targeting allowed non-indexed types (`.razor`, `.json`, `.md`, `.css`, config). Treat hook denial as a hard stop — switch to MCP, do not retry Grep.
-
-**Audit trail:** If you ever use Grep/Glob as fallback, your user-facing reply MUST include:
-`MCP fallback reason: <what you tried and what MCP returned>`
-
-### Mandatory search routing
-
-| User intent | Use this (NOT Grep/Glob) |
-|-------------|---------------------------|
-| "Where is X defined?" | `search_graph` with `name_pattern` |
-| "Find files matching pattern" | `search_graph` with `name_pattern` + `file_pattern` |
-| "Who calls X?" | `trace_path` / `trace_call_path` |
-| "How does X work?" (by concept) | `search_graph` with `semantic_query` |
-| "Search for string/error text" | `search_code` |
-| "Show me the code of X" | `get_code_snippet` |
-| "Project structure / routes" | `get_architecture` |
-| "What does my diff affect?" | `detect_changes` |
-
-### Decision gate — before calling Grep or Glob
-
-Ask yourself in order:
-
-1. Can `search_graph` answer this? → **Use it. Stop.**
-2. Can `search_code` find the text? → **Use it. Stop.**
-3. Can `semantic_query` find it by meaning? → **Use it. Stop.**
-4. Do I only need one symbol's body? → **`get_code_snippet`. Stop.**
-5. Did all of the above return zero relevant results? → **Only then** use `Grep` or `Glob`.
-6. When using Grep/Glob as fallback, **state why** codebase-memory was insufficient.
-
-### Anti-patterns (never do these)
-
-```
-❌ Grep for class/function/handler/endpoint names
-❌ Glob to find *.cs files by naming pattern
-❌ Read 5+ files to "explore" when search_graph could locate symbols
-❌ Grep + Read chains as default exploration workflow
-❌ Skipping codebase-memory "because it's faster to grep"
-```
-
-### Allowed uses of Grep / Glob / Read (exceptions only)
-
-| Exception | Example |
-|-----------|---------|
-| Non-indexed file types | `.razor` markup, `.json`, `.css`, `.md`, binary assets |
-| Exact multiline regex Grep cannot express | Complex cross-line pattern (rare) |
-| File known to exist, reading for edit | `Read` on **one specific file** you already identified via graph |
-| codebase-memory returned stale/missing after re-index attempt | Document the failure, then Grep |
-| User explicitly asks for raw grep | Honor request |
-
-For shell-based search fallback (if MCP unavailable), use `rtk grep` — never raw `grep`.
-
----
-
-## When Built-in Tools Are Allowed (Summary)
-
-`Grep` / `Glob` / broad `Read` → **only after** the decision gate above fails.
-`Read` on a **single known file** for editing → OK after graph identified the path.
-`search_code` and `get_code_snippet` always beat `Grep` + `Read` for indexed C# code.
-
----
-
-## Index Maintenance
-
-- Graph artifact: `.codebase-memory/graph.db.zst` (commit this for teammates).
-- If search returns stale/missing symbols after large refactors or `git pull`, ask the user to re-index:
-  `"Index this project"` or run `codebase-memory-mcp index`.
-- After adding many new files, run `detect_changes` to confirm the graph reflects current code.
+If search is stale after big refactors: re-index, then retry MCP before Grep fallback.

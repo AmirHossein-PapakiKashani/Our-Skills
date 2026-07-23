@@ -1,0 +1,27 @@
+{
+  "name": "deleteCollectionRequest",
+  "description": "Deletes a request in a collection.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "requestId": {
+        "type": "string",
+        "description": "The request's ID."
+      },
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's ID."
+      }
+    },
+    "required": [
+      "requestId",
+      "collectionId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

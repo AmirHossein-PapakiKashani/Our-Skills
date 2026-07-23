@@ -1,4 +1,4 @@
-# Cursor hook — blocks Grep/Glob for source-code exploration.
+# Global Cursor hook — blocks Grep/Glob for source-code exploration.
 # Forces codebase-memory MCP. Allows config/markup/asset file types only.
 
 $ErrorActionPreference = 'SilentlyContinue'
@@ -76,11 +76,11 @@ if ($toolName -eq 'Grep') {
         exit 0
     }
 
-    [PSCustomObject]@{
+    @{
         permission    = 'deny'
         user_message  = 'Grep blocked globally — use codebase-memory MCP'
         agent_message = $denyMessage
-    } | ConvertTo-Json -Compress -Depth 3
+    } | ConvertTo-Json -Compress
     exit 0
 }
 
@@ -92,11 +92,11 @@ if ($toolName -eq 'Glob') {
         exit 0
     }
 
-    [PSCustomObject]@{
+    @{
         permission    = 'deny'
         user_message  = 'Glob blocked globally — use codebase-memory MCP search_graph'
         agent_message = $denyMessage
-    } | ConvertTo-Json -Compress -Depth 3
+    } | ConvertTo-Json -Compress
     exit 0
 }
 

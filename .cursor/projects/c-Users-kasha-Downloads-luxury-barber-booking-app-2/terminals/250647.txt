@@ -1,0 +1,73 @@
+---
+pid: 15900
+cwd: "C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)"
+command: "cd \"C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)\" && npm install && npm run build"
+started_at: 2026-07-02T19:32:34.057Z
+running_for_ms: 1083890  
+---
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\caniuse-lite\data\features'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\caniuse-lite\data'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\caniuse-lite\data'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\caniuse-lite\data'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\zod\src'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\caniuse-lite\data'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\zod\v4'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\caniuse-lite\data'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\zod\src'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\caniuse-lite\data'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, open 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\next\dist\compiled\@babel\runtime\helpers\esm\arrayWithHoles.js'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\zod\src'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\caniuse-lite\data'
+
+added 367 packages, and audited 368 packages in 17m
+
+146 packages are looking for funding
+  run `npm fund` for details
+
+2 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm notice
+npm notice New minor version of npm available! 11.6.2 -> 11.18.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.18.0
+npm notice To update run: npm install -g npm@11.18.0
+npm notice
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+> build
+> next build
+
+node:internal/modules/cjs/loader:1368
+  throw err;
+  ^
+
+Error: Cannot find module '../server/require-hook'
+Require stack:
+- C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\next\dist\bin\next
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1365:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1445:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\next\dist\bin\next:6:1)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)\\node_modules\\next\\dist\\bin\\next'
+  ]
+}
+
+Node.js v22.18.0
+
+---
+exit_code: 1
+elapsed_ms: 1085472
+ended_at: 2026-07-02T19:50:39.529Z
+---

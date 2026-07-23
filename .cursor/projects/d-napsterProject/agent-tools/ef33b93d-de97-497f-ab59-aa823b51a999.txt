@@ -1,0 +1,726 @@
+# Issue: 2dust/v2rayN #9435
+
+- Repository: 2dust/v2rayN | A GUI client for Windows, Linux and macOS, support Xray and sing-box and others | 110K stars | C#
+
+## [Bug]: The feature "allowInsecure" has been removed， "allowInsecure" will be removed automatically after 2026-06-01, please use "pinnedPeerCertSha256"
+
+- Author: [@zeyudada](https://github.com/zeyudada)
+- State: closed (not_planned)
+- Labels: bug
+- Reactions: 👍 6
+- Created: 2026-06-01T01:09:53Z
+- Updated: 2026-06-15T06:36:55Z
+- Closed: 2026-06-15T06:36:55Z
+- Closed by: [@2dust](https://github.com/2dust)
+
+### 操作系统和版本
+
+windows 11
+
+### 预期情况
+
+使用hysteria类型节点
+
+### 实际情况
+
+Failed to start: main: failed to load config files: [configTest5612532013057212165.json] > infra/conf: failed to build outbound config with tag proxy > infra/conf: failed to build stream settings for outbound detour > infra/conf: Failed to build TLS config. > common/errors: The feature "allowInsecure" has been removed and migrated to "pinnedPeerCertSha256". Please update your config(s) according to release note and documentation.
+
+### 复现方法
+
+只要使用hysteria类型节点均有此问题
+
+### 软件日志
+
+2026-06-01 09:05:25.0301-DEBUG CoreHandler,运行 Core 失败，请查看提示信息
+2026-06-01 09:05:25.0301-DEBUG at ServiceLib.Manager.CoreManager.RunProcessNormal(String fileName, CoreInfo coreInfo, String configPath, Boolean displayLog) in /home/runner/work/v2rayN/v2rayN/v2rayN/ServiceLib/Manager/CoreManager.cs:line 275
+ at ServiceLib.Manager.CoreManager.RunProcess(CoreInfo coreInfo, String configPath, Boolean displayLog, Boolean mayNeedSudo) in /home/runner/work/v2rayN/v2rayN/v2rayN/ServiceLib/Manager/CoreManager.cs:line 241
+
+### 内核日志
+
+Xray 26.5.9 (Xray, Penetrates Everything.) 1bdb488 (go1.26.3 windows/amd64)
+
+### 额外信息
+
+复现使用配置如下
+
+```
+{
+    "tag": "proxy",
+    "protocol": "hysteria",
+    "settings": {
+        "address": "127.6.6.6",
+        "port": 1234,
+        "version": 2
+    },
+    "streamSettings": {
+        "network": "hysteria",
+        "security": "tls",
+        "tlsSettings": {
+            "allowInsecure": true,
+            "serverName": "www.bing.com"
+        },
+        "hysteriaSettings": {
+            "version": 2,
+            "auth": "a23b014e-c0f1-4146-9eaf-b6891414ae31"
+        },
+        "finalmask": {
+            "quicParams": {
+                "congestion": "brutal",
+                "brutalUp": "100mbps",
+                "brutalDown": "100mbps",
+                "udpHop": {
+                    "ports": "50000-55000",
+                    "interval": "30"
+                }
+            }
+        }
+    },
+    "mux": {
+        "enabled": false
+    }
+}
+```
+
+### 我确认已更新至最新版本
+
+- [x] 是
+
+### 我确认已查询历史issues
+
+- [x] 是
+
+### 我确认系统版本是受支持的
+
+- [x] 是
+
+---
+
+### Timeline
+
+**zeyudada** added label `bug` · Jun 1, 2026 at 1:09am
+
+**@xiaozou-wine** commented · Jun 1, 2026 at 1:14am
+
+> 同样的问题
+
+**@2dust** commented · Jun 1, 2026 at 1:16am
+
+> `Failed to start: main: failed to load config files: [configTest5612532013057212165.json] > infra/conf: failed to build outbound config with tag proxy > infra/conf: failed to build stream settings for outbound detour > infra/conf: Failed to build TLS config. > common/errors: The feature "allowInsecure" has been removed and migrated to "pinnedPeerCertSha256". Please update your config(s) according to release note and documentation.`
+> 
+> `功能“allowInsecure”已被移除并迁移到“pinnedPeerCertSha256”。请根据发行说明和文档更新您的配置。`
+> 
+> 请把这段翻译成你能看得懂的文字； 上面核心中文意思贴出来了。
+> 还是不明白，可以去 xray 社区问。
+
+**@tsctsc6** commented · Jun 1, 2026 at 1:18am
+
+> trojan 协议也有同样的问题。确实，虽然前几个月就看到这个警告，但是不明白是什么意思。我查看配置，也没看到“allowInsecure”“pinnedPeerCertSha256”这个关键字啊。之前，我也看到 v2rayN 最近的 v[7.21.3](https://github.com/2dust/v2rayN/releases/tag/7.21.3) 的更新日志，“xray core TLS 将移除了 allowInsecure 配置项，请使用 pinnedPeerCertSha256 代替，且支持分享，日志中会有明显提示”，我也跟随更新，依然有该警告。
+
+**@tsctsc6** commented · Jun 1, 2026 at 1:24am · edited
+
+> 好吧，原来需要重新更新一下订阅（
+
+**@2dust** commented · Jun 1, 2026 at 1:32am · edited
+
+> https://xtls.github.io/config/transports/tls.html#tlsobject 
+> 搜索 allowInsecure ，写的很清楚
+> allowInsecure = true 已经强制启动失败了
+
+**2dust** mentioned this in issue [#5717: [Bug]: The feature "allowInsecure" has been removed， "allowInsecure" will be removed automatically after 2026-06-01, please use "pinnedPeerCertSha256"](https://github.com/2dust/v2rayNG/issues/5717) · Jun 1, 2026 at 1:54am
+
+**@liyifu0302** commented · Jun 1, 2026 at 2:01am · edited
+
+> 供应商不更新，拜拜，换clash了
+
+**@TJUTmayao** commented · Jun 1, 2026 at 2:05am
+
+> 问题是我手动从config.json 删除这项配置，重启 v2ray 后软件又将其添加回去，导致无法使用
+
+**@nanchiccc** commented · Jun 1, 2026 at 2:09am
+
+> 不懂啊，大佬们，如何解决
+
+**@nanchiccc** commented · Jun 1, 2026 at 2:09am
+
+> 今天出现相同问题
+
+**@CandyMuj** commented · Jun 1, 2026 at 2:11am
+
+> 我也是今天出现这个问题了，但是很奇怪，我没有做任何更新，为什么会突然出现这个问题呢？
+
+**@zouyongk** commented · Jun 1, 2026 at 2:14am
+
+> 换sing_box就可以了 ，先这样用着吧
+> 
+> [Image: Image | https://github.com/user-attachments/assets/2abb58c6-26f2-4243-bfff-ecc57891e736]
+
+**@qweenhool** commented · Jun 1, 2026 at 2:20am
+
+> 我也很莫名其妙就用不了了，换clash就好了
+
+**@zz541843** commented · Jun 1, 2026 at 2:30am
+
+> 卧槽，我也是莫名其妙用不了，我服了，从来不更新这个软件，这也能中招，用了好几年了都不舍得换，失去梯子的这十几分钟我好痛苦啊...更痛苦的是没梯子的网络搞到梯子...
+
+**@CandyMuj** commented · Jun 1, 2026 at 2:36am · edited
+
+> > 我也是今天出现这个问题了，但是很奇怪，我没有做任何更新，为什么会突然出现这个问题呢？
+> 
+> xray是在26.2.6移除的配置，我查了下我本地的core是26.5.9，理论上应该早就不能用了呀（我都用了一段时间了都没事），感觉都是今天集体爆发了一样，难道它core里面写了个生效时间，从六一开始（儿童节，还是个挺不错的日子，给我们个惊喜） 😄
+
+**@2dust** commented · Jun 1, 2026 at 2:37am
+
+> > > 我也是今天出现这个问题了，但是很奇怪，我没有做任何更新，为什么会突然出现这个问题呢？
+> > 
+> > xray是在26.2.6移除的配置，我查了下我本地的core是26.5.9，理论上应该早就不能用了呀，感觉好像就是今天集体爆发了一样，难道它core里面写了个生效时间，从六一开始（儿童节，还是个挺不错的日子，给我们个惊喜） 😄
+> 
+> 你是对的， xray core 在代码中设定了时间，就是今天。
+> 之前一直是提醒，今天正式不支持。
+
+**@2dust** commented · Jun 1, 2026 at 2:38am
+
+> > 卧槽，我也是莫名其妙用不了，我服了，从来不更新这个软件，这也能中招，用了好几年了都不舍得换，失去梯子的这十几分钟我好痛苦啊...更痛苦的是没梯子的网络搞到梯子...
+> 
+> 如果不是 VLESS ，可以先换 core 到 sing-box ，大概率可以。
+> 然后再慢慢处理
+
+**@leonsodey** commented · Jun 1, 2026 at 2:40am
+
+> > 换sing_box就可以了 ，先这样用着吧
+> > 
+> > [Image: Image | https://private-user-images.githubusercontent.com/50907503/600686551-2abb58c6-26f2-4243-bfff-ecc57891e736.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODAyODE4MTAsIm5iZiI6MTc4MDI4MTUxMCwicGF0aCI6Ii81MDkwNzUwMy82MDA2ODY1NTEtMmFiYjU4YzYtMjZmMi00MjQzLWJmZmYtZWNjNTc4OTFlNzM2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA2MDElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwNjAxVDAyMzgzMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQxNTY4MjQ3NDcyYmI1MWZlMWJhZTk3YzhiNGNiZDY2NjYyMTc4NmNlM2U3NzRjMzEwNTQ1NjZiMWQyNjlmOTEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.H5YCFIQlxe8MjIozLs9ac_5EOOVu-Lzk4YIOQg_W620]
+> 
+> 电脑版的可以这么设置，手机版的怎么设置？
+
+**@caizhengxin** commented · Jun 1, 2026 at 2:41am
+
+> 建不建议降低版本？目前换了低版本OK的
+
+**@zz541843** commented · Jun 1, 2026 at 2:46am
+
+> > 建不建议降低版本？目前换了低版本OK的
+> 
+> 多备几家不同的吧，我是这个用习惯了
+
+**@wuzhozho** commented · Jun 1, 2026 at 2:57am
+
+> 设置core为那个sing-box就行了。
+
+**2dust** changed the title from "[Bug]: The feature "allowInsecure" has been removed" to "[Bug]: The feature "allowInsecure" has been removed， "allowInsecure" will be removed automatically after 2026-06-01, please use "pinnedPeerCertSha256"" · Jun 1, 2026 at 3:13am
+
+**@Xyt4188** commented · Jun 1, 2026 at 3:19am
+
+> 安卓手机怎么设置
+
+**@GengFeng943** commented · Jun 1, 2026 at 3:47am
+
+> 害，我一大早上班發現用不了，還重置了一下windows網絡...
+
+**@pongfcnkl** commented · Jun 1, 2026 at 4:13am
+
+> > 安卓手机怎么设置
+> 
+> 安卓换不了内核，需要重新编译，只能换老版本
+
+**@tsctsc6** commented · Jun 1, 2026 at 4:40am · edited
+
+> > 好吧，原来需要重新更新一下订阅（
+> 
+> 好吧，重新更新订阅是没有效果的。我更新 v2rayN 到 v7.22.4 ，清空 binConfigs ，更新订阅，还是有 “allowInsecure” 的问题。
+
+**@Dawnwalker666** commented · Jun 1, 2026 at 5:08am
+
+> 有的服务商勤快，在发现客诉问题后及时更新，此时你更新订阅可以。
+> 但是更多服务器又贪又懒，你更新订阅后依然是旧版的设置，再更新也没用。
+> 以及尝试了上面的方法，换到singbox，并且allowInsecure值取反，依然不能用。
+
+**@Dawnwalker666** commented · Jun 1, 2026 at 5:10am
+
+> > > 建不建议降低版本？目前换了低版本OK的
+> > 
+> > 多备几家不同的吧，我是这个用习惯了
+> 
+> 低版本是多低？能否提供一个版本号？谢谢。
+> 我目前是用低版本的Xray和singbox内核，但是不能用TUN。。。
+
+**@EquineCopulator** commented · Jun 1, 2026 at 5:40am
+
+> pinnedPeerCertSha256 也没用啊
+> 我从服务器上把证书复制下来，说
+> x509: certificate relies on legacy Common Name field, use SANs instead
+> 我又申请个新证书就connection refused完全连不上了
+> 倒底要怎样
+
+**@caizhengxin** commented · Jun 1, 2026 at 5:42am
+
+> > > > 建不建议降低版本？目前换了低版本OK的
+> > > 
+> > > 
+> > > 多备几家不同的吧，我是这个用习惯了
+> > 
+> > 低版本是多低？能否提供一个版本号？谢谢。 我目前是用低版本的Xray和singbox内核，但是不能用TUN。。。
+> 
+> [Image: Image | https://github.com/user-attachments/assets/408631fc-e8c2-4050-bbe7-1d033f216a35]
+> 
+> 我目前用的是很早下载的v7.13.6版本，使用没问题，或者找个Xray Core低于v26.2.6的对应v2rayN版本。
+
+**@tsctsc6** commented · Jun 1, 2026 at 6:24am
+
+> > 有的服务商勤快，在发现客诉问题后及时更新，此时你更新订阅可以。 但是更多服务器又贪又懒，你更新订阅后依然是旧版的设置，再更新也没用。 以及尝试了上面的方法，换到singbox，并且allowInsecure值取反，依然不能用。
+> 
+> xray 配置文件不是 v2rayN 生成的吗
+
+**@daodao22333** commented · Jun 1, 2026 at 6:33am
+
+> 暂时解决办法
+> 打开 v2rayNG，进入配置（订阅/节点）列表。
+> 
+> 点击受影响节点的右侧或进入编辑页面。
+> 
+> [Image: Image | https://github.com/user-attachments/assets/ae0ee7ef-6f9c-42cd-ade7-41a5f6dee39d]
+> 
+> 找到名为 allowInsecure 或 跳过证书验证（AllowInsecure） 的选项。
+> 
+> 将其开关打开（打勾/设为 true），然后保存并重新连接
+
+**PandaFiredoge** mentioned this in issue [#9439: [Bug]: 运行 Core 失败，请查看提示信息](https://github.com/2dust/v2rayN/issues/9439) · Jun 1, 2026 at 6:55am
+
+**@CandyMuj** commented · Jun 1, 2026 at 7:39am
+
+> 移动端不支持修改core，所以还有个办法，就是按规则配置证书，可以用自签证书，可以不用域名
+> 而且这个方法移动端和pc端都支持，也不用改内核和降级
+> 
+> 服务端我使用的是 233boy/sing-box 的一键脚本（这个是基于sing-box内核的，xray内核也是一样的，参考 [TLS配置教程](https://xtls.github.io/config/transports/tls.html) 把服务端配置一下即可
+> 
+> 1. 服务器端执行如下命令
+> 
+> ```
+> openssl x509 -noout -fingerprint -sha256 -in /etc/sing-box/bin/tls.cer | awk -F= '{print $2}' | tr -d ':'
+> ```
+> 
+> 1. 客户端节点配置中将 跳过证书验证 设为 false
+> 2. 最下面的 固定证书 中，证书指纹 填入刚刚第一步生成的那一串字符
+> 
+> 手机端同理，把刚刚的那个指纹，填到节点配置中的证书指纹中即可～
+
+**@CandyMuj** commented · Jun 1, 2026 at 7:46am
+
+> > 移动端不支持修改core，所以还有个办法，就是按规则配置证书，可以用自签证书，可以不用域名 而且这个方法移动端和pc端都支持，也不用改内核和降级
+> > 
+> > 服务端我使用的是 233boy/sing-box 的一键脚本（这个是基于sing-box内核的，xray内核也是一样的，参考 [TLS配置教程](https://xtls.github.io/config/transports/tls.html) 把服务端配置一下即可
+> > 
+> > 1. 服务器端执行如下命令
+> > ```
+> > openssl x509 -noout -fingerprint -sha256 -in /etc/sing-box/bin/tls.cer | awk -F= '{print $2}' | tr -d ':'
+> > ```
+> > 2. 客户端节点配置中将 跳过证书验证 设为 false
+> > 3. 最下面的 固定证书 中，证书指纹 填入刚刚第一步生成的那一串字符
+> > 
+> > 手机端同理，把刚刚的那个指纹，填到节点配置中的证书指纹中即可～
+> 
+> 对了，这个解决不了机场那边的问题，只能解决个人搭建的，如果是机场的话，要么等机场更新，要么就只能 换内核为sing-box 或者 降级内核了
+
+**@NestleCafe** commented · Jun 1, 2026 at 8:16am
+
+> [Image: Image | https://github.com/user-attachments/assets/838c95ef-96e2-4b34-a76a-5587703f35e3]
+> 对应协议的Core换成sing_box，目前我试了下我的VLESS可用
+
+**@2dust** commented · Jun 1, 2026 at 8:18am
+
+> https://t.me/projectXtls/1490
+
+**@EquineCopulator** commented · Jun 1, 2026 at 8:30am
+
+> > 移动端不支持修改core，所以还有个办法，就是按规则配置证书，可以用自签证书，可以不用域名 而且这个方法移动端和pc端都支持，也不用改内核和降级
+> > 
+> > 服务端我使用的是 233boy/sing-box 的一键脚本（这个是基于sing-box内核的，xray内核也是一样的，参考 [TLS配置教程](https://xtls.github.io/config/transports/tls.html) 把服务端配置一下即可
+> > 
+> > 1. 服务器端执行如下命令
+> > ```
+> > openssl x509 -noout -fingerprint -sha256 -in /etc/sing-box/bin/tls.cer | awk -F= '{print $2}' | tr -d ':'
+> > ```
+> > 
+> > 2. 客户端节点配置中将 跳过证书验证 设为 false
+> > 
+> > 3. 最下面的 固定证书 中，证书指纹 填入刚刚第一步生成的那一串字符
+> > 
+> > 
+> > 手机端同理，把刚刚的那个指纹，填到节点配置中的证书指纹中即可～
+> 
+> 不行啊，x509: certificate relies on legacy Common Name field, use SANs instead
+
+**@EquineCopulator** commented · Jun 1, 2026 at 8:51am
+
+> > > 移动端不支持修改core，所以还有个办法，就是按规则配置证书，可以用自签证书，可以不用域名 而且这个方法移动端和pc端都支持，也不用改内核和降级
+> > > 服务端我使用的是 233boy/sing-box 的一键脚本（这个是基于sing-box内核的，xray内核也是一样的，参考 [TLS配置教程](https://xtls.github.io/config/transports/tls.html) 把服务端配置一下即可
+> > > ```
+> > > 1. 服务器端执行如下命令
+> > > ```
+> > > openssl x509 -noout -fingerprint -sha256 -in /etc/sing-box/bin/tls.cer | awk -F= '{print $2}' | tr -d ':'
+> > > ```
+> > > 
+> > > 2. 客户端节点配置中将 跳过证书验证 设为 false
+> > > 
+> > > 3. 最下面的 固定证书 中，证书指纹 填入刚刚第一步生成的那一串字符
+> > > ```
+> > > 
+> > > 
+> > > 
+> > > 
+> > > 
+> > > 
+> > > 
+> > > 
+> > > 
+> > > 
+> > > 
+> > > 手机端同理，把刚刚的那个指纹，填到节点配置中的证书指纹中即可～
+> > 
+> > 不行啊，x509: certificate relies on legacy Common Name field, use SANs instead
+> 
+> 研究了一下解决了，生成证书的脚本命令
+> 
+> openssl req -new -x509 （中略） -subj "/CN=www.bing.com"
+> 
+> 后面要加一个参数
+> 
+> openssl req -new -x509 （中略） -subj "/CN=www.bing.com" -addext "subjectAltName = DNS:www.bing.com, DNS:://www.bing.com"
+
+**2dust** marked this as a duplicate; marked this as a duplicate · Jun 1, 2026 at 12:28pm
+
+**2dust** marked this as a duplicate · Jun 1, 2026 at 12:29pm
+
+**@tengyifei5** commented · Jun 1, 2026 at 1:12pm
+
+> 如果机场✈️主懒，不维护，最佳解决方法是把Xray降级到26.1.23，覆盖掉文件夹里原本的两个文件。v2rayN可以保持在最新版7.22.4就行。
+
+**@Tars-knock** commented · Jun 1, 2026 at 1:46pm
+
+> > 移动端不支持修改core，所以还有个办法，就是按规则配置证书，可以用自签证书，可以不用域名 而且这个方法移动端和pc端都支持，也不用改内核和降级
+> > 
+> > 服务端我使用的是 233boy/sing-box 的一键脚本（这个是基于sing-box内核的，xray内核也是一样的，参考 [TLS配置教程](https://xtls.github.io/config/transports/tls.html) 把服务端配置一下即可
+> > 
+> > 1. 服务器端执行如下命令
+> > ```
+> > openssl x509 -noout -fingerprint -sha256 -in /etc/sing-box/bin/tls.cer | awk -F= '{print $2}' | tr -d ':'
+> > ```
+> > 
+> > 2. 客户端节点配置中将 跳过证书验证 设为 false
+> > 
+> > 3. 最下面的 固定证书 中，证书指纹 填入刚刚第一步生成的那一串字符
+> > 
+> > 
+> > 手机端同理，把刚刚的那个指纹，填到节点配置中的证书指纹中即可～
+> 
+> 为啥手机端把allowInsecure改成false也不行呢 一定要配合配置上指纹， 电脑上单独配个false就成了 比较疑惑🤔
+
+**@ion-lane** commented · Jun 1, 2026 at 2:06pm
+
+> I'm using older versions of v2rayNG, and I got the same error today.
+> Why did this update affect older versions? I didn't update either the server or the client.
+> Because the allowinsecure option isn't working, I'll have to reconfigure all profiles in v2rayNG every three months when a new certificate is issued. This is very inconvenient.
+> 
+> ---
+> 
+> 我使用的是旧版本的 v2rayNG，今天也遇到了同样的错误。
+> 
+> 为什么这次更新会影响到旧版本？我没有更新服务器端或客户端。
+> 
+> 由于 allowinsecure 选项不起作用，我每三个月都需要在新证书颁发时重新配置 v2rayNG 中的所有配置文件。这非常不方便。
+
+**@hotsmile** commented · Jun 1, 2026 at 2:51pm
+
+> > I'm using older versions of v2rayNG, and I got the same error today. Why did this update affect older versions? I didn't update either the server or the client. Because the allowinsecure option isn't working, I'll have to reconfigure all profiles in v2rayNG every three months when a new certificate is issued. This is very inconvenient.
+> > 
+> > 我使用的是旧版本的 v2rayNG，今天也遇到了同样的错误。
+> > 
+> > 为什么这次更新会影响到旧版本？我没有更新服务器端或客户端。
+> > 
+> > 由于 allowinsecure 选项不起作用，我每三个月都需要在新证书颁发时重新配置 v2rayNG 中的所有配置文件。这非常不方便。
+> 
+> the same with me!
+
+**@1265578519** commented · Jun 1, 2026 at 4:19pm · edited
+
+> 今天大面积出现这个问题了，该怎么解决？看来是xray作者跑路了
+> 
+> [Image: Image | https://github.com/user-attachments/assets/3cdc3b51-3f94-4536-99a2-f8ee402245fa]
+> 
+> [Image: Image | https://github.com/user-attachments/assets/c9e3311c-a86b-4008-8903-6d3d3a86cc19]
+> 
+> 解决了，不要使用xray内核的app就可以了，退版本到V2RayNG.V1.5.2.apk 这个是v2ray官方内核，出问题的是xray
+> 
+> 如果特别必要性使用xray内核，那么开发者给出的答案是降级版本到2.0.7，个人推荐直接使用v2ray官方内核的1.5.2版本
+> https://github.com/2dust/v2rayNG/issues/5717#issuecomment-4589225409
+
+**@tiansiyuan** commented · Jun 1, 2026 at 11:17pm
+
+> > 换sing_box就可以了 ，先这样用着吧
+> > 
+> > [Image: Image | https://private-user-images.githubusercontent.com/50907503/600686551-2abb58c6-26f2-4243-bfff-ecc57891e736.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODAzNTYxMTIsIm5iZiI6MTc4MDM1NTgxMiwicGF0aCI6Ii81MDkwNzUwMy82MDA2ODY1NTEtMmFiYjU4YzYtMjZmMi00MjQzLWJmZmYtZWNjNTc4OTFlNzM2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA2MDElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwNjAxVDIzMTY1MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQ0Njg5N2UwM2M2MWVjYWFhZWYzMTEwNmVlYzczMmIzMmJjZjJkMGI4NjMzY2NlNmM2ZmJjN2UzMTU4MWJjNGImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.mGblUfc9xdqUIP2BuJ3lTPVJ8YhIJsfVzxNpd3EhGiM]
+> 
+> Thanks a lot!
+
+**@inorixu** commented · Jun 2, 2026 at 3:14am
+
+> sing_box可以，trojan也有这个问题
+> vmess是报“Password 属性无效，请检查”好像改sing_box也不行
+
+**@2dust** commented · Jun 2, 2026 at 8:46am
+
+> https://github.com/2dust/v2rayN/commit/ef4dda09962fc1e372d011e34395bf8d4589ab44
+> 添加了一个明显的提示。
+> 
+> @xujiegb @DHR60 是否可以考虑给 xray 提个意见，再延期一个月。。。
+
+**@xujiegb** commented · Jun 2, 2026 at 9:15am
+
+> > https://github.com/2dust/v2rayN/commit/ef4dda09962fc1e372d011e34395bf8d4589ab44
+> > 添加了一个明显的提示。
+> > 
+> > @xujiegb @DHR60 是否可以考虑给 xray 提个意见，再延期一个月。。。
+> 
+> 我也希望😅
+
+**@xujiegb** commented · Jun 2, 2026 at 9:17am · edited
+
+> 刚刚有一位在TG群发了v2rayNG Lts的包，延期到8月1日🥲
+
+**@2dust** commented · Jun 2, 2026 at 9:21am
+
+> > 刚刚有一位在TG群发了v2rayNG Lts的包，延期到8月1日🥲
+> 
+> 要不你来 fork xray core ，我们修改下这个日期，然后打包一个新版本。UI 上添加下详细的提示信息，再延期一段时间？
+
+**@xujiegb** commented · Jun 2, 2026 at 9:24am
+
+> 我其实担心xray那边会清理对应代码，fork可能这个6月1日的版本还能用😅，之后都是未知数
+
+**@xujiegb** commented · Jun 2, 2026 at 9:25am
+
+> https://github.com/autorepobot/Xray-core
+
+**@2dust** commented · Jun 2, 2026 at 9:28am
+
+> 就是延期一段时间，后面肯定还是要彻底移除的。
+> 
+> https://github.com/autorepobot/Xray-core 
+> 那先用这个打包下，然后加上提示语
+
+**@xujiegb** commented · Jun 2, 2026 at 9:29am
+
+> 👌
+
+**@jiuqianyuan** commented · Jun 2, 2026 at 10:33am
+
+> 为什么所以协议的测速都超时了，但节点又是可用的
+
+**@xujiegb** commented · Jun 2, 2026 at 10:38am · edited
+
+> @2dust
+> 
+> https://github.com/2dust/AndroidLibXrayLite/pull/188
+> 
+> https://github.com/2dust/v2rayN-core-bin/pull/6
+
+**@2dust** commented · Jun 2, 2026 at 11:35am
+
+> https://github.com/2dust/v2rayN/releases/tag/7.22.5
+
+**@wokul** commented · Jun 2, 2026 at 11:47am
+
+> 在v2rayn中pinnedPeerCertSha256如何设置呢？
+> 
+> [Image: Image | https://github.com/user-attachments/assets/4d3f395a-753f-40b7-bbca-3bff77692b48]
+
+**@nanchiccc** commented · Jun 2, 2026 at 1:20pm
+
+> > 如果机场✈️主懒，不维护，最佳解决方法是把Xray降级到26.1.23，覆盖掉文件夹里原本的两个文件。v2rayN可以保持在最新版7.22.4就行。
+> 
+> 牛逼，解决了
+
+**@RPRX** commented · Jun 2, 2026 at 1:26pm
+
+> ~~经验表明延期不太能解决问题~~
+> 
+> 另外伊朗人急需 GUI 支持 verifyPeerCertByName（vcn）https://github.com/XTLS/Xray-core/issues/6245#issuecomment-4602758528
+
+**@Kc2353** commented · Jun 2, 2026 at 2:16pm · edited
+
+> > 经验表明延期不太能解决问题
+> 
+> 要不选择在初始化时加入一个界面，强制要求用户逐字准确输入“我已知晓该选项可能导致流量被中间人劫持后解密”（或者更合适的措辞），毕竟有的机场就是不修（就这一点问题，改正的难度不亚于隔壁HTTP面板）
+> 
+> （还有一个损招是做完上述“我确定需要不安全”步骤之后，对应这样insecure的节点直接信任更新订阅后第一次连接时获取的证书（类似大部分时候ssh的做法）,每次更新订阅后清除并重新固定（或者为空就尝试获取证书，更新时不保留）（以免机场主吃饱了更新证书，这样用户发现连不上之后更新订阅可解））当然，这依旧属于不安全
+> 
+> 另外HY2之类的quic类似乎默认无法获取远端证书？这是什么缘故？我测试了openssl可以获取远端quic服务器的正确的sha256指纹，这个功能要额外缝上去吗？
+
+**@hack988-c** commented · Jun 2, 2026 at 2:17pm
+
+> > 不过我有点疑惑，这个手动获取证书是不能客户端设置吗，只能由服务端提供？（手动获取证书是timeout，证书链也是获取不到）那证书过期自动更新这一套东西不都失效了？
+> 
+> 刚提了一个单子，希望v2ranN官方给个解决方案，毕竟Xray-Core官方是不会回退了，https://github.com/2dust/v2rayN/issues/9457
+
+**Kc2353** mentioned this in issue [#24: 关于机场以及DNS，最近的个人观察](https://github.com/XTLS/BBS/issues/24) · Jun 2, 2026 at 3:03pm
+
+**@2dust** commented · Jun 3, 2026 at 2:15am
+
+> > ~经验表明延期不太能解决问题~
+> > 
+> > 另外伊朗人急需 GUI 支持 verifyPeerCertByName（vcn）[XTLS/Xray-core#6245 (comment)](https://github.com/XTLS/Xray-core/issues/6245#issuecomment-4602758528)
+> 
+> 延期确实不能解决问题，但是可以在被骂的时候有理由怼回去。
+> 
+> 已经处理增加了，下一版就发。
+
+**@2dust** commented · Jun 3, 2026 at 2:15am
+
+> https://github.com/2dust/v2rayN/discussions/9460
+
+**@DHR60** commented · Jun 3, 2026 at 4:21am
+
+> > 另外HY2之类的quic类似乎默认无法获取远端证书？这是什么缘故？我测试了openssl可以获取远端quic服务器的正确的sha256指纹，这个功能要额外缝上去吗？
+> 
+> v2rayN 获取证书是调用 dotnet 的内置方法，quic 类对应的 System.Net.Quic，是调用的 MsQuic -> Windows Schannel
+> 导致只支持 Windows 11，并且提前拒绝 叶子证书 == 根证书 / 有效期 100 年 这种自签证书，无法跳过验证
+
+**@DHR60** commented · Jun 3, 2026 at 4:22am
+
+> > > 另外HY2之类的quic类似乎默认无法获取远端证书？这是什么缘故？我测试了openssl可以获取远端quic服务器的正确的sha256指纹，这个功能要额外缝上去吗？
+> > 
+> > v2rayN 获取证书是调用 dotnet 的内置方法，quic 类对应的 System.Net.Quic，是调用的 MsQuic -> Windows Schannel 导致只支持 Windows 11，并且提前拒绝 叶子证书 == 根证书 / 有效期 100 年 这种自签证书，无法跳过验证
+> 
+> 所以干脆没做 quic 类的获取证书逻辑
+
+**@autorepobot** commented · Jun 3, 2026 at 6:51am
+
+> @2dust @xujiegb 建议 v2rayN 一时冻结打包的 Xray-core 版本
+
+**@xujiegb** commented · Jun 3, 2026 at 7:45am
+
+> > @2dust @xujiegb 建议 v2rayN 一时冻结打包的 Xray-core 版本
+> 
+> 没必要，仅仅这一版本过渡就行了
+> @DHR60 刚刚加了迁移措施
+> ~~xray上游发新版应该就没问题了~~
+
+**@RPRX** commented · Jun 3, 2026 at 7:57am
+
+> 还有个问题 https://t.me/projectXtls/1490
+> 
+> > **请联系你的机场主为 allowInsecure 的订阅配置加上 pcs/vcn，即可同时兼容新旧版本**
+> 
+> core 的层面做“pin 存在时允许 insecure=true”会导致配置语义上的不明确（到底 pin 了还是 insecure），所以 core 的行为还是直接杀
+> 
+> **所以如果 GUI 希望保留 allowInsecure=true 时的禁止运行，但又有机场下发这种混合订阅，此时应当将 allowInsecure 自动改为 false**
+> 
+> ~~或者不改也行，现在客户端更新都很快的，机场可以只下发 pcs，这个参数都支持得差不多了，vcn 参数还需要时间不过它相对小众~~
+
+**@DHR60** commented · Jun 3, 2026 at 8:18am · edited
+
+> > **所以如果 GUI 希望保留 allowInsecure=true 时的禁止运行，但又有机场下发这种混合订阅，此时应当将 allowInsecure 自动改为 false**
+> 
+> 固定证书刚加时就做了 https://github.com/2dust/v2rayN/pull/8239 https://github.com/2dust/v2rayN/pull/8733
+> 
+> 有个问题是语义不明确，其他核心和 hysteria2 这种协议 uri 标准中，insecure 是指跳过 go tls 的验证，pin 是额外验证，所以按照标准使用自签证书则分享链接应该为 `insecure=1&pinSHA256=deadbeef`
+> 但是在 xray 中如果 pin 证书则强制跳过 go tls 的验证
+
+**@DHR60** commented · Jun 3, 2026 at 8:26am
+
+> > > **所以如果 GUI 希望保留 allowInsecure=true 时的禁止运行，但又有机场下发这种混合订阅，此时应当将 allowInsecure 自动改为 false**
+> > 
+> > 固定证书刚加时就做了 [#8239](https://github.com/2dust/v2rayN/pull/8239)
+> > 
+> > 有个问题是语义不明确，其他核心和 hysteria2 这种协议 uri 标准中，insecure 是指跳过 go tls 的验证，pin 是额外验证，所以按照标准使用自签证书则分享链接应该为 `insecure=1&pinSHA256=deadbeef` 但是在 xray 中如果 pin 证书则强制跳过 go tls 的验证
+> 
+> ~~只看 uri 语义确实没问题，毕竟 vless 分享链接标准里就没允许过 allowInsecure；只是多核心界面/多软件，语义上有歧义~~
+
+**@RPRX** commented · Jun 3, 2026 at 8:58am · edited
+
+> @DHR60 他们那种分离的语义只多支持了一种场景就是 Golang TLS 真证书验证通过后，在此基础上还要走自定义的验证逻辑比如 pin
+> 
+> 但实际上就像我在某个 BBS 说的那样，**几乎没人 pin 真证书，机场更是此前几乎没见到会用 pin 的，连自签都是直接 allowInsecure**
+> 
+> 更何况既然都有 pin 了那么直接信任它就行，如果 pin 真证书那么这个证书也是定期 renew 的，Xray 也支持同时 pin 多个、实现过渡
+> 
+> 而其它软件暂不支持同时 pin 多个、难以无缝过渡，~~更何况这无缝过渡还得机场写代码~~，所以那种场景对于其它软件来说更没意义了
+> 
+> **综上，那种分离的语义不仅没带来有用的 feature 还导致了配置语义的不明确（到底 pin 了还是 insecure），Xray 是 pin 就只看 pin**
+> 
+> ~~如果有人说 GFW 把机场的旧证书给偷了且客户端又拉不到新订阅新指纹，那这属于过于极端的场景了，再说机场本来就不 pin 真证书~~
+> 
+> 补充一点：如果是 pin CA，那么 Xray 仍会验证 leaf 证书的 name、有效期等，~~又该讨论 CA 被盗，以及其它软件似乎暂不支持 pin CA~~
+
+**@debugzxcv** commented · Jun 3, 2026 at 11:15am
+
+> > @DHR60 v2rayN 获取证书是调用 dotnet 的内置方法，quic 类对应的 System.Net.Quic，是调用的 MsQuic -> Windows Schannel 导致只支持 Windows 11，并且提前拒绝 叶子证书 == 根证书 / 有效期 100 年 这种自签证书，无法跳过验证
+> 
+> https://github.com/dotnet/runtime/pull/103351 ，据此 PR， 允许（通过某些明确的用户操作）使用 MsQuic 的 OpenSSL 版本，从而在 Windows 10 及其他不支持 Schannel 构建版本的 MsQuic 的操作系统上启用 System.Net.Quic。
+
+**@DHR60** commented · Jun 3, 2026 at 11:21am
+
+> > > [@DHR60](https://github.com/DHR60) v2rayN 获取证书是调用 dotnet 的内置方法，quic 类对应的 System.Net.Quic，是调用的 MsQuic -> Windows Schannel 导致只支持 Windows 11，并且提前拒绝 叶子证书 == 根证书 / 有效期 100 年 这种自签证书，无法跳过验证
+> > 
+> > [dotnet/runtime#103351](https://github.com/dotnet/runtime/pull/103351) ，据此 PR， 允许（通过某些明确的用户操作）使用 MsQuic 的 OpenSSL 版本，从而在 Windows 10 及其他不支持 Schannel 构建版本的 MsQuic 的操作系统上启用 System.Net.Quic。
+> 
+> 为了这个加个 OpenSSL 依赖感觉怪怪的，xray 那边暴露一个 quic ping command 可能更好
+
+**@2dust** commented · Jun 3, 2026 at 11:36am
+
+> > > > [@DHR60](https://github.com/DHR60) v2rayN 获取证书是调用 dotnet 的内置方法，quic 类对应的 System.Net.Quic，是调用的 MsQuic -> Windows Schannel 导致只支持 Windows 11，并且提前拒绝 叶子证书 == 根证书 / 有效期 100 年 这种自签证书，无法跳过验证
+> > > 
+> > > 
+> > > [dotnet/runtime#103351](https://github.com/dotnet/runtime/pull/103351) ，据此 PR， 允许（通过某些明确的用户操作）使用 MsQuic 的 OpenSSL 版本，从而在 Windows 10 及其他不支持 Schannel 构建版本的 MsQuic 的操作系统上启用 System.Net.Quic。
+> > 
+> > 为了这个加个 OpenSSL 依赖感觉怪怪的，xray 那边暴露一个 quic ping command 可能更好
+> 
+> 作为一个辅助功能，做到现在这样已经可以了。
+
+**@cs0111** commented · Jun 3, 2026 at 1:41pm
+
+> @2dust 
+> 未来8月1日之后v2rayN客户端会不会完全屏蔽allowInsecure选项？
+> 毕竟目前v2rayN支持的sing-box内核还没有取消这个功能，而且个人（机场）原因估计未来一段时间时间还是要依赖allowInsecure，既然xray不支持了现在也只能转向sing-box了，而如果v2rayN因为xray不支持allowInsecure而sing-box仍然支持的情况下也彻底取消这个选项那我还是很头疼的……，v2rayN用习惯了也不想换别的客户端……
+
+**@2dust** commented · Jun 4, 2026 at 6:33am
+
+> 8月1日后，allowInsecure 选项暂时不会移除，提示信息也不会移除。
+
+**@iloveandyegg** commented · Jun 4, 2026 at 8:53am
+
+> 如果是订阅的形式可以参考我这个项目：[subscription-cert-converter](https://github.com/iloveandyegg/subscription-cert-converter/issues/1)
+
+**iloveandyegg** mentioned this in issue [#1: Xray allowInsecure removed 报错的订阅转换解决方式](https://github.com/iloveandyegg/subscription-cert-converter/issues/1) · Jun 4, 2026 at 8:54am
+
+**@dengziqi0119** commented · Jun 4, 2026 at 4:34pm
+
+> 同問 hy2網速快很多
+
+**@Amatuki** commented · Jun 8, 2026 at 4:36am
+
+> [Image: Image | https://github.com/user-attachments/assets/9011955a-132b-4a9e-a5bb-9dfbe137d87a]
+> 
+> > [Hysteria2] Hysteria2(199******:443)
+> 
+> v2rayN - V7.22.4 - X64 | C:\Software\v2rayN-windows-64\ | C:\Software\v2rayN-windows-64\v2rayN.exe | Microsoft Windows NT 10.0.26200.0
+> 启动服务 (2026/06/08 12:28:45)...
+> Xray 26.5.9 (Xray, Penetrates Everything.) 1bdb488 (go1.26.3 windows/amd64)
+> A unified platform for anti-censorship.
+> 2026/06/08 12:28:45.651828 [Info] infra/conf/serial: Reading config: &{Name:config.json Format:json}
+> [Hysteria2] Hysteria2(199******:443)
+> 2026/06/08 12:28:46.250805 [Warning] core: Xray 26.5.9 started
+> 2026/06/08 12:28:50 当前延迟: -1 ms，none
+> 
+> 为什么获取证书后测速还是-1ms？
+
+**@yudufeifan** commented · Jun 11, 2026 at 3:22am
+
+> > 供应商不更新，拜拜，换clash了
+> 
+> 更换Karing了
+
+**@yudufeifan** commented · Jun 11, 2026 at 3:25am
+
+> 今天发现有些节点可以使用，但和Gemini对话会提示没有连接互联网，更换Karing后是正常的，不知道是不是V2rayN的问题，V2rayN的Core也选了sing_box最新版。
+
+**2dust** closed this · Jun 15, 2026 at 6:36am

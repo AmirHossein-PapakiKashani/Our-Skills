@@ -1,0 +1,13 @@
+---
+pid: 21608
+cwd: "D:\\napsterProject\\src\\NapsternetVClient"
+command: "$txt = Get-ChildItem \"$env:TEMP\\npvt-test-out\" -Filter \"*.txt\" | Select-Object -First 1; $raw = Get-Content -LiteralPath $txt.FullName -Raw -Encoding UTF8; cd D:\\napsterProject\\src\\NapsternetVClient; dotnet exec bin\\Debug\\net10.0-windows\\NapsternetVClient.dll 2>&1 | Select-Object -First 1; @\"\nusing System;\nusing System.IO;\nusing NapsternetVClient.Parsers;\nvar raw = File.ReadAllText(@\"$($txt.FullName)\");\nvar json = NpvtPayloadParser.ExtractJsonPayload(raw);\nvar profiles = NpvtPayloadParser.ParseProfiles(json, \"Test\");\nConsole.WriteLine($\"Count: {profiles.Count}\");\nforeach (var p in profiles) Console.WriteLine($\"{p.Protocol} {p.Name} -> {p.Address}:{p.Port} tls={p.TlsSecurity} ws={p.WsHost}\");\n\"@ | Set-Content \"$env:TEMP\\test-npvt.csx\" -Encoding UTF8"
+started_at: 2026-07-06T21:01:27.160Z
+running_for_ms: 50067    
+---
+
+---
+exit_code: 0
+elapsed_ms: 51786
+ended_at: 2026-07-06T21:02:18.946Z
+---

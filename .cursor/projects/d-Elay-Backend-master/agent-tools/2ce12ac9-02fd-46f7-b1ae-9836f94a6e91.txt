@@ -1,0 +1,968 @@
+How to Build Custom Skills in Google Antigravity: 5 Practical Examples | Google Cloud - Community
+
+Sitemap
+
+Sign up
+
+Sign in
+
+Get app
+
+Write
+
+Search
+
+Sign up
+
+Sign in
+
+## Google Cloud - Community
+
+https://medium.com/google-cloud
+
+Why Skills?
+
+1. Anthropic introduces Skills
+
+Defining a Skill?
+
+1. Skills vs. Model Context Protocol (MCP)
+
+Creating Skills
+
+1. The SKILL.md Definition File
+2. Script Integration
+
+Level 1 : The Basic Router ( git-commit-formatter )
+
+1. How to Run This Example in Antigravity
+
+Level 2: Asset Utilization (license-header-adder)
+
+1. How to Run This Example in Antigravity
+
+Level 3: Learning by Example (json-to-pydantic)
+
+1. How to Run This Example in Antigravity
+
+Level 4: Procedural Logic (database-schema-validator)
+
+1. How to Run This Example in Antigravity
+
+The Developer Toolkit (Agents CLI Skills)
+
+1. How to Install
+2. Step-by-Step Walkthrough
+
+A collection of technical articles and blogs published or curated by Google Cloud Developer Advocates. The views expressed are those of the authors and don't necessarily reflect those of Google.
+
+# Tutorial : Getting Started with Google Antigravity Skills
+
+Romin Irani
+
+22 min read
+
+Jan 14, 2026
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fgoogle-cloud%2F864041811e0d&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d&user=Romin+Irani&userId=802a4d428d95
+
+--
+
+5
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Frepost%2Fp%2F864041811e0d&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d&user=Romin+Irani&userId=802a4d428d95
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F864041811e0d&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d
+
+Listen
+
+Share
+
+Blog Update:
+
+16 June 2026: Updated the section on where Global and Project specific skills need to be placed for either Antigravity or Antigravity CLI.
+
+12 June 2026 : Revamped the list of Skills. Added Agents CLI Skills. Added npx skills section. Added updated codelab.
+
+11 June 2026 : Updated instructions for where the skills files are being picked up by Antigravity and Antigravity CLI.
+
+25 May 2026: Updated for latest Antigravity 2.x.x. product family
+
+This tutorial assumes that you are familiar with Google Antigravity. The platform (available as Antigravity and Antigravity CLI) is fully capable of running agents in parallel, that can reason and execute complex knowledge and coding tasks on behalf of the user.
+
+If you are looking to get started with Antigravity, please refer to these tutorial (depending on whether you prefer CLI or the full Agentic Application):
+
+- In Conclusion
+- Getting Started with Antigravity
+- Getting Started with Antigravity CLI
+
+If you prefer to do a codelab instead of reading this blog, try out the updated codelab:
+
+- Authoring Google Antigravity Skills
+
+This blog will cover writing, configuring and using Skills across both the above environments. Depending on your preference, you can directly jump to the relevant section.
+
+Additionally, there is a bit of theory around Skills, how they came about and more. If you are familiar with the basics, feel free to skip that.
+
+## Why Skills?
+
+Before we dive into Skills and what the reasoning behind them is, let’s understand how we got here?
+
+If you step back a bit and look at Google Antigravity and similar AI Agentic platforms out there, you will know that these platforms are not just a listener executing rigid commands, but a reasoner capable of interpreting intent, planning multi-step workflows, and executing complex tasks with a degree of autonomy.
+
+To do that, it needs to have what is known as the context. The context needs to be aware of the local file system, understands project structure, and executes commands on behalf of the user. Additionally, we have extended the capabilities of these Agentic platforms by integrating MCP servers (which expose tools) that allow for grounding of the responses with your own data as well as integration with external systems.
+
+That brings us to Context Saturation. While modern models like Gemini 2.5/3 boast context windows exceeding one million tokens , the indiscriminate loading of an entire codebase, documentation library, and toolset into the model’s active memory creates significant latency and financial overhead, not to mention context rot, which results in sub-optimal reasons due to the model getting confused.
+
+Kurtis Van Gent
+
+covers the Tool Bloat Epidemic well in the article titled “Stop Drowning Your Agent in Tools”.
+
+## The Tool Bloat Epidemic
+
+### Strategies for combating tool bloat to improve agent accuracy, latency, and cost
+
+medium.com
+
+I summarize a few points from the article. Consider the sheer amount of tools that we are loading the Agent with. Examples include GitHub MCP Server (50 Tools), Playwright MCP Server (24 tools) and Chrome DevTools MCP Server (26 tools). The problem is that we have loaded the agents with 100s of tools, consuming 40–50K of tokens, sending it a prompt that may end up using only one tool. You get the picture now about Tool Bloat, Agent confusion, Context Rot, Latency and more.
+
+Let’s take a real example: A developer asking an agent to “refactor the authentication middleware” requires deep knowledge of specific security protocols and file structures but does not require the context of the project’s CSS build pipeline or marketing assets.
+
+### Anthropic introduces Skills
+
+To address this, Anthropic proposed a new standard: Agent Skills. As per the definition:
+
+Agent Skills are a lightweight, open format for extending AI agent capabilities with specialized knowledge and workflows.
+
+Skills represent a shift from monolithic context loading to Progressive Disclosure. Rather than forcing the model to “memorize” every possible capability at the start of a session, Skills allow the developer to package specialized expertise — such as database migration protocols, security auditing workflows, or specific code review standards — into modular, discoverable units (skills).
+
+This is key → The model is exposed only to a lightweight “menu” of these capabilities (metadata) and loads the heavy procedural knowledge (instructions and scripts) only when the user’s intent matches a specific skill. This avoids the tool bloat, keeps the context to a minimum and is good economics too.
+
+The image below should help understand what happens:
+
+Press enter or click to view image in full size
+
+## Agent Skills and Antigravity
+
+Given that we are dealing with Antigravity, where does a “Skill” fit in its architecture? By default, an agent knows general programming (thanks to the underlying models) and basic tool use (terminal, file I/O). However, it does not know your specific context.
+
+A Skill acts as a bridge. It is a defined set of instructions and capabilities that an agent can “equip” to handle specific types of requests. When a user asks an agent to “run a database migration,” the agent scans its available Skills (Global or Workspace specific). If it finds a`database-migration` skill, it loads those specific instructions and execution protocols into its context window. This allows the agent to perform the task not just correctly in a general sense, but correctly according to the specific standards and safety protocols defined by the engineering team.
+
+Skills effectively turn the generalist models into specialists. They allow an organization to codify its best practices (security checks, code style preferences, deployment steps) into executable assets that the AI follows rigorously.
+
+Let’s now dive into what a skill is composed off, defining it with the context of the Antigravity tool.
+
+## Defining a Skill?
+
+In the context of Google Antigravity, a Skill is a directory-based package containing a definition file (`SKILL.md`) and optional supporting assets (scripts, references, templates). It is a mechanism for on-demand capability extension.
+
+- On-Demand: Unlike a System Prompt (which is always loaded), a Skill is only loaded into the agent’s context when the agent determines it is relevant to the user’s current request. This optimizes the context window and prevents the agent from being distracted by irrelevant instructions. In large projects with dozens of tools, this selective loading is crucial for performance and reasoning accuracy.
+- Capability Extension: Skills can do more than just instruct; they can execute. By bundling Python or Bash scripts, a Skill can give the agent the ability to perform complex, multi-step actions on the local machine or external networks without the user needing to manually run commands. This transforms the agent from a text generator into a tool user.
+
+### Skills vs. Model Context Protocol (MCP)
+
+One of the most common points of confusion is the difference between Skills and the Model Context Protocol (MCP). Both extend the agent’s capabilities, but they solve different problems via different architectures.
+
+Antigravity Skills are best understood as lightweight, ephemeral task definitions. They are serverless and file-based. When a skill is invoked, the agent reads the instructions and potentially executes a script. Once the task is done, the skill’s context is released. This makes them ideal for ad-hoc engineering tasks like “Generate a changelog,” “Run a specific test suite,” or “Format code”. They require no persistent infrastructure and can be version-controlled alongside the code they operate on.
+
+Model Context Protocol (MCP), on the other hand, is a heavy-duty interoperability standard. It involves a client-server architecture where the IDE connects to a running server process. MCP is designed for stateful connections to external systems like PostgreSQL databases, GitHub repositories, or Slack workspaces. The MCP server maintains a persistent connection, manages authentication state, and exposes a dynamic set of tools and resources to the agent. While powerful, this introduces operational overhead: memory consumption for running processes, port management, and lifecycle complexity.
+
+The “Skills” Philosophy: Skills represent a shift toward “less infrastructure, more intelligence.” Instead of maintaining a complex mesh of microservices just to let an AI read a database schema, a Skill can simply contain a script that connects, reads, and disconnects. This ephemeral nature makes Skills ideal for the vast majority of local development tasks where persistent connections are unnecessary overhead.
+
+Here is a way to understand them better:
+
+1. MCP Tools are the Hands: They are deterministic functions like`read_file`,`execute_query`, or`search_web`.
+2. Skills are the Brains: They are the`methodology` that tells the agent`how` and`when` to use those tools.
+
+A`Database Migration Skill`(Methodology) might guide the agent to use the`Postgres MCP Tool`(Function) to run a specific command.
+
+## Creating Skills
+
+Creating a Skill in Antigravity follows a specific directory structure and file format. This standardization ensures that skills are portable and that the agent can reliably parse and execute them. The design is intentionally simple, relying on widely understood formats like Markdown and YAML, lowering the barrier to entry for developers wishing to extend their IDE’s capabilities.
+
+A typical Skill directory looks like this :
+
+```
+my-skill/ ├── SKILL.md # The definition file ├── scripts/ # [Optional] Python, Bash, or Node scripts     ├── run.py     └── util.sh ├── references/ # [Optional] Documentation or templates     └── api-docs.md └── assets/ # [Optional] Static assets (images, logos)
+```
+
+This structure separates concerns effectively. The logic (`scripts`) is separated from the instruction (`SKILL.md`) and the knowledge (`references`), mirroring standard software engineering practices.
+
+### The SKILL.md Definition File
+
+The`SKILL.md` file is the brain of the Skill. It tells the agent what the skill is, when to use it, and how to execute it.
+
+It consists of two parts:
+
+- YAML Frontmatter
+- Markdown Body.
+
+YAML Frontmatter
+
+This is the metadata layer. It is the only part of the skill that is indexed by the agent’s high-level router. When a user sends a prompt, the agent semantic-matches the prompt against the`description` fields of all available skills.
+
+```
+---name: database-inspectordescription: Use this skill when the user asks to query the database, check table schemas, or inspect user data in the local PostgreSQL instance.---
+```
+
+Key Fields:
+
+- `name`: This is not mandatory. Must be unique within the scope. Lowercase, hyphens allowed (e.g.,`postgres-query`,`pr-reviewer`). If its not provided, it will default to the directory name.
+- `description`: This is mandatory and the most important field. It functions as the "trigger phrase." It must be descriptive enough for the LLM to recognize semantic relevance. A vague description like "Database tools" is insufficient. A precise description like "Executes read-only SQL queries against the local PostgreSQL database to retrieve user or transaction data. Use this for debugging data states" ensures the skill is picked up correctly.
+
+The Markdown Body
+
+The body contains the instructions. This is “prompt engineering” persisted to a file. When the skill is activated, this content is injected into the agent’s context window.
+
+The body should include:
+
+1. Goal: A clear statement of what the skill achieves.
+2. Instructions: Step-by-step logic.
+3. Examples: Few-shot examples of inputs and outputs to guide the model’s performance.
+4. Constraints: “Do not” rules (e.g., “Do not run DELETE queries”).
+
+Example`SKILL.md` Body:
+
+```
+Database InspectorGoalTo safely query the local database and provide insights on the current data state.Instructions- Analyze the user's natural language request to understand the data need.- Formulate a valid SQL query.  - CRITICAL: Only SELECT statements are allowed.- Use the script scripts/query_runner.py to execute the SQL.  - Command: python scripts/query_runner.py "SELECT * FROM..."- Present the results in a Markdown table.Constraints- Never output raw user passwords or API keys.- If the query returns > 50 rows, summarize the data instead of listing it all.
+```
+
+### Script Integration
+
+One of the most powerful features of Skills is the ability to delegate execution to scripts. This allows the agent to perform actions that are difficult or impossible for an LLM to do directly (like binary execution, complex mathematical calculation, or interacting with legacy systems).
+
+Scripts are placed in the`scripts/` subdirectory. The`SKILL.md` references them by relative path.
+
+- Best Practice: Keep scripts atomic. A script should do one thing well (e.g., “run a query,” “deploy to staging”).
+- Language Agnosticism: Antigravity can execute any script available in the host environment’s path (Python, Node, Bash, Go). However, Python is the most common choice due to its readability and rich library ecosystem.
+- Arguments and Flags: The instruction body in`SKILL.md` must clearly specify how to pass arguments to the script. The agent will then generate the correct CLI invocation based on the user's request. For example, if the script takes a`--env` flag, the`SKILL.md` should instruct the agent to extract the environment (dev, stage, prod) from the user's prompt and map it to that flag.
+
+## Let’s build out some Skills
+
+The goal of this section is to build out Skills that integrate into Antigravity and progressively show various features like resources / scripts / etc.
+
+You can download the Skills from the Github repo here:
+
+## GitHub - rominirani/antigravity-skills: Sample Google Antigravity Skills
+
+### Sample Google Antigravity Skills. Contribute to rominirani/antigravity-skills development by creating an account on…
+
+Before we understand how each of these skills were built, let us see how we configure them and make them available within the Antigravity suite of products.
+
+## Using Antigravity
+
+Skills can be defined at two scopes, allowing for both project-specific and user-specific i.e. global skills.:
+
+1. Project Scope: Located in` /.agents/skills/`. These skills are available only within the specific project. This is ideal for project-specific scripts, such as deployment to a specific environment, database management for that app, or generating boilerplate code for a proprietary framework.
+2. Global Scope: Located in`~/.gemini/config/skills/ /`. These skills are available across all projects on the user's machine. This is suitable for general utilities like "Format JSON," "Generate UUIDs," "Review Code Style," or integration with personal productivity tools.
+
+## Using Antigravity CLI
+
+Skills can be defined at two scopes, allowing for both project-specific and user-specific i.e. global skills.:
+
+- Global Scope (`~/.gemini/config/skills/`): Available across all Antigravity products (Antigravity, Antigravity IDE, Antigravity CLI) and projects. These skills are available across all projects on the user’s machine. This is suitable for general utilities like “Format JSON,” “Generate UUIDs,” “Review Code Style,” or integration with personal productivity tools.
+- Project/Workspace Scope (` /.agents/skills/`): This would make the skill available only within a specific project. This is ideal for project-specific scripts, such as deployment to a specific environment, database management for that app, or generating boilerplate code for a proprietary framework.
+
+## Installing the Skills in either Antigravity or Antigravity CLI
+
+For this tutorial, all we need to do is the following steps (you can do it your way too):
+
+Step 1: Do a`git clone` of https://github.com/rominirani/antigravity-skills
+
+Step 2: Now depending on whether you are using Antigravity or Antigravity CLI, you can navigate into the`antigravity-skills/skills_tutorial` folder.
+
+Step 3: You will find a set of skills, packaged into their respective folders. Copy the following 4 folders:
+
+- `git-commit-formatter`
+- `license-header-adder`
+- `database-schema-validator`
+- `json-to-pydantic`
+
+into the targeted skills folder for the product (project scope or global scope).
+
+Step 4: If you are using Antigravity, copy it to the`~/.agents/skills`(global scope) or` /.agents/skills/`(project scope). If you are using Antigravity CLI, copy it to the`~/.gemini/antigravity-cli/skills/`(global scope) or` /.agent/skills/`(project scope).
+
+If you have launched Antigravity, you can ask a simple question “What skills are available?” and it responds with the same. You can see the 4 skills that are listed there. You might have additional skills too, if you have installed them in your environment.
+
+Press enter or click to view image in full size
+
+Similarly, if you are using Antigravity CLI, you can give the following command`/skills` and it should list the 5 skills. A sample is shown below:
+
+Press enter or click to view image in full size
+
+Now that we know how to setup the skills, let’s go into each of the Skills and understand how they were constructed. You could use these templates to create your own skills too.
+
+## Level 1 : The Basic Router ( git-commit-formatter )
+
+Let’s consider this as the “Hello World” of Skills.
+
+Developers often write lazy commit messages e.g. “wip”, “fix bug”, “updates”. Enforcing “Conventional Commits” manually is tedious and often forgotten. Let’s implement a Skill that enforces the Conventional Commits specification. By simply instructing the agent on the rules, we allow it to act as the enforcer.
+
+```
+git-commit-formatter/└── SKILL.md  (Instructions only)
+```
+
+The`SKILL.md` file is shown below:
+
+```
+---name: git-commit-formatterdescription: Formats git commit messages according to Conventional Commits specification. Use this when the user asks to commit changes or write a commit message.---Git Commit Formatter SkillWhen writing a git commit message, you MUST follow the Conventional Commits specification.Format`<type>[optional scope]: <description>`Allowed Types- **feat**: A new feature- **fix**: A bug fix- **docs**: Documentation only changes- **style**: Changes that do not affect the meaning of the code (white-space, formatting, etc)- **refactor**: A code change that neither fixes a bug nor adds a feature- **perf**: A code change that improves performance- **test**: Adding missing tests or correcting existing tests- **chore**: Changes to the build process or auxiliary tools and libraries such as documentation generationInstructions1. Analyze the changes to determine the primary `type`.2. Identify the `scope` if applicable (e.g., specific component or file).3. Write a concise `description` in an imperative mood (e.g., "add feature" not "added feature").4. If there are breaking changes, add a footer starting with `BREAKING CHANGE:`.Example`feat(auth): implement login with google`
+```
+
+### How to Run This Example in Antigravity
+
+The steps below assume that you have Git available on your local machine and setup correctly.
+
+Assuming that you have launched Antigravity or Antigravity CLI, follow these steps:
+
+Step 1: Set Up a Test Git Repository
+
+Ask the agent to set up a clean, isolated directory for testing Git operations.
+
+Your prompt:
+
+```
+Create a folder named git_test in the workspace, initialize a git repository inside it, and create an initial file auth.py with def login(): pass. Stage this file and make an initial commit.
+```
+
+The agent will create the directory, initialize the repository, stage the file, and commit it with a message like “`initial commit`".
+
+## Get Romin Irani’s stories in your inbox
+
+Join Medium for free to get updates from this writer.
+
+Subscribe
+
+Subscribe
+
+Remember me for faster sign in
+
+Step 2: Make a Code Change
+
+Tell the agent to modify the code so there is a change to commit.
+
+Your prompt:
+
+```
+In the git_test folder, modify auth.py to add Google Login functionality.
+```
+
+The agent will edit the file to add a new feature, preparing it for the commit phase.
+
+Step 3: Stage and Commit the Changes
+
+Trigger the`git-commit-formatter` skill by asking the agent to stage the changes and create a commit.
+
+Your prompt:
+
+```
+Stage the changes in the git_test folder and commit them. Make sure to format the commit message using the Conventional Commits skill.
+```
+
+The agent will run`git add auth.py`, analyze the diff to determine that a new feature was added to the`auth` module, and formulate a conventional commit message like`feat(auth): implement google login` before running`git commit`.
+
+Step 4: Verify the Git Log
+
+Ask the agent to retrieve the git history so you can confirm that the formatted commit was successfully recorded.
+
+Your prompt:
+
+```
+Show me the git log in the git_test folder.
+```
+
+The agent will run`git log -n 5` and return the output showing the formatted commit message.
+
+## Level 2: Asset Utilization (license-header-adder)
+
+This is the “Reference” pattern.
+
+Every source file in a corporate project might need a specific 20-line Apache 2.0 license header. Putting this static text directly into the prompt (or`SKILL.md`) is wasteful. It consumes tokens every time the skill is indexed, and the model might "hallucinate" typos in legal text. It is a good practice to offload the static text to a plain text file in a`resources/` folder. The skill instructs the agent to read this file only when needed.
+
+You will find the files in the`license-header-adder` folder in the`skills` directory.
+
+```
+license-header-adder/├── SKILL.md└── resources/   └── HEADER_TEMPLATE.txt  (The heavy text)
+```
+
+The`SKILL.md` file is shown below:
+
+```
+---name: license-header-adderdescription: Adds the standard open-source license header to new source files. Use involves creating new code files that require copyright attribution.---# License Header Adder SkillThis skill ensures that all new source files have the correct copyright header.## Instructions1. **Read the Template**:  First, read the content of the header template file located at `resources/HEADER_TEMPLATE.txt`.2. **Prepend to File**:  When creating a new file (e.g., `.py`, `.java`, `.js`, `.ts`, `.go`), prepend the `target_file` content with the template content.3. **Modify Comment Syntax**:  - For C-style languages (Java, JS, TS, C++), keep the `/* ... */` block as is.  - For Python, Shell, or YAML, convert the block to use `#` comments.  - For HTML/XML, use `<!-- ... -->`.
+```
+
+### How to Run This Example in Antigravity
+
+Assuming that you have launched Antigravity or Antigravity CLI, follow these steps:
+
+Step 1: Create the Python File with Sample Code
+
+Your Prompt:
+
+```
+Create a new file my_script.py with the following python code:def hello():   print("Hello, World!")
+```
+
+What Happened (Explanation): The agent invoked a file-writing tool (`write_to_file`) to create a new file named`my_script.py` directly in your active workspace directory and wrote the basic Python function to it.
+
+Step 2: Add the License Header
+
+Your Prompt:
+
+```
+Add the license header to my_script.py.
+```
+
+What Happened (Explanation): This prompt triggered the`license-header-adder` skill. The agent located and read the license template file (`HEADER_TEMPLATE.txt`), modified the comment style from C-style block comments (/* ... */) to Python-style comments (#), and prepended it to the top of the file using the`replace_file_content` tool.
+
+Step 3: Verify the File Contents
+
+Take a look at the`my_script.py` file. It will contain the license header at the top.
+
+## Level 3: Learning by Example (json-to-pydantic)
+
+The “Few-Shot” pattern.
+
+Converting loose data (like a JSON API response) to strict code (like Pydantic models) involves dozens of decisions. How should we name the classes? Should we use`Optional`?`snake_case` or`camelCase`? Writing out these 50 rules in English is tedious and error-prone.
+
+LLMs are pattern-matching engines.
+
+Authoring your skill with a golden example (`Input`->`Output`) is often more effective than verbose instructions.
+
+Go to the`json-to-pydantic/` folder that contains the skill files, as shown below:
+
+```
+json-to-pydantic/├── SKILL.md└── examples/   ├── input_data.json   (The Before State)   └── output_model.py   (The After State)
+```
+
+The`SKILL.md` file is shown below:
+
+```
+---name: json-to-pydanticdescription: Converts JSON data snippets into Python Pydantic data models.---# JSON to Pydantic SkillThis skill helps convert raw JSON data or API responses into structured, strongly-typed Python classes using Pydantic.Instructions1. **Analyze the Input**: Look at the JSON object provided by the user.2. **Infer Types**:  - `string` -> `str`  - `number` -> `int` or `float`  - `boolean` -> `bool`  - `array` -> `List[Type]`  - `null` -> `Optional[Type]`  - Nested Objects -> Create a separate sub-class. 3. **Follow the Example**:  Review `examples/` to see how to structure the output code. notice how nested dictionaries like `preferences` are extracted into their own class.   - Input: `examples/input_data.json`  - Output: `examples/output_model.py`Style Guidelines- Use `PascalCase` for class names.- Use type hints (`List`, `Optional`) from `typing` module.- If a field can be missing or null, default it to `None`.
+```
+
+In the`/examples` folder , there is the JSON file and the output file i.e. Python file. Both of them are shown below:
+
+`input_data.json`
+
+```
+{   "user_id": 12345,   "username": "jdoe_88",   "is_active": true,   "preferences": {       "theme": "dark",       "notifications": [           "email",           "push"       ]   },   "last_login": "2024-03-15T10:30:00Z",   "meta_tags": null}
+```
+
+`output_model.py`
+
+```
+from pydantic import BaseModel, Fieldfrom typing import List, Optionalclass Preferences(BaseModel):   theme: str   notifications: List[str]class User(BaseModel):   user_id: int   username: str   is_active: bool   preferences: Preferences   last_login: Optional[str] = None   meta_tags: Optional[List[str]] = None
+```
+
+### How to Run This Example in Antigravity
+
+Assuming that you have launched Antigravity or Antigravity CLI, follow these steps:
+
+Step 1: Create the JSON File with Sample Data
+
+Ask the agent to create a new file`product.json` containing the raw JSON payload.
+
+Your Prompt:
+
+```
+Create a new file product.json with the following JSON:
+```
+
+```
+{ "product": "Widget", "cost": 10.99, "stock": null}
+```
+
+Step 2: Convert the JSON to a Pydantic Model
+
+Trigger the`json-to-pydantic` skill to convert the JSON data into a structured Pydantic class.
+
+Your Prompt:
+
+```
+Convert the JSON in product.json to a Pydantic model and save it to product_model.py.
+```
+
+Step 3: Verify the Output
+
+Take a look at the`product_model.py` file. It will contain the completed Pydantic model.
+
+## Level 4: Procedural Logic (database-schema-validator)
+
+This is the “Tool Use” Pattern.
+
+If you ask an LLM “Is this schema safe?”, it might say all is well, even if a critical primary key is missing, simply because the SQL looks correct.
+
+Let’s delegate this check to a deterministic Script. Our`database-schema-validator` skill will route the agent to run a Python script that we wrote. The script provides binary (True/False) truth.
+
+```
+database-schema-validator/├── SKILL.md└── scripts/   └── validate_schema.py  (The Validator)
+```
+
+The`SKILL.md` file is shown below:
+
+```
+---name: database-schema-validatordescription: Validates SQL schema files for compliance with internal safety and naming policies.---# Database Schema Validator SkillThis skill ensures that all SQL files provided by the user comply with our strict database standards.Policies Enforced1. **Safety**: No `DROP TABLE` statements.2. **Naming**: All tables must use `snake_case`.3. **Structure**: Every table must have an `id` column as PRIMARY KEY.Instructions1. **Do not read the file manually** to check for errors. The rules are complex and easily missed by eye.2. **Run the Validation Script**:  Use the `run_command` tool to execute the python script provided in the `scripts/` folder against the user's file.   `python scripts/validate_schema.py <path_to_user_file>`3. **Interpret Output**:  - If the script returns **exit code 0**: Tell the user the schema looks good.  - If the script returns **exit code 1**: Report the specific error messages printed by the script to the user and suggest fixes.
+```
+
+The`validate_schema.py` file is shown below:
+
+```
+import sysimport redef validate_schema(filename):   """   Validates a SQL schema file against internal policy:   1. Table names must be snake_case.   2. Every table must have a primary key named 'id'.   3. No 'DROP TABLE' statements allowed (safety).   """   try:       with open(filename, 'r') as f:           content = f.read()                 lines = content.split('\n')       errors = []             # Check 1: No DROP TABLE       if re.search(r'DROP TABLE', content, re.IGNORECASE):           errors.append("ERROR: 'DROP TABLE' statements are forbidden.")                 # Check 2 & 3: CREATE TABLE checks       table_defs = re.finditer(r'CREATE TABLE\s+(?P<name>\w+)\s*\((?P<body>.*?)\);', content, re.DOTALL | re.IGNORECASE)             for match in table_defs:           table_name = match.group('name')           body = match.group('body')                     # Snake case check           if not re.match(r'^[a-z][a-z0-9_]*$', table_name):               errors.append(f"ERROR: Table '{table_name}' must be snake_case.")                         # Primary key check           if not re.search(r'\bid\b.*PRIMARY KEY', body, re.IGNORECASE):               errors.append(f"ERROR: Table '{table_name}' is missing a primary key named 'id'.")       if errors:           for err in errors:               print(err)           sys.exit(1)       else:           print("Schema validation passed.")           sys.exit(0)             except FileNotFoundError:       print(f"Error: File '{filename}' not found.")       sys.exit(1)if __name__ == "__main__":   if len(sys.argv) != 2:       print("Usage: python validate_schema.py <schema_file>")       sys.exit(1)         validate_schema(sys.argv[1])
+```
+
+### How to Run This Example in Antigravity
+
+Assuming that you have launched Antigravity or Antigravity CLI, follow these steps:
+
+Step 1: Create the JSON File with Sample Data
+
+Ask the agent to create a new file`bad_schema.sql` containing multiple policy violations.
+
+Your Prompt:
+
+```
+Create a new file bad_schema.sql with the following SQL:DROP TABLE IF EXISTS legacy_users;CREATE TABLE userProfile (    id INT PRIMARY KEY,    bio TEXT);CREATE TABLE posts (    title TEXT,    content TEXT,    created_at TIMESTAMP);CREATE TABLE comments (    id INT PRIMARY KEY,    post_id INT,    body TEXT);
+```
+
+The above schema file violates all three policies: it uses a forbidden`DROP TABLE` statement, uses`camelCase` for the`userProfile` table name, and forgets the`id` primary key in the`posts` table.
+
+Step 2: Validate the SQL Schema
+
+Trigger the`database-schema-validator` skill to run the Python validator script against your file.
+
+Your prompt:
+
+```
+Validate bad_schema.sql using the database-schema-validator skill.
+```
+
+Step 3: Verify the Output
+
+The agent will report the failure and display the specific errors found by the script directly in the chat. The sample output is shown below:
+
+```
+Suggested Fixes:- Remove the line DROP TABLE IF EXISTS legacy_users; as dropping tables is forbidden by safety policy.- Rename the table userProfile to use snake_case (e.g., user_profile).- Add a primary key column named id to the posts table definition.
+```
+
+## The Developer Toolkit (Agents CLI Skills)
+
+The “Action & Lifecycle” Pattern.
+
+Developing AI agents involves repetitive lifecycle tasks: scaffolding boilerplate files, configuring local runtime environments, running test prompts, and starting interactive playgrounds.
+
+Instead of forcing your coding assistant to guess directory structures or write boilerplate agent configuration from scratch, Agents CLI Skills packages this lifecycle expertise into specific agent skills.
+
+The Agent CLI (Command Line Interface) skills bring streamlined, developer-centric automation directly into your terminal, bridging the gap between raw code and autonomous execution. While the Agent Development Kit (ADK) focuses on the programmatic framework, giving you the SDKs, APIs, and structural blueprints to build and orchestrate AI agents, the Agent CLI skills provide the operational muscle. It allows developers to scaffold, test, and deploy agents locally with rapid feedback loops, completely bypassing heavy UI overhead.
+
+Optionally, when mapped to Google Cloud, Agent CLI skills act as a direct pipeline to enterprise-grade infrastructure. Instead of clicking through consoles, you can use CLI commands to instantly package agent workflows, manage access permissions, and deploy them into Google Cloud ecosystems (like Vertex AI or Cloud Run). This turns what used to be complex cloud architecture tasks into simple, reproducible terminal commands, making it much easier to integrate autonomous agents into existing CI/CD deployment pipelines.
+
+### How to Install
+
+Ensure you have`Python 3.11+`,`Node.js`, and the`uv` package manager installed. Then, run the setup command in your terminal:
+
+```
+uvx google-agents-cli setup
+```
+
+This command installs the`agents-cli` binary and registers its specialized skills for scaffolding and evaluation within your coding assistant's environment.
+
+Note: The skills will be installed in the`~/.agents/skills` folder, which is visible to Antigravity. If you would like to see these skills in Antigravity CLI, you will have to move them to the`~/.gemini/antigravity-cli/skills` folder (global scope).
+
+You can check that the Skills have been loaded in Antigravity by simply asking about which skills are available. A sample response is shown below, for the Agent CLI Skills that we have just installed.
+
+Press enter or click to view image in full size
+
+### Step-by-Step Walkthrough
+
+Once`uvx google-agents-cli setup` is complete, you can spin up, interact with, and test an AI agent entirely on your local machine.
+
+Step 1: Scaffold and Initialize a New Agent Project
+
+Run the creation command to scaffold a standardized layout. Once created, you must install its project dependencies before running any execution tasks.
+
+```
+# 1. Create a lightweight prototype project structureagents-cli create weather-assistant --prototype --yes
+```
+
+```
+# 2. Move into the directory and install required ADK dependenciescd weather-assistantagents-cli install
+```
+
+What happens behind the scenes: This creates a clean workspace featuring`app/agent.py`(your core code),`pyproject.toml`(package metadata), and`agents-cli-manifest.yaml`(project tracker).
+
+Step 2: Run a Local Test Query
+
+Execute a rapid, direct command-line test against your agent. Ensure you have your`GEMINI_API_KEY` exported in your terminal if you aren't using Google Cloud's ADC (Application Default Credentials). You can get a Gemini API Key from here. Once you have the key, export it in your terminal via the following command:
+
+```
+export GEMINI_API_KEY="YOUR_GEMINI_API_KEY"
+```
+
+Give the following command in your terminal:
+
+```
+agents-cli run "How are you?"
+```
+
+What happens behind the scenes: The CLI initializes the Agent Development Kit (ADK) lifecycle entirely in memory on your terminal. It securely routes the prompt through your local credentials and logs the live streaming response directly back into your command line.
+
+Step 3: Start the Interactive Web Playground
+
+Launch the built-in, local web-based playground to interact with your agent visually.
+
+```
+agents-cli playground
+```
+
+What happens behind the scenes: The CLI fires up an ADK web UI server, typically accessible at`http://localhost:8080` or fallback`http://127.0.0.1:8000`, complete with hot-reloading. From the web interface select app in the Select an app dropdown at the top and interact with the agent in the conversational interface on the right side of the web application.
+
+## Installing Agent Skills using npx skills
+
+npx skills is a command-line tool developed by Vercel Labs that acts as a package manager for AI agents (like Antigravity, Claude Code, GitHub Copilot, Cursor, and Cline). It is the CLI for the open agent skills ecosystem.
+
+If you are looking to download and install Agent Skills using the`npx skills` package, do note that it places the Skills in the`~/.agents/skills` folder. While it mentions that tools like Antigravity will pick up the skills from this folder, please note that at the time of writing, Antigravity picks it up from this folder but Antigravity CLI does not. As mentioned earlier, you will need to copy these skills installed in`~/.agents/skills` folder, to either the project or global scope for skills folders in Antigravity CLI i.e.
+
+1. Project Scope: Located in` /.agent/skills/`.
+2. Global Scope: Located in`~/.gemini/antigravity-cli/skills/`.
+
+## In Conclusion
+
+Agent Skills are definitely a great way to bring Antigravity to write code in your way, follow rules, and use your tools.
+
+Write your own skills. Pick skills from the Agent skills repository too. Have fun exploring.
+
+Google
+
+Gemini
+
+Google Antigravity
+
+Agent Skills
+
+Antigravity Cli
+
+## Published in Google Cloud - Community
+
+https://medium.com/google-cloud
+
+76K followers
+
+Last published 5 hours ago
+
+A collection of technical articles and blogs published or curated by Google Cloud Developer Advocates. The views expressed are those of the authors and don't necessarily reflect those of Google.
+
+## Written by Romin Irani
+
+https://medium.com/@iromin
+
+8.1K followers
+
+456 following
+
+Developer Advocate @ Google. My passion is to help developers succeed. ¯\_(ツ)_/¯
+
+## Responses (5)
+
+https://policy.medium.com/medium-rules-30e5502c4eb4
+
+Santosh Shinde
+
+```
+Solid tutorial!Really clear breakdown of Antigravity Skills — love how it shows practical ways to fight context bloat with on-demand loading.The examples (git commit formatter, json→pydantic, etc.) are super useful for getting started quickly.Thanks for putting this together!
+```
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fp%2Fe95b77657c0b&amp;operation=register&redirect=https%3A%2F%2Fblog.santoshshinde.com%2Fsolid-tutorial-e95b77657c0b&user=Santosh+Shinde&userId=f5cfa346da5
+
+--
+
+1 reply
+
+Reply
+
+Jerry Klein
+
+Feb 5
+
+```
+Very interesting and detailed explanations.
+```
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fp%2F9c02bb162545&operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40jerry.klein%2Fvery-interesting-and-detailed-explanations-9c02bb162545&user=Jerry+Klein&userId=5507a94c6eba
+
+--
+
+Reply
+
+Habib Mrad
+
+Feb 7 (edited)
+
+```
+thank you Romin, u did a nice work!!
+```
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fp%2F289d165f00a5&operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40habib.mrad.83%2Fthank-you-romin-u-made-a-nice-work-289d165f00a5&user=Habib+Mrad&userId=f92a7ca71747
+
+--
+
+Reply
+
+See all responses
+
+## More from Romin Irani and Google Cloud - Community
+
+In
+
+Google Cloud - Community
+
+by
+
+Romin Irani
+
+·
+
+May 22
+
+## Antigravity CLI Tutorial Series
+
+### Part 1 : Getting Started
+
+https://medium.com/google-cloud/antigravity-cli-tutorial-series-12b46cfe3bf2
+
+A response icon3
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F12b46cfe3bf2&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fantigravity-cli-tutorial-series-12b46cfe3bf2
+
+In
+
+Google Cloud - Community
+
+by
+
+Dazbo (Darren Lester)
+
+·
+
+May 24
+
+## Configuring MCP Servers and Skills for Antigravity CLI and IDE
+
+### A practical guide to unifying your MCP servers and Skills configuration across the new Google Antigravity CLI and IDE.
+
+https://medium.com/google-cloud/configuring-mcp-servers-and-skills-for-antigravity-cli-and-ide-a938c7eebb78
+
+A response icon4
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fa938c7eebb78&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fconfiguring-mcp-servers-and-skills-for-antigravity-cli-and-ide-a938c7eebb78
+
+In
+
+Google Cloud - Community
+
+by
+
+Dazbo (Darren Lester)
+
+·
+
+Jun 12
+
+## Resolving WSL Friction with Google Antigravity: the Agy 2.0 and Agy IDE Edition
+
+### Fix Agy 2.0 and Agy IDE friction in WSL. Here is the simple .bashrc and .wslconfig fix for stuck commands and broken browser agents.
+
+https://medium.com/google-cloud/resolving-wsl-friction-with-google-antigravity-the-agy-2-0-and-agy-ide-edition-41cee17773c8
+
+https://medium.com/google-cloud/resolving-wsl-friction-with-google-antigravity-the-agy-2-0-and-agy-ide-edition-41cee17773c8
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F41cee17773c8&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fresolving-wsl-friction-with-google-antigravity-the-agy-2-0-and-agy-ide-edition-41cee17773c8
+
+In
+
+Google Cloud - Community
+
+by
+
+Romin Irani
+
+·
+
+Jun 26
+
+## Mastering Gemini Computer Use : A Comprehensive Hands-on Guide
+
+### Gemini Computer Use lets you build AI agents that control real screens by looking at screenshots and deciding what to click, type, or…
+
+https://medium.com/google-cloud/mastering-gemini-computer-use-a-comprehensive-hands-on-guide-ab8ec7db3aab
+
+https://medium.com/google-cloud/mastering-gemini-computer-use-a-comprehensive-hands-on-guide-ab8ec7db3aab
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fab8ec7db3aab&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fmastering-gemini-computer-use-a-comprehensive-hands-on-guide-ab8ec7db3aab
+
+See all from Romin Irani
+
+See all from Google Cloud - Community
+
+## Recommended from Medium
+
+In
+
+Level Up Coding
+
+by
+
+Youssef Hosni
+
+·
+
+Jun 24
+
+## How to Create Loops with Claude Code: A Practical Guide to Agentic Automation
+
+### Claude Loop Engineering: How to Design Agents That Iterate, Verify, and Remember
+
+https://medium.com/gitconnected/how-to-create-loops-with-claude-code-a-practical-guide-to-agentic-automation-6f422390a143
+
+A response icon4
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F6f422390a143&operation=register&redirect=https%3A%2F%2Flevelup.gitconnected.com%2Fhow-to-create-loops-with-claude-code-a-practical-guide-to-agentic-automation-6f422390a143
+
+In
+
+UX Planet
+
+by
+
+Nick Babich
+
+·
+
+Apr 6
+
+## MCP is Dead
+
+### Why you should avoid using MCP in Claude Code and what to use instead
+
+https://medium.com/ux-planet/mcp-is-dead-cf16b667ba6d
+
+A response icon261
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fcf16b667ba6d&operation=register&redirect=https%3A%2F%2Fuxplanet.org%2Fmcp-is-dead-cf16b667ba6d
+
+In
+
+Artificial Corner
+
+by
+
+The PyCoach
+
+·
+
+Jun 11
+
+## I Tried 33 Claude Code Skills. These Are The Best
+
+### Tested & ranked. One command away
+
+https://medium.com/artificial-corner/i-tried-33-claude-code-skills-these-are-the-best-daf8caf92a2a
+
+A response icon20
+
+https://medium.com/m/signin?operation=register&amp;redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fdaf8caf92a2a&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fartificial-corner%2Fi-tried-33-claude-code-skills-these-are-the-best-daf8caf92a2a
+
+In
+
+AI Engineering Simplified
+
+by
+
+Divy Yadav
+
+·
+
+Jun 21
+
+## 5 Claude Code Hacks That Put You Ahead of 90% of Developers (Most People Miss All of Them)
+
+### You are probably using Claude Code like a slow chatbot. Here is what changes when you actually know the tool.
+
+https://medium.com/ai-engineering-simplified/5-claude-code-hacks-that-put-you-ahead-of-90-of-developers-most-people-miss-all-of-them-c2e89cf8ad23
+
+A response icon3
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fc2e89cf8ad23&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fai-engineering-simplified%2F5-claude-code-hacks-that-put-you-ahead-of-90-of-developers-most-people-miss-all-of-them-c2e89cf8ad23
+
+In
+
+No Time
+
+by
+
+Pranit naik
+
+·
+
+Jun 23
+
+## Japan Just Beat Claude Mythos And Nobody Saw It Coming
+
+### Sakana Fugu: Here Is Everything You Need To Know About This AI
+
+https://medium.com/no-time/japan-just-beat-claude-mythos-and-nobody-saw-it-coming-cc55238ec536
+
+A response icon13
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fcc55238ec536&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fno-time%2Fjapan-just-beat-claude-mythos-and-nobody-saw-it-coming-cc55238ec536
+
+unicodeveloper
+
+·
+
+Mar 9
+
+## 10 Must-Have Skills for Claude (and Any Coding Agent) in 2026
+
+### The definitive guide to agent skills that change how Claude Code, Cursor, Gemini CLI, and other AI coding assistants perform in production.
+
+https://medium.com/@unicodeveloper/10-must-have-skills-for-claude-and-any-coding-agent-in-2026-b5451b013051
+
+A response icon29
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fb5451b013051&operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40unicodeveloper%2F10-must-have-skills-for-claude-and-any-coding-agent-in-2026-b5451b013051
+
+Help
+
+About
+
+Careers
+
+Press
+
+Store
+
+Privacy
+
+Rules
+
+Terms

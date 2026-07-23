@@ -1,0 +1,21 @@
+---
+pid: 9116
+cwd: "D:\\barber\\beauty-saloon-front-V2"
+command: "rtk init --codex 2>&1"
+started_at: 2026-07-03T19:04:28.409Z
+running_for_ms: 35175    
+---
+
+RTK configured for Codex CLI.
+
+  RTK.md:    RTK.md
+  AGENTS.md: @RTK.md reference added
+
+  Codex project instructions path: AGENTS.md
+
+
+---
+exit_code: 0
+elapsed_ms: 36527
+ended_at: 2026-07-03T19:05:04.936Z
+---

@@ -1,0 +1,22 @@
+{
+  "name": "getSourceCollectionStatus",
+  "description": "Checks whether there is a change between the forked collection and its parent (source) collection.\n\nIf the value of the \\`isSourceAhead\\` property is \\`true\\` in the response, then there is a difference between the forked collection and its source collection.\n\n**Note:**\n\nThis endpoint may take a few minutes to return an updated \\`isSourceAhead\\` status.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's ID."
+      }
+    },
+    "required": [
+      "collectionId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

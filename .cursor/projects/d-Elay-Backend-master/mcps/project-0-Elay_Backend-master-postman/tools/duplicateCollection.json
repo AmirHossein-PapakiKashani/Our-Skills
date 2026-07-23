@@ -1,0 +1,27 @@
+{
+  "name": "duplicateCollection",
+  "description": "Creates a duplicate of the given collection in another workspace.\n\nUse the GET \\`/collection-duplicate-tasks/{taskId}\\` endpoint to get the duplication task's current status.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's unique ID."
+      },
+      "workspace": {
+        "type": "string",
+        "description": "The workspace ID in which to duplicate the collection."
+      },
+      "suffix": {
+        "type": "string",
+        "description": "An optional suffix to append to the duplicated collection's name."
+      }
+    },
+    "required": [
+      "collectionId",
+      "workspace"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

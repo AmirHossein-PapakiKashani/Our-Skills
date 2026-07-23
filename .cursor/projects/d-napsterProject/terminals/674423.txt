@@ -1,0 +1,14 @@
+---
+pid: 26472
+cwd: "D:\\napsterProject\\src\\NapsternetVClient"
+command: "& \"D:\\napsterProject\\src\\NapsternetVClient\\bin\\Release\\net10.0-windows\\NapsternetVClient.exe\" 2>&1; echo \"exit: $LASTEXITCODE\""
+started_at: 2026-07-06T20:29:34.757Z
+running_for_ms: 18032    
+---
+exit: 
+
+---
+exit_code: 0
+elapsed_ms: 18327
+ended_at: 2026-07-06T20:29:53.084Z
+---

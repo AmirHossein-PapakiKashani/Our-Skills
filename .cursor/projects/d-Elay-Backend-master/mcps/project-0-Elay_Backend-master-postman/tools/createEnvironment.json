@@ -1,0 +1,68 @@
+{
+  "name": "createEnvironment",
+  "description": "Creates an environment.\n\n**Note:**\n\n- The request body size cannot exceed the maximum allowed size of 30MB.\n- If you receive an HTTP \\`411 Length Required\\` error response, manually pass the \\`Content-Length\\` header and its value in the request header.\n- If you do not include the \\`workspace\\` query parameter, the system creates the environment in the oldest personal Internal workspace you own.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "workspace": {
+        "type": "string",
+        "description": "The workspace's ID."
+      },
+      "environment": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The environment's name."
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "description": "If true, the variable is enabled."
+                },
+                "key": {
+                  "type": "string",
+                  "description": "The variable's name."
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The variable's value."
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "secret",
+                    "default"
+                  ],
+                  "description": "The variable's type:\n- `secret` — The variable value is masked.\n- `default` — The variable value is visible in plain text.\n"
+                },
+                "description": {
+                  "type": "string",
+                  "maxLength": 512,
+                  "description": "The variable's description."
+                }
+              },
+              "additionalProperties": false,
+              "description": "Information about the environment's variables."
+            },
+            "description": "Information about the environment's variables."
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "description": "Information about the environment."
+      }
+    },
+    "required": [
+      "workspace"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

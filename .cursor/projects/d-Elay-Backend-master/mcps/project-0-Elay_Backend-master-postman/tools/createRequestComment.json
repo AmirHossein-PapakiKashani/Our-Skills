@@ -1,0 +1,59 @@
+{
+  "name": "createRequestComment",
+  "description": "The request ID must contain the team ID as a prefix, in \\`teamId-requestId\\` format.\n\nFor example, if you're creating a comment on collection ID \\`24585957-7b2c98f7-30db-4b67-8685-0079f48a0947\\` (note on the prefix), and\nthe collection request's ID is \\`2c450b59-9bbf-729b-6ac0-f92535a7c336\\`, then the \\`{requestId}\\` must be \\`24585957-2c450b59-9bbf-729b-6ac0-f92535a7c336\\`.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's unique ID."
+      },
+      "requestId": {
+        "type": "string",
+        "description": "The request ID must contain the team ID as a prefix, in `teamId-requestId` format.\n\nFor example, if you're creating a comment on collection ID `24585957-7b2c98f7-30db-4b67-8685-0079f48a0947` (note on the prefix), and\nthe collection request's ID is `2c450b59-9bbf-729b-6ac0-f92535a7c336`, then the `{requestId}` must be `24585957-2c450b59-9bbf-729b-6ac0-f92535a7c336`.\n"
+      },
+      "body": {
+        "type": "string",
+        "description": "The contents of the comment."
+      },
+      "threadId": {
+        "type": "integer",
+        "description": "The comment's thread ID. To create a reply on an existing comment, include this property."
+      },
+      "tags": {
+        "type": "object",
+        "properties": {
+          "{{userName}}": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "user",
+                "description": "The `user` value."
+              },
+              "id": {
+                "type": "string",
+                "description": "The user's ID."
+              }
+            },
+            "required": [
+              "type",
+              "id"
+            ],
+            "additionalProperties": false,
+            "description": "An object that contains information about the tagged user. The object's name is the user's Postman username. For example, `@user-postman`."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Information about users tagged in the `body` comment."
+      }
+    },
+    "required": [
+      "collectionId",
+      "requestId",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

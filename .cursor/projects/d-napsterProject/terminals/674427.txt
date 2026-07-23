@@ -1,0 +1,13 @@
+---
+pid: 48344
+cwd: "D:\\napsterProject\\src\\NapsternetVClient"
+command: "$bin = \"$env:APPDATA\\NapsternetVClient\\bin\"; Remove-Item \"$bin\\xray.zip\" -Force -ErrorAction SilentlyContinue; cd D:\\napsterProject\\src\\NapsternetVClient; $code = @'\nusing NapsternetVClient.Core;\nvar bm = new BinaryManager();\nvar p = new Progress<string>(msg => Console.WriteLine(msg));\nawait bm.EnsureXrayAsync(p);\nConsole.WriteLine(\"xray exists: \" + File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @\"\\NapsternetVClient\\bin\\xray.exe\"));\n'@; Set-Content \"$env:TEMP\\test-xray.csx\" $code; dotnet run --project D:\\napsterProject\\src\\NapsternetVClient -c Debug --no-build 2>&1 | Select-Object -First 3"
+started_at: 2026-07-06T21:15:43.013Z
+running_for_ms: 125216   
+---
+
+---
+exit_code: unknown
+elapsed_ms: 125217
+ended_at: 2026-07-06T21:17:48.230Z
+---

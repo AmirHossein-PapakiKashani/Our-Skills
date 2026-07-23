@@ -1,0 +1,37 @@
+{
+  "feature": "[FEATURE NAME]",
+  "stackProfile": {
+    "side": "backend",
+    "language": null,
+    "framework": null,
+    "build": null,
+    "root": null
+  },
+  "stack": "backend",
+  "stage": "development",
+  "status": "idle",
+  "microStep": null,
+  "mode": "single-phase",
+  "gate": "approve-plan",
+  "strict": true,
+  "maxFiles": 15,
+  "branch": null,
+  "currentPhase": null,
+  "phaseOrder": ["0", "1", "2"],
+  "phaseMapPath": "docs/phase-map.md",
+  "reportsDir": "docs/Phase-Reports",
+  "authorization": {
+    "fullCycleDevelopment": false,
+    "verification": false,
+    "push": false,
+    "approvedTarget": null
+  },
+  "planPaths": {},
+  "investigationPaths": {},
+  "lastVerify": null,
+  "phaseResults": {},
+  "verificationPhaseResults": {},
+  "commits": {},
+  "updatedAt": null,
+  "notes": "Set stackProfile.language/framework explicitly. Never store credentials."
+}

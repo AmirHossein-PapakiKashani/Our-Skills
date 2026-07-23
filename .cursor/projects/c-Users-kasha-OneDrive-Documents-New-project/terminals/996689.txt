@@ -1,0 +1,21 @@
+---
+pid: 24700
+cwd: "C:\\Users\\kasha\\OneDrive\\Documents\\New project"
+command: "rtk which pandoc; rtk which wkhtmltopdf; rtk which python; python -c \"import sys; print(sys.version)\"; pip show markdown weasyprint reportlab fpdf2 md2pdf 2>$null; Get-Command pandoc, wkhtmltopdf, npx -ErrorAction SilentlyContinue | Select-Object Name, Source"
+started_at: 2026-07-15T21:31:57.964Z
+running_for_ms: 45199    
+---
+rtk: Failed to resolve 'which' via PATH, falling back to direct exec: Binary 'which' not found on PATH
+[rtk: program not found]
+rtk: Failed to resolve 'which' via PATH, falling back to direct exec: Binary 'which' not found on PATH
+[rtk: program not found]
+rtk: Failed to resolve 'which' via PATH, falling back to direct exec: Binary 'which' not found on PATH
+[rtk: program not found]
+3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]
+
+
+---
+exit_code: 1
+elapsed_ms: 45825
+ended_at: 2026-07-15T21:32:43.789Z
+---

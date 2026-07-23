@@ -1,0 +1,18 @@
+{
+  "name": "deleteMock",
+  "description": "Deletes a mock server.\n- Resource: Mock server entity. This is destructive.\n- Ensure you are targeting the correct mock ID.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "mockId": {
+        "type": "string",
+        "description": "The mock's ID."
+      }
+    },
+    "required": [
+      "mockId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

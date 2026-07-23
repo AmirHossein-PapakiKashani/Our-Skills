@@ -1,0 +1,24 @@
+---
+description: Mandatory git safety and post-change verification defaults for all projects
+alwaysApply: true
+---
+
+# Git Safety & Verify Defaults
+
+## Git
+
+- Commit **only** when the user explicitly asks
+- Never update git config; never `--force` to main/master; never skip hooks unless asked
+- Prefer HEREDOC / here-string for commit messages
+- Do not push unless the user asks
+
+## After code changes
+
+1. Build / typecheck with the project's standard command (prefix `rtk`)
+2. Run targeted tests if they exist
+3. For API changes: smoke-test the changed route when the API is reachable
+4. Report: Build PASS/FAIL, tests, remaining blockers
+
+## Secrets
+
+Never commit `.env`, credentials, private keys, or real JWT tokens.

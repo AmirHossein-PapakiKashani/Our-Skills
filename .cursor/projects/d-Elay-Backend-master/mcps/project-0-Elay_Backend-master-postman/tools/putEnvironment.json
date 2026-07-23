@@ -1,0 +1,65 @@
+{
+  "name": "putEnvironment",
+  "description": "Replaces all the contents of an environment with the given information.\n\n**Note:**\n\n- The request body size cannot exceed the maximum allowed size of 30MB.\n- If you receive an HTTP \\`411 Length Required\\` error response, manually pass the \\`Content-Length\\` header and its value in the request header.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "environmentId": {
+        "type": "string",
+        "description": "The environment's ID."
+      },
+      "environment": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The environment's name."
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "description": "If true, the variable is enabled."
+                },
+                "key": {
+                  "type": "string",
+                  "description": "The variable's name."
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The variable's value."
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "secret",
+                    "default"
+                  ],
+                  "description": "The variable's type:\n- `secret` — The variable value is masked.\n- `default` — The variable value is visible in plain text.\n"
+                },
+                "description": {
+                  "type": "string",
+                  "maxLength": 512,
+                  "description": "The variable's description."
+                }
+              },
+              "additionalProperties": false,
+              "description": "Information about the environment's variables."
+            },
+            "description": "Information about the environment's variables."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Information about the environment."
+      }
+    },
+    "required": [
+      "environmentId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

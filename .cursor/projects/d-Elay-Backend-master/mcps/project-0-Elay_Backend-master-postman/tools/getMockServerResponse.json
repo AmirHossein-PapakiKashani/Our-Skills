@@ -1,0 +1,23 @@
+{
+  "name": "getMockServerResponse",
+  "description": "Gets the full details of a specific server response, including its \\`body\\`, \\`headers\\`, and \\`language\\`.\n\n- Use \\`getMockServerResponses\\` first to list available server response IDs.\n- To check which response is active, call \\`getMock\\` and read \\`config.serverResponseId\\`.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "mockId": {
+        "type": "string",
+        "description": "The mock's ID."
+      },
+      "serverResponseId": {
+        "type": "string",
+        "description": "The server response's ID."
+      }
+    },
+    "required": [
+      "mockId",
+      "serverResponseId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

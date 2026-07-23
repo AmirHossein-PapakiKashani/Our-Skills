@@ -1,0 +1,23 @@
+{
+  "name": "getResponseComments",
+  "description": "Gets all comments left by users in a response.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's unique ID."
+      },
+      "responseId": {
+        "type": "string",
+        "description": "The response's unique ID."
+      }
+    },
+    "required": [
+      "collectionId",
+      "responseId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

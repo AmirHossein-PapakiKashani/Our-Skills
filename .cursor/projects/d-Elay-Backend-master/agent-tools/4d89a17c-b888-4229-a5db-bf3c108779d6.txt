@@ -1,0 +1,661 @@
+{
+  "mode": "search",
+  "pattern": "postman|mcp_auth|auth",
+  "matches": [
+    {
+      "server": "cursor-app-control",
+      "tool": "mcp_auth",
+      "description": "Authenticate this MCP server so its tools can be used."
+    },
+    {
+      "server": "cursor-ide-browser",
+      "tool": "mcp_auth",
+      "description": "Authenticate this MCP server so its tools can be used."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-microsoft-learn",
+      "tool": "mcp_auth",
+      "description": "Authenticate this MCP server so its tools can be used."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "description": "Read the instructions resource completely for detailed usage instructions before answering any API-related questions.",
+      "serverStatus": "ready"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "addWorkspaceToPrivateNetwork",
+      "description": "Publishes a workspace to your team's Private API Network. WARNING: This tool is for Private API Network management, not for general workspace operations. For workspace management use: g... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createCollection",
+      "description": "Creates a collection using the [Postman Collection v2.1.0 schema format](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html). **Note:** If you do not include the... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createCollectionComment",
+      "description": "Creates a comment on a collection. To create a reply on an existing comment, include the \\`threadId\\` property in the request body. **Note:** This endpoint accepts a max of 10,000 characters."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createCollectionFolder",
+      "description": "Creates a folder in a collection. For a complete list of properties, refer to the **Folder** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createCollectionFork",
+      "description": "Creates a [fork](https://learning.postman.com/docs/collaborating-in-postman/version-control/#creating-a-fork) from an existing collection into a workspace."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createCollectionRequest",
+      "description": "Creates a request in a collection. For a complete list of properties, refer to the **Request** entry in the [Postman Collection Format documentation](https://schema.postman.com/collecti... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createCollectionResponse",
+      "description": "Creates a request response in a collection. For a complete list of request body properties, refer to the **Response** entry in the [Postman Collection Format documentation](https://sche... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createEnvironment",
+      "description": "Creates an environment. **Note:** - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP \\`411 Length Required\\` error response, manually pass ... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createFolderComment",
+      "description": "Creates a comment on a folder. To create a reply on an existing comment, include the \\`threadId\\` property in the request body. **Note:** This endpoint accepts a max of 10,000 characters."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createMock",
+      "description": "Creates a mock server in a collection. - Pass the collection UID (ownerId-collectionId), not the bare collection ID. - If you only have a \\`collectionId\\`, resolve the UID first: 1) Pre... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createMockServerResponse",
+      "description": "Creates a server response on a mock server. Server responses simulate 5xx server-level failures (e.g. 500, 503) that are agnostic to any specific route — when active, every request to t... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createMonitor",
+      "description": "Creates a monitor. **Note:** - You cannot create monitors for collections added to an API definition. - If you do not pass the \\`workspace\\` query parameter, the system creates the moni... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createRequestComment",
+      "description": "The request ID must contain the team ID as a prefix, in \\`teamId-requestId\\` format. For example, if you're creating a comment on collection ID \\`24585957-7b2c98f7-30db-4b67-8685-0079f4... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createResponseComment",
+      "description": "Creates a comment on a response. To create a reply on an existing comment, include the \\`threadId\\` property in the request body. **Note:** This endpoint accepts a max of 10,000 characters."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createSpec",
+      "description": "Creates an API specification in Postman's [Spec Hub](https://learning.postman.com/docs/design-apis/specifications/overview/). Specifications can be single or multi-file. **Note:** - Pos... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createSpecFile",
+      "description": "Creates a file for an OpenAPI or a protobuf 2 or 3 specification. **Note:** - If the file path contains a \\`/\\` (forward slash) character, then a folder is created. For example, if the ... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "createWorkspace",
+      "description": "Creates a new [workspace](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/). **Note:** - This endpoint returns a 403 \\`Forbidden\\` respon... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteApiCollectionComment",
+      "description": "Deletes a comment from an API's collection. On success, this returns an HTTP \\`204 No Content\\` response. **Note:** Deleting the first comment of a thread deletes all the comments in the thread."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteCollection",
+      "description": "Deletes a collection."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteCollectionComment",
+      "description": "Deletes a comment from a collection. On success, this returns an HTTP \\`204 No Content\\` response. **Note:** Deleting the first comment of a thread deletes all the comments in the thread."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteCollectionFolder",
+      "description": "Deletes a folder in a collection."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteCollectionRequest",
+      "description": "Deletes a request in a collection."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteCollectionResponse",
+      "description": "Deletes a response in a collection."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteEnvironment",
+      "description": "Deletes an environment."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteFolderComment",
+      "description": "Deletes a comment from a folder. On success, this returns an HTTP \\`204 No Content\\` response. **Note:** Deleting the first comment of a thread deletes all the comments in the thread."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteMock",
+      "description": "Deletes a mock server. - Resource: Mock server entity. This is destructive. - Ensure you are targeting the correct mock ID."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteMockServerResponse",
+      "description": "Deletes a server response from a mock server. - If this server response is currently active (\\`config.serverResponseId\\` on the mock), deleting it will not automatically deactivate it. ... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteMonitor",
+      "description": "Deletes a monitor."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteRequestComment",
+      "description": "Deletes a comment from a request. On success, this returns an HTTP \\`204 No Content\\` response. **Note:** Deleting the first comment of a thread deletes all the comments in the thread."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteResponseComment",
+      "description": "Deletes a comment from a response. On success, this returns an HTTP \\`204 No Content\\` response. **Note:** Deleting the first comment of a thread deletes all the comments in the thread."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteSpec",
+      "description": "Deletes an API specification. On success, this returns an HTTP \\`204 No Content\\` response."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteSpecFile",
+      "description": "Deletes a file in an API specification. On success, this returns an HTTP \\`204 No Content\\` response."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "deleteWorkspace",
+      "description": "Deletes an existing workspace."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "duplicateCollection",
+      "description": "Creates a duplicate of the given collection in another workspace. Use the GET \\`/collection-duplicate-tasks/{taskId}\\` endpoint to get the duplication task's current status."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "generateCollection",
+      "description": "Creates a collection from the given API specification. The specification must already exist or be created before it can be used to generate a collection. The response contains a polling... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "generateSpecFromCollection",
+      "description": "Generates an OpenAPI 2.0, 3.0, or 3.1 specification for the given collection. The response contains a polling link to the task status."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getAllSpecs",
+      "description": "Gets all API specifications in a workspace."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getAnalyticsData",
+      "description": "Gets analytics data based on the specified resource, metrics, and given filters for team, internal, and public workspaces, as well as Partner Workspaces. **Note:** This endpoint only ac... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getAnalyticsMetadata",
+      "description": "Returns a catalog of analytics resources and their corresponding metrics for use with the GET /analytics endpoint. These metrics provide insights on API usage, success, workspace, and t... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getApiDiscoveryInstructions",
+      "description": "Returns instructions (markdown) for finding APIs in Postman — searching the public network, browsing private/internal/team collections, filtering by ownership and visibility, and compar... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getAsyncSpecTaskStatus",
+      "description": "Gets the status of an asynchronous API specification creation task."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getAuthenticatedUser",
+      "description": "Gets information about the authenticated user. - This endpoint provides “current user” context (\\`user.id\\`, \\`username\\`, \\`teamId\\`, roles). - When a user asks for “my …” (e.g., “my w... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getCodeGenerationInstructions",
+      "description": "Returns the full workflow instructions for discovering APIs, exploring collections, and generating client code from Postman. Includes step-by-step guidance, tool usage patterns, and cod... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getCollection",
+      "description": "Get information about a collection. By default this tool returns the lightweight collection map (metadata + recursive itemRefs). Use the model parameter to opt in to Postman's full API ... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getCollectionComments",
+      "description": "Gets all comments left by users in a collection."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getCollectionFolder",
+      "description": "Gets information about a folder in a collection."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getCollectionForks",
+      "description": "Gets a collection's forked collections. The response returns data for each fork, such as the fork's ID, the user who forked it, and the fork's creation date."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getCollectionRequest",
+      "description": "Gets information about a request in a collection."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getCollectionResponse",
+      "description": "Gets information about a response in a collection."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getCollections",
+      "description": "The workspace ID query is required for this endpoint. If not provided, the LLM should ask the user to provide it."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getCollectionsForkedByUser",
+      "description": "Gets a list of all the authenticated user's forked collections."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getCollectionTags",
+      "description": "Gets all the tags associated with a collection."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getCollectionUpdatesTasks",
+      "description": "Gets the status of an asynchronous collection update task."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getDuplicateCollectionTaskStatus",
+      "description": "Gets the status of a collection duplication task."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getEnabledTools",
+      "description": "IMPORTANT: Run this tool first when a requested tool is unavailable. Returns information about which tools are enabled in the full and minimal tool sets, helping you identify available alternatives."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getEnvironment",
+      "description": "Gets information about an environment."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getEnvironments",
+      "description": "Gets information about all of your [environments](https://learning.postman.com/docs/sending-requests/managing-environments/)."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getFolderComments",
+      "description": "Gets all comments left by users in a folder."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getGeneratedCollectionSpecs",
+      "description": "Gets the API specification generated for the given collection."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getInstalledApiMaintenanceInstructions",
+      "description": "Returns instructions (markdown) for maintaining the API requests already installed in the user's project — listing installed requests, checking installed requests against their Postman ... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getMock",
+      "description": "Gets information about a mock server. - Resource: Mock server entity. Response includes the associated \\`collection\\` UID and \\`mockUrl\\`. - Use the \\`collection\\` UID to navigate back ... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getMocks",
+      "description": "Gets all active mock servers. By default, returns only mock servers you created across all workspaces. - Always pass either the \\`workspace\\` or \\`teamId\\` query to scope results. Prefe... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getMockServerResponse",
+      "description": "Gets the full details of a specific server response, including its \\`body\\`, \\`headers\\`, and \\`language\\`. - Use \\`getMockServerResponses\\` first to list available server response IDs.... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getMockServerResponses",
+      "description": "Gets all server responses configured for a mock server. - Server responses simulate 5xx server-level failures (e.g. 500, 503) independently of any specific route or example. - This endp... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getMonitor",
+      "description": "Gets information about a monitor."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getMonitorRunResults",
+      "description": "Gets results for a monitor run, including trimmed execution logs (beforeItem and assertion events only) and result counts. Use this to inspect per-request assertions and failure details... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getMonitors",
+      "description": "Gets all monitors."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getPostmanContextOverview",
+      "description": "Returns the Postman Context overview (markdown). Explains the core concepts (workspaces, collections, requests, installed code) and the end-to-end workflow for finding APIs, generating ... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getRequestComments",
+      "description": "Gets all comments left by users in a request."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getResponseComments",
+      "description": "Gets all comments left by users in a response."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getSourceCollectionStatus",
+      "description": "Checks whether there is a change between the forked collection and its parent (source) collection. If the value of the \\`isSourceAhead\\` property is \\`true\\` in the response, then there... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getSpec",
+      "description": "Gets information about an API specification."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getSpecCollections",
+      "description": "Gets all of an API specification's generated collections."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getSpecDefinition",
+      "description": "Gets the complete contents of an OpenAPI or AsyncAPI specification's definition."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getSpecFile",
+      "description": "Gets the contents of an API specification's file."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getSpecFiles",
+      "description": "Gets all the files in an API specification."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getStatusOfAnAsyncApiTask",
+      "description": "Gets the status of an asynchronous task."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getTaggedEntities",
+      "description": "**Requires an Enterprise plan.** Tagging is only available on Postman Enterprise plans. This tool returns a 404 error on Free, Basic, and Professional accounts. Gets Postman elements (e... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getWorkspace",
+      "description": "Gets information about a workspace. **Note:** This endpoint's response contains the \\`visibility\\` field. [Visibility](https://learning.postman.com/docs/collaborating-in-postman/using-w... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getWorkspaceGlobalVariables",
+      "description": "Gets a workspace's global [variables](https://learning.postman.com/docs/sending-requests/variables/#variable-scopes). Global variables enable you to access data between collections, req... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getWorkspaces",
+      "description": "Gets all workspaces you have access to. - For “my …” requests, first call GET \\`/me\\` and pass \\`createdBy={me.user.id}\\`. - This endpoint's response contains the visibility field. Visi... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "getWorkspaceTags",
+      "description": "Gets all the tags associated with a workspace."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "listMonitorExecutions",
+      "description": "Lists executions for a monitor. Cursor-based pagination, 25 results per page. Returns execution metadata including state, trigger, results summary, and timestamps."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "listPrivateNetworkAddRequests",
+      "description": "Gets all requests to add workspaces to your team's Private API Network. WARNING: This tool is for Private API Network management, not for general workspace operations. For workspace man... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "listPrivateNetworkWorkspaces",
+      "description": "Gets information about workspaces added to your team's Private API Network. WARNING: This tool is for Private API Network management, not for general workspace operations. For workspace... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "listRunsForExecution",
+      "description": "Lists runs for a monitor execution. Each execution may produce multiple runs across regions. Returns run metadata including region, state, result counts, and timestamps. Not paginated."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "mcp_auth",
+      "description": "Authenticate this MCP server so its tools can be used."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "mergeCollectionFork",
+      "description": "**This endpoint is deprecated.** Merges a forked collection back into its parent collection. You must have the [Editor role](https://learning.postman.com/docs/collaborating-in-postman/r... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "patchCollection",
+      "description": "Updates specific collection information, such as its name, events, or its variables. For more information, see the [Postman Collection Format documentation](https://schema.postman.com/c... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "patchEnvironment",
+      "description": "Updates specific environment properties, such as its name and variables. **Note:** - You can only perform one type of operation at a time. For example, you cannot perform an \\`add\\` and... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "publishDocumentation",
+      "description": "Publishes a collection's documentation. This makes it publicly available to anyone with the link to the documentation. **Note:** - Your [Postman plan](https://www.postman.com/pricing/) ... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "publishMock",
+      "description": "Publishes a mock server. Publishing a mock server sets its **Access Control** configuration setting to public."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "pullCollectionChanges",
+      "description": "Pulls the changes from a parent (source) collection into the forked collection. In the endpoint's response: - The \\`destinationId\\` is the ID of the forked collection. - The \\`sourceId\\... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "putCollection",
+      "description": "Replaces the contents of a collection using the [Postman Collection v2.1.0 schema format](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html). Include the collec... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "putEnvironment",
+      "description": "Replaces all the contents of an environment with the given information. **Note:** - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP \\`411 ... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "removeWorkspaceFromPrivateNetwork",
+      "description": "Removes a workspace from your team's Private API Network. This does not delete the workspace itself — it only removes it from the Private API Network folder. WARNING: This tool is for P... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "resolveCommentThread",
+      "description": "Resolves a comment and any associated replies. On success, this returns an HTTP \\`204 No Content\\` response. Comment thread IDs return in the GET \\`/comments\\` response for [collections... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "respondPrivateNetworkAddRequest",
+      "description": "Responds to a user's request to add a workspace to your team's Private API Network. Only managers can approve or deny a request. Once approved, the workspace will appear in the team's P... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "runMonitor",
+      "description": "Runs a monitor and returns its run results. **Note:** - If you pass the \\`async=true\\` query parameter, the response does not return the \\`stats\\`, \\`executions\\`, and \\`failures\\` resp... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "searchLearningCenter",
+      "description": "Search the official Postman documentation and learning resources at https://learning.postman.com. Use this tool when you need authoritative, up-to-date guidance on how to use Postman fe... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "searchPostmanElements",
+      "description": "Search for Postman entities (requests, collections, workspaces, specs, flows, environments, and mocks). **Ownership:** - `organization` — Search within all resources owned by your organ... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "syncCollectionWithSpec",
+      "description": "Syncs a collection generated from an API specification. This is an asynchronous endpoint that returns an HTTP \\`202 Accepted\\` response. **Note:** - This endpoint only supports the Open... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "syncSpecWithCollection",
+      "description": "Syncs an API specification linked to a collection. This is an asynchronous endpoint that returns an HTTP \\`202 Accepted\\` response. **Note:** - This endpoint only supports the OpenAPI 2... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "transferCollectionFolders",
+      "description": "Copies or moves folders into a collection or folder."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "transferCollectionRequests",
+      "description": "Copies or moves requests into a collection or folder."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "transferCollectionResponses",
+      "description": "Copies or moves responses into a request."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "unpublishDocumentation",
+      "description": "Unpublishes a collection's documentation. On success, this returns an HTTP \\`204 No Content\\` response."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "unpublishMock",
+      "description": "Unpublishes a mock server. Unpublishing a mock server sets its **Access Control** configuration setting to private."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateApiCollectionComment",
+      "description": "Updates a comment on an API's collection. **Note:** This endpoint accepts a max of 10,000 characters."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateCollectionComment",
+      "description": "Updates a comment on a collection. **Note:** This endpoint accepts a max of 10,000 characters."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateCollectionFolder",
+      "description": "Updates a folder in a collection. For a complete list of properties, refer to the **Folder** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateCollectionRequest",
+      "description": "Updates a request in a collection. For a complete list of properties, refer to the **Request** entry in the [Postman Collection Format documentation](https://schema.postman.com/collecti... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateCollectionResponse",
+      "description": "Updates a response in a collection. For a complete list of properties, see the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateCollectionTags",
+      "description": "Updates a collection's associated tags. This endpoint replaces all existing tags with those you pass in the request body."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateFolderComment",
+      "description": "Updates a comment on a folder. **Note:** This endpoint accepts a max of 10,000 characters."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateMock",
+      "description": "Updates a mock server. - Resource: Mock server entity associated with a collection UID. - Use this to change name, environment, privacy, or default server response. - To activate a serv... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateMockServerResponse",
+      "description": "Updates a server response's name, statusCode, body, headers, or language. - \\`statusCode\\` must remain a 5xx value (500–599). - \\`body\\` is the raw response body string. Pass the full d... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateMonitor",
+      "description": "Updates a monitor's [configurations](https://learning.postman.com/docs/monitoring-your-api/setting-up-monitor/#configure-a-monitor)."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateRequestComment",
+      "description": "Updates a comment on a request. **Note:** This endpoint accepts a max of 10,000 characters."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateResponseComment",
+      "description": "Updates a comment on a response. **Note:** This endpoint accepts a max of 10,000 characters."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateSpecFile",
+      "description": "Updates a file for an OpenAPI or protobuf 2 or 3 specification. **Note:** - This endpoint does not accept an empty request body. You must pass one of the accepted values. - This endpoin... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateSpecProperties",
+      "description": "Updates an API specification's properties, such as its name."
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateWorkspace",
+      "description": "Updates a workspace's property, such as its name or visibility. **Note:** - This endpoint does not support the following visibility changes: - \\`private\\` to \\`public\\`, \\`public\\` to \\... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateWorkspaceGlobalVariables",
+      "description": "Updates and replaces a workspace's global [variables](https://learning.postman.com/docs/sending-requests/variables/#variable-scopes). This endpoint replaces all existing global variable... [truncated]"
+    },
+    {
+      "server": "project-0-Elay_Backend-master-postman",
+      "tool": "updateWorkspaceTags",
+      "description": "Updates a workspace's associated tags. This endpoint replaces all existing tags with those you pass in the request body."
+    },
+    {
+      "server": "user-codebase-memory-mcp",
+      "tool": "mcp_auth",
+      "description": "Authenticate this MCP server so its tools can be used."
+    },
+    {
+      "server": "user-microsoft-learn",
+      "tool": "mcp_auth",
+      "description": "Authenticate this MCP server so its tools can be used."
+    }
+  ]
+}

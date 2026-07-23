@@ -1,0 +1,88 @@
+{
+  "name": "transferCollectionResponses",
+  "description": "Copies or moves responses into a request.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of collection request, response, or folder UIDs to transfer."
+      },
+      "mode": {
+        "type": "string",
+        "enum": [
+          "copy",
+          "move"
+        ],
+        "description": "The transfer operation to perform."
+      },
+      "target": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The UID of the destination collection, folder, or request."
+          },
+          "model": {
+            "type": "string",
+            "enum": [
+              "collection",
+              "folder",
+              "request"
+            ],
+            "description": "The collection, folder, or request that the items will be transferred to. For response transfers, use the `request` value."
+          }
+        },
+        "required": [
+          "id",
+          "model"
+        ],
+        "additionalProperties": false,
+        "description": "Information about the item transfer's destination location."
+      },
+      "location": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "For `before` or `after` positions, the model's UID."
+          },
+          "model": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "For `before` or `after` positions, the type of item (model) that the transferred item will be positioned by. One of: `folder`, `request`, or `response.`\n"
+          },
+          "position": {
+            "type": "string",
+            "enum": [
+              "start",
+              "end",
+              "before",
+              "after"
+            ],
+            "description": "The transferred item's position within the destination object.",
+            "default": "end"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The transferred items' placement in the target destination:\n- For `start` or `end` — Do not include the `model` and `id` values.\n- For `before` or `after` — Include the `model` and `id` properties.\n"
+      }
+    },
+    "required": [
+      "ids",
+      "mode",
+      "target",
+      "location"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

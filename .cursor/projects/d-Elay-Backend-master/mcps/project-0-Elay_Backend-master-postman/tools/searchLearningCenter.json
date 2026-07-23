@@ -1,0 +1,20 @@
+{
+  "name": "searchLearningCenter",
+  "description": "Search the official Postman documentation and learning resources at https://learning.postman.com.\n\nUse this tool when you need authoritative, up-to-date guidance on how to use Postman features — for example creating mock servers, writing tests, using environments, configuring monitors, or any \"how do I…\" question about the Postman product. Returns relevant documentation passages with their source URLs.\n\nDo not use this tool to search a user's own Postman resources (collections, workspaces, specs) — use `searchPostmanElements` for that.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 512,
+        "description": "The search query to run against the Postman documentation (e.g. \"how to create a mock server\", \"write a test script\", \"set a collection variable\")."
+      }
+    },
+    "required": [
+      "query"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

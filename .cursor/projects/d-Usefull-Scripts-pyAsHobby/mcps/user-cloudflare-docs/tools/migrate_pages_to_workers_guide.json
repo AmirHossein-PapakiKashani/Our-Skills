@@ -1,0 +1,8 @@
+{
+  "name": "migrate_pages_to_workers_guide",
+  "description": "ALWAYS read this guide before migrating Pages projects to Workers.",
+  "arguments": {
+    "type": "object",
+    "properties": {}
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "createMock",
+  "description": "Creates a mock server in a collection.\n\n- Pass the collection UID (ownerId-collectionId), not the bare collection ID.\n- If you only have a \\`collectionId\\`, resolve the UID first:\n  1) Prefer GET \\`/collections/{collectionId}\\` and read \\`uid\\`, or\n  2) Construct \\`{ownerId}-{collectionId}\\` using ownerId from GET \\`/me\\`:\n    - For team-owned collections: \\`ownerId = me.teamId\\`\n    - For personal collections: \\`ownerId = me.user.id\\`\n- Use the \\`workspace\\` query to place the mock in a specific workspace. Prefer explicit workspace scoping.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "workspace": {
+        "type": "string",
+        "description": "The workspace's ID."
+      },
+      "mock": {
+        "type": "object",
+        "properties": {
+          "collection": {
+            "type": "string",
+            "description": "The unique ID of the mock's associated collection."
+          },
+          "environment": {
+            "type": "string",
+            "description": "The unique ID of the mock's associated environment."
+          },
+          "name": {
+            "type": "string",
+            "description": "The mock server's name."
+          },
+          "private": {
+            "type": "boolean",
+            "description": "If true, the mock server is set private. By default, mock servers are public and can receive requests from anyone and anywhere.",
+            "default": false
+          }
+        },
+        "required": [
+          "collection"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "workspace"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

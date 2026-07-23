@@ -1,0 +1,25 @@
+{
+  "feature": "[FEATURE NAME]",
+  "stack": "backend",
+  "stage": "development",
+  "status": "idle",
+  "branch": null,
+  "currentPhase": null,
+  "phaseOrder": ["0", "1", "2"],
+  "phaseMapPath": "docs/phase-map.md",
+  "reportsDir": "docs/Phase-Reports",
+  "authorization": {
+    "fullCycleDevelopment": false,
+    "verification": false,
+    "push": false,
+    "approvedTarget": null
+  },
+  "runner": null,
+  "baseUrl": null,
+  "collectionOrSpec": null,
+  "phaseResults": {},
+  "verificationPhaseResults": {},
+  "commits": {},
+  "updatedAt": null,
+  "notes": "Never store credentials, tokens, or connection strings in this file."
+}

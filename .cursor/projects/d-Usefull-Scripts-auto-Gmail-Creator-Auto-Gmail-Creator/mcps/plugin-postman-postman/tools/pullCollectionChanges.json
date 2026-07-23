@@ -1,0 +1,22 @@
+{
+  "name": "pullCollectionChanges",
+  "description": "Pulls the changes from a parent (source) collection into the forked collection. In the endpoint's response:\n\n- The \\`destinationId\\` is the ID of the forked collection.\n- The \\`sourceId\\` is the ID of the source collection.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionId": {
+        "type": "string",
+        "description": "The forked collection's ID."
+      }
+    },
+    "required": [
+      "collectionId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

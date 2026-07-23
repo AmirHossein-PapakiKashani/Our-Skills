@@ -1,0 +1,43 @@
+{
+  "name": "updateSpecFile",
+  "description": "Updates a file for an OpenAPI or protobuf 2 or 3 specification.\n\n**Note:**\n\n- This endpoint does not accept an empty request body. You must pass one of the accepted values.\n- This endpoint does not accept multiple request body properties in a single call. For example, you cannot pass both the \\`content\\` and \\`type\\` property at the same time.\n- Multi-file specifications can only have one root file.\n- When updating a file type to \\`ROOT\\`, the previous root file is updated to the \\`DEFAULT\\` file type.\n- Files cannot exceed a maximum of 10 MB in size.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "specId": {
+        "type": "string",
+        "description": "The spec's ID."
+      },
+      "filePath": {
+        "type": "string",
+        "description": "The path to the file."
+      },
+      "name": {
+        "type": "string",
+        "description": "The file's name."
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "DEFAULT",
+          "ROOT"
+        ],
+        "description": "The type of file:\n- `ROOT` — The file containing the full OpenAPI structure. This serves as the entry point for the API spec and references other (`DEFAULT`) spec files. Multi-file specs can only have one root file.\n- `DEFAULT` — A file referenced by the `ROOT` file.\n"
+      },
+      "content": {
+        "type": "string",
+        "description": "The specification's stringified contents."
+      }
+    },
+    "required": [
+      "specId",
+      "filePath"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

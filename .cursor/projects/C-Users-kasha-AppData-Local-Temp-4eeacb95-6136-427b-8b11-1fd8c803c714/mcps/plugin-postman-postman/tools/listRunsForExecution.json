@@ -1,0 +1,27 @@
+{
+  "name": "listRunsForExecution",
+  "description": "Lists runs for a monitor execution. Each execution may produce multiple runs across regions. Returns run metadata including region, state, result counts, and timestamps. Not paginated.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "monitorId": {
+        "type": "string",
+        "description": "The monitor's ID."
+      },
+      "executionId": {
+        "type": "string",
+        "description": "The execution's ID."
+      }
+    },
+    "required": [
+      "monitorId",
+      "executionId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

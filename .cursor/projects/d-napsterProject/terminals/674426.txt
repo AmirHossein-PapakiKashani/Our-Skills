@@ -1,0 +1,27 @@
+---
+pid: 16076
+cwd: "D:\\napsterProject\\src\\NapsternetVClient"
+command: "cd D:\\napsterProject\\src\\NapsternetVClient; dotnet build -c Debug 2>&1"
+started_at: 2026-07-06T21:15:03.822Z
+running_for_ms: 30013    
+---
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+D:\napsterProject\src\NapsternetVClient\Utilities\CryptoHelper.cs(62,32): warning SYSLIB0060: 'Rfc2898DeriveBytes.Rfc2898DeriveBytes(string, byte[], int, HashAlgorithmName)' is obsolete: 'The constructors on Rfc2898DeriveBytes are obsolete. Use the static Pbkdf2 method instead.' (https://aka.ms/dotnet-warnings/SYSLIB0060) [D:\napsterProject\src\NapsternetVClient\NapsternetVClient_evkxeduz_wpftmp.csproj]
+D:\napsterProject\src\NapsternetVClient\Utilities\CryptoHelper.cs(62,32): warning SYSLIB0060: 'Rfc2898DeriveBytes.Rfc2898DeriveBytes(string, byte[], int, HashAlgorithmName)' is obsolete: 'The constructors on Rfc2898DeriveBytes are obsolete. Use the static Pbkdf2 method instead.' (https://aka.ms/dotnet-warnings/SYSLIB0060) [D:\napsterProject\src\NapsternetVClient\NapsternetVClient.csproj]
+  NapsternetVClient -> D:\napsterProject\src\NapsternetVClient\bin\Debug\net10.0-windows\NapsternetVClient.dll
+
+Build succeeded.
+
+D:\napsterProject\src\NapsternetVClient\Utilities\CryptoHelper.cs(62,32): warning SYSLIB0060: 'Rfc2898DeriveBytes.Rfc2898DeriveBytes(string, byte[], int, HashAlgorithmName)' is obsolete: 'The constructors on Rfc2898DeriveBytes are obsolete. Use the static Pbkdf2 method instead.' (https://aka.ms/dotnet-warnings/SYSLIB0060) [D:\napsterProject\src\NapsternetVClient\NapsternetVClient_evkxeduz_wpftmp.csproj]
+D:\napsterProject\src\NapsternetVClient\Utilities\CryptoHelper.cs(62,32): warning SYSLIB0060: 'Rfc2898DeriveBytes.Rfc2898DeriveBytes(string, byte[], int, HashAlgorithmName)' is obsolete: 'The constructors on Rfc2898DeriveBytes are obsolete. Use the static Pbkdf2 method instead.' (https://aka.ms/dotnet-warnings/SYSLIB0060) [D:\napsterProject\src\NapsternetVClient\NapsternetVClient.csproj]
+    2 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:07.12
+
+---
+exit_code: 0
+elapsed_ms: 33282
+ended_at: 2026-07-06T21:15:37.104Z
+---

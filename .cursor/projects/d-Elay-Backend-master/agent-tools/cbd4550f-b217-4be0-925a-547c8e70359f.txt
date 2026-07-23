@@ -1,0 +1,521 @@
+  Determining projects to restore...
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.threading.channels/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.reflection.metadata/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Analyzers.3.11.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.analyzers/3.11.0/microsoft.codeanalysis.analyzers.3.11.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Buffers.4.6.0' from 'https://api.nuget.org/v3-flatcontainer/system.buffers/4.6.0/system.buffers.4.6.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Collections.Immutable.9.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.collections.immutable/9.0.0/system.collections.immutable.9.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Composition.9.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.composition/9.0.0/system.composition.9.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Threading.Tasks.Extensions.4.6.0' from 'https://api.nuget.org/v3-flatcontainer/system.threading.tasks.extensions/4.6.0/system.threading.tasks.extensions.4.6.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.MSBuild.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.msbuild/4.8.0/microsoft.codeanalysis.workspaces.msbuild.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Build.Locator.1.7.8' from 'https://api.nuget.org/v3-flatcontainer/microsoft.build.locator/1.7.8/microsoft.build.locator.1.7.8.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Build.Framework.17.8.3' from 'https://api.nuget.org/v3-flatcontainer/microsoft.build.framework/17.8.3/microsoft.build.framework.17.8.3.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks.abstractions/9.0.11/microsoft.extensions.diagnostics.healthchecks.abstractions.9.0.11.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Text.Json.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/system.text.json/9.0.11/system.text.json.9.0.11.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Buffers.4.6.0' from 'https://api.nuget.org/v3-flatcontainer/system.buffers/4.6.0/system.buffers.4.6.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Analyzers.3.11.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.analyzers/3.11.0/microsoft.codeanalysis.analyzers.3.11.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.AspNetCore.Http.Abstractions.2.3.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.http.abstractions/2.3.0/microsoft.aspnetcore.http.abstractions.2.3.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.http.abstractions/2.3.0/microsoft.aspnetcore.http.abstractions.2.3.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/5.0.0/microsoft.codeanalysis.csharp.5.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/5.0.0/microsoft.codeanalysis.csharp.5.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Serilog.AspNetCore.9.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.aspnetcore/9.0.0/serilog.aspnetcore.9.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/serilog.aspnetcore/9.0.0/serilog.aspnetcore.9.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'System.Reflection.Metadata.9.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.reflection.metadata/9.0.0/system.reflection.metadata.9.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/system.reflection.metadata/9.0.0/system.reflection.metadata.9.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.Extensions.Caching.Memory.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/9.0.11/microsoft.extensions.caching.memory.9.0.11.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/9.0.11/microsoft.extensions.caching.memory.9.0.11.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.AspNetCore.App.Ref.9.0.16' from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.ref/9.0.16/microsoft.aspnetcore.app.ref.9.0.16.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.ref/9.0.16/microsoft.aspnetcore.app.ref.9.0.16.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.IdentityModel.JsonWebTokens.8.14.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/8.14.0/microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/8.14.0/microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.VisualBasic.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/5.0.0/microsoft.codeanalysis.visualbasic.5.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/5.0.0/microsoft.codeanalysis.visualbasic.5.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'System.Text.Encoding.CodePages.8.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/8.0.0/system.text.encoding.codepages.8.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/8.0.0/system.text.encoding.codepages.8.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'FluentValidation.DependencyInjectionExtensions.11.11.0' from 'https://api.nuget.org/v3-flatcontainer/fluentvalidation.dependencyinjectionextensions/11.11.0/fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/fluentvalidation.dependencyinjectionextensions/11.11.0/fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.Workspaces.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/4.8.0/microsoft.codeanalysis.csharp.workspaces.4.8.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/4.8.0/microsoft.codeanalysis.csharp.workspaces.4.8.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Serilog.Formatting.Compact.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/3.0.0/serilog.formatting.compact.3.0.0.nupkg'.
+  An error occurred while sending the request.
+    The response ended prematurely. (ResponseEnded)
+  Failed to download package 'System.Drawing.Common.10.0.1' from 'https://api.nuget.org/v3-flatcontainer/system.drawing.common/10.0.1/system.drawing.common.10.0.1.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/system.drawing.common/10.0.1/system.drawing.common.10.0.1.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.Analyzers.3.11.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.analyzers/3.11.0/microsoft.codeanalysis.analyzers.3.11.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.analyzers/3.11.0/microsoft.codeanalysis.analyzers.3.11.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Serilog.Formatting.Compact.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/3.0.0/serilog.formatting.compact.3.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Analyzers.3.11.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.analyzers/3.11.0/microsoft.codeanalysis.analyzers.3.11.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Serilog.Formatting.Compact.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/3.0.0/serilog.formatting.compact.3.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.Workspaces.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/5.0.0/microsoft.codeanalysis.csharp.workspaces.5.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/5.0.0/microsoft.codeanalysis.csharp.workspaces.5.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.IdentityModel.JsonWebTokens.8.14.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/8.14.0/microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Serilog.Formatting.Compact.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/3.0.0/serilog.formatting.compact.3.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.Workspaces.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/5.0.0/microsoft.codeanalysis.csharp.workspaces.5.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.IdentityModel.JsonWebTokens.8.14.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/8.14.0/microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.NETCore.App.Ref.9.0.16' from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.ref/9.0.16/microsoft.netcore.app.ref.9.0.16.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.ref/9.0.16/microsoft.netcore.app.ref.9.0.16.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.Workspaces.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/5.0.0/microsoft.codeanalysis.csharp.workspaces.5.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.IdentityModel.JsonWebTokens.8.14.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/8.14.0/microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.NETCore.App.Ref.9.0.16' from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.ref/9.0.16/microsoft.netcore.app.ref.9.0.16.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Extensions.Caching.Memory.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/9.0.11/microsoft.extensions.caching.memory.9.0.11.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Threading.Channels.8.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.threading.channels/8.0.0/system.threading.channels.8.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/system.threading.channels/8.0.0/system.threading.channels.8.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.Workspaces.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/5.0.0/microsoft.codeanalysis.csharp.workspaces.5.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.IdentityModel.JsonWebTokens.8.14.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/8.14.0/microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Threading.Channels.8.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.threading.channels/8.0.0/system.threading.channels.8.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.Workspaces.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/5.0.0/microsoft.codeanalysis.csharp.workspaces.5.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.IdentityModel.JsonWebTokens.8.14.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/8.14.0/microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Microsoft.NETCore.App.Ref.9.0.16' from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.ref/9.0.16/microsoft.netcore.app.ref.9.0.16.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+D:\Elay_Backend-master\Share\SharedKernel.Domain\SharedKernel.Domain.csproj : error NU1301: Failed to retrieve information about 'System.Diagnostics.DiagnosticSource' from remote source 'https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Share\SharedKernel.Domain\SharedKernel.Domain.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Share\SharedKernel.Domain\SharedKernel.Domain.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Domain\Domain.csproj : error NU1301: Failed to retrieve information about 'System.Diagnostics.DiagnosticSource' from remote source 'https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Domain\Domain.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Domain\Domain.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'System.Threading.Channels.8.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.threading.channels/8.0.0/system.threading.channels.8.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.CSharp.Workspaces.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/5.0.0/microsoft.codeanalysis.csharp.workspaces.5.0.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Extensions.Caching.Memory.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/9.0.11/microsoft.extensions.caching.memory.9.0.11.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Serilog.Formatting.Compact.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/3.0.0/serilog.formatting.compact.3.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.NETCore.App.Ref.9.0.16' from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.ref/9.0.16/microsoft.netcore.app.ref.9.0.16.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' from 'https://api.nuget.org/v3-flatcontainer/stimulsoft.reports.engine.netcore/2023.1.1/stimulsoft.reports.engine.netcore.2023.1.1.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/stimulsoft.reports.engine.netcore/2023.1.1/stimulsoft.reports.engine.netcore.2023.1.1.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.MSBuild.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.msbuild/4.8.0/microsoft.codeanalysis.workspaces.msbuild.4.8.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.msbuild/4.8.0/microsoft.codeanalysis.workspaces.msbuild.4.8.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Threading.Channels.8.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.threading.channels/8.0.0/system.threading.channels.8.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Extensions.Caching.Memory.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/9.0.11/microsoft.extensions.caching.memory.9.0.11.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Serilog.Formatting.Compact.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/3.0.0/serilog.formatting.compact.3.0.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Microsoft.NETCore.App.Ref.9.0.16' from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.ref/9.0.16/microsoft.netcore.app.ref.9.0.16.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' from 'https://api.nuget.org/v3-flatcontainer/stimulsoft.reports.engine.netcore/2023.1.1/stimulsoft.reports.engine.netcore.2023.1.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.MSBuild.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.msbuild/4.8.0/microsoft.codeanalysis.workspaces.msbuild.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Threading.Channels.8.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.threading.channels/8.0.0/system.threading.channels.8.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Analyzers.3.11.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.analyzers/3.11.0/microsoft.codeanalysis.analyzers.3.11.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Extensions.Caching.Memory.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/9.0.11/microsoft.extensions.caching.memory.9.0.11.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.NETCore.App.Ref.9.0.16' from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.ref/9.0.16/microsoft.netcore.app.ref.9.0.16.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' from 'https://api.nuget.org/v3-flatcontainer/stimulsoft.reports.engine.netcore/2023.1.1/stimulsoft.reports.engine.netcore.2023.1.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.MSBuild.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.msbuild/4.8.0/microsoft.codeanalysis.workspaces.msbuild.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'System.Threading.Channels.8.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.threading.channels/8.0.0/system.threading.channels.8.0.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CodeAnalysis.CSharp' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   The SSL connection could not be established, see inner exception.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'FreeSpire.Doc.14.4.0' from 'https://api.nuget.org/v3-flatcontainer/freespire.doc/14.4.0/freespire.doc.14.4.0.nupkg'.
+  Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.Analyzers.3.11.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.analyzers/3.11.0/microsoft.codeanalysis.analyzers.3.11.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.Extensions.Caching.Memory.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/9.0.11/microsoft.extensions.caching.memory.9.0.11.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' from 'https://api.nuget.org/v3-flatcontainer/stimulsoft.reports.engine.netcore/2023.1.1/stimulsoft.reports.engine.netcore.2023.1.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.Workspaces.MSBuild.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.msbuild/4.8.0/microsoft.codeanalysis.workspaces.msbuild.4.8.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'System.Threading.Channels.8.0.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' from 'https://api.nuget.org/v3-flatcontainer/stimulsoft.reports.engine.netcore/2023.1.1/stimulsoft.reports.engine.netcore.2023.1.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' from 'https://api.nuget.org/v3-flatcontainer/stimulsoft.reports.engine.netcore/2023.1.1/stimulsoft.reports.engine.netcore.2023.1.1.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/index.json'.
+  A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (api.nuget.org:443)
+    A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.Analyzers.3.11.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.IdentityModel.JsonWebTokens.8.14.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'FreeSpire.Doc.14.4.0' from 'https://api.nuget.org/v3-flatcontainer/freespire.doc/14.4.0/freespire.doc.14.4.0.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.Workspaces.MSBuild.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.msbuild/4.8.0/microsoft.codeanalysis.workspaces.msbuild.4.8.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : An error occurred while sending the request. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'FreeSpire.Doc.14.4.0' from 'https://api.nuget.org/v3-flatcontainer/freespire.doc/14.4.0/freespire.doc.14.4.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to restore D:\Elay_Backend-master\Customer\Core\Domain\Domain.csproj (in 4.17 min).
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.Workspaces.MSBuild.4.8.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.IdentityModel.JsonWebTokens.8.14.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to restore D:\Elay_Backend-master\Share\SharedKernel.Domain\SharedKernel.Domain.csproj (in 4.18 min).
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/index.json'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'System.Text.Encoding.CodePages.8.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/8.0.0/system.text.encoding.codepages.8.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/8.0.0/system.text.encoding.codepages.8.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.AspNetCore.App.Ref.9.0.16' from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.ref/9.0.16/microsoft.aspnetcore.app.ref.9.0.16.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.ref/9.0.16/microsoft.aspnetcore.app.ref.9.0.16.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.VisualBasic.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/5.0.0/microsoft.codeanalysis.visualbasic.5.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/5.0.0/microsoft.codeanalysis.visualbasic.5.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.Data.SqlClient.5.2.2' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.2.2/microsoft.data.sqlclient.5.2.2.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.2.2/microsoft.data.sqlclient.5.2.2.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/5.0.0/microsoft.codeanalysis.csharp.5.0.0.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/5.0.0/microsoft.codeanalysis.csharp.5.0.0.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'PDFsharp.6.2.4' from 'https://api.nuget.org/v3-flatcontainer/pdfsharp/6.2.4/pdfsharp.6.2.4.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/pdfsharp/6.2.4/pdfsharp.6.2.4.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'System.Drawing.Common.10.0.1' from 'https://api.nuget.org/v3-flatcontainer/system.drawing.common/10.0.1/system.drawing.common.10.0.1.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/system.drawing.common/10.0.1/system.drawing.common.10.0.1.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.CSharp.Workspaces.5.0.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'System.Text.Encoding.CodePages.8.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/8.0.0/system.text.encoding.codepages.8.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'NSwag.AspNetCore.14.6.3' from 'https://api.nuget.org/v3-flatcontainer/nswag.aspnetcore/14.6.3/nswag.aspnetcore.14.6.3.nupkg'.
+  The download of 'https://api.nuget.org/v3-flatcontainer/nswag.aspnetcore/14.6.3/nswag.aspnetcore.14.6.3.nupkg' timed out because no data was received for 60000ms.
+    The operation has timed out.
+  Failed to download package 'Microsoft.AspNetCore.App.Ref.9.0.16' from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.ref/9.0.16/microsoft.aspnetcore.app.ref.9.0.16.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.Data.SqlClient.5.2.2' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.2.2/microsoft.data.sqlclient.5.2.2.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Received an unexpected EOF or 0 bytes from the transport stream.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/5.0.0/microsoft.codeanalysis.csharp.5.0.0.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'System.Drawing.Common.10.0.1' from 'https://api.nuget.org/v3-flatcontainer/system.drawing.common/10.0.1/system.drawing.common.10.0.1.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'FreeSpire.Doc.14.4.0' from 'https://api.nuget.org/v3-flatcontainer/freespire.doc/14.4.0/freespire.doc.14.4.0.nupkg'.
+  Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'PDFsharp.6.2.4' from 'https://api.nuget.org/v3-flatcontainer/pdfsharp/6.2.4/pdfsharp.6.2.4.nupkg'.
+  The SSL connection could not be established, see inner exception.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.CodeAnalysis.VisualBasic.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/5.0.0/microsoft.codeanalysis.visualbasic.5.0.0.nupkg'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/index.json'.
+  An error occurred while sending the request.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Serilog.Formatting.Compact.3.0.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.Extensions.Caching.Memory.9.0.11' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+  Failed to download package 'PDFsharp.6.2.4' from 'https://api.nuget.org/v3-flatcontainer/pdfsharp/6.2.4/pdfsharp.6.2.4.nupkg'.
+  Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'FreeSpire.Doc.14.4.0' from 'https://api.nuget.org/v3-flatcontainer/freespire.doc/14.4.0/freespire.doc.14.4.0.nupkg'.
+  Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'NSwag.AspNetCore.14.6.3' from 'https://api.nuget.org/v3-flatcontainer/nswag.aspnetcore/14.6.3/nswag.aspnetcore.14.6.3.nupkg'.
+  Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.CodeAnalysis.VisualBasic.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.visualbasic/5.0.0/microsoft.codeanalysis.visualbasic.5.0.0.nupkg'.
+  Unable to read data from the transport connection: An established connection was aborted by the software in your host machine..
+    An established connection was aborted by the software in your host machine.
+  Failed to download package 'Microsoft.Data.SqlClient.5.2.2' from 'https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlclient/5.2.2/microsoft.data.sqlclient.5.2.2.nupkg'.
+  Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'Microsoft.AspNetCore.App.Ref.9.0.16' from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.ref/9.0.16/microsoft.aspnetcore.app.ref.9.0.16.nupkg'.
+  Unable to read data from the transport connection: An established connection was aborted by the software in your host machine..
+    An established connection was aborted by the software in your host machine.
+  Failed to download package 'Microsoft.CodeAnalysis.CSharp.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/5.0.0/microsoft.codeanalysis.csharp.5.0.0.nupkg'.
+  Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'System.Drawing.Common.10.0.1' from 'https://api.nuget.org/v3-flatcontainer/system.drawing.common/10.0.1/system.drawing.common.10.0.1.nupkg'.
+  Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+    An existing connection was forcibly closed by the remote host.
+  Failed to download package 'System.Text.Encoding.CodePages.8.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.text.encoding.codepages/8.0.0/system.text.encoding.codepages.8.0.0.nupkg'.
+  Unable to read data from the transport connection: An established connection was aborted by the software in your host machine..
+    An established connection was aborted by the software in your host machine.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Central Directory corrupt. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   The parameter is incorrect. : 'C:\Users\kasha\AppData\Local\Temp\cursor-sandbox-cache\725e5eae2c66ba5baf829f39d9931556\nuget\microsoft.netcore.app.ref\9.0.16\mw44ozgw.4vr'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+
+Build FAILED.
+
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.CSharp.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/4.8.0/microsoft.codeanalysis.csharp.4.8.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.IdentityModel.JsonWebTokens.8.14.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.identitymodel.jsonwebtokens/8.14.0/microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Share\SharedKernel.Domain\SharedKernel.Domain.csproj : error NU1301: Failed to retrieve information about 'System.Diagnostics.DiagnosticSource' from remote source 'https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Share\SharedKernel.Domain\SharedKernel.Domain.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Share\SharedKernel.Domain\SharedKernel.Domain.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Domain\Domain.csproj : error NU1301: Failed to retrieve information about 'System.Diagnostics.DiagnosticSource' from remote source 'https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Domain\Domain.csproj : error NU1301:   The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Core\Domain\Domain.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.CSharp.Workspaces.5.0.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp.workspaces/5.0.0/microsoft.codeanalysis.csharp.workspaces.5.0.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Serilog.Formatting.Compact.3.0.0' from 'https://api.nuget.org/v3-flatcontainer/serilog.formatting.compact/3.0.0/serilog.formatting.compact.3.0.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.NETCore.App.Ref.9.0.16' from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.ref/9.0.16/microsoft.netcore.app.ref.9.0.16.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'System.Threading.Channels.8.0.0' from 'https://api.nuget.org/v3-flatcontainer/system.threading.channels/8.0.0/system.threading.channels.8.0.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301: Failed to retrieve information about 'Microsoft.CodeAnalysis.CSharp' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.csharp/index.json'.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   The SSL connection could not be established, see inner exception.
+D:\Elay_Backend-master\Customer\Api\Api.csproj : error NU1301:   Received an unexpected EOF or 0 bytes from the transport stream.
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.Analyzers.3.11.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.analyzers/3.11.0/microsoft.codeanalysis.analyzers.3.11.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.Extensions.Caching.Memory.9.0.11' from 'https://api.nuget.org/v3-flatcontainer/microsoft.extensions.caching.memory/9.0.11/microsoft.extensions.caching.memory.9.0.11.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'System.Threading.Channels.8.0.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' from 'https://api.nuget.org/v3-flatcontainer/stimulsoft.reports.engine.netcore/2023.1.1/stimulsoft.reports.engine.netcore.2023.1.1.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The SSL connection could not be established, see inner exception. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Received an unexpected EOF or 0 bytes from the transport stream. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.Analyzers.3.11.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.IdentityModel.JsonWebTokens.8.14.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Failed to download package 'Microsoft.CodeAnalysis.Workspaces.MSBuild.4.8.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.codeanalysis.workspaces.msbuild/4.8.0/microsoft.codeanalysis.workspaces.msbuild.4.8.0.nupkg'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : An error occurred while sending the request. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   An existing connection was forcibly closed by the remote host. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.Workspaces.MSBuild.4.8.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.IdentityModel.JsonWebTokens.8.14.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.CodeAnalysis.CSharp.Workspaces.5.0.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Serilog.Formatting.Compact.3.0.0' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Microsoft.Extensions.Caching.Memory.9.0.11' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'Stimulsoft.Reports.Engine.NetCore.2023.1.1' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error : Central Directory corrupt. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+C:\Program Files\dotnet\sdk\10.0.300\NuGet.targets(198,5): error :   The parameter is incorrect. : 'C:\Users\kasha\AppData\Local\Temp\cursor-sandbox-cache\725e5eae2c66ba5baf829f39d9931556\nuget\microsoft.netcore.app.ref\9.0.16\mw44ozgw.4vr'. [D:\Elay_Backend-master\Customer\Api\Api.csproj]
+    0 Warning(s)
+    25 Error(s)
+
+Time Elapsed 00:06:22.31
+
+

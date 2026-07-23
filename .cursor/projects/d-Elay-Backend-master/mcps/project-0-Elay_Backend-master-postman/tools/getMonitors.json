@@ -1,0 +1,42 @@
+{
+  "name": "getMonitors",
+  "description": "Gets all monitors.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "workspace": {
+        "type": "string",
+        "description": "Return only results found in the given workspace ID."
+      },
+      "active": {
+        "type": "boolean",
+        "description": "If true, return only active monitors.",
+        "default": false
+      },
+      "owner": {
+        "type": "integer",
+        "description": "Return only results that belong to the given user ID."
+      },
+      "collectionUid": {
+        "type": "string",
+        "description": "Filter the results by a collection's unique ID."
+      },
+      "environmentUid": {
+        "type": "string",
+        "description": "Filter the results by an environment's unique ID."
+      },
+      "cursor": {
+        "type": "string",
+        "description": "The pointer to the first record of the set of paginated results. To view the next response, use the `nextCursor` value for this parameter."
+      },
+      "limit": {
+        "type": "integer",
+        "maximum": 25,
+        "description": "The maximum number of rows to return in the response, up to a maximum value of 25. Any value greater than 25 returns a 400 Bad Request response.",
+        "default": 25
+      }
+    },
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

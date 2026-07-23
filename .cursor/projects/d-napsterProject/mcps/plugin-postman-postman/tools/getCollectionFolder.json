@@ -1,0 +1,39 @@
+{
+  "name": "getCollectionFolder",
+  "description": "Gets information about a folder in a collection.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "folderId": {
+        "type": "string",
+        "description": "The folder's ID."
+      },
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's ID."
+      },
+      "ids": {
+        "type": "boolean",
+        "description": "If true, returns only properties that contain ID values in the response."
+      },
+      "uid": {
+        "type": "boolean",
+        "description": "If true, returns all IDs in UID format (`userId`-`id`)."
+      },
+      "populate": {
+        "type": "boolean",
+        "description": "If true, returns all of the collection item's contents."
+      }
+    },
+    "required": [
+      "folderId",
+      "collectionId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

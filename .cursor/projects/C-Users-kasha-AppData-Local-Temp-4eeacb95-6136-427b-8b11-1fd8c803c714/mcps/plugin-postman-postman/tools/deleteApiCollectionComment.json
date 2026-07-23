@@ -1,0 +1,32 @@
+{
+  "name": "deleteApiCollectionComment",
+  "description": "Deletes a comment from an API's collection. On success, this returns an HTTP \\`204 No Content\\` response.\n\n**Note:**\n\nDeleting the first comment of a thread deletes all the comments in the thread.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "apiId": {
+        "type": "string",
+        "description": "The API's ID."
+      },
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's unique ID."
+      },
+      "commentId": {
+        "type": "integer",
+        "description": "The comment's ID."
+      }
+    },
+    "required": [
+      "apiId",
+      "collectionId",
+      "commentId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

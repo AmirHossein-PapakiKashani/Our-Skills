@@ -1,0 +1,18 @@
+{
+  "name": "getMock",
+  "description": "Gets information about a mock server.\n- Resource: Mock server entity. Response includes the associated \\`collection\\` UID and \\`mockUrl\\`.\n- Use the \\`collection\\` UID to navigate back to the source collection.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "mockId": {
+        "type": "string",
+        "description": "The mock's ID."
+      }
+    },
+    "required": [
+      "mockId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

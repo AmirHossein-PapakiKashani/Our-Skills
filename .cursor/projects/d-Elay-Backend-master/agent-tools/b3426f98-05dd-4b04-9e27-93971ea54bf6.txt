@@ -1,0 +1,465 @@
+MediumWhere does Antigravity look for Hooks? | by Mete Atamel | Google Cloud - Community | Jul, 2026 | Medium
+
+Sitemap
+
+Sign up
+
+Sign in
+
+Get app
+
+Write
+
+Search
+
+Sign up
+
+Sign in
+
+## Google Cloud - Community
+
+https://medium.com/google-cloud
+
+A collection of technical articles and blogs published or curated by Google Cloud Developer Advocates. The views expressed are those of the authors and don't necessarily reflect those of Google.
+
+Generative Ai Tools
+
+Google Cloud Platform
+
+Machine Learning
+
+# Where does Antigravity look for Hooks?
+
+Mete Atamel
+
+6 min read
+
+4 days ago
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fvote%2Fgoogle-cloud%2Fc9e9f57f167f&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f&user=Mete+Atamel&userId=6444b44155fa
+
+--
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Frepost%2Fp%2Fc9e9f57f167f&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f&user=Mete+Atamel&userId=6444b44155fa
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fc9e9f57f167f&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f
+
+Listen
+
+Share
+
+Press enter or click to view image in full size
+
+💡 This post is part of a series on Antigravity configuration:
+
+- Where does Antigravity look for Agent Skills?
+- Where does Antigravity look for MCP Servers?
+- Where does Antigravity look for Rules and Workflows?
+- Where does Antigravity look for Hooks?
+
+In today’s post, I’ll talk about Hooks in Antigravity, what they are, how to configure them, and some shortcomings.
+
+## Hooks
+
+Hooks allow you to run custom scripts or programs at specific points in the Antigravity agent lifecycle, such as before or after model or tool calls. They are a way to extend the functionality of the agent. Hooks run synchronously as part of the agent loop and they can be useful for things like adding context, validating actions, enforce policies or logging interactions.
+
+In Antigravity, there’s a limited number of events you can hook into:
+
+Press enter or click to view image in full size
+
+## Configuration
+
+Hooks can be applied globally or per workspace and currently saved to the following locations for all 3 flavours: AGY, AGY CLI, and AGY IDE.
+
+- Workspace:`.agents/hooks.json`
+- Global:`~/.gemini/config/hooks.json`
+
+`hooks.json` has a list of event handlers with a list of hook events that it listens to.
+
+For`PreInvocation`,`PostInvocation`, and`Stop` events, the structure is quite simple with`command` being the only supported type currently and a default timeout of 30 seconds:
+
+```
+{  "my-hook": {    "enabled": true,    "PreInvocation": [      {        "type": "command",        "command": "./scripts/my_custom_script.sh",        "timeout": 30      }    ],  }  ...
+```
+
+For`PreToolUse` and`PostToolUse` events, you can further filter with`matcher` based on the tool type:
+
+```
+{  "my-hook": {    "PreToolUse": [      {        "matcher": "*",        "hooks": [          {            "type": "command",            "command": "./scripts/my_custom_script.sh"          }        ]      }    ],
+```
+
+You can see the documentation on hooks for more details.
+
+## Support in AGY, AGY CLI, and AGY IDE
+
+Once you define hooks in the right file and folders I mentioned above, all 3 flavours of AGY will recognize them. However, the UI support to manage hooks is lacking.
+
+In AGY and AGY IDE, you can simply ask:`Which hooks are installed?` and it will tell you but there's no UI to view, add, or edit hooks.
+
+## Get Mete Atamel’s stories in your inbox
+
+Join Medium for free to get updates from this writer.
+
+Subscribe
+
+Subscribe
+
+Remember me for faster sign in
+
+In AGY CLI, there’s a`/hooks` command that you can use to manage hooks.
+
+## A sample event logger hook
+
+The best way to learn about hook events is to have an event logger.
+
+First, I created an event logger Python script:
+
+```
+#!/usr/bin/env python3"""Script to log hook events and return decisions to the agent framework."""import jsonimport sysLOG_FILE = "hook_events.log"def main():    """Read hook event and payload, log them, and output a control decision."""    # Read hook input from stdin    hook_input = sys.stdin.read()    try:        data = json.loads(hook_input)    except json.JSONDecodeError:        data = {"raw_input": hook_input}    # Read and add hook event name from command-line arguments since AGY does not add it    hook_event_name = sys.argv[1] if len(sys.argv) > 1 else "Unknown"    data = {"hookEventName": hook_event_name, **data}    # Filter out PostToolUse with a null toolCall    if hook_event_name == "PostToolUse" and data.get("toolCall") is None:        print("{}")        return    with open(LOG_FILE, "a", encoding="utf-8") as f:        f.write(json.dumps(data) + "\n")    # Return a valid JSON based on hook event type    if hook_event_name == "PreToolUse":        print('{"decision": "allow"}')    elif hook_event_name == "Stop":        print('{"decision": "stop"}')    else: # "PreInvocation" or "PostInvocation" or "PostToolUse" or "Unknown"        print("{}")if __name__ == "__main__":    main()
+```
+
+Notice that the script is a little more involved because AGY doesn’t include the hook event name in the events for some reason, so I added it in as a command-line argument. Also, it filters out`PostToolUse` events with a null`toolCall` because they're not useful and it returns the right JSON response based on the hook event type (it prints JSON to stdout).
+
+Next, I defined a hook configuration with`hooks.json`:
+
+```
+{  "event-logger": {    "PreInvocation": [      {        "type": "command",        "command": "python3 ./scripts/log_hook_event.py PreInvocation",        "timeout": 30      }    ],    "PostInvocation": [      {        "type": "command",        "command": "python3 ./scripts/log_hook_event.py PostInvocation"      }    ],    "PreToolUse": [      {        "matcher": "*",        "hooks": [          {            "type": "command",            "command": "python3 ./scripts/log_hook_event.py PreToolUse"          }        ]      }    ],    "PostToolUse": [      {        "matcher": "*",        "hooks": [          {            "type": "command",            "command": "python3 ./scripts/log_hook_event.py PostToolUse"          }        ]      }    ],    "Stop": [      {        "type": "command",        "command": "python3 ./scripts/log_hook_event.py Stop"      }    ]  }}
+```
+
+Lastly, I put the script and the hook configuration into`.agents/` folder of the workspace:
+
+```
+<workspace-root>/└── .agents/    ├── hooks.json    └── scripts/        └── log_hook_event.py
+```
+
+## Hook Events
+
+Now, we’re ready to see what hook events are logged. In AGY, I start a new chat and ask:`Create a Hello World Python script`.
+
+I start seeing the`PreInvocation` events. It tells me that the model is being called but apart from that, there's not much information to act upon there:
+
+```
+{  "hookEventName": "PreInvocation",  "artifactDirectoryPath": "/Users/atamel/.gemini/antigravity-ide/brain/8591815f-ddcd-42e2-a41f-4d5a7a03091b",  "conversationId": "8591815f-ddcd-42e2-a41f-4d5a7a03091b",  "initialNumSteps": 1,  "invocationNum": 0,  "transcriptPath": "/Users/atamel/.gemini/antigravity-ide/brain/8591815f-ddcd-42e2-a41f-4d5a7a03091b/.system_generated/logs/transcript.jsonl",  "workspacePaths": [    "/Users/atamel/dev/local/testing/antigravity/hooks"  ]}
+```
+
+Then, I see`PreToolUse` and`PostToolUse` events which are more useful to see which tools are being called:
+
+```
+{  "hookEventName": "PreToolUse",  "artifactDirectoryPath": "/Users/atamel/.gemini/antigravity-ide/brain/8591815f-ddcd-42e2-a41f-4d5a7a03091b",  "conversationId": "8591815f-ddcd-42e2-a41f-4d5a7a03091b",  "stepIdx": 4,  "toolCall": {    "args": {      "DirectoryPath": "/Users/atamel/dev/local/testing/antigravity/hooks"    },    "name": "list_dir"  },  "transcriptPath": "/Users/atamel/.gemini/antigravity-ide/brain/8591815f-ddcd-42e2-a41f-4d5a7a03091b/.system_generated/logs/transcript.jsonl",  "workspacePaths": [    "/Users/atamel/dev/local/testing/antigravity/hooks"  ]}{  "hookEventName": "PostToolUse",  "artifactDirectoryPath": "/Users/atamel/.gemini/antigravity-ide/brain/8591815f-ddcd-42e2-a41f-4d5a7a03091b",  "conversationId": "8591815f-ddcd-42e2-a41f-4d5a7a03091b",  "error": "",  "stepIdx": 4,  "toolCall": {    "args": {      "DirectoryPath": "/Users/atamel/dev/local/testing/antigravity/hooks",      "toolAction": "Listing workspace directory",      "toolSummary": "Listing directory"    },    "name": "list_dir"  },  "transcriptPath": "/Users/atamel/.gemini/antigravity-ide/brain/8591815f-ddcd-42e2-a41f-4d5a7a03091b/.system_generated/logs/transcript.jsonl",  "workspacePaths": [    "/Users/atamel/dev/local/testing/antigravity/hooks"  ]}
+```
+
+After a few tool calls, you’ll see the end of the invocation:
+
+```
+{  "hookEventName": "PostInvocation",  "artifactDirectoryPath": "/Users/atamel/.gemini/antigravity-ide/brain/8591815f-ddcd-42e2-a41f-4d5a7a03091b",  "conversationId": "8591815f-ddcd-42e2-a41f-4d5a7a03091b",  "initialNumSteps": 1,  "invocationNum": 0,  "transcriptPath": "/Users/atamel/.gemini/antigravity-ide/brain/8591815f-ddcd-42e2-a41f-4d5a7a03091b/.system_generated/logs/transcript.jsonl",  "workspacePaths": [    "/Users/atamel/dev/local/testing/antigravity/hooks"  ]}
+```
+
+The events continue for a while with more model and tool calls until the execution stops with the`Stop` event:
+
+```
+{  "hookEventName": "Stop",  "artifactDirectoryPath": "/Users/atamel/.gemini/antigravity-ide/brain/8591815f-ddcd-42e2-a41f-4d5a7a03091b",  "conversationId": "8591815f-ddcd-42e2-a41f-4d5a7a03091b",  "error": "",  "executionNum": 0,  "fullyIdle": true,  "terminationReason": "NO_TOOL_CALL",  "transcriptPath": "/Users/atamel/.gemini/antigravity-ide/brain/8591815f-ddcd-42e2-a41f-4d5a7a03091b/.system_generated/logs/transcript.jsonl",  "workspacePaths": [    "/Users/atamel/dev/local/testing/antigravity/hooks"  ]}
+```
+
+Hopefully, this gives you an idea on what kind of events AGY emits.
+
+I found AGY hook events quite limited. I expect more events to become available in the future for before/after session, agent, model, tool calls with richer payloads but as of today, that’s all we have in AGY.
+
+Now that you have a better understanding on the hook events and their payloads, you can start looking into implementing hooks to do more useful checks.
+
+## Summary
+
+In this blog post, I did a quick recap of hooks. Here’s a summary of my last 4 blog posts on where AGY saves hooks, skills, MCP servers, rules, and workflows:
+
+```
+~/.gemini/├── GEMINI.md                      # Global rules├── config/│   ├── global_workflows/          # Global workflows│   ├── hooks.json                 # Global hooks│   ├── mcp_config.json            # Global MCP servers│   └── skills/                    # Global agent skills├── antigravity/│   ├── builtin/skills/            # Built-in agent skills (AGY)│   └── mcp/                       # Cached MCP servers (AGY)├── antigravity-cli/│   ├── builtin/skills/            # Built-in agent skills (AGY CLI)│   └── mcp/                       # Cached MCP servers (AGY CLI)└── antigravity-ide/    └── mcp/                       # Cached MCP servers (AGY IDE)<workspace-root>/└── .agents/    ├── hooks.json                 # Workspace hooks    ├── mcp_config.json            # Workspace MCP servers    ├── rules/                     # Workspace rules    ├── skills/                    # Workspace agent skills    └── workflows/                 # Workspace workflows
+```
+
+Originally published at https://atamel.dev.
+
+Generative Ai Tools
+
+Google Cloud Platform
+
+Machine Learning
+
+## Published in Google Cloud - Community
+
+https://medium.com/google-cloud
+
+76K followers
+
+Last published 1 day ago
+
+A collection of technical articles and blogs published or curated by Google Cloud Developer Advocates. The views expressed are those of the authors and don't necessarily reflect those of Google.
+
+## Written by Mete Atamel
+
+https://medium.com/@meteatamel
+
+2K followers
+
+35 following
+
+I'm a Developer Advocate at Google Cloud https://atamel.dev/speaker-profile/
+
+Help
+
+About
+
+Careers
+
+Press
+
+Store
+
+Privacy
+
+Rules
+
+Terms
+
+## No responses yet
+
+https://policy.medium.com/medium-rules-30e5502c4eb4
+
+## More from Mete Atamel and Google Cloud - Community
+
+In
+
+Google Cloud - Community
+
+by
+
+Mete Atamel
+
+·
+
+Jul 2
+
+## Where does Antigravity look for Agent Skills?
+
+### 💡 This post is part of a series on Antigravity configuration:
+
+https://medium.com/google-cloud/where-does-antigravity-look-for-agent-skills-a703518d68c5
+
+A response icon2
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fa703518d68c5&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-agent-skills-a703518d68c5
+
+In
+
+Google Cloud - Community
+
+by
+
+Romin Irani
+
+·
+
+Jan 14
+
+## Tutorial : Getting Started with Antigravity Skills
+
+### This tutorial assumes that you are familiar with Google Antigravity, an agentic platform that evolves the IDE into an agent-first paradigm…
+
+https://medium.com/google-cloud/tutorial-getting-started-with-antigravity-skills-864041811e0d
+
+A response icon6
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F864041811e0d&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Ftutorial-getting-started-with-antigravity-skills-864041811e0d
+
+In
+
+Google Cloud - Community
+
+by
+
+Dazbo (Darren Lester)
+
+·
+
+May 24
+
+## Configuring MCP Servers and Skills for Antigravity CLI and IDE
+
+### A practical guide to unifying your MCP servers and Skills configuration across the new Google Antigravity CLI and IDE.
+
+https://medium.com/google-cloud/configuring-mcp-servers-and-skills-for-antigravity-cli-and-ide-a938c7eebb78
+
+A response icon4
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fa938c7eebb78&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fconfiguring-mcp-servers-and-skills-for-antigravity-cli-and-ide-a938c7eebb78
+
+In
+
+Google Cloud - Community
+
+by
+
+Mete Atamel
+
+·
+
+Jan 19
+
+## Parallel agents in Antigravity
+
+### Google Antigravity transforms your regular IDE into an agentic development platform. In my previous blog posts, I showed some of the unique…
+
+https://medium.com/google-cloud/parallel-agents-in-antigravity-64237120161d
+
+A response icon3
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F64237120161d&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fparallel-agents-in-antigravity-64237120161d
+
+See all from Mete Atamel
+
+See all from Google Cloud - Community
+
+## Recommended from Medium
+
+Michal Malewicz
+
+·
+
+Jul 7
+
+## You’re not going to like what AI becomes after July 12th.
+
+### This is your boiling the frog moment.
+
+https://medium.com/@michalmalewicz/july-7-marks-the-next-era-of-ai-one-youre-not-going-to-like-b914e4d5edb6
+
+A response icon263
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fb914e4d5edb6&operation=register&redirect=https%3A%2F%2Fmichalmalewicz.medium.com%2Fjuly-7-marks-the-next-era-of-ai-one-youre-not-going-to-like-b914e4d5edb6
+
+In
+
+Level Up Coding
+
+by
+
+Noah Byteforge
+
+·
+
+Jul 10
+
+## Linus Torvalds Said the Quiet Part Out Loud About AI and Code Quality.
+
+### Linus Torvalds spoke in Mumbai two days ago. What he said about AI, code quality, and what engineering actually is will make a lot of…
+
+https://medium.com/gitconnected/linus-torvalds-said-the-quiet-part-out-loud-about-ai-and-code-quality-934b2d4be398
+
+A response icon89
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F934b2d4be398&operation=register&redirect=https%3A%2F%2Flevelup.gitconnected.com%2Flinus-torvalds-said-the-quiet-part-out-loud-about-ai-and-code-quality-934b2d4be398
+
+In
+
+ITNEXT
+
+by
+
+Jacob Ferus
+
+·
+
+Jul 12
+
+## I’m Cancelling My Claude Code Subscription — Here’s Why
+
+### When the model intelligence was lower, the agent functioned as an assistant. At that point, the skill and intelligence of the agent was…
+
+https://medium.com/itnext/im-cancelling-my-claude-code-subscription-here-s-why-511481b4ae63
+
+A response icon52
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F511481b4ae63&operation=register&redirect=https%3A%2F%2Fitnext.io%2Fim-cancelling-my-claude-code-subscription-here-s-why-511481b4ae63
+
+In
+
+Flutter Community
+
+by
+
+Cagatay Ulusoy
+
+·
+
+Jun 13
+
+## From Structured Outputs to A2UI Surfaces: Migrating to Flutter GenUI SDK
+
+### Part 3 of a series “Building Image Assisted Language Learning Practice with Flutter, Firebase and Gemini.”
+
+https://medium.com/flutter-community/from-structured-outputs-to-a2ui-surfaces-migrating-to-flutter-genui-sdk-4f09aeacee80
+
+https://medium.com/flutter-community/from-structured-outputs-to-a2ui-surfaces-migrating-to-flutter-genui-sdk-4f09aeacee80
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2F4f09aeacee80&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fflutter-community%2Ffrom-structured-outputs-to-a2ui-surfaces-migrating-to-flutter-genui-sdk-4f09aeacee80
+
+In
+
+Towards Deep Learning
+
+by
+
+Sumit Pandey
+
+·
+
+6d ago
+
+## I Gave Fable 5 and GPT-5.6 the Same Build Task, Results Were Shocking
+
+### Claude Code worked on its own and finished quickly, but codex needed more push and it build a more advanced, higher-quality product.
+
+https://medium.com/towards-deep-learning/i-gave-fable-5-and-gpt-5-6-the-same-build-task-results-were-shocking-c39d7222991b
+
+A response icon23
+
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fc39d7222991b&operation=register&redirect=https%3A%2F%2Fwww.towardsdeeplearning.com%2Fi-gave-fable-5-and-gpt-5-6-the-same-build-task-results-were-shocking-c39d7222991b
+
+In
+
+Google Cloud - Community
+
+by
+
+Vipul Raja
+
+·
+
+Jul 13
+
+## Gemma 4 31B IT Self-hosting Options & Gotchas
+
+### Captured from moments when I got burned, so you don’t have to! 😅
+
+https://medium.com/google-cloud/gemma-4-31b-it-self-hosting-options-gotchas-de1111dc36b4
+
+https://medium.com/google-cloud/gemma-4-31b-it-self-hosting-options-gotchas-de1111dc36b4
+
+https://medium.com/m/signin?operation=register&amp;redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fwhere-does-antigravity-look-for-hooks-c9e9f57f167f
+
+https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fbookmark%2Fp%2Fde1111dc36b4&operation=register&redirect=https%3A%2F%2Fmedium.com%2Fgoogle-cloud%2Fgemma-4-31b-it-self-hosting-options-gotchas-de1111dc36b4

@@ -1,0 +1,23 @@
+{
+  "name": "deleteSpecFile",
+  "description": "Deletes a file in an API specification. On success, this returns an HTTP \\`204 No Content\\` response.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "specId": {
+        "type": "string",
+        "description": "The spec's ID."
+      },
+      "filePath": {
+        "type": "string",
+        "description": "The path to the file."
+      }
+    },
+    "required": [
+      "specId",
+      "filePath"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

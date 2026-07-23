@@ -1,0 +1,82 @@
+{
+  "name": "createMockServerResponse",
+  "description": "Creates a server response on a mock server. Server responses simulate 5xx server-level failures (e.g. 500, 503) that are agnostic to any specific route — when active, every request to the mock returns this response.\n\n- \\`statusCode\\` must be a 5xx value (500–599).\n- \\`body\\` is a raw string — pass the response body exactly as the mock should return it (e.g. a JSON string like \\`\"{\\\"message\\\":\\\"error\\\"}\"\\` or plain text).\n- \\`language\\` controls syntax highlighting in the Postman UI (\\`json\\`, \\`xml\\`, \\`html\\`, \\`javascript\\`, \\`text\\`). It does not affect the actual response Content-Type — set that via \\`headers\\` instead.\n- \\`headers\\` is an array of \\`{key, value}\\` pairs for response headers (e.g. \\`[{\"key\": \"Content-Type\", \"value\": \"application/json\"}]\\`).\n- You can create multiple server responses per mock, but only one can be active at a time. Creating a response does NOT automatically activate it — call \\`updateMock\\` with \\`config.serverResponseId\\` set to the new response's \\`id\\` to activate it.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "mockId": {
+        "type": "string",
+        "description": "The mock's ID."
+      },
+      "serverResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The server response's name."
+          },
+          "statusCode": {
+            "type": "integer",
+            "minimum": 500,
+            "maximum": 599,
+            "description": "The HTTP status code the mock returns. Must be a 5xx value (500–599)."
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "description": "The request header's key value."
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The request header's value."
+                }
+              },
+              "additionalProperties": false
+            },
+            "description": "The server response's request headers, such as Content-Type, Accept, encoding, and other information."
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "text",
+                  "javascript",
+                  "json",
+                  "html",
+                  "xml"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The server response's body language type."
+          },
+          "body": {
+            "type": "string",
+            "description": "The server response's body that returns when calling the mock server."
+          }
+        },
+        "required": [
+          "name",
+          "statusCode"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "mockId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

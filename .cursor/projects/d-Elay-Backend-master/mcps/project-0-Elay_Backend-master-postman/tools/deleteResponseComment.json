@@ -1,0 +1,28 @@
+{
+  "name": "deleteResponseComment",
+  "description": "Deletes a comment from a response. On success, this returns an HTTP \\`204 No Content\\` response.\n\n**Note:**\n\nDeleting the first comment of a thread deletes all the comments in the thread.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's unique ID."
+      },
+      "responseId": {
+        "type": "string",
+        "description": "The response's unique ID."
+      },
+      "commentId": {
+        "type": "integer",
+        "description": "The comment's ID."
+      }
+    },
+    "required": [
+      "collectionId",
+      "responseId",
+      "commentId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "getSpecDefinition",
+  "description": "Gets the complete contents of an OpenAPI or AsyncAPI specification's definition.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "specId": {
+        "type": "string",
+        "description": "The spec's ID."
+      }
+    },
+    "required": [
+      "specId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

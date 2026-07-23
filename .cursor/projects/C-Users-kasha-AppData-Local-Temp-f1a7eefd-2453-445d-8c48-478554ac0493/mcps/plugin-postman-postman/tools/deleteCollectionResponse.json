@@ -1,0 +1,27 @@
+{
+  "name": "deleteCollectionResponse",
+  "description": "Deletes a response in a collection.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "responseId": {
+        "type": "string",
+        "description": "The response's ID."
+      },
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's ID."
+      }
+    },
+    "required": [
+      "responseId",
+      "collectionId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

@@ -1,0 +1,627 @@
+# Server advertises Kerberos, but GCM ignores it
+
+- State: open
+- Author: rm-code
+- Created: 2026-03-13T09:41:41Z
+- Updated: 2026-05-26T16:10:44Z
+- Repository: git-ecosystem/git-credential-manager
+- Number: #2290
+
+## Labels
+
+- platform:windows
+- auth:wia
+- auth-issue
+
+---
+
+### Version
+
+2.7.3+5fa7116896c82164996a609accd1c5ad90fe730a
+
+### Operating system
+
+Windows
+
+### OS version or distribution
+
+Windows 11 Enterprise
+
+### Git hosting provider(s)
+
+Azure DevOps Server (TFS/on-prem)
+
+### Other hosting provider
+
+_No response_
+
+### (Azure DevOps only) What format is your remote URL?
+
+None
+
+### Can you access the remote repository directly in the browser?
+
+Yes, I can access the repository
+
+### Expected behavior
+
+Git should use Kerberos to authenticate.
+
+### Actual behavior
+
+When trying to authenticate against our azure devops server (on premise), we are hit by the warning added in version 2.7.3 even though the server is configured for kerberos auth and (afaict) correctly advertises it via `WWW-Authenticate: Negotiate`:
+
+> Due to its cryptographic weaknesses, NTLM authentication has been disabled in Git by default.
+
+I added logs for ` GIT_CURL_VERBOSE=1 git pull` and `GCM_TRACE=1 GIT_TRACE=1 git pull` below.
+
+When we activate the NTLM workaround the authentication passes, but this isn't an option going forward as NTLM is being phased out completely.
+
+This is the `.gitconfig` our team uses:
+```
+[http]
+	sslVerify = true
+	sslBackend = schannel
+
+[credential "<redacted>"]
+	provider = generic
+[credential "<redacted>"]
+	provider = generic
+[credential]
+	helper = manager
+```
+
+### Logs
+
+`GCM_TRACE=1 GIT_TRACE=1 git pull`
+
+```
+10:27:19.752238 ...\Application.cs:106  trace: [RunInternalAsync] Version: 2.7.3.0
+10:27:19.753238 ...\Application.cs:107  trace: [RunInternalAsync] Runtime: .NET Framework 4.8.9310.0
+10:27:19.753238 ...\Application.cs:108  trace: [RunInternalAsync] Platform: Windows (x86-64)
+10:27:19.753238 ...\Application.cs:109  trace: [RunInternalAsync] OSVersion: 10.0 (build 26100)
+10:27:19.753238 ...\Application.cs:110  trace: [RunInternalAsync] AppPath: <redacted>\git-credential-manager.exe
+10:27:19.753238 ...\Application.cs:111  trace: [RunInternalAsync] InstallDir: <redacted>\
+10:27:19.753238 ...\Application.cs:112  trace: [RunInternalAsync] Arguments: get
+10:27:19.796815 ...GitCommandBase.cs:32 trace: [ExecuteAsync] Start 'get' command...
+10:27:19.810300 ...GitCommandBase.cs:46 trace: [ExecuteAsync] Detecting host provider for input:
+10:27:19.812301 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	capability[]=authtype
+10:27:19.812301 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	capability[]=state
+10:27:19.812301 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	ntlm=suppressed
+10:27:19.812301 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	protocol=https
+10:27:19.813301 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	host=<redacted>
+10:27:19.813301 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	wwwauth[]=Bearer
+10:27:19.813301 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	wwwauth[]=Basic realm="https://<redacted>/tfs"
+10:27:19.813301 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	wwwauth[]=Negotiate
+10:27:19.813301 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	wwwauth[]=NTLM
+10:27:19.818300 ...oviderRegistry.cs:99 trace: [GetProviderAsync] Host provider override was set id='generic'
+10:27:19.821588 ...GitCommandBase.cs:49 trace: [ExecuteAsync] Host provider 'Generic' was selected.
+10:27:19.824588 ...icHostProvider.cs:71 trace: [GetCredentialAsync] Looking for existing credential in store with service=https://<redacted> account=...
+10:27:19.831591 ...icHostProvider.cs:76 trace: [GetCredentialAsync] No existing credentials found.
+10:27:19.831591 ...icHostProvider.cs:79 trace: [GetCredentialAsync] Creating new credential...
+10:27:19.839243 ...ricOAuthConfig.cs:38 trace: [TryGet] Invalid OAuth configuration - missing/invalid authorize endpoint: 
+10:27:19.839243 ...cHostProvider.cs:176 trace: [GenerateCredentialAsync] Checking host 'https://<redacted>/' for Windows Integrated Authentication...
+10:27:19.842236 ...Authentication.cs:90 trace: [GetAuthenticationTypesAsync] HTTP: HEAD https://<redacted>/
+10:27:19.844236 ...pClientFactory.cs:60 trace: [CreateClient] Creating new HTTP client instance...
+10:27:19.868690 ...pClientFactory.cs:80 trace: [CreateClient] Git's SSL/TLS backend is: Schannel
+10:27:20.618627 ...Authentication.cs:93 trace: [GetAuthenticationTypesAsync] HTTP: Response code ignored.
+10:27:20.618627 ...Authentication.cs:95 trace: [GetAuthenticationTypesAsync] Inspecting WWW-Authenticate headers...
+10:27:20.627704 ...cHostProvider.cs:182 trace: [GenerateCredentialAsync] Host does not support WIA.
+10:27:20.627704 ...cHostProvider.cs:243 trace: [GenerateCredentialAsync] Prompting for basic credentials...
+10:30:10.270302 ...\GetCommand.cs:46    trace: [ExecuteInternalAsync] Writing credentials to output:
+10:30:10.270302 ...\GetCommand.cs:47    trace: [ExecuteInternalAsync] 	protocol=https
+10:30:10.270302 ...\GetCommand.cs:47    trace: [ExecuteInternalAsync] 	host=<redacted>
+10:30:10.270302 ...\GetCommand.cs:47    trace: [ExecuteInternalAsync] 	username=<redacted>
+10:30:10.270302 ...\GetCommand.cs:47    trace: [ExecuteInternalAsync] 	password=<redacted>
+10:30:10.271301 ...GitCommandBase.cs:53 trace: [ExecuteAsync] End 'get' command...
+10:30:11.153075 ...\Application.cs:106  trace: [RunInternalAsync] Version: 2.7.3.0
+10:30:11.153075 ...\Application.cs:107  trace: [RunInternalAsync] Runtime: .NET Framework 4.8.9310.0
+10:30:11.153075 ...\Application.cs:108  trace: [RunInternalAsync] Platform: Windows (x86-64)
+10:30:11.154073 ...\Application.cs:109  trace: [RunInternalAsync] OSVersion: 10.0 (build 26100)
+10:30:11.154073 ...\Application.cs:110  trace: [RunInternalAsync] AppPath: <redacted>\git-credential-manager.exe
+10:30:11.154073 ...\Application.cs:111  trace: [RunInternalAsync] InstallDir: <redacted>\
+10:30:11.154073 ...\Application.cs:112  trace: [RunInternalAsync] Arguments: erase
+10:30:11.196756 ...GitCommandBase.cs:32 trace: [ExecuteAsync] Start 'erase' command...
+10:30:11.210002 ...GitCommandBase.cs:46 trace: [ExecuteAsync] Detecting host provider for input:
+10:30:11.212055 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	ntlm=suppressed
+10:30:11.212055 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	protocol=https
+10:30:11.212055 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	host=<redacted>
+10:30:11.212055 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	username=<redacted>
+10:30:11.212055 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	password=<redacted>
+10:30:11.212055 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	wwwauth[]=Bearer
+10:30:11.212055 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	wwwauth[]=Basic realm="https://<redacted>/tfs"
+10:30:11.212055 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	wwwauth[]=Negotiate
+10:30:11.212055 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	wwwauth[]=NTLM
+10:30:11.217073 ...oviderRegistry.cs:99 trace: [GetProviderAsync] Host provider override was set id='generic'
+10:30:11.220073 ...GitCommandBase.cs:49 trace: [ExecuteAsync] Host provider 'Generic' was selected.
+10:30:11.221073 ...cHostProvider.cs:117 trace: [EraseCredentialAsync] Erasing stored credential in store with service=https://<redacted> account=<redacted>...
+10:30:11.228498 ...cHostProvider.cs:124 trace: [EraseCredentialAsync] No credential was erased.
+10:30:11.228498 ...GitCommandBase.cs:53 trace: [ExecuteAsync] End 'erase' command...
+10:30:11.694436 ...\Application.cs:106  trace: [RunInternalAsync] Version: 2.7.3.0
+10:30:11.695434 ...\Application.cs:107  trace: [RunInternalAsync] Runtime: .NET Framework 4.8.9310.0
+10:30:11.695434 ...\Application.cs:108  trace: [RunInternalAsync] Platform: Windows (x86-64)
+10:30:11.695434 ...\Application.cs:109  trace: [RunInternalAsync] OSVersion: 10.0 (build 26100)
+10:30:11.695434 ...\Application.cs:110  trace: [RunInternalAsync] AppPath: <redacted>\git-credential-manager.exe
+10:30:11.695434 ...\Application.cs:111  trace: [RunInternalAsync] InstallDir: <redacted>\
+10:30:11.695434 ...\Application.cs:112  trace: [RunInternalAsync] Arguments: erase
+10:30:11.735951 ...GitCommandBase.cs:32 trace: [ExecuteAsync] Start 'erase' command...
+10:30:11.749630 ...GitCommandBase.cs:46 trace: [ExecuteAsync] Detecting host provider for input:
+10:30:11.751630 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	ntlm=suppressed
+10:30:11.751630 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	protocol=https
+10:30:11.751630 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	host=<redacted>
+10:30:11.751630 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	username=<redacted>
+10:30:11.751630 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	password=<redacted>
+10:30:11.751630 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	wwwauth[]=Bearer
+10:30:11.751630 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	wwwauth[]=Basic realm="https://<redacted>/tfs"
+10:30:11.751630 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	wwwauth[]=Negotiate
+10:30:11.751630 ...GitCommandBase.cs:47 trace: [ExecuteAsync] 	wwwauth[]=NTLM
+10:30:11.757120 ...oviderRegistry.cs:99 trace: [GetProviderAsync] Host provider override was set id='generic'
+10:30:11.760120 ...GitCommandBase.cs:49 trace: [ExecuteAsync] Host provider 'Generic' was selected.
+10:30:11.761120 ...cHostProvider.cs:117 trace: [EraseCredentialAsync] Erasing stored credential in store with service=https://<redacted> account=<redacted>...
+10:30:11.768120 ...cHostProvider.cs:124 trace: [EraseCredentialAsync] No credential was erased.
+10:30:11.768120 ...GitCommandBase.cs:53 trace: [ExecuteAsync] End 'erase' command...
+warning: Due to its cryptographic weaknesses, NTLM authentication has been
+disabled in Git by default. You can re-enable it for trusted servers
+by running:
+
+git config set http.https://<redacted>.allowNTLMAuth true
+fatal: Authentication failed for 'https://<redacted>/tfs/<redacted>/'
+```
+
+GIT_CURL_VERBOSE=1 git pull
+```
+09:49:10.835147 http.c:930              == Info: Could not find host <redacted> in the .netrc file; using defaults
+09:49:10.846626 http.c:930              == Info: Host <redacted>:443 was resolved.
+09:49:10.846626 http.c:930              == Info: IPv6: (none)
+09:49:10.846626 http.c:930              == Info: IPv4: <redacted>
+09:49:10.846626 http.c:930              == Info:   Trying <redacted>:443...
+09:49:10.877147 http.c:930              == Info: schannel: disabled automatic use of client certificate
+09:49:10.879618 http.c:930              == Info: ALPN: curl offers http/1.1
+09:49:10.949361 http.c:930              == Info: ALPN: server accepted http/1.1
+09:49:10.949361 http.c:930              == Info: Established connection to <redacted> (<redacted> port 443) from <redacted> port <redacted> 
+09:49:10.949361 http.c:930              == Info: using HTTP/1.x
+09:49:10.949361 http.c:877              => Send header, 0000000318 bytes (0x0000013e)
+09:49:10.949361 http.c:889              => Send header: GET /tfs/<redacted>/_git/<redacted>/info/refs?service=git-upload-pack HTTP/1.1
+09:49:10.949361 http.c:889              => Send header: Host: <redacted>
+09:49:10.949361 http.c:889              => Send header: User-Agent: git/2.53.0.windows.2
+09:49:10.949361 http.c:889              => Send header: Accept: */*
+09:49:10.949361 http.c:889              => Send header: Accept-Encoding: deflate, gzip, br, zstd
+09:49:10.949361 http.c:889              => Send header: Pragma: no-cache
+09:49:10.949361 http.c:889              => Send header: Git-Protocol: version=2
+09:49:10.950365 http.c:889              => Send header:
+09:49:10.950365 http.c:930              == Info: Request completely sent off
+09:49:10.997673 http.c:877              <= Recv header, 0000000027 bytes (0x0000001b)
+09:49:10.997673 http.c:889              <= Recv header: HTTP/1.1 401 Unauthorized
+09:49:10.997673 http.c:877              <= Recv header, 0000000040 bytes (0x00000028)
+09:49:10.997673 http.c:889              <= Recv header: Content-Type: text/html; charset=utf-8
+09:49:10.997673 http.c:877              <= Recv header, 0000000055 bytes (0x00000037)
+09:49:10.997673 http.c:889              <= Recv header: X-TFS-ProcessId: <redacted>
+09:49:10.997673 http.c:877              <= Recv header, 0000000050 bytes (0x00000032)
+09:49:10.997673 http.c:889              <= Recv header: ActivityId: <redacted>
+09:49:10.997673 http.c:877              <= Recv header, 0000000053 bytes (0x00000035)
+09:49:10.997673 http.c:889              <= Recv header: X-TFS-Session: <redacted>
+09:49:10.997673 http.c:877              <= Recv header, 0000000051 bytes (0x00000033)
+09:49:10.997673 http.c:889              <= Recv header: X-VSS-E2EID: <redacted>
+09:49:10.997673 http.c:877              <= Recv header, 0000000064 bytes (0x00000040)
+09:49:10.997673 http.c:889              <= Recv header: X-VSS-SenderDeploymentId: <redacted>
+09:49:10.997673 http.c:877              <= Recv header, 0000000706 bytes (0x000002c2)
+09:49:10.997673 http.c:889              <= Recv header: X-TFS-SoapException: <redacted>
+09:49:10.997673 http.c:877              <= Recv header, 0000000144 bytes (0x00000090)
+09:49:10.997673 http.c:889              <= Recv header: X-TFS-ServiceError: <redacted>
+09:49:10.997673 http.c:877              <= Recv header, 0000000026 bytes (0x0000001a)
+09:49:10.997673 http.c:889              <= Recv header: WWW-Authenticate: Bearer
+09:49:10.998674 http.c:877              <= Recv header, 0000000073 bytes (0x00000049)
+09:49:10.998674 http.c:889              <= Recv header: WWW-Authenticate: Basic realm="https://<redacted>/tfs"
+09:49:10.998674 http.c:877              <= Recv header, 0000000029 bytes (0x0000001d)
+09:49:10.998674 http.c:889              <= Recv header: WWW-Authenticate: Negotiate
+09:49:10.999671 http.c:877              <= Recv header, 0000000024 bytes (0x00000018)
+09:49:10.999671 http.c:889              <= Recv header: WWW-Authenticate: NTLM
+09:49:10.999671 http.c:877              <= Recv header, 0000000023 bytes (0x00000017)
+09:49:10.999671 http.c:889              <= Recv header: X-Powered-By: ASP.NET
+09:49:10.999671 http.c:877              <= Recv header, 0000000124 bytes (0x0000007c)
+09:49:10.999671 http.c:889              <= Recv header: ...
+09:49:10.999671 http.c:877              <= Recv header, 0000000024 bytes (0x00000018)
+09:49:10.999671 http.c:889              <= Recv header: Lfs-Authenticate: NTLM
+09:49:10.999671 http.c:877              <= Recv header, 0000000033 bytes (0x00000021)
+09:49:10.999671 http.c:889              <= Recv header: X-Content-Type-Options: nosniff
+09:49:10.999671 http.c:877              <= Recv header, 0000000037 bytes (0x00000025)
+09:49:11.000842 http.c:889              <= Recv header: Date: Fri, 13 Mar 2026 08:49:10 GMT
+09:49:11.000842 http.c:877              <= Recv header, 0000000023 bytes (0x00000017)
+09:49:11.000842 http.c:889              <= Recv header: Content-Length: 20271
+09:49:11.000842 http.c:877              <= Recv header, 0000000002 bytes (0x00000002)
+09:49:11.000842 http.c:889              <= Recv header:
+09:49:11.027697 http.c:930              == Info: Connection #0 to host <redacted>:443 left intact
+09:49:21.070875 http.c:930              == Info: Reusing existing https: connection with host <redacted>
+09:49:21.070875 http.c:877              => Send header, 0000000318 bytes (0x0000013e)
+09:49:21.070875 http.c:889              => Send header: GET /tfs/<redacted>/_git/<redacted>/info/refs?service=git-upload-pack HTTP/1.1
+09:49:21.070875 http.c:889              => Send header: Host: <redacted>
+09:49:21.070875 http.c:889              => Send header: User-Agent: git/2.53.0.windows.2
+09:49:21.070875 http.c:889              => Send header: Accept: */*
+09:49:21.070875 http.c:889              => Send header: Accept-Encoding: deflate, gzip, br, zstd
+09:49:21.070875 http.c:889              => Send header: Pragma: no-cache
+09:49:21.070875 http.c:889              => Send header: Git-Protocol: version=2
+09:49:21.070875 http.c:889              => Send header:
+09:49:21.070875 http.c:930              == Info: Request completely sent off
+09:49:21.104110 http.c:877              <= Recv header, 0000000027 bytes (0x0000001b)
+09:49:21.104110 http.c:889              <= Recv header: HTTP/1.1 401 Unauthorized
+09:49:21.104110 http.c:877              <= Recv header, 0000000040 bytes (0x00000028)
+09:49:21.104110 http.c:889              <= Recv header: Content-Type: text/html; charset=utf-8
+09:49:21.104110 http.c:877              <= Recv header, 0000000055 bytes (0x00000037)
+09:49:21.105112 http.c:889              <= Recv header: X-TFS-ProcessId: <redacted>
+09:49:21.105112 http.c:877              <= Recv header, 0000000050 bytes (0x00000032)
+09:49:21.105112 http.c:889              <= Recv header: ActivityId: <redacted>
+09:49:21.105112 http.c:877              <= Recv header, 0000000053 bytes (0x00000035)
+09:49:21.105112 http.c:889              <= Recv header: X-TFS-Session: <redacted>
+09:49:21.105112 http.c:877              <= Recv header, 0000000051 bytes (0x00000033)
+09:49:21.105112 http.c:889              <= Recv header: X-VSS-E2EID: <redacted>
+09:49:21.105112 http.c:877              <= Recv header, 0000000064 bytes (0x00000040)
+09:49:21.105112 http.c:889              <= Recv header: X-VSS-SenderDeploymentId: <redacted>
+09:49:21.105112 http.c:877              <= Recv header, 0000000706 bytes (0x000002c2)
+09:49:21.105112 http.c:889              <= Recv header: X-TFS-SoapException: <redacted>
+09:49:21.105112 http.c:877              <= Recv header, 0000000144 bytes (0x00000090)
+09:49:21.105112 http.c:889              <= Recv header: X-TFS-ServiceError: <redacted>
+09:49:21.105112 http.c:877              <= Recv header, 0000000026 bytes (0x0000001a)
+09:49:21.105112 http.c:889              <= Recv header: WWW-Authenticate: Bearer
+09:49:21.105112 http.c:877              <= Recv header, 0000000073 bytes (0x00000049)
+09:49:21.105112 http.c:889              <= Recv header: WWW-Authenticate: Basic realm="https://<redacted>/tfs"
+09:49:21.105112 http.c:877              <= Recv header, 0000000029 bytes (0x0000001d)
+09:49:21.105112 http.c:889              <= Recv header: WWW-Authenticate: Negotiate
+09:49:21.105112 http.c:877              <= Recv header, 0000000024 bytes (0x00000018)
+09:49:21.105112 http.c:889              <= Recv header: WWW-Authenticate: NTLM
+09:49:21.105112 http.c:877              <= Recv header, 0000000023 bytes (0x00000017)
+09:49:21.105112 http.c:889              <= Recv header: X-Powered-By: ASP.NET
+09:49:21.105112 http.c:877              <= Recv header, 0000000124 bytes (0x0000007c)
+09:49:21.105112 http.c:889              <= Recv header: ...
+09:49:21.105112 http.c:877              <= Recv header, 0000000024 bytes (0x00000018)
+09:49:21.105112 http.c:889              <= Recv header: Lfs-Authenticate: NTLM
+09:49:21.105112 http.c:877              <= Recv header, 0000000033 bytes (0x00000021)
+09:49:21.105112 http.c:889              <= Recv header: X-Content-Type-Options: nosniff
+09:49:21.105112 http.c:877              <= Recv header, 0000000037 bytes (0x00000025)
+09:49:21.105112 http.c:889              <= Recv header: Date: Fri, 13 Mar 2026 08:49:21 GMT
+09:49:21.105112 http.c:877              <= Recv header, 0000000023 bytes (0x00000017)
+09:49:21.105112 http.c:889              <= Recv header: Content-Length: 20271
+09:49:21.105112 http.c:930              == Info: Ignoring the response-body
+09:49:21.105112 http.c:930              == Info: setting size while ignoring
+09:49:21.105112 http.c:877              <= Recv header, 0000000002 bytes (0x00000002)
+09:49:21.105112 http.c:889              <= Recv header:
+09:49:21.106112 http.c:930              == Info: Connection #0 to host <redacted>:443 left intact
+09:49:21.106112 http.c:930              == Info: Issue another request to this URL: 'https://<redacted>/tfs/<redacted>/_git/<redacted>/info/refs?service=git-upload-pack'
+09:49:21.106112 http.c:930              == Info: Reusing existing https: connection with host <redacted>
+09:49:21.106112 http.c:930              == Info: Server auth using Basic with user '<redacted>'
+09:49:21.106112 http.c:877              => Send header, 0000000365 bytes (0x0000016d)
+09:49:21.106112 http.c:889              => Send header: GET /tfs/<redacted>/_git/<redacted>/info/refs?service=git-upload-pack HTTP/1.1
+09:49:21.106112 http.c:889              => Send header: Host: <redacted>
+09:49:21.106112 http.c:889              => Send header: Authorization: Basic <redacted>
+09:49:21.106112 http.c:889              => Send header: User-Agent: git/2.53.0.windows.2
+09:49:21.106112 http.c:889              => Send header: Accept: */*
+09:49:21.106112 http.c:889              => Send header: Accept-Encoding: deflate, gzip, br, zstd
+09:49:21.106112 http.c:889              => Send header: Pragma: no-cache
+09:49:21.106112 http.c:889              => Send header: Git-Protocol: version=2
+09:49:21.106112 http.c:889              => Send header:
+09:49:21.106112 http.c:930              == Info: Request completely sent off
+09:49:21.139695 http.c:877              <= Recv header, 0000000027 bytes (0x0000001b)
+09:49:21.139695 http.c:889              <= Recv header: HTTP/1.1 401 Unauthorized
+09:49:21.139695 http.c:877              <= Recv header, 0000000040 bytes (0x00000028)
+09:49:21.139695 http.c:889              <= Recv header: Content-Type: text/html; charset=utf-8
+09:49:21.139695 http.c:877              <= Recv header, 0000000055 bytes (0x00000037)
+09:49:21.139695 http.c:889              <= Recv header: X-TFS-ProcessId: <redacted>
+09:49:21.139695 http.c:877              <= Recv header, 0000000050 bytes (0x00000032)
+09:49:21.139695 http.c:889              <= Recv header: ActivityId: <redacted>
+09:49:21.139695 http.c:877              <= Recv header, 0000000053 bytes (0x00000035)
+09:49:21.140838 http.c:889              <= Recv header: X-TFS-Session: <redacted>
+09:49:21.140838 http.c:877              <= Recv header, 0000000051 bytes (0x00000033)
+09:49:21.140838 http.c:889              <= Recv header: X-VSS-E2EID: <redacted>
+09:49:21.140838 http.c:877              <= Recv header, 0000000064 bytes (0x00000040)
+09:49:21.140838 http.c:889              <= Recv header: X-VSS-SenderDeploymentId: <redacted>
+09:49:21.140838 http.c:877              <= Recv header, 0000000706 bytes (0x000002c2)
+09:49:21.140838 http.c:889              <= Recv header: X-TFS-SoapException: <redacted>
+09:49:21.140838 http.c:877              <= Recv header, 0000000144 bytes (0x00000090)
+09:49:21.140838 http.c:889              <= Recv header: X-TFS-ServiceError: <redacted>
+09:49:21.140838 http.c:877              <= Recv header, 0000000026 bytes (0x0000001a)
+09:49:21.140838 http.c:889              <= Recv header: WWW-Authenticate: Bearer
+09:49:21.140838 http.c:930              == Info: Basic authentication problem, ignoring.
+09:49:21.140838 http.c:877              <= Recv header, 0000000073 bytes (0x00000049)
+09:49:21.140838 http.c:889              <= Recv header: WWW-Authenticate: Basic realm="https://<redacted>/tfs"
+09:49:21.140838 http.c:877              <= Recv header, 0000000029 bytes (0x0000001d)
+09:49:21.140838 http.c:889              <= Recv header: WWW-Authenticate: Negotiate
+09:49:21.140838 http.c:877              <= Recv header, 0000000024 bytes (0x00000018)
+09:49:21.140838 http.c:889              <= Recv header: WWW-Authenticate: NTLM
+09:49:21.140838 http.c:877              <= Recv header, 0000000023 bytes (0x00000017)
+09:49:21.140838 http.c:889              <= Recv header: X-Powered-By: ASP.NET
+09:49:21.140838 http.c:877              <= Recv header, 0000000124 bytes (0x0000007c)
+09:49:21.140838 http.c:889              <= Recv header: ...
+09:49:21.140838 http.c:877              <= Recv header, 0000000024 bytes (0x00000018)
+09:49:21.140838 http.c:889              <= Recv header: Lfs-Authenticate: NTLM
+09:49:21.140838 http.c:877              <= Recv header, 0000000033 bytes (0x00000021)
+09:49:21.140838 http.c:889              <= Recv header: X-Content-Type-Options: nosniff
+09:49:21.140838 http.c:877              <= Recv header, 0000000037 bytes (0x00000025)
+09:49:21.140838 http.c:889              <= Recv header: Date: Fri, 13 Mar 2026 08:49:21 GMT
+09:49:21.140838 http.c:877              <= Recv header, 0000000023 bytes (0x00000017)
+09:49:21.140838 http.c:889              <= Recv header: Content-Length: 20271
+09:49:21.140838 http.c:877              <= Recv header, 0000000002 bytes (0x00000002)
+09:49:21.141847 http.c:889              <= Recv header:
+09:49:21.141847 http.c:930              == Info: Connection #0 to host <redacted>:443 left intact
+warning: Due to its cryptographic weaknesses, NTLM authentication has been
+disabled in Git by default. You can re-enable it for trusted servers
+by running:
+
+git config set http.https://<redacted>.allowNTLMAuth true
+fatal: Authentication failed for 'https://<redacted>/tfs/<redacted>/_git/<redacted>/'
+```
+
+## Timeline
+
+- rm-code added label "auth-issue"
+
+- rjpowers10 subscribed
+
+- DMoroTempestive subscribed
+
+- nrokoptv subscribed
+
+- KebapBoy subscribed
+
+- attilamarcell-takacs subscribed
+
+- ras_vtxgith subscribed
+
+- klaes-it subscribed
+
+- tbolon subscribed
+
+- vlm--- subscribed
+
+- vborioni-onit subscribed
+
+- bkochwork subscribed
+
+- Vikitorony subscribed
+
+**Vikitorony** commented on 2026-03-26T11:12:50Z:
+
+> Hi,
+> I wanted to follow up on this issue and ask if there have been any updates or progress so far.
+> I am also experiencing this problem on my side, so I’m quite interested in a potential fix.
+> 
+> Thank you for your work!
+
+**darxis** commented on 2026-03-29T15:58:03Z:
+
+> Same problem here using Git for Windows 2.53.0.2 and Azure DevOps Server 25H2. I hope it will get fixed in the next release. 
+> 
+> A temporary workaround is to add the following to `.gitconfig` - just replace ` ` with the actual repository host, for example `mydomain.com`:
+> ```
+> [http "https:// "]
+> allowNTLMAuth = true
+> ```
+
+- thomas-stieler_claascp subscribed
+
+- ToreDemant subscribed
+
+**mjcheetham** commented on 2026-04-23T08:37:37Z:
+
+> Hello all - we are aware of several compounding issues in the NTLM/Kerberos space right now that will be causing this.
+> 
+> We have a patch out with upstream Git to fix a long standing bug where Git does not try Kerberos authentication when it should: https://lore.kernel.org/git/pull.2087.git.1776331259.gitgitgadget@gmail.com/T/#t
+> 
+> This fix has been fast-forwarded into Git for Windows so hopefully the next Git release after this should help fix the problem. Watch this space!
+
+- mjcheetham added label "platform:windows"
+
+- mjcheetham added label "auth:wia"
+
+**tbolon** commented on 2026-05-12T13:21:43Z:
+
+> Just a follow up. I am not sure the fix in Git for Windows is supposed to be enough, but we just tested using the latest git-for-windows (2.54.0.windows.1) and still can't auth with a Azure DevOps Server with NTLM disabled.
+> 
+> For now we have re-enabled NTLM.
+> 
+> Here are the log for a custom IIS website on port 4443:
+> 
+> ```
+> > $env:GCM_TRACE=1;$env:GIT_TRACE=1;
+> > git --version
+> 15:20:29.087837 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/bin
+> 15:20:29.092836 git.c:502 trace: built-in: git version
+> git version 2.54.0.windows.1
+> > git clone https://xxx.lan:4443/DefaultCollection/Setup/_git Setup2
+> 15:18:48.523929 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/bin
+> 15:18:48.528926 git.c:502 trace: built-in: git clone https://xxx.lan:4443/DefaultCollection/Setup/_git Setup2
+> Cloning into 'Setup2'...
+> 15:18:48.537432 run-command.c:673 trace: run_command: git remote-https origin https://xxx.lan:4443/DefaultCollection/Setup/_git
+> 15:18:48.537432 run-command.c:934 trace: start_command: git remote-https origin https://xxx.lan:4443/DefaultCollection/Setup/_git
+> 15:18:48.546949 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.548946 git.c:810 trace: exec: git-remote-https origin https://xxx.lan:4443/DefaultCollection/Setup/_git
+> 15:18:48.548946 run-command.c:673 trace: run_command: git-remote-https origin https://xxx.lan:4443/DefaultCollection/Setup/_git
+> 15:18:48.548946 run-command.c:934 trace: start_command: git-remote-https origin https://xxx.lan:4443/DefaultCollection/Setup/_git
+> 15:18:48.558949 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.627034 run-command.c:673 trace: run_command: 'git credential-manager get'
+> 15:18:48.627034 run-command.c:934 trace: start_command: 'C:/Program Files/Git/usr/bin/sh.exe' -c 'git credential-manager get' 'git credential-manager get'
+> 15:18:48.659055 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.661056 git.c:810 trace: exec: git-credential-manager get
+> 15:18:48.661056 run-command.c:673 trace: run_command: git-credential-manager get
+> 15:18:48.661056 run-command.c:934 trace: start_command: git-credential-manager get
+> 15:18:48.715433 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.718434 git.c:502 trace: built-in: git config --null --list
+> 15:18:48.750590 ...\Application.cs:106 trace: [RunInternalAsync] Version: 2.7.3.0
+> 15:18:48.750590 ...\Application.cs:107 trace: [RunInternalAsync] Runtime: .NET Framework 4.8.9325.0
+> 15:18:48.750590 ...\Application.cs:108 trace: [RunInternalAsync] Platform: Windows (x86-64)
+> 15:18:48.751589 ...\Application.cs:109 trace: [RunInternalAsync] OSVersion: 10.0 (build 26200)
+> 15:18:48.751589 ...\Application.cs:110 trace: [RunInternalAsync] AppPath: C:\Program Files\Git\mingw64\bin\git-credential-manager.exe
+> 15:18:48.751589 ...\Application.cs:111 trace: [RunInternalAsync] InstallDir: C:\Program Files\Git\mingw64\bin\
+> 15:18:48.751589 ...\Application.cs:112 trace: [RunInternalAsync] Arguments: get
+> 15:18:48.780165 ...GitCommandBase.cs:32 trace: [ExecuteAsync] Start 'get' command...
+> 15:18:48.789165 ...GitCommandBase.cs:46 trace: [ExecuteAsync] Detecting host provider for input:
+> 15:18:48.790668 ...GitCommandBase.cs:47 trace: [ExecuteAsync] capability[]=authtype
+> 15:18:48.790668 ...GitCommandBase.cs:47 trace: [ExecuteAsync] capability[]=state
+> 15:18:48.790668 ...GitCommandBase.cs:47 trace: [ExecuteAsync] protocol=https
+> 15:18:48.790668 ...GitCommandBase.cs:47 trace: [ExecuteAsync] host=xxx.lan:4443
+> 15:18:48.790668 ...GitCommandBase.cs:47 trace: [ExecuteAsync] wwwauth=Negotiate oWswaaADCgEBomIEYGBeBgkqhkiG9xIBAgIDAH5PME2gAwIBBaEDAgEepBEYDzIwMjYwNTEyMTMxODQ4WqUFAgMN4rOmAwIBKakKGwhNQjNNLkxBTqoWMBSgAwIBAaENMAsbCWJvbWJhZGlsJA==
+> 15:18:48.793672 ...oviderRegistry.cs:99 trace: [GetProviderAsync] Host provider override was set id='generic'
+> 15:18:48.795673 ...GitCommandBase.cs:49 trace: [ExecuteAsync] Host provider 'Generic' was selected.
+> 15:18:48.798374 ...icHostProvider.cs:71 trace: [GetCredentialAsync] Looking for existing credential in store with service=https://xxx.lan:4443 account=...
+> 15:18:48.805384 ...icHostProvider.cs:76 trace: [GetCredentialAsync] No existing credentials found.
+> 15:18:48.805384 ...icHostProvider.cs:79 trace: [GetCredentialAsync] Creating new credential...
+> 15:18:48.809384 ...ricOAuthConfig.cs:38 trace: [TryGet] Invalid OAuth configuration - missing/invalid authorize endpoint:
+> 15:18:48.810381 ...cHostProvider.cs:176 trace: [GenerateCredentialAsync] Checking host 'https://xxx.lan:4443/' for Windows Integrated Authentication...
+> 15:18:48.811380 ...Authentication.cs:90 trace: [GetAuthenticationTypesAsync] HTTP: HEAD https://xxx.lan:4443/
+> 15:18:48.812382 ...pClientFactory.cs:60 trace: [CreateClient] Creating new HTTP client instance...
+> 15:18:48.828894 ...pClientFactory.cs:80 trace: [CreateClient] Git's SSL/TLS backend is: Schannel
+> 15:18:48.837895 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.839894 git.c:502 trace: built-in: git version
+> 15:18:48.849409 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.851407 git.c:502 trace: built-in: git config --null --type=path http.https://xxx.lan:4443.sslCAInfo
+> 15:18:48.859917 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.861916 git.c:502 trace: built-in: git config --null --type=path http.xxx.lan:4443.sslCAInfo
+> 15:18:48.870425 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.871425 git.c:502 trace: built-in: git config --null --type=path http.https://mb3m.lan:4443.sslCAInfo
+> 15:18:48.880449 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.882449 git.c:502 trace: built-in: git config --null --type=path http.mb3m.lan:4443.sslCAInfo
+> 15:18:48.893036 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.894038 git.c:502 trace: built-in: git config --null --type=path http.sslCAInfo
+> 15:18:48.904063 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.906062 git.c:502 trace: built-in: git config --null --type=path http.https://xxx.lan:4443.cookieFile
+> 15:18:48.914065 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.916065 git.c:502 trace: built-in: git config --null --type=path http.xxx.lan:4443.cookieFile
+> 15:18:48.924575 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.926573 git.c:502 trace: built-in: git config --null --type=path http.https://mb3m.lan:4443.cookieFile
+> 15:18:48.935576 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.937576 git.c:502 trace: built-in: git config --null --type=path http.mb3m.lan:4443.cookieFile
+> 15:18:48.947085 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:48.949085 git.c:502 trace: built-in: git config --null --type=path http.cookieFile
+> 15:18:49.006380 ...Authentication.cs:93 trace: [GetAuthenticationTypesAsync] HTTP: Response code ignored.
+> 15:18:49.006380 ...Authentication.cs:95 trace: [GetAuthenticationTypesAsync] Inspecting WWW-Authenticate headers...
+> 15:18:49.006380 ...uthentication.cs:100 trace: [GetAuthenticationTypesAsync] Found WWW-Authenticate header for Negotiate
+> 15:18:49.007385 ...cHostProvider.cs:186 trace: [GenerateCredentialAsync] Host supports WIA.
+> 15:18:49.007385 ...cHostProvider.cs:223 trace: [GenerateCredentialAsync] Returning empty username/password to trigger current user auth with WIA.
+> 15:18:49.007385 ...\GetCommand.cs:46 trace: [ExecuteInternalAsync] Writing credentials to output:
+> 15:18:49.007385 ...\GetCommand.cs:47 trace: [ExecuteInternalAsync] protocol=https
+> 15:18:49.007385 ...\GetCommand.cs:47 trace: [ExecuteInternalAsync] host=xxx.lan:4443
+> 15:18:49.007385 ...\GetCommand.cs:47 trace: [ExecuteInternalAsync] username=
+> 15:18:49.007385 ...\GetCommand.cs:47 trace: [ExecuteInternalAsync] password=********
+> 15:18:49.008383 ...GitCommandBase.cs:53 trace: [ExecuteAsync] End 'get' command...
+> 15:18:49.024213 run-command.c:673 trace: run_command: 'git credential-manager erase'
+> 15:18:49.024213 run-command.c:934 trace: start_command: 'C:/Program Files/Git/usr/bin/sh.exe' -c 'git credential-manager erase' 'git credential-manager erase'
+> 15:18:49.053842 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:49.055845 git.c:810 trace: exec: git-credential-manager erase
+> 15:18:49.055845 run-command.c:673 trace: run_command: git-credential-manager erase
+> 15:18:49.055845 run-command.c:934 trace: start_command: git-credential-manager erase
+> 15:18:49.111308 exec-cmd.c:266 trace: resolved executable dir: C:/Program Files/Git/mingw64/libexec/git-core
+> 15:18:49.114309 git.c:502 trace: built-in: git config --null --list
+> 15:18:49.149415 ...\Application.cs:106 trace: [RunInternalAsync] Version: 2.7.3.0
+> 15:18:49.150416 ...\Application.cs:107 trace: [RunInternalAsync] Runtime: .NET Framework 4.8.9325.0
+> 15:18:49.150416 ...\Application.cs:108 trace: [RunInternalAsync] Platform: Windows (x86-64)
+> 15:18:49.150416 ...\Application.cs:109 trace: [RunInternalAsync] OSVersion: 10.0 (build 26200)
+> 15:18:49.150416 ...\Application.cs:110 trace: [RunInternalAsync] AppPath: C:\Program Files\Git\mingw64\bin\git-credential-manager.exe
+> 15:18:49.150416 ...\Application.cs:111 trace: [RunInternalAsync] InstallDir: C:\Program Files\Git\mingw64\bin\
+> 15:18:49.150416 ...\Application.cs:112 trace: [RunInternalAsync] Arguments: erase
+> 15:18:49.179971 ...GitCommandBase.cs:32 trace: [ExecuteAsync] Start 'erase' command...
+> 15:18:49.189975 ...GitCommandBase.cs:46 trace: [ExecuteAsync] Detecting host provider for input:
+> 15:18:49.191975 ...GitCommandBase.cs:47 trace: [ExecuteAsync] protocol=https
+> 15:18:49.191975 ...GitCommandBase.cs:47 trace: [ExecuteAsync] host=xxx.lan:4443
+> 15:18:49.191975 ...GitCommandBase.cs:47 trace: [ExecuteAsync] username=
+> 15:18:49.191975 ...GitCommandBase.cs:47 trace: [ExecuteAsync] password=********
+> 15:18:49.191975 ...GitCommandBase.cs:47 trace: [ExecuteAsync] wwwauth[]=Bearer
+> 15:18:49.191975 ...GitCommandBase.cs:47 trace: [ExecuteAsync] wwwauth[]=Basic realm="https://xxx.lan/"
+> 15:18:49.191975 ...GitCommandBase.cs:47 trace: [ExecuteAsync] wwwauth[]=Negotiate
+> 15:18:49.195975 ...oviderRegistry.cs:99 trace: [GetProviderAsync] Host provider override was set id='generic'
+> 15:18:49.197483 ...GitCommandBase.cs:49 trace: [ExecuteAsync] Host provider 'Generic' was selected.
+> 15:18:49.198482 ...cHostProvider.cs:117 trace: [EraseCredentialAsync] Erasing stored credential in store with service=https://xxx.lan:4443 account=...
+> 15:18:49.206571 ...cHostProvider.cs:124 trace: [EraseCredentialAsync] No credential was erased.
+> 15:18:49.206571 ...GitCommandBase.cs:53 trace: [ExecuteAsync] End 'erase' command...
+> fatal: Authentication failed for 'https://xxx.lan:4443/DefaultCollection/Setup/_git/'
+> ```
+
+**outils-tiers-metafactory** commented on 2026-05-26T16:10:44Z:
+
+> ## Problem description
+> 
+> Since upgrading to **Git 2.54.0.1**, a dialog box appears on every `git fetch`/`push`:
+> 
+> > *NTLM support in Git has been disabled. Do you wish to re-enable NTLM authentication?*
+> 
+> This dialog does **not** appear with Git 2.53.0.3.
+> 
+> ### Environment
+> 
+> | | |
+> |---|---|
+> | **Git** | 2.54.0.1 |
+> | **GCM** | 2.7.3.0 (.NET Framework 4.8) |
+> | **OS** | Windows 11 (build 26100) |
+> | **Server** | On-premise Azure DevOps (TFS) |
+> 
+> ### Context
+> 
+> We do **not** want to re-enable NTLM. Our on-premise server supports Windows Integrated Authentication via **Negotiate/Kerberos**, and we have already configured `http.https://.emptyAuth=true` as documented in [GCM NTLM/Kerberos built-in support](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/ntlm-kerberos.md#built-in-support-in-git).
+> 
+> ### Observations (from `GCM_TRACE` with Git 2.54.0.1)
+> 
+> The credential helper input contains `ntlm=suppressed`, and the server's `WWW-Authenticate` headers advertise both `Negotiate` and `NTLM`. GCM correctly detects WIA support, yet the warning dialog is still triggered:
+> 
+> ```text
+> ntlm=suppressed
+> wwwauth[]=Bearer
+> wwwauth[]=Basic realm="https:// /"
+> wwwauth[]=Negotiate
+> wwwauth[]=NTLM
+> ...
+> [GenerateCredentialAsync] Host supports WIA.
+> [GenerateCredentialAsync] NTLM support has been suppressed by Git - showing warning.
+> ```
+> 
+> We were unable to reproduce the same trace with Git 2.53.0.3 to compare the two inputs side by side, so we cannot confirm whether ntlm=suppressed is new in 2.54 or was already present.
+> 
+> ### Expected behavior
+> 
+> The warning dialog should only be shown when NTLM is the only available Windows authentication scheme (i.e. Negotiate is absent from WWW-Authenticate). When Negotiate is present alongside NTLM, GCM should silently proceed with Kerberos/Negotiate and suppress the dialog entirely.
+> 
+> 
+> ### Additional Datas
+> 
+> If useful, here are the full GCM_TRACE logs :
+> ```
+> 17:44:57.973948 ...\Application.cs:106 trace: [RunInternalAsync] Version: 2.7.3.0
+> 17:44:57.973948 ...\Application.cs:107 trace: [RunInternalAsync] Runtime: .NET Framework 4.8.9324.0
+> 17:44:57.973948 ...\Application.cs:108 trace: [RunInternalAsync] Platform: Windows (x86-64)
+> 17:44:57.973948 ...\Application.cs:109 trace: [RunInternalAsync] OSVersion: 10.0 (build 26100)
+> 17:44:57.973948 ...\Application.cs:110 trace: [RunInternalAsync] AppPath: D:\Utils\Git\2.54.0.1\mingw64\bin\git-credential-manager.exe
+> 17:44:57.973948 ...\Application.cs:111 trace: [RunInternalAsync] InstallDir: D:\Utils\Git\2.54.0.1\mingw64\bin\
+> 17:44:57.973948 ...\Application.cs:112 trace: [RunInternalAsync] Arguments: get
+> 17:44:58.015951 ...GitCommandBase.cs:32 trace: [ExecuteAsync] Start 'get' command...
+> 17:44:58.031844 ...GitCommandBase.cs:46 trace: [ExecuteAsync] Detecting host provider for input:
+> 17:44:58.033380 ...GitCommandBase.cs:47 trace: [ExecuteAsync] capability[]=authtype
+> 17:44:58.033380 ...GitCommandBase.cs:47 trace: [ExecuteAsync] capability[]=state
+> 17:44:58.033380 ...GitCommandBase.cs:47 trace: [ExecuteAsync] ntlm=suppressed
+> 17:44:58.033380 ...GitCommandBase.cs:47 trace: [ExecuteAsync] protocol=https
+> 17:44:58.033380 ...GitCommandBase.cs:47 trace: [ExecuteAsync] host=<ado_onprem_url>
+> 17:44:58.033380 ...GitCommandBase.cs:47 trace: [ExecuteAsync] wwwauth[]=Bearer
+> 17:44:58.033380 ...GitCommandBase.cs:47 trace: [ExecuteAsync] wwwauth[]=Basic realm="https://<ado_onprem_url>/"
+> 17:44:58.033380 ...GitCommandBase.cs:47 trace: [ExecuteAsync] wwwauth[]=Negotiate
+> 17:44:58.033380 ...GitCommandBase.cs:47 trace: [ExecuteAsync] wwwauth[]=NTLM
+> 17:44:58.040548 ...oviderRegistry.cs:99 trace: [GetProviderAsync] Host provider override was set id='generic'
+> 17:44:58.042592 ...GitCommandBase.cs:49 trace: [ExecuteAsync] Host provider 'Generic' was selected.
+> 17:44:58.046178 ...icHostProvider.cs:71 trace: [GetCredentialAsync] Looking for existing credential in store with service=https://<ado_onprem_url> account=...
+> 17:44:58.054373 ...icHostProvider.cs:76 trace: [GetCredentialAsync] No existing credentials found.
+> 17:44:58.054373 ...icHostProvider.cs:79 trace: [GetCredentialAsync] Creating new credential...
+> 17:44:58.062564 ...ricOAuthConfig.cs:38 trace: [TryGet] Invalid OAuth configuration - missing/invalid authorize endpoint: 
+> 17:44:58.064096 ...cHostProvider.cs:176 trace: [GenerateCredentialAsync] Checking host 'https://<ado_onprem_url>/' for Windows Integrated Authentication...
+> 17:44:58.066142 ...Authentication.cs:90 trace: [GetAuthenticationTypesAsync] HTTP: HEAD https://<ado_onprem_url>/
+> 17:44:58.068192 ...pClientFactory.cs:60 trace: [CreateClient] Creating new HTTP client instance...
+> 17:44:58.073823 ...ClientFactory.cs:323 trace: [TryCreateProxy] Created a WebProxy instance:
+> 17:44:58.073823 ...ClientFactory.cs:324 trace: [TryCreateProxy] address=http://127.0.0.1:9000/
+> 17:44:58.073823 ...ClientFactory.cs:324 trace: [TryCreateProxy] useDefaultCredentials=true
+> 17:44:58.073823 ...ClientFactory.cs:324 trace: [TryCreateProxy] noProxy=localhost,127.0.0.1,corp.local
+> 17:44:58.073823 ...ClientFactory.cs:324 trace: [TryCreateProxy] bypass=(\.|\:\/\/)localhost$,(\.|\:\/\/)127\.0\.0\.1$,(\.|\:\/\/)corp\.local$
+> 17:44:58.073823 ...pClientFactory.cs:66 trace: [CreateClient] HTTP client is using the configured proxy.
+> 17:44:58.095869 ...pClientFactory.cs:80 trace: [CreateClient] Git's SSL/TLS backend is: OpenSsl
+> 17:44:59.773817 ...Authentication.cs:93 trace: [GetAuthenticationTypesAsync] HTTP: Response code ignored.
+> 17:44:59.773817 ...Authentication.cs:95 trace: [GetAuthenticationTypesAsync] Inspecting WWW-Authenticate headers...
+> 17:44:59.773817 ...uthentication.cs:100 trace: [GetAuthenticationTypesAsync] Found WWW-Authenticate header for Negotiate
+> 17:44:59.773817 ...uthentication.cs:105 trace: [GetAuthenticationTypesAsync] Found WWW-Authenticate header for NTLM
+> 17:44:59.773817 ...cHostProvider.cs:186 trace: [GenerateCredentialAsync] Host supports WIA.
+> 17:44:59.773817 ...cHostProvider.cs:194 trace: [GenerateCredentialAsync] NTLM support has been suppressed by Git - showing warning.
+> ```
+
+- ncollier-AECC subscribed

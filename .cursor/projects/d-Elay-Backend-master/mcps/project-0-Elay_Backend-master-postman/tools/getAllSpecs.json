@@ -1,0 +1,27 @@
+{
+  "name": "getAllSpecs",
+  "description": "Gets all API specifications in a workspace.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "workspaceId": {
+        "type": "string",
+        "description": "The workspace's ID."
+      },
+      "cursor": {
+        "type": "string",
+        "description": "The pointer to the first record of the set of paginated results. To view the next response, use the `nextCursor` value for this parameter."
+      },
+      "limit": {
+        "type": "integer",
+        "description": "The maximum number of rows to return in the response.",
+        "default": 10
+      }
+    },
+    "required": [
+      "workspaceId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

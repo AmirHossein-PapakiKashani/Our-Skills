@@ -1,0 +1,15 @@
+{
+  "name": "getEnvironments",
+  "description": "Gets information about all of your [environments](https://learning.postman.com/docs/sending-requests/managing-environments/).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "workspace": {
+        "type": "string",
+        "description": "The workspace's ID."
+      }
+    },
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

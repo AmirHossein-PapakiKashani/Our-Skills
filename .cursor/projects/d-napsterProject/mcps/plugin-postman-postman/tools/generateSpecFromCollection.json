@@ -1,0 +1,52 @@
+{
+  "name": "generateSpecFromCollection",
+  "description": "Generates an OpenAPI 2.0, 3.0, or 3.1 specification for the given collection. The response contains a polling link to the task status.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionUid": {
+        "type": "string",
+        "description": "The collection's unique ID."
+      },
+      "elementType": {
+        "type": "string",
+        "const": "spec",
+        "description": "The `spec` value."
+      },
+      "name": {
+        "type": "string",
+        "description": "The API specification's name."
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "OPENAPI:2.0",
+          "OPENAPI:3.0",
+          "OPENAPI:3.1"
+        ],
+        "description": "The specification's type."
+      },
+      "format": {
+        "type": "string",
+        "enum": [
+          "JSON",
+          "YAML"
+        ],
+        "description": "The format of the API specification."
+      }
+    },
+    "required": [
+      "collectionUid",
+      "elementType",
+      "name",
+      "type",
+      "format"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

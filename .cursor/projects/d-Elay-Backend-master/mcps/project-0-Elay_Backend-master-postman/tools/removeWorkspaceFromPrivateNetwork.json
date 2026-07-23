@@ -1,0 +1,18 @@
+{
+  "name": "removeWorkspaceFromPrivateNetwork",
+  "description": "Removes a workspace from your team's Private API Network. This does not delete the workspace itself — it only removes it from the Private API Network folder.\n\nWARNING: This tool is for Private API Network management, not for general workspace operations. For workspace management use: getWorkspaces, getWorkspace, createWorkspace, updateWorkspace, deleteWorkspace.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "workspaceId": {
+        "type": "string",
+        "description": "The workspace's ID."
+      }
+    },
+    "required": [
+      "workspaceId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

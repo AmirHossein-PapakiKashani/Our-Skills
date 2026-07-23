@@ -1,0 +1,522 @@
+newman
+Elay Customer — Chat Module (Day 12 Integration Tests)
+□ 0. Auth (Setup)
+└ Login U1 (chattest_sara)
+  POST http://localhost:5144/Auth/Login [200 OK, 798B, 280ms]
+  √  Login U1 returns 200
+  √  Login U1 has accessToken
+└ Profile U1
+  GET http://localhost:5144/chat/profile [200 OK, 332B, 40ms]
+  √  Profile U1 returns 200
+  √  Profile U1 has userId
+└ Login U2 (chattest_reza)
+  POST http://localhost:5144/Auth/Login [200 OK, 798B, 267ms]
+  √  Login U2 returns 200
+  √  Login U2 has accessToken
+└ Profile U2
+  GET http://localhost:5144/chat/profile [200 OK, 332B, 41ms]
+  √  Profile U2 returns 200
+  √  Profile U2 has userId
+└ Login U3 (chattest_nima)
+  POST http://localhost:5144/Auth/Login [200 OK, 798B, 258ms]
+  √  Login U3 returns 200
+  √  Login U3 has accessToken
+└ Profile U3
+  GET http://localhost:5144/chat/profile [200 OK, 332B, 46ms]
+  √  Profile U3 returns 200
+  √  Profile U3 has userId
+└ Login U4 (chattest_kian)
+  POST http://localhost:5144/Auth/Login [200 OK, 798B, 261ms]
+  √  Login U4 returns 200
+  √  Login U4 has accessToken
+└ Profile U4
+  GET http://localhost:5144/chat/profile [200 OK, 332B, 41ms]
+  √  Profile U4 returns 200
+  √  Profile U4 has userId
+□ 1. Home (List, Search, Create)
+└ P01 - Create PV Happy Path
+  POST http://localhost:5144/chat/conversations/pv/1 [400 Bad Request, 384B, 134ms]
+  1. P01 status 200
+  2. P01 conversation id present
+  3⠄ TypeError in test-script
+└ P02 - Invalid Target User Id
+  POST http://localhost:5144/chat/conversations/pv/0 [500 Internal Server Error, 2.29kB, 62ms]
+  4. P02 status 400
+  5. P02 invalid user id message
+└ P03 - Self Chat Guard
+  POST http://localhost:5144/chat/conversations/pv/2746 [400 Bad Request, 415B, 17.8s]
+  √  P03 status 400
+  √  P03 cannot chat with yourself
+└ P04 - Target User Not Found
+  POST http://localhost:5144/chat/conversations/pv/999999 [400 Bad Request, 384B, 47ms]
+  √  P04 status 400
+  √  P04 not found message
+└ P05 - Idempotency Same PV
+  POST http://localhost:5144/chat/conversations/pv/1 [400 Bad Request, 384B, 39ms]
+  6. P05 status 200
+  7. P05 same conversation id as P01
+└ P08 - Unauthorized No Token
+  POST http://localhost:5144/chat/conversations/pv/1 [401 Unauthorized, 128B, 6ms]
+  √  P08 status 401
+└ H01 - List Conversations
+  GET http://localhost:5144/chat/conversations [200 OK, 248B, 185ms]
+  √  H01 status 200
+  √  H01 returns array
+└ H02 - Search Conversations Partial
+  GET http://localhost:5144/chat/conversations?search=reza [200 OK, 248B, 120ms]
+  √  H02 status 200
+  √  H02 filtered list is array
+└ H03 - Search Conversations Nonsense
+  GET http://localhost:5144/chat/conversations?search=zzznonsense999 [200 OK, 248B, 74ms]
+  √  H03 status 200
+  √  H03 empty array not error
+└ H04 - Search Users Reza
+  GET http://localhost:5144/chat/users?search=reza [200 OK, 1.15kB, 106ms]
+  √  H04 status 200
+  √  H04 U2 appears in results
+└ H05 - Search Users Nonsense
+  GET http://localhost:5144/chat/users?search=zzznonsense999 [200 OK, 248B, 48ms]
+  √  H05 status 200
+  √  H05 empty array
+□ 2. Profile
+└ PR01 - Get Profile
+  GET http://localhost:5144/chat/profile [200 OK, 332B, 39ms]
+  √  PR01 status 200
+  √  PR01 has userId and displayName
+└ PR02 - Update DisplayName
+  PUT http://localhost:5144/chat/profile [200 OK, 190B, 18.6s]
+  √  PR02 update status 200
+└ PR02b - Verify Profile Persisted
+  GET http://localhost:5144/chat/profile [200 OK, 337B, 38ms]
+  √  PR02b status 200
+  √  PR02b displayName persisted
+└ PR03 - Update Profile No Fields
+  PUT http://localhost:5144/chat/profile [400 Bad Request, 2.64kB, 12ms]
+  √  PR03 status 400
+  8. PR03 at least one field required
+└ PR04 - DisplayName Too Long
+  PUT http://localhost:5144/chat/profile [400 Bad Request, 424B, 9ms]
+  √  PR04 status 400
+  √  PR04 max length error
+□ 3. PV — Send, Attach, Reply, Forward, Edit, Delete
+└ M01 - Send PV Message Happy Path
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 2ms]
+  9. M01 send status 200
+ 10⠄ JSONError in test-script
+└ M01b - Verify PV Message Persisted
+  GET http://localhost:5144/chat/conversations//messages?pageSize=20 [404 Not Found, 197B, 5ms]
+ 11. M01b status 200
+ 12⠄ JSONError in test-script
+└ PV - Reply To Message
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 2ms]
+ 13. Reply status 200
+ 14. Reply has replyTo
+└ PV - Forward Message
+  POST http://localhost:5144/chat/messages/{{messageId_pv_u1}}/forward [404 Not Found, 197B, 4ms]
+ 15. Forward status 200
+└ PV - Edit Message
+  PUT http://localhost:5144/chat/messages/{{messageId_pv_u1}} [404 Not Found, 197B, 3ms]
+ 16. Edit status 200
+└ M05 - Empty Message Validation
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 2ms]
+ 17. M05 status 400
+ 18. M05 empty message error
+└ M06 - Conversation Not Found
+  POST http://localhost:5144/chat/conversations/999999/messages [400 Bad Request, 402B, 113ms]
+  √  M06 status 400
+ 19. M06 not found
+└ M07 - Non Participant Forbidden
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 2ms]
+ 20. M07 status 400
+ 21. M07 not a participant
+└ PV - Delete Message
+  DELETE http://localhost:5144/chat/messages/{{messageId_pv_u1}} [404 Not Found, 197B, 2ms]
+ 22. Delete PV message status 200
+□ 4. PV — Block & Mute (mutual block scenarios)
+└ B01 - U1 Blocks U2
+  POST http://localhost:5144/chat/users/2747/block [200 OK, 190B, 236ms]
+  √  B01 status 200
+└ B02 (M02) - Blocker Sends After Block
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 4ms]
+ 23. B02 status 400
+ 24. B02 user blocked message
+└ B03 (M03) - Blocked User Sends
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 2ms]
+ 25. B03 status 400
+ 26. B03 user blocked message
+└ B04 (M04) - Create Ripple Group While Blocked
+  POST http://localhost:5144/chat/groups [200 OK, 555B, 1096ms]
+  √  B04 group create status 200
+└ B04b - U2 Sends In Group While Block Active
+  POST http://localhost:5144/chat/conversations/1/messages [200 OK, 512B, 830ms]
+  √  B04b group send succeeds despite PV block
+└ P06 - Create PV While Block Active
+  POST http://localhost:5144/chat/conversations/pv/1 [400 Bad Request, 384B, 40ms]
+ 27. P06 status 200 despite block
+ 28. P06 same conversation id
+└ P07 - PV Still In Conversation List After Block
+  GET http://localhost:5144/chat/conversations [200 OK, 433B, 193ms]
+  √  P07 status 200
+ 29. P07 PV conversation still listed
+└ B05 - U1 Unblocks U2
+  DELETE http://localhost:5144/chat/users/2747/block [200 OK, 190B, 15.7s]
+  √  B05 unblock status 200
+└ B06 - Post Unblock Send Success
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 2ms]
+ 30. B06 send status 200
+□ 5. Group — Create, Members, Send, Leave, Delete Message
+└ G01 - Create Group Happy Path
+  POST http://localhost:5144/chat/groups [200 OK, 628B, 394ms]
+  √  G01 status 200
+  √  G01 creator is Admin
+└ G02 - Empty Group Name
+  POST http://localhost:5144/chat/groups [400 Bad Request, 387B, 9ms]
+  √  G02 status 400
+ 31. G02 group name required
+└ G03 - Empty MemberUserIds
+  POST http://localhost:5144/chat/groups [400 Bad Request, 387B, 4ms]
+  √  G03 status 400
+ 32. G03 at least one member
+└ G04 - Non Admin Add Member Rejected
+  POST http://localhost:5144/chat/groups/2/members [400 Bad Request, 421B, 63ms]
+  √  G04 status 400
+  √  G04 not group admin
+└ G05 - Admin Add Member U4
+  POST http://localhost:5144/chat/groups/2/members [200 OK, 190B, 275ms]
+  √  G05 status 200
+└ G06 - Admin Remove Member U4
+  DELETE http://localhost:5144/chat/groups/2/members/2749 [200 OK, 190B, 258ms]
+  √  G06 status 200
+└ G07 - Non Admin Remove Member Rejected
+  DELETE http://localhost:5144/chat/groups/2/members/2747 [400 Bad Request, 421B, 43ms]
+  √  G07 status 400
+  √  G07 not group admin
+└ G08 - Member Send Group Message
+  POST http://localhost:5144/chat/conversations/2/messages [200 OK, 507B, 462ms]
+  √  G08 status 200
+└ G08b - Admin Send Group Message
+  POST http://localhost:5144/chat/conversations/2/messages [200 OK, 517B, 469ms]
+  √  G08b status 200
+└ G09 - Admin Delete U3 Message
+  DELETE http://localhost:5144/chat/messages/2 [200 OK, 190B, 22s]
+  √  G09 delete status 200
+└ G10 - Non Admin Delete U1 Message Rejected
+  DELETE http://localhost:5144/chat/messages/3 [400 Bad Request, 420B, 88ms]
+  √  G10 status 400
+  √  G10 cannot delete message
+└ G11 - U3 Leave Group
+  POST http://localhost:5144/chat/conversations/2/leave [200 OK, 190B, 449ms]
+  √  G11 leave status 200
+└ G12 - Admin Leave Group
+  POST http://localhost:5144/chat/conversations/2/leave [200 OK, 190B, 144ms]
+  √  G12 leave status 200
+└ G12b - Group Detail After Admin Leave
+  GET http://localhost:5144/chat/conversations/2 [200 OK, 475B, 130ms]
+  √  G12b detail status 200
+  √  G12b members reported
+└ PG01 - Messages Default PageSize
+  GET http://localhost:5144/chat/conversations/2/messages [400 Bad Request, 1.97kB, 5ms]
+ 33. PG01 status 200
+ 34⠄ JSONError in test-script
+└ PG02 - Messages PageSize Cap 50
+  GET http://localhost:5144/chat/conversations/2/messages?pageSize=100 [200 OK, 568B, 287ms]
+  √  PG02 status 200
+  √  PG02 capped at 50 items
+└ PG03 - Messages Search Known Text
+  GET http://localhost:5144/chat/conversations/2/messages?search=Group message [400 Bad Request, 1.97kB, 3ms]
+ 35. PG03 status 200
+ 36⠄ JSONError in test-script
+└ PG04 - Messages Search Nonexistent
+  GET http://localhost:5144/chat/conversations/2/messages?search=zzznonsense999 [400 Bad Request, 1.97kB, 3ms]
+ 37. PG04 status 200
+ 38. PG04 empty messages array
+□ 6. Channel — Create, Members, Send, Leave, Delete Message
+└ C01 - Create Channel Happy Path
+  POST http://localhost:5144/chat/channels [200 OK, 573B, 446ms]
+  √  C01 status 200
+  √  C01 creator is Admin
+└ C02 - Duplicate Handle Conflict
+  POST http://localhost:5144/chat/channels [409 Conflict, 411B, 12.8s]
+  √  C02 status 409
+  √  C02 duplicate handle
+└ C03 - Invalid Handle Format
+  POST http://localhost:5144/chat/channels [400 Bad Request, 389B, 6ms]
+  √  C03 status 400
+ 39. C03 handle regex error
+└ C04 - Member Cannot Send In Channel
+  POST http://localhost:5144/chat/conversations/3/messages [400 Bad Request, 421B, 94ms]
+  √  C04 status 400
+  √  C04 channel members cannot send
+└ C05 - Admin Sends In Channel
+  POST http://localhost:5144/chat/conversations/3/messages [200 OK, 514B, 434ms]
+  √  C05 status 200
+└ C06 - Non Admin Add Channel Member Rejected
+  POST http://localhost:5144/chat/channels/3/members [400 Bad Request, 423B, 54ms]
+  √  C06 status 400
+  √  C06 not channel admin
+└ C07 - Admin Add Channel Member U3
+  POST http://localhost:5144/chat/channels/3/members [200 OK, 190B, 234ms]
+  √  C07 status 200
+└ C08 - Member Leave Channel
+  POST http://localhost:5144/chat/conversations/3/leave [200 OK, 190B, 149ms]
+  √  C08 leave status 200
+□ 7. Notification
+└ N01 - Notification For PV Message
+  GET http://localhost:5144/Notification?page=0 [200 OK, 1.4kB, 399ms]
+  √  N01 status 200
+ 40. N01 notification references PV conversation
+└ N02a - U2 Mute PV Conversation
+  POST http://localhost:5144/chat/conversations//mute [404 Not Found, 197B, 3ms]
+ 41. N02a mute status 200
+└ N02b - U2 Notification Count Before Send
+  GET http://localhost:5144/Notification?page=0 [200 OK, 1.4kB, 292ms]
+  √  N02b status 200
+└ N02c - U1 Send While U2 Muted
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 3ms]
+ 42. N02c send status 200
+└ N02 - No New Notification While Muted
+  GET http://localhost:5144/Notification?page=0 [200 OK, 1.4kB, 303ms]
+  √  N02 status 200
+  √  N02 no new notification while muted
+└ N03a - U2 Unmute PV Conversation
+  POST http://localhost:5144/chat/conversations//mute [404 Not Found, 197B, 9ms]
+ 43. N03a unmute status 200
+└ N03b - U1 Send After Unmute
+  POST http://localhost:5144/chat/conversations//messages [404 Not Found, 197B, 3ms]
+ 44. N03b send status 200
+└ N03 - New Notification After Unmute
+  GET http://localhost:5144/Notification?page=0 [200 OK, 1.4kB, 17.2s]
+  √  N03 status 200
+ 45. N03 new notification created
+ 46. N03 references PV conversation
+□ 8. SignalR Smoke Test (WebSocket, single request)
+└ SR01 - SignalR WebSocket Smoke (Blocked)
+  GET http://localhost:5144/hubs/chat [400 Bad Request, 349B, 37ms]
+  √  SR01 marked Blocked — SignalR handshake not supported in Postman WS
+  ┌
+  │ 'SR01 Blocked: use SignalR client with access_token qu
+  │ ery on /hubs/chat'
+  └
+┌─────────────────────────┬───────────────────┬──────────────────┐
+│                         │          executed │           failed │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              iterations │                 1 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│                requests │                77 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│            test-scripts │                77 │                5 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│      prerequest-scripts │                 0 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              assertions │               125 │               41 │
+├─────────────────────────┴───────────────────┴──────────────────┤
+│ total run duration: 2m 0.9s                                    │
+├────────────────────────────────────────────────────────────────┤
+│ total data received: 23.66kB (approx)                          │
+├────────────────────────────────────────────────────────────────┤
+│ average response time: 1490ms [min: 2ms, max: 22s, s.d.: 4.6s] │
+└────────────────────────────────────────────────────────────────┘
+   #  failure         detail                                                                                                   
+ 01.  AssertionError  P01 status 200                                                                                           
+                      expected response to have status code 200 but got 400                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "1. Home (List, Search, Create) / P01 - Create PV Happy Path"                                     
+ 02.  AssertionError  P01 conversation id present                                                                              
+                      expected undefined to be a number                                                                        
+                      at assertion:1 in test-script                                                                            
+                      inside "1. Home (List, Search, Create) / P01 - Create PV Happy Path"                                     
+ 03.  TypeError                                                                                                                
+                      Cannot read properties of undefined (reading 'toString')                                                 
+                      at test-script                                                                                           
+                      inside "1. Home (List, Search, Create) / P01 - Create PV Happy Path"                                     
+ 04.  AssertionError  P02 status 400                                                                                           
+                      expected response to have status code 400 but got 500                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "1. Home (List, Search, Create) / P02 - Invalid Target User Id"                                   
+ 05.  JSONError       P02 invalid user id message                                                                              
+                      Unexpected token 'S' at 1:1                                                                              
+                      System.NullReferenceException: Object reference not set to an instance of an ob                          
+                      ^                                                                                                        
+                      at assertion:1 in test-script                                                                            
+                      inside "1. Home (List, Search, Create) / P02 - Invalid Target User Id"                                   
+ 06.  AssertionError  P05 status 200                                                                                           
+                      expected response to have status code 200 but got 400                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "1. Home (List, Search, Create) / P05 - Idempotency Same PV"                                      
+ 07.  TypeError       P05 same conversation id as P01                                                                          
+                      Cannot read properties of undefined (reading 'toString')                                                 
+                      at assertion:1 in test-script                                                                            
+                      inside "1. Home (List, Search, Create) / P05 - Idempotency Same PV"                                      
+ 08.  JSONError       PR03 at least one field required                                                                         
+                      Unexpected token 'M' at 1:1                                                                              
+                      Microsoft.AspNetCore.Http.BadHttpRequestException: Unexpected request without b                          
+                      ^                                                                                                        
+                      at assertion:1 in test-script                                                                            
+                      inside "2. Profile / PR03 - Update Profile No Fields"                                                    
+ 09.  AssertionError  M01 send status 200                                                                                      
+                      expected response to have status code 200 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / M01 - Send PV Message Happy Path"           
+ 10.  JSONError                                                                                                                
+                      No data, empty input at 1:1                                                                              
+                      ^                                                                                                        
+                      at test-script                                                                                           
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / M01 - Send PV Message Happy Path"           
+ 11.  AssertionError  M01b status 200                                                                                          
+                      expected response to have status code 200 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / M01b - Verify PV Message Persisted"         
+ 12.  JSONError                                                                                                                
+                      No data, empty input at 1:1                                                                              
+                      ^                                                                                                        
+                      at test-script                                                                                           
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / M01b - Verify PV Message Persisted"         
+ 13.  AssertionError  Reply status 200                                                                                         
+                      expected response to have status code 200 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / PV - Reply To Message"                      
+ 14.  JSONError       Reply has replyTo                                                                                        
+                      No data, empty input at 1:1                                                                              
+                      ^                                                                                                        
+                      at assertion:1 in test-script                                                                            
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / PV - Reply To Message"                      
+ 15.  AssertionError  Forward status 200                                                                                       
+                      expected response to have status code 200 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / PV - Forward Message"                       
+ 16.  AssertionError  Edit status 200                                                                                          
+                      expected response to have status code 200 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / PV - Edit Message"                          
+ 17.  AssertionError  M05 status 400                                                                                           
+                      expected response to have status code 400 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / M05 - Empty Message Validation"             
+ 18.  JSONError       M05 empty message error                                                                                  
+                      No data, empty input at 1:1                                                                              
+                      ^                                                                                                        
+                      at assertion:1 in test-script                                                                            
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / M05 - Empty Message Validation"             
+ 19.  AssertionError  M06 not found                                                                                            
+                      expected 'شما عضو این مکالمه نیستید' to include 'مکالمه یافت نشد'                                        
+                      at assertion:1 in test-script                                                                            
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / M06 - Conversation Not Found"               
+ 20.  AssertionError  M07 status 400                                                                                           
+                      expected response to have status code 400 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / M07 - Non Participant Forbidden"            
+ 21.  JSONError       M07 not a participant                                                                                    
+                      No data, empty input at 1:1                                                                              
+                      ^                                                                                                        
+                      at assertion:1 in test-script                                                                            
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / M07 - Non Participant Forbidden"            
+ 22.  AssertionError  Delete PV message status 200                                                                             
+                      expected response to have status code 200 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "3. PV — Send, Attach, Reply, Forward, Edit, Delete / PV - Delete Message"                        
+ 23.  AssertionError  B02 status 400                                                                                           
+                      expected response to have status code 400 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "4. PV — Block & Mute (mutual block scenarios) / B02 (M02) - Blocker Sends After Block"           
+ 24.  JSONError       B02 user blocked message                                                                                 
+                      No data, empty input at 1:1                                                                              
+                      ^                                                                                                        
+                      at assertion:1 in test-script                                                                            
+                      inside "4. PV — Block & Mute (mutual block scenarios) / B02 (M02) - Blocker Sends After Block"           
+ 25.  AssertionError  B03 status 400                                                                                           
+                      expected response to have status code 400 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "4. PV — Block & Mute (mutual block scenarios) / B03 (M03) - Blocked User Sends"                  
+ 26.  JSONError       B03 user blocked message                                                                                 
+                      No data, empty input at 1:1                                                                              
+                      ^                                                                                                        
+                      at assertion:1 in test-script                                                                            
+                      inside "4. PV — Block & Mute (mutual block scenarios) / B03 (M03) - Blocked User Sends"                  
+ 27.  AssertionError  P06 status 200 despite block                                                                             
+                      expected response to have status code 200 but got 400                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "4. PV — Block & Mute (mutual block scenarios) / P06 - Create PV While Block Active"              
+ 28.  TypeError       P06 same conversation id                                                                                 
+                      Cannot read properties of undefined (reading 'toString')                                                 
+                      at assertion:1 in test-script                                                                            
+                      inside "4. PV — Block & Mute (mutual block scenarios) / P06 - Create PV While Block Active"              
+ 29.  AssertionError  P07 PV conversation still listed                                                                         
+                      expected false to be true                                                                                
+                      at assertion:1 in test-script                                                                            
+                      inside "4. PV — Block & Mute (mutual block scenarios) / P07 - PV Still In Conversation List After Block" 
+ 30.  AssertionError  B06 send status 200                                                                                      
+                      expected response to have status code 200 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "4. PV — Block & Mute (mutual block scenarios) / B06 - Post Unblock Send Success"                 
+ 31.  AssertionError  G02 group name required                                                                                  
+                      expected 'خطا در ایجاد گروه' to include 'نام گروه الزامی است'                                            
+                      at assertion:1 in test-script                                                                            
+                      inside "5. Group — Create, Members, Send, Leave, Delete Message / G02 - Empty Group Name"                
+ 32.  AssertionError  G03 at least one member                                                                                  
+                      expected 'خطا در ایجاد گروه' to include 'حداقل یک عضو باید انتخاب شود'                                   
+                      at assertion:1 in test-script                                                                            
+                      inside "5. Group — Create, Members, Send, Leave, Delete Message / G03 - Empty MemberUserIds"             
+ 33.  AssertionError  PG01 status 200                                                                                          
+                      expected response to have status code 200 but got 400                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "5. Group — Create, Members, Send, Leave, Delete Message / PG01 - Messages Default PageSize"      
+ 34.  JSONError                                                                                                                
+                      Unexpected token 'M' at 1:1                                                                              
+                      Microsoft.AspNetCore.Http.BadHttpRequestException: Required parameter "int page                          
+                      ^                                                                                                        
+                      at test-script                                                                                           
+                      inside "5. Group — Create, Members, Send, Leave, Delete Message / PG01 - Messages Default PageSize"      
+ 35.  AssertionError  PG03 status 200                                                                                          
+                      expected response to have status code 200 but got 400                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "5. Group — Create, Members, Send, Leave, Delete Message / PG03 - Messages Search Known Text"     
+ 36.  JSONError                                                                                                                
+                      Unexpected token 'M' at 1:1                                                                              
+                      Microsoft.AspNetCore.Http.BadHttpRequestException: Required parameter "int page                          
+                      ^                                                                                                        
+                      at test-script                                                                                           
+                      inside "5. Group — Create, Members, Send, Leave, Delete Message / PG03 - Messages Search Known Text"     
+ 37.  AssertionError  PG04 status 200                                                                                          
+                      expected response to have status code 200 but got 400                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "5. Group — Create, Members, Send, Leave, Delete Message / PG04 - Messages Search Nonexistent"    
+ 38.  JSONError       PG04 empty messages array                                                                                
+                      Unexpected token 'M' at 1:1                                                                              
+                      Microsoft.AspNetCore.Http.BadHttpRequestException: Required parameter "int page                          
+                      ^                                                                                                        
+                      at assertion:1 in test-script                                                                            
+                      inside "5. Group — Create, Members, Send, Leave, Delete Message / PG04 - Messages Search Nonexistent"    
+ 39.  AssertionError  C03 handle regex error                                                                                   
+                      expected 'خطا در ایجاد کانال' to include 'شناسه باید فقط شامل حروف کوچک انگلیسی…'                        
+                      at assertion:1 in test-script                                                                            
+                      inside "6. Channel — Create, Members, Send, Leave, Delete Message / C03 - Invalid Handle Format"         
+ 40.  AssertionError  N01 notification references PV conversation                                                              
+                      expected false to be true                                                                                
+                      at assertion:1 in test-script                                                                            
+                      inside "7. Notification / N01 - Notification For PV Message"                                             
+ 41.  AssertionError  N02a mute status 200                                                                                     
+                      expected response to have status code 200 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "7. Notification / N02a - U2 Mute PV Conversation"                                                
+ 42.  AssertionError  N02c send status 200                                                                                     
+                      expected response to have status code 200 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "7. Notification / N02c - U1 Send While U2 Muted"                                                 
+ 43.  AssertionError  N03a unmute status 200                                                                                   
+                      expected response to have status code 200 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "7. Notification / N03a - U2 Unmute PV Conversation"                                              
+ 44.  AssertionError  N03b send status 200                                                                                     
+                      expected response to have status code 200 but got 404                                                    
+                      at assertion:0 in test-script                                                                            
+                      inside "7. Notification / N03b - U1 Send After Unmute"                                                   
+ 45.  AssertionError  N03 new notification created                                                                             
+                      expected 3 to be above 3                                                                                 
+                      at assertion:1 in test-script                                                                            
+                      inside "7. Notification / N03 - New Notification After Unmute"                                           
+ 46.  AssertionError  N03 references PV conversation                                                                           
+                      expected false to be true                                                                                
+                      at assertion:2 in test-script                                                                            
+                      inside "7. Notification / N03 - New Notification After Unmute"                                           
+(node:30264) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)

@@ -1,44 +1,38 @@
 ---
-description: HARD GATE — codebase-memory MCP and RTK are mandatory before any code exploration or shell command
+description: HARD GATE — codebase-memory MCP and RTK mandatory across all projects
 alwaysApply: true
 ---
 
 # Enforcement Gate (ZERO TOLERANCE)
 
-This rule overrides convenience. If you skip it, you are violating project policy.
+Applies to **every** workspace. Project `.cursor/rules/` may add stricter rules; do not weaken these.
 
-## Gate A — Before ANY code exploration (first tool call of the turn)
+## Gate A — Before ANY code exploration
 
-**STOP.** Your first tool call for code questions MUST be one of:
+First tool for code questions MUST be one of (MCP server: `codebase-memory-mcp` / `user-codebase-memory-mcp`):
 
-| Order | MCP tool (server: `codebase-memory-mcp`) |
-|-------|------------------------------------------------------------------------|
-| 1 | `detect_changes` — if you will edit code this turn |
-| 2 | `search_graph` or `search_code` — find symbols / text |
-| 3 | `get_code_snippet` — read a known symbol |
+1. `detect_changes` — if editing this turn
+2. `search_graph` / `search_code` — find symbols / text
+3. `get_code_snippet` — read a known symbol
 
-**FORBIDDEN as first exploration tool:** `Grep`, `Glob`, broad `Read`, `Task/explore` that uses Grep internally.
+**FORBIDDEN as first exploration:** Cursor `Grep`, `Glob`, broad `Read`, `Task/explore` that greps source.
 
-### Allowed exceptions (document in one line why)
+### Allowed exceptions (state why in one line)
 
-- File type not in graph: `.razor`, `.json`, `.css`, `.md`, `.yaml`, `.http`
-- User wrote: "use grep" / "raw grep"
-- MCP `index_status` shows not indexed AND user was told to re-index
+- Non-indexed file types: `.razor`, `.json`, `.css`, `.md`, `.yaml`, `.http`, `.html`
+- User explicitly said: "use grep" / "raw grep"
+- `index_status` shows not indexed AND you told the user to re-index (or you ran `index_repository`)
 
-## Gate B — Grep / Glob decision (every time)
+## Gate B — Grep / Glob
 
 ```
-About to call Grep or Glob?
-  → Is this C# / handler / endpoint / class / namespace search?
-      YES → USE search_graph OR search_code. DO NOT GREP.
-  → Is glob *.cs or **/Application/** or **/Domain/**?
-      YES → USE search_graph with file_pattern. DO NOT GLOB.
-  → Only .razor / .json / .md?
-      YES → Grep/Glob allowed.
+Source code / handlers / classes / *.cs / *.ts / *.py / src/**
+  → USE search_graph OR search_code. DO NOT GREP/GLOB.
+Config / docs / markup only
+  → Grep/Glob allowed.
 ```
 
-**If you used Grep/Glob as fallback:** your reply MUST include:
-`MCP fallback reason: <why search_graph/search_code failed>`
+If fallback used: reply must include `MCP fallback reason: <why>`.
 
 ## Gate C — Every Shell command
 
@@ -47,23 +41,22 @@ About to call Grep or Glob?
 ✅ rtk git status
 ```
 
-- Prefix **every** segment in chains: `rtk cmd1 ; rtk cmd2`
-- Hook `rtk hook cursor` rewrites Shell automatically — still show `RTK ▸ rtk <command>` in chat
-- Raw command only when actively debugging verbose output (`rtk proxy <cmd>` preferred)
+- Prefix **every** segment: `rtk cmd1 ; rtk cmd2`
+- Before each Shell call in chat, show: `RTK ▸ rtk <exact command>`
+- Raw command only when actively debugging verbose output
 
-## Gate D — Subagents (`Task` tool)
+## Gate D — New or unknown repo
 
-When launching `explore` or `generalPurpose` subagents on this repo, your prompt MUST include:
+1. `list_projects` / `index_status`
+2. If not indexed → `index_repository(repo_path, mode=full, persistence=true)`
+3. Prefer project skills/rules in `.cursor/` when present; else use `~/.cursor/skills/`
+
+## Gate E — Subagents
+
+Prompt MUST include:
 
 ```
-MANDATORY: Use codebase-memory MCP (search_graph, search_code, get_code_snippet).
-FORBIDDEN: Grep, Glob, ripgrep for .cs files.
+MANDATORY: codebase-memory MCP (search_graph, search_code, get_code_snippet).
+FORBIDDEN: Grep/Glob for source code.
 Shell: prefix with rtk.
 ```
-
-## Self-check before sending reply
-
-- [ ] Code search used MCP first?
-- [ ] If Grep/Glob used → stated MCP fallback reason?
-- [ ] Shell commands prefixed with `rtk`?
-- [ ] Shown `RTK ▸` line for shell commands?

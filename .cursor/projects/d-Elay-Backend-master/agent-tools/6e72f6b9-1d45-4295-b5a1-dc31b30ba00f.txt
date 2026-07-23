@@ -1,0 +1,1484 @@
+[
+  {
+    "idx": 1,
+    "name": "Login U1 (chattest_sara)",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"accessToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjI3NDYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiY2hhdHRlc3Rfc2FyYSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6IlNhcmEgQ2hhdCBUZXN0IiwiZXhwIjoxNzgzMTgxMjYxLCJpc3M",
+    "assertions": [
+      {
+        "name": "Login U1 returns 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "Login U1 has accessToken",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 2,
+    "name": "Profile U1",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"userId\":2746,\"displayName\":\"Sara Chat Test\",\"avatarUrl\":null,\"phoneNumber\":\"09120000001\"}",
+    "assertions": [
+      {
+        "name": "Profile U1 returns 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "Profile U1 has userId",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 3,
+    "name": "Login U2 (chattest_reza)",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"accessToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjI3NDciLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiY2hhdHRlc3RfcmV6YSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6IlJlemEgVGVzdCIsImV4cCI6MTc4MzE4MTI2MSwiaXNzIjoiRWx",
+    "assertions": [
+      {
+        "name": "Login U2 returns 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "Login U2 has accessToken",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 4,
+    "name": "Profile U2",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"userId\":2747,\"displayName\":\"Reza Test\",\"avatarUrl\":null,\"phoneNumber\":\"09120000002\"}",
+    "assertions": [
+      {
+        "name": "Profile U2 returns 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "Profile U2 has userId",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 5,
+    "name": "Login U3 (chattest_nima)",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"accessToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjI3NDgiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiY2hhdHRlc3RfbmltYSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Ik5pbWEgVGVzdCIsImV4cCI6MTc4MzE4MTI2MiwiaXNzIjoiRWx",
+    "assertions": [
+      {
+        "name": "Login U3 returns 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "Login U3 has accessToken",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 6,
+    "name": "Profile U3",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"userId\":2748,\"displayName\":\"Nima Test\",\"avatarUrl\":null,\"phoneNumber\":\"09120000003\"}",
+    "assertions": [
+      {
+        "name": "Profile U3 returns 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "Profile U3 has userId",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 7,
+    "name": "Login U4 (chattest_kian)",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"accessToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjI3NDkiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiY2hhdHRlc3Rfa2lhbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6IktpYW4gVGVzdCIsImV4cCI6MTc4MzE4MTI2MiwiaXNzIjoiRWx",
+    "assertions": [
+      {
+        "name": "Login U4 returns 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "Login U4 has accessToken",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 8,
+    "name": "Profile U4",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"userId\":2749,\"displayName\":\"Kian Test\",\"avatarUrl\":null,\"phoneNumber\":\"09120000004\"}",
+    "assertions": [
+      {
+        "name": "Profile U4 returns 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "Profile U4 has userId",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 9,
+    "name": "P01 - Create PV Happy Path",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":4,\"type\":\"PV\",\"name\":\"\",\"avatarUrl\":null,\"description\":null,\"handle\":null,\"members\":[{\"userId\":2746,\"displayName\":\"Sara Chat Test\",\"avatarUrl\":null,\"role\":\"Member\"},{\"userId\":2747,\"displayName\":\"Reza Test\",\"avatarUrl\":null,\"role\":\"Member\"}],\"currentUserRole\":\"Member\",\"isMuted\":false}",
+    "assertions": [
+      {
+        "name": "P01 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "P01 conversation id present",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 10,
+    "name": "P02 - Invalid Target User Id",
+    "status": 500,
+    "code": "Internal Server Error",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "System.NullReferenceException: Object reference not set to an instance of an object.\r\n   at Api.EndPoint.Chat.CreateOrGetPvEndPoint.<>c.<<AddRoutes>b__0_0>d.MoveNext() in D:\\Elay_Backend-master\\Customer\\Api\\EndPoint\\Chat\\CreateOrGetPvEndPoint.cs:line 27\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpC",
+    "assertions": [
+      {
+        "name": "P02 status 400",
+        "passed": false,
+        "error": "expected response to have status code 400 but got 500"
+      },
+      {
+        "name": "P02 invalid user id message",
+        "passed": false,
+        "error": "Unexpected token 'S' at 1:1\nSystem.NullReferenceException: Object reference not set to an instance of an ob\n^"
+      }
+    ]
+  },
+  {
+    "idx": 11,
+    "name": "P03 - Self Chat Guard",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"امکان گفتگو با خودتان وجود ندارد\"}",
+    "assertions": [
+      {
+        "name": "P03 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "P03 cannot chat with yourself",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 12,
+    "name": "P04 - Target User Not Found",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"مکالمه یافت نشد\"}",
+    "assertions": [
+      {
+        "name": "P04 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "P04 not found message",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 13,
+    "name": "P05 - Idempotency Same PV",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":4,\"type\":\"PV\",\"name\":\"\",\"avatarUrl\":null,\"description\":null,\"handle\":null,\"members\":[{\"userId\":2746,\"displayName\":\"Sara Chat Test\",\"avatarUrl\":null,\"role\":\"Member\"},{\"userId\":2747,\"displayName\":\"Reza Test\",\"avatarUrl\":null,\"role\":\"Member\"}],\"currentUserRole\":\"Member\",\"isMuted\":false}",
+    "assertions": [
+      {
+        "name": "P05 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "P05 same conversation id as P01",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 14,
+    "name": "P08 - Unauthorized No Token",
+    "status": 401,
+    "code": "Unauthorized",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "P08 status 401",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 15,
+    "name": "H01 - List Conversations",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "[{\"id\":3,\"type\":\"Channel\",\"name\":\"Day12 Test Channel\",\"avatarUrl\":null,\"lastMessage\":\"Admin channel broadcast\",\"lastMessageAt\":\"2026-07-04T19:18:02.667\",\"unreadCount\":0,\"isMuted\":false},{\"id\":1,\"type\":\"Group\",\"name\":\"Block Ripple Group\",\"avatarUrl\":null,\"lastMessage\":\"group msg while PV blocked\",\"lastMessageAt\":\"2026-07-04T19:17:05.223\",\"unreadCount\":1,\"isMuted\":false},{\"id\":4,\"type\":\"PV\",\"name\":\"",
+    "assertions": [
+      {
+        "name": "H01 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "H01 returns array",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 16,
+    "name": "H02 - Search Conversations Partial",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "[]",
+    "assertions": [
+      {
+        "name": "H02 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "H02 filtered list is array",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 17,
+    "name": "H03 - Search Conversations Nonsense",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "[]",
+    "assertions": [
+      {
+        "name": "H03 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "H03 empty array not error",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 18,
+    "name": "H04 - Search Users Reza",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "[{\"id\":2747,\"displayName\":\"Reza Test\",\"avatarUrl\":null},{\"id\":1473,\"displayName\":\"امیر رضایی\",\"avatarUrl\":\"3_Picture7.jpg\"},{\"id\":1457,\"displayName\":\"پارسا رضائی بلوچی\",\"avatarUrl\":null},{\"id\":1108,\"displayName\":\"پژمان رضایی\",\"avatarUrl\":null},{\"id\":1594,\"displayName\":\"جعفر رضاپور نویده \",\"avatarUrl\":null},{\"id\":1388,\"displayName\":\"حسن رضائی \",\"avatarUrl\":null},{\"id\":1162,\"displayName\":\"دانا رضایی",
+    "assertions": [
+      {
+        "name": "H04 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "H04 U2 appears in results",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 19,
+    "name": "H05 - Search Users Nonsense",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "[]",
+    "assertions": [
+      {
+        "name": "H05 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "H05 empty array",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 20,
+    "name": "PR01 - Get Profile",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"userId\":2746,\"displayName\":\"Sara Chat Test\",\"avatarUrl\":null,\"phoneNumber\":\"09120000001\"}",
+    "assertions": [
+      {
+        "name": "PR01 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "PR01 has userId and displayName",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 21,
+    "name": "PR02 - Update DisplayName",
+    "status": 200,
+    "code": "OK",
+    "method": "PUT",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "PR02 update status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 22,
+    "name": "PR02b - Verify Profile Persisted",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"userId\":2746,\"displayName\":\"Sara Chat Test\",\"avatarUrl\":null,\"phoneNumber\":\"09120000001\"}",
+    "assertions": [
+      {
+        "name": "PR02b status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "PR02b displayName persisted",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 23,
+    "name": "PR03 - Update Profile No Fields",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "PUT",
+    "url": "[object Object]",
+    "bodySnippet": "Microsoft.AspNetCore.Http.BadHttpRequestException: Unexpected request without body, failed to bind parameter \"string displayName\" from the request body as form.\r\n   at Microsoft.AspNetCore.Http.RequestDelegateFactory.Log.UnexpectedRequestWithoutBody(HttpContext httpContext, String parameterTypeName, String parameterName, Boolean shouldThrow)\r\n   at Microsoft.AspNetCore.Http.RequestDelegateFactory.",
+    "assertions": [
+      {
+        "name": "PR03 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "PR03 at least one field required",
+        "passed": false,
+        "error": "Unexpected token 'M' at 1:1\nMicrosoft.AspNetCore.Http.BadHttpRequestException: Unexpected request without b\n^"
+      }
+    ]
+  },
+  {
+    "idx": 24,
+    "name": "PR04 - DisplayName Too Long",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "PUT",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"نام نباید بیشتر از ۱۰۰ کاراکتر باشد\\r\\n\"}",
+    "assertions": [
+      {
+        "name": "PR04 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "PR04 max length error",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 25,
+    "name": "M01 - Send PV Message Happy Path",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":5,\"conversationId\":4,\"senderId\":2746,\"senderName\":\"Sara Chat Test\",\"senderAvatarUrl\":null,\"text\":\"Day12 PV hello from U1\",\"isDeleted\":false,\"isEdited\":false,\"sentAt\":\"2026-07-04T19:22:04.867\",\"editedAt\":null,\"replyTo\":null,\"forwardedFrom\":null,\"attachments\":[]}",
+    "assertions": [
+      {
+        "name": "M01 send status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "M01 message id present",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 26,
+    "name": "M01b - Verify PV Message Persisted",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"messages\":[{\"id\":5,\"conversationId\":4,\"senderId\":2746,\"senderName\":\"Sara Chat Test\",\"senderAvatarUrl\":null,\"text\":\"Day12 PV hello from U1\",\"isDeleted\":false,\"isEdited\":false,\"sentAt\":\"2026-07-04T19:22:04.867\",\"editedAt\":null,\"replyTo\":null,\"forwardedFrom\":null,\"attachments\":[]}],\"hasMore\":false,\"oldestMessageId\":5}",
+    "assertions": [
+      {
+        "name": "M01b status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "M01b contains sent message",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 27,
+    "name": "PV - Reply To Message",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":6,\"conversationId\":4,\"senderId\":2747,\"senderName\":\"Reza Test\",\"senderAvatarUrl\":null,\"text\":\"Reply from U2\",\"isDeleted\":false,\"isEdited\":false,\"sentAt\":\"2026-07-04T19:22:05.74\",\"editedAt\":null,\"replyTo\":{\"messageId\":5,\"senderName\":\"Sara Chat Test\",\"textPreview\":\"Day12 PV hello from U1\",\"isDeleted\":false},\"forwardedFrom\":null,\"attachments\":[]}",
+    "assertions": [
+      {
+        "name": "Reply status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "Reply has replyTo",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 28,
+    "name": "PV - Forward Message",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "Forward status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 29,
+    "name": "PV - Edit Message",
+    "status": 200,
+    "code": "OK",
+    "method": "PUT",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "Edit status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 30,
+    "name": "M05 - Empty Message Validation",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "Microsoft.AspNetCore.Http.BadHttpRequestException: Unexpected request without body, failed to bind parameter \"string text\" from the request body as form.\r\n   at Microsoft.AspNetCore.Http.RequestDelegateFactory.Log.UnexpectedRequestWithoutBody(HttpContext httpContext, String parameterTypeName, String parameterName, Boolean shouldThrow)\r\n   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<Handle",
+    "assertions": [
+      {
+        "name": "M05 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "M05 empty message error",
+        "passed": false,
+        "error": "Unexpected token 'M' at 1:1\nMicrosoft.AspNetCore.Http.BadHttpRequestException: Unexpected request without b\n^"
+      }
+    ]
+  },
+  {
+    "idx": 31,
+    "name": "M06 - Conversation Not Found",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"شما عضو این مکالمه نیستید\"}",
+    "assertions": [
+      {
+        "name": "M06 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "M06 not found",
+        "passed": false,
+        "error": "expected 'شما عضو این مکالمه نیستید' to include 'مکالمه یافت نشد'"
+      }
+    ]
+  },
+  {
+    "idx": 32,
+    "name": "M07 - Non Participant Forbidden",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"شما عضو این مکالمه نیستید\"}",
+    "assertions": [
+      {
+        "name": "M07 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "M07 not a participant",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 33,
+    "name": "PV - Delete Message",
+    "status": 200,
+    "code": "OK",
+    "method": "DELETE",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "Delete PV message status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 34,
+    "name": "B01 - U1 Blocks U2",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"خطای سیستمی در سرور رخ داده است\"}",
+    "assertions": [
+      {
+        "name": "B01 status 200",
+        "passed": false,
+        "error": "expected response to have status code 200 but got 400"
+      }
+    ]
+  },
+  {
+    "idx": 35,
+    "name": "B02 (M02) - Blocker Sends After Block",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":8,\"conversationId\":4,\"senderId\":2746,\"senderName\":\"Sara Chat Test\",\"senderAvatarUrl\":null,\"text\":\"blocked attempt U1\",\"isDeleted\":false,\"isEdited\":false,\"sentAt\":\"2026-07-04T19:22:25.447\",\"editedAt\":null,\"replyTo\":null,\"forwardedFrom\":null,\"attachments\":[]}",
+    "assertions": [
+      {
+        "name": "B02 status 400",
+        "passed": false,
+        "error": "expected response to have status code 400 but got 200"
+      },
+      {
+        "name": "B02 user blocked message",
+        "passed": false,
+        "error": "expected '{\"id\":8,\"conversationId\":4,\"senderId\"…' to include 'امکان ارسال پیام به این کاربر وجود ند…'"
+      }
+    ]
+  },
+  {
+    "idx": 36,
+    "name": "B03 (M03) - Blocked User Sends",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":9,\"conversationId\":4,\"senderId\":2747,\"senderName\":\"Reza Test\",\"senderAvatarUrl\":null,\"text\":\"blocked attempt U2\",\"isDeleted\":false,\"isEdited\":false,\"sentAt\":\"2026-07-04T19:22:26.067\",\"editedAt\":null,\"replyTo\":null,\"forwardedFrom\":null,\"attachments\":[]}",
+    "assertions": [
+      {
+        "name": "B03 status 400",
+        "passed": false,
+        "error": "expected response to have status code 400 but got 200"
+      },
+      {
+        "name": "B03 user blocked message",
+        "passed": false,
+        "error": "expected '{\"id\":9,\"conversationId\":4,\"senderId\"…' to include 'امکان ارسال پیام به این کاربر وجود ند…'"
+      }
+    ]
+  },
+  {
+    "idx": 37,
+    "name": "B04 (M04) - Create Ripple Group While Blocked",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":5,\"type\":\"Group\",\"name\":\"Block Ripple Group\",\"avatarUrl\":null,\"description\":null,\"handle\":null,\"members\":[{\"userId\":2746,\"displayName\":\"Sara Chat Test\",\"avatarUrl\":null,\"role\":\"Admin\"},{\"userId\":2747,\"displayName\":\"Reza Test\",\"avatarUrl\":null,\"role\":\"Member\"}],\"currentUserRole\":\"Admin\",\"isMuted\":false}",
+    "assertions": [
+      {
+        "name": "B04 group create status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 38,
+    "name": "B04b - U2 Sends In Group While Block Active",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":10,\"conversationId\":5,\"senderId\":2747,\"senderName\":\"Reza Test\",\"senderAvatarUrl\":null,\"text\":\"group msg while PV blocked\",\"isDeleted\":false,\"isEdited\":false,\"sentAt\":\"2026-07-04T19:22:27.177\",\"editedAt\":null,\"replyTo\":null,\"forwardedFrom\":null,\"attachments\":[]}",
+    "assertions": [
+      {
+        "name": "B04b group send succeeds despite PV block",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 39,
+    "name": "P06 - Create PV While Block Active",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":4,\"type\":\"PV\",\"name\":\"\",\"avatarUrl\":null,\"description\":null,\"handle\":null,\"members\":[{\"userId\":2746,\"displayName\":\"Sara Chat Test\",\"avatarUrl\":null,\"role\":\"Member\"},{\"userId\":2747,\"displayName\":\"Reza Test\",\"avatarUrl\":null,\"role\":\"Member\"}],\"currentUserRole\":\"Member\",\"isMuted\":false}",
+    "assertions": [
+      {
+        "name": "P06 status 200 despite block",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "P06 same conversation id",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 40,
+    "name": "P07 - PV Still In Conversation List After Block",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "[{\"id\":5,\"type\":\"Group\",\"name\":\"Block Ripple Group\",\"avatarUrl\":null,\"lastMessage\":\"group msg while PV blocked\",\"lastMessageAt\":\"2026-07-04T19:22:27.177\",\"unreadCount\":1,\"isMuted\":false},{\"id\":4,\"type\":\"PV\",\"name\":\"\",\"avatarUrl\":null,\"lastMessage\":\"blocked attempt U2\",\"lastMessageAt\":\"2026-07-04T19:22:26.067\",\"unreadCount\":2,\"isMuted\":false},{\"id\":3,\"type\":\"Channel\",\"name\":\"Day12 Test Channel\",\"av",
+    "assertions": [
+      {
+        "name": "P07 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "P07 PV conversation still listed",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 41,
+    "name": "B05 - U1 Unblocks U2",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "DELETE",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"این کاربر بلاک نشده است\"}",
+    "assertions": [
+      {
+        "name": "B05 unblock status 200",
+        "passed": false,
+        "error": "expected response to have status code 200 but got 400"
+      }
+    ]
+  },
+  {
+    "idx": 42,
+    "name": "B06 - Post Unblock Send Success",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":11,\"conversationId\":4,\"senderId\":2746,\"senderName\":\"Sara Chat Test\",\"senderAvatarUrl\":null,\"text\":\"post unblock hello\",\"isDeleted\":false,\"isEdited\":false,\"sentAt\":\"2026-07-04T19:22:45.547\",\"editedAt\":null,\"replyTo\":null,\"forwardedFrom\":null,\"attachments\":[]}",
+    "assertions": [
+      {
+        "name": "B06 send status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 43,
+    "name": "G01 - Create Group Happy Path",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":6,\"type\":\"Group\",\"name\":\"Day12 Test Group\",\"avatarUrl\":null,\"description\":null,\"handle\":null,\"members\":[{\"userId\":2746,\"displayName\":\"Sara Chat Test\",\"avatarUrl\":null,\"role\":\"Admin\"},{\"userId\":2747,\"displayName\":\"Reza Test\",\"avatarUrl\":null,\"role\":\"Member\"},{\"userId\":2748,\"displayName\":\"Nima Test\",\"avatarUrl\":null,\"role\":\"Member\"}],\"currentUserRole\":\"Admin\",\"isMuted\":false}",
+    "assertions": [
+      {
+        "name": "G01 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "G01 creator is Admin",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 44,
+    "name": "G02 - Empty Group Name",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"خطا در ایجاد گروه\"}",
+    "assertions": [
+      {
+        "name": "G02 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "G02 group name required",
+        "passed": false,
+        "error": "expected 'خطا در ایجاد گروه' to include 'نام گروه الزامی است'"
+      }
+    ]
+  },
+  {
+    "idx": 45,
+    "name": "G03 - Empty MemberUserIds",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"خطا در ایجاد گروه\"}",
+    "assertions": [
+      {
+        "name": "G03 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "G03 at least one member",
+        "passed": false,
+        "error": "expected 'خطا در ایجاد گروه' to include 'حداقل یک عضو باید انتخاب شود'"
+      }
+    ]
+  },
+  {
+    "idx": 46,
+    "name": "G04 - Non Admin Add Member Rejected",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"فقط مدیر گروه مجاز به این عملیات است\"}",
+    "assertions": [
+      {
+        "name": "G04 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "G04 not group admin",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 47,
+    "name": "G05 - Admin Add Member U4",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "G05 status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 48,
+    "name": "G06 - Admin Remove Member U4",
+    "status": 200,
+    "code": "OK",
+    "method": "DELETE",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "G06 status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 49,
+    "name": "G07 - Non Admin Remove Member Rejected",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "DELETE",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"فقط مدیر گروه مجاز به این عملیات است\"}",
+    "assertions": [
+      {
+        "name": "G07 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "G07 not group admin",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 50,
+    "name": "G08 - Member Send Group Message",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":12,\"conversationId\":6,\"senderId\":2748,\"senderName\":\"Nima Test\",\"senderAvatarUrl\":null,\"text\":\"Group message from U3\",\"isDeleted\":false,\"isEdited\":false,\"sentAt\":\"2026-07-04T19:22:50.71\",\"editedAt\":null,\"replyTo\":null,\"forwardedFrom\":null,\"attachments\":[]}",
+    "assertions": [
+      {
+        "name": "G08 status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 51,
+    "name": "G08b - Admin Send Group Message",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":13,\"conversationId\":6,\"senderId\":2746,\"senderName\":\"Sara Chat Test\",\"senderAvatarUrl\":null,\"text\":\"Group message from U1 admin\",\"isDeleted\":false,\"isEdited\":false,\"sentAt\":\"2026-07-04T19:23:04.55\",\"editedAt\":null,\"replyTo\":null,\"forwardedFrom\":null,\"attachments\":[]}",
+    "assertions": [
+      {
+        "name": "G08b status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 52,
+    "name": "G09 - Admin Delete U3 Message",
+    "status": 200,
+    "code": "OK",
+    "method": "DELETE",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "G09 delete status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 53,
+    "name": "G10 - Non Admin Delete U1 Message Rejected",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "DELETE",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"دسترسی برای حذف این پیام وجود ندارد\"}",
+    "assertions": [
+      {
+        "name": "G10 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "G10 cannot delete message",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 54,
+    "name": "G11 - U3 Leave Group",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "G11 leave status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 55,
+    "name": "G12 - Admin Leave Group",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "G12 leave status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 56,
+    "name": "G12b - Group Detail After Admin Leave",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":6,\"type\":\"Group\",\"name\":\"Day12 Test Group\",\"avatarUrl\":null,\"description\":null,\"handle\":null,\"members\":[{\"userId\":2747,\"displayName\":\"Reza Test\",\"avatarUrl\":null,\"role\":\"Member\"}],\"currentUserRole\":\"Member\",\"isMuted\":false}",
+    "assertions": [
+      {
+        "name": "G12b detail status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "G12b members reported",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 57,
+    "name": "PG01 - Messages Default PageSize",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "Microsoft.AspNetCore.Http.BadHttpRequestException: Required parameter \"int pageSize\" was not provided from query string.\r\n   at lambda_method165(Closure, Object, HttpContext)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)\r\n   at Api.Extentions.AppExtensions.<>c.<<UseApp>b__1_1>d.MoveNext() in D:\\Elay_Backend-master\\Customer\\Api\\Extentions\\AppExtensions.cs:li",
+    "assertions": [
+      {
+        "name": "PG01 status 200",
+        "passed": false,
+        "error": "expected response to have status code 200 but got 400"
+      }
+    ]
+  },
+  {
+    "idx": 58,
+    "name": "PG02 - Messages PageSize Cap 50",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"messages\":[{\"id\":13,\"conversationId\":6,\"senderId\":2746,\"senderName\":\"Sara Chat Test\",\"senderAvatarUrl\":null,\"text\":\"Group message from U1 admin\",\"isDeleted\":false,\"isEdited\":false,\"sentAt\":\"2026-07-04T19:23:04.55\",\"editedAt\":null,\"replyTo\":null,\"forwardedFrom\":null,\"attachments\":[]}],\"hasMore\":false,\"oldestMessageId\":13}",
+    "assertions": [
+      {
+        "name": "PG02 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "PG02 capped at 50 items",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 59,
+    "name": "PG03 - Messages Search Known Text",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "Microsoft.AspNetCore.Http.BadHttpRequestException: Required parameter \"int pageSize\" was not provided from query string.\r\n   at lambda_method165(Closure, Object, HttpContext)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)\r\n   at Api.Extentions.AppExtensions.<>c.<<UseApp>b__1_1>d.MoveNext() in D:\\Elay_Backend-master\\Customer\\Api\\Extentions\\AppExtensions.cs:li",
+    "assertions": [
+      {
+        "name": "PG03 status 200",
+        "passed": false,
+        "error": "expected response to have status code 200 but got 400"
+      }
+    ]
+  },
+  {
+    "idx": 60,
+    "name": "PG04 - Messages Search Nonexistent",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "Microsoft.AspNetCore.Http.BadHttpRequestException: Required parameter \"int pageSize\" was not provided from query string.\r\n   at lambda_method165(Closure, Object, HttpContext)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)\r\n   at Api.Extentions.AppExtensions.<>c.<<UseApp>b__1_1>d.MoveNext() in D:\\Elay_Backend-master\\Customer\\Api\\Extentions\\AppExtensions.cs:li",
+    "assertions": [
+      {
+        "name": "PG04 status 200",
+        "passed": false,
+        "error": "expected response to have status code 200 but got 400"
+      },
+      {
+        "name": "PG04 empty messages array",
+        "passed": false,
+        "error": "Unexpected token 'M' at 1:1\nMicrosoft.AspNetCore.Http.BadHttpRequestException: Required parameter \"int page\n^"
+      }
+    ]
+  },
+  {
+    "idx": 61,
+    "name": "C01 - Create Channel Happy Path",
+    "status": 409,
+    "code": "Conflict",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.10\",\"title\":\"Conflict\",\"status\":409,\"detail\":\"این شناسه کانال قبلاً ثبت شده است\"}",
+    "assertions": [
+      {
+        "name": "C01 status 200",
+        "passed": false,
+        "error": "expected response to have status code 200 but got 409"
+      },
+      {
+        "name": "C01 creator is Admin",
+        "passed": false,
+        "error": "expected undefined to deeply equal 'Admin'"
+      }
+    ]
+  },
+  {
+    "idx": 62,
+    "name": "C02 - Duplicate Handle Conflict",
+    "status": 409,
+    "code": "Conflict",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.10\",\"title\":\"Conflict\",\"status\":409,\"detail\":\"این شناسه کانال قبلاً ثبت شده است\"}",
+    "assertions": [
+      {
+        "name": "C02 status 409",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "C02 duplicate handle",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 63,
+    "name": "C03 - Invalid Handle Format",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"خطا در ایجاد کانال\"}",
+    "assertions": [
+      {
+        "name": "C03 status 400",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "C03 handle regex error",
+        "passed": false,
+        "error": "expected 'خطا در ایجاد کانال' to include 'شناسه باید فقط شامل حروف کوچک انگلیسی…'"
+      }
+    ]
+  },
+  {
+    "idx": 64,
+    "name": "C04 - Member Cannot Send In Channel",
+    "status": 404,
+    "code": "Not Found",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "C04 status 400",
+        "passed": false,
+        "error": "expected response to have status code 400 but got 404"
+      },
+      {
+        "name": "C04 channel members cannot send",
+        "passed": false,
+        "error": "No data, empty input at 1:1\n\n^"
+      }
+    ]
+  },
+  {
+    "idx": 65,
+    "name": "C05 - Admin Sends In Channel",
+    "status": 404,
+    "code": "Not Found",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "C05 status 200",
+        "passed": false,
+        "error": "expected response to have status code 200 but got 404"
+      }
+    ]
+  },
+  {
+    "idx": 66,
+    "name": "C06 - Non Admin Add Channel Member Rejected",
+    "status": 404,
+    "code": "Not Found",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "C06 status 400",
+        "passed": false,
+        "error": "expected response to have status code 400 but got 404"
+      },
+      {
+        "name": "C06 not channel admin",
+        "passed": false,
+        "error": "No data, empty input at 1:1\n\n^"
+      }
+    ]
+  },
+  {
+    "idx": 67,
+    "name": "C07 - Admin Add Channel Member U3",
+    "status": 404,
+    "code": "Not Found",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "C07 status 200",
+        "passed": false,
+        "error": "expected response to have status code 200 but got 404"
+      }
+    ]
+  },
+  {
+    "idx": 68,
+    "name": "C08 - Member Leave Channel",
+    "status": 404,
+    "code": "Not Found",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "C08 leave status 200",
+        "passed": false,
+        "error": "expected response to have status code 200 but got 404"
+      }
+    ]
+  },
+  {
+    "idx": 69,
+    "name": "N01 - Notification For PV Message",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"data\":[{\"id\":37360,\"dataId\":6,\"subject\":\"پیام جدید در Day12 Test Group\",\"content\":\"Group message from U1 admin\",\"position\":\"\",\"project\":\"\",\"formType\":null,\"type\":2,\"isRead\":false,\"items\":[{\"id\":60626,\"subject\":\"پیام جدید در Day12 Test Group\",\"content\":\"Group message from U1 admin\",\"dateTime\":\"2026-07-04T19:24:21.8504912\",\"readDateTime\":null,\"isRead\":false}]},{\"id\":37359,\"dataId\":6,\"subject\":\"پیا",
+    "assertions": [
+      {
+        "name": "N01 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "N01 notification references PV conversation",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 70,
+    "name": "N02a - U2 Mute PV Conversation",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "N02a mute status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 71,
+    "name": "N02b - U2 Notification Count Before Send",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"data\":[{\"id\":37360,\"dataId\":6,\"subject\":\"پیام جدید در Day12 Test Group\",\"content\":\"Group message from U1 admin\",\"position\":\"\",\"project\":\"\",\"formType\":null,\"type\":2,\"isRead\":false,\"items\":[{\"id\":60626,\"subject\":\"پیام جدید در Day12 Test Group\",\"content\":\"Group message from U1 admin\",\"dateTime\":\"2026-07-04T19:24:21.8504912\",\"readDateTime\":null,\"isRead\":false}]},{\"id\":37359,\"dataId\":6,\"subject\":\"پیا",
+    "assertions": [
+      {
+        "name": "N02b status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 72,
+    "name": "N02c - U1 Send While U2 Muted",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":14,\"conversationId\":4,\"senderId\":2746,\"senderName\":\"Sara Chat Test\",\"senderAvatarUrl\":null,\"text\":\"message while U2 muted\",\"isDeleted\":false,\"isEdited\":false,\"sentAt\":\"2026-07-04T19:23:26.51\",\"editedAt\":null,\"replyTo\":null,\"forwardedFrom\":null,\"attachments\":[]}",
+    "assertions": [
+      {
+        "name": "N02c send status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 73,
+    "name": "N02 - No New Notification While Muted",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"data\":[{\"id\":37360,\"dataId\":6,\"subject\":\"پیام جدید در Day12 Test Group\",\"content\":\"Group message from U1 admin\",\"position\":\"\",\"project\":\"\",\"formType\":null,\"type\":2,\"isRead\":false,\"items\":[{\"id\":60626,\"subject\":\"پیام جدید در Day12 Test Group\",\"content\":\"Group message from U1 admin\",\"dateTime\":\"2026-07-04T19:24:21.8504912\",\"readDateTime\":null,\"isRead\":false}]},{\"id\":37359,\"dataId\":6,\"subject\":\"پیا",
+    "assertions": [
+      {
+        "name": "N02 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "N02 no new notification while muted",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 74,
+    "name": "N03a - U2 Unmute PV Conversation",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "",
+    "assertions": [
+      {
+        "name": "N03a unmute status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 75,
+    "name": "N03b - U1 Send After Unmute",
+    "status": 200,
+    "code": "OK",
+    "method": "POST",
+    "url": "[object Object]",
+    "bodySnippet": "{\"id\":15,\"conversationId\":4,\"senderId\":2746,\"senderName\":\"Sara Chat Test\",\"senderAvatarUrl\":null,\"text\":\"message after unmute\",\"isDeleted\":false,\"isEdited\":false,\"sentAt\":\"2026-07-04T19:23:27.48\",\"editedAt\":null,\"replyTo\":null,\"forwardedFrom\":null,\"attachments\":[]}",
+    "assertions": [
+      {
+        "name": "N03b send status 200",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 76,
+    "name": "N03 - New Notification After Unmute",
+    "status": 200,
+    "code": "OK",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "{\"data\":[{\"id\":37362,\"dataId\":4,\"subject\":\"پیام جدید از Sara Chat Test\",\"content\":\"message after unmute\",\"position\":\"\",\"project\":\"\",\"formType\":null,\"type\":2,\"isRead\":false,\"items\":[{\"id\":60628,\"subject\":\"پیام جدید از Sara Chat Test\",\"content\":\"message after unmute\",\"dateTime\":\"2026-07-04T19:24:44.8051612\",\"readDateTime\":null,\"isRead\":false}]},{\"id\":37360,\"dataId\":6,\"subject\":\"پیام جدید در Day12 Te",
+    "assertions": [
+      {
+        "name": "N03 status 200",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "N03 new notification created",
+        "passed": true,
+        "error": null
+      },
+      {
+        "name": "N03 references PV conversation",
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "idx": 77,
+    "name": "SR01 - SignalR WebSocket Smoke (Blocked)",
+    "status": 400,
+    "code": "Bad Request",
+    "method": "GET",
+    "url": "[object Object]",
+    "bodySnippet": "Connection ID required",
+    "assertions": [
+      {
+        "name": "SR01 marked Blocked — SignalR handshake not supported in Postman WS",
+        "passed": true,
+        "error": null
+      }
+    ]
+  }
+]

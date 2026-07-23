@@ -1,0 +1,54 @@
+{
+  "name": "updateWorkspaceGlobalVariables",
+  "description": "Updates and replaces a workspace's global [variables](https://learning.postman.com/docs/sending-requests/variables/#variable-scopes). This endpoint replaces all existing global variables with the variables you pass in the request body.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "workspaceId": {
+        "type": "string",
+        "description": "The workspace's ID."
+      },
+      "values": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "description": "The variable's name."
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "default",
+                "secret"
+              ],
+              "description": "The [type](https://learning.postman.com/docs/sending-requests/variables/#variable-types) of variable."
+            },
+            "value": {
+              "type": "string",
+              "description": "The variable's value."
+            },
+            "enabled": {
+              "type": "boolean",
+              "description": "If true, the variable is enabled."
+            },
+            "description": {
+              "type": "string",
+              "maxLength": 512,
+              "description": "The variable's description."
+            }
+          },
+          "additionalProperties": false,
+          "description": "Information about the global variable."
+        },
+        "description": "A list of the workspace's global variables."
+      }
+    },
+    "required": [
+      "workspaceId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

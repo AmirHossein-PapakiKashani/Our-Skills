@@ -1,0 +1,535 @@
+# Support for RTL languages (such as Arabic / Hebrew / Persian etc.)
+
+- State: open
+- Author: tomerm
+- Created: 2016-12-03T18:14:30Z
+- Updated: 2026-02-19T01:12:17Z
+- Repository: microsoft/vscode
+- Number: #86667
+
+## Labels
+
+- feature-request
+- editor-RTL
+
+---
+
+My name is Tomer Mahlin. I lead a development team in IBM named Bidi Development Lab. We are specializing (for more than 20 years) in development of support for languages with bidirectional scripts (or "bidi lang." for short) . 
+ 
+We recently ran a sniff assessment on Monaco capabilities with respect to bidi lang. display. We believe there are several functional areas which require improvements (please see more details below). 
+My team can work on necessary modifications and suggest them via separate pull request, assuming community is interested in addressing the requirements detailed below. 
+ 
+**Plain text editing** 
+1. There should be a parameter through which it will be possible to communicated the default text direction for content being authored in specific instance of editor. This is a similar parameter to what is used in CKEditor: contentsLangDirection ( http://docs.ckeditor.com/#!/api/CKEDITOR.config-cfg-contentsLangDirection ). 
+Possible values should be: 
+- ltr (left-to-right), 
+- rtl (right-to-left), 
+- contextual (or auto as used in HTML) 
+ 
+2. In addition to that, there should be explicit way for the end user to interactively change text direction for selected text (or for current paragraph in which cursor is positioned in case current selection is of zero length). This can be achieved via: 
+ - GUI buttons - similar to all rich text editors (i.e. http://ckeditor.com/addon/bidi) 
+AND / OR (in case there is no toolbars for any new buttons) 
+- Keyboard shortcuts (i.e. in Notepad it is Ctrl - <Left|Right-Shift>) 
+ 
+**Programming lang. editing** 
+1. As opposed to plain text, programming lang has well defined syntax. Some part of this syntax is visualized via color schema used for coloring different elements (i..e comments vs variables etc.) of the language. It is critical to enforce visual appearance associated with the syntax regardless of language used for different elements (i.e. comments, variables etc.). If this is not done, it becomes virtually impossible to work with the code when bidi text is used. Simple English example: 
+a = b + c; // hello world 
+If bidi characters are used instead you would expect to see: 
+A = B + C; // DLROW OLLEH 
+Instead at the moment you see: 
+DLROW OLLEH // ;C+B=A 
+The more complex example can be, less intuitive the display will become. 
+ 
+2. Special case is the case of comments or/and constants. Those by all means usually include bidi characters (or at least much more frequently than variables names for example). It is thus preferable to display text in those contexts using natural text direction for bidi languages (which is RTL). We can't store text direction information with text (namely source code file is still a plain text file which can't include any meta information about text such as font size, color, direction etc.). Consequently we should be able to make a smart choice while displaying the text (relying just on the text itself). Most straightforward approach is to enforce auto (aka contextual or first strong) direction of text for each paragraph included in comments. 
+For example, currently the display of sample text is as follows: 
+res = var1 + var2; // SI EMAN YM tomer !!! 
+If we enforce auto text direction on the comment we will see: 
+res = var1 + var2; // !!! tomer SI EMAN YM 
+Namely text of comment will appear with actual RTL direction which is a natural one for bidi lang. 
+Display of text with natural text direction makes it considerably more readable and thus should greatly enhance user experience for bidi users. 
+ 
+**Relevant requests** 
+At some point support for bidi lang. was requested in vscode via https://github.com/Microsoft/vscode/issues/4994 
+ 
+
+## Timeline
+
+**adir01** commented on 2017-01-10T18:28:22Z:
+
+> @microsoftsam , can you please review this issue ?
+
+- samelhusseini mentioned
+
+- samelhusseini subscribed
+
+- alexdima was assigned
+
+**alexdima** commented on 2017-01-13T09:14:41Z:
+
+> @tomerm PR welcome. If anything special needs to be done, it could be done in `viewLineRenderer.ts`, where the actual HTML for a line is produced. 
+> 
+> Our goal with the monaco editor and vscode is to be a code editor, i.e. the plain text case editing is not a priority.
+> 
+> Regarding programming language editing, have you actually tried these scenarios in the monaco-editor, I am not an expert, but we do support RTL and bi-di to quite some extent:
+> 
+> ![image](https://cloud.githubusercontent.com/assets/5047891/21924296/e17e5628-d978-11e6-85e4-c5e482a09cbf.png)
+> 
+> ```
+> var b = 3;
+> var c = 2;
+> var x = "מיותר קודמות צ'ט של, אם לשון העברית שינויים ויש, אם";
+> var a = b + c; //מיותר קודמות צ'ט של, אם לשון העברית שינויים ויש, אם
+> ```
+
+- tomerm mentioned
+
+- tomerm subscribed
+
+**tomerm** commented on 2017-01-13T11:41:59Z:
+
+> @alexandrudima thanks a lot for your quick reply. The examples you provided are rendered properly. However, this is just one use case - you used exclusively Hebrew characters (no numbers, no English text in the middle of Hebrew text etc. ). 
+> 
+> In other words I totally agree that Monaco editor provides correct basic reordering (taking text stored in the buffer and transforming it for the sake of presentation on the screen). 
+> 
+> If you start using mixed (English + Hebrew) text in comments / constants (not mentioning using Hebrew in variable, class names etc.) the display will become considerably less readable. It will be very similar to display we get in Notepad. However, while Notepad is not aware of any programming language syntax (and thus is not expected to enforce it), Monaco is aware of such syntax and should assure it is preserved on the display layer. 
+> 
+> ![monaco](https://cloud.githubusercontent.com/assets/5329257/21928885/0acb635a-d996-11e6-9dd9-8982fa987f6b.png)
+> 
+
+- alexdima mentioned
+
+- alexdima subscribed
+
+**alexdima** commented on 2017-01-14T13:04:00Z:
+
+> Thank you for explaining the issue. Indeed, it would be better to interpret syntax characters as Left-To-Right instead of Neutral when rendering source code.
+> 
+> Here is a quick test I did for (notice how github doesn't get this right either):
+> ```js
+> var ת = "מיותר קודמות צ'ט של, אם לשון העברית שינויים ויש, אם";
+> ```
+> 
+> ### Monaco Editor
+> ![image](https://cloud.githubusercontent.com/assets/5047891/21954974/304e5558-da61-11e6-9afc-8dbe58892467.png)
+> 
+> ### Ace Editor
+> ![image](https://cloud.githubusercontent.com/assets/5047891/21954993/96507480-da61-11e6-814a-b6667f3ecacb.png)
+> 
+> ### CodeMirror
+> ![image](https://cloud.githubusercontent.com/assets/5047891/21955000/ae386260-da61-11e6-9c85-6bc48b735813.png)
+> 
+> ### Word
+> ![image](https://cloud.githubusercontent.com/assets/5047891/21955004/c8cf4954-da61-11e6-96b9-f55c2ab6c72a.png)
+> 
+> ### Notepad
+> ![image](https://cloud.githubusercontent.com/assets/5047891/21955009/e17c2792-da61-11e6-8479-a68fc6444810.png)
+> 
+> ### A browser textarea
+> ![image](https://cloud.githubusercontent.com/assets/5047891/21955019/025329c0-da62-11e6-9085-37b15cbbb897.png)
+> 
+> ### SublimeText (no support at all)
+> ![image](https://cloud.githubusercontent.com/assets/5047891/21955023/2c927cea-da62-11e6-8d0a-c1f8b6e051d2.png)
+> 
+> ---
+> 
+> And the only one that appears to get it right?
+> 
+> ### Visual Studio
+> ![image](https://cloud.githubusercontent.com/assets/5047891/21955026/3bf82ed2-da62-11e6-8c84-8b307e4cf885.png)
+> 
+> 
+
+**tomerm** commented on 2017-01-15T15:12:59Z:
+
+> @alexandrudima , several examples of editors in which we do get expected behavior:
+> 
+> **Orion**
+> This is a web based editor https://orionhub.org/
+> ![orioneditor_stt](https://cloud.githubusercontent.com/assets/5329257/21963579/5c9869b0-db46-11e6-8cff-f016c8acc715.png)
+> 
+> **Eclipse**
+> This is a desktop editor: https://eclipse.org/ . Mentioning it here since you mentioned SiblimeText which is also desktop based.
+> ![eclipseeditor_stt](https://cloud.githubusercontent.com/assets/5329257/21963581/6241845a-db46-11e6-9e08-2fb41d2882f9.png)
+> 
+> **ACE**
+> Regarding ACE. Currently ACE has much more serious problems with support for RTL languages. My team is contributing the solution. Eventually we will support correct behavior inside ACE. By the way Github is also using ACE (I think). 
+> 
+> **Non code editors**
+> Notepad, browser textarea, Word - all those editors are not meant to edit code written in some programming language. Thus I don't think we should expect them to enforce any syntax associated with any of programming languages. 
+> 
+
+- alexdima mentioned
+
+- alexdima subscribed
+
+- alexdima closed
+
+**alexdima** commented on 2017-01-16T09:37:45Z:
+
+> Ok, here is what it looks like on master:
+> 
+> ### using JS syntax:
+> ![image](https://cloud.githubusercontent.com/assets/5047891/21977737/ba9d9170-dbd7-11e6-8307-eb8cc0408b34.png)
+> 
+> ### using plaintext:
+> ![image](https://cloud.githubusercontent.com/assets/5047891/21977749/cd02231c-dbd7-11e6-8929-50442a0d6a84.png)
+
+**amirbrans** commented on 2017-01-17T21:59:18Z:
+
+> @alexandrudima , I have tested this fix using the latest code.
+> Indeed it is resolved in Chrome and IE browsers. However, it is not for FF.
+> See the following screenshot.
+> ![monaco_ff](https://cloud.githubusercontent.com/assets/20791186/22041785/eed420e6-dd10-11e6-8703-2e2f2a548a0b.png)
+
+- alexdima mentioned
+
+- alexdima subscribed
+
+**alexdima** commented on 2017-01-18T07:28:56Z:
+
+> @amirbrans Thank you for verifying.
+> 
+> I have FF 50.1.0 on Windows 10 and it appears to work there.
+> 
+> Does your test URL contain `editor=dev` in the query param (I often mix this up myself)?
+> e.g. `file:///C:/Alex/src/monaco-editor/test/index.html?editor=dev#Y___DefaultJS`
+> 
+> ![image](https://cloud.githubusercontent.com/assets/5047891/22054842/1c6542c8-dd58-11e6-8a73-b88879a42580.png)
+
+- amirbrans mentioned
+
+- amirbrans subscribed
+
+**amirbrans** commented on 2017-01-18T08:29:48Z:
+
+> @alexandrudima , actually yes. it does contain the editor=dev parameter.
+> (BTW, if that was not the case then it wouldn't work on other browsers as well...)
+> 
+> I'm using FF ESR 45.6
+> Very weird it doesn't work on it.
+
+- alexdima mentioned
+
+- alexdima subscribed
+
+**amirbrans** commented on 2017-01-30T15:06:44Z:
+
+> Following up, document with Bidi issues discovered on Monaco editor:
+> 
+> [Monaco Bidi issues.docx](https://github.com/Microsoft/monaco-editor/files/739289/Monaco.Bidi.issues.docx)
+
+**tomerm** commented on 2017-01-30T15:41:14Z:
+
+> @alexandrudima "**STT**" mentioned in @amirbrans report above refers to "**ST**ructured **T**ext". It is a general term we use to describe a text with internal structure which in general is not preserved by UBA (Unicode Bidi Algorithm) in case it includes bidi text. 
+> 
+> Please let us know if you need any help with fixing issues in the report above. I just want to make sure we don't duplicate our efforts if you have plans to address those issues yourself. Many thanks in advance for your attention and help.
+
+- alexdima mentioned
+
+- alexdima subscribed
+
+- amirbrans mentioned
+
+- amirbrans subscribed
+
+**philjoseph** commented on 2017-02-02T09:28:43Z:
+
+> We're looking for a great code editor for our content authors (using Jekyll, YAML, html, css, ..) and I am interested in VS Code or may be even just in Monaco. Since the content is in hebrew, arabic and english, this RTL issue is critical for us. 
+> Please keep us posted here about the plan to fix the issues reported in @amirbrans report, I will be glad to test once solved. Thanks!
+
+- amirbrans mentioned
+
+- amirbrans subscribed
+
+- alexdima reopened
+
+**alexdima** commented on 2017-02-03T07:54:12Z:
+
+> Thank you for the extra testing. The root cause is a bit silly: the same colors are used by the theme for identifiers and syntactical text. If the theme would give even a slight different color, the text would be split into multiple tokens and the "dir" trick might work...
+
+**kookma** commented on 2017-07-29T03:23:39Z:
+
+> @alexandrudima 
+> Any update for BIDI support? As you know aside from web development in VSCode , the great extension LaTex Workshop (https://github.com/James-Yu/LaTeX-Workshop) with more than 132000 downloads prove that many people around the globe use VSCode for web and docs development. There are many users with daily involvement with RTL language and needs BIDI support from VSCode.
+> 
+> I highly appreciate if you kindly update us how it is going in VSCode team side.
+
+- alexdima mentioned
+
+- alexdima subscribed
+
+**kookma** commented on 2017-07-29T03:27:05Z:
+
+> @tomerm 
+> Tomer, as you are with great background on BIDI and RTL language implementation is it possible for short time to develop an extension to remedy the issue as while as VSCode development team working to add this feature to VSCode.
+
+- tomerm mentioned
+
+- tomerm subscribed
+
+**amer1616** commented on 2018-03-31T14:37:06Z:
+
+> Unfortunately vs code has no this feature .I hope to see it soon. I found the best editor to support bidirectional editing of scripts written in rtl is Emacs. So the trick for time being, is editing rtl scripts in emacs and then upload it to vs code
+
+- alexdima transferred
+
+**jb6** commented on 2019-12-10T21:43:37Z:
+
+> > My name is Tomer Mahlin. I lead a development team in IBM named Bidi Development Lab. We are specializing (for more than 20 years) in development of support for languages with bidirectional scripts (or "bidi lang." for short) .
+> > 
+> > We recently ran a sniff assessment on Monaco capabilities with respect to bidi lang. display. We believe there are several functional areas which require improvements (please see more details below).
+> > My team can work on necessary modifications and suggest them via separate pull request, assuming community is interested in addressing the requirements detailed below.
+> > 
+> > **Plain text editing**
+> > 
+> > 1. There should be a parameter through which it will be possible to communicated the default text direction for content being authored in specific instance of editor. This is a similar parameter to what is used in CKEditor: contentsLangDirection ( http://docs.ckeditor.com/#!/api/CKEDITOR.config-cfg-contentsLangDirection ).
+> > Possible values should be:
+> > 
+> > 
+> > * ltr (left-to-right),
+> > 
+> > * rtl (right-to-left),
+> > 
+> > * contextual (or auto as used in HTML)
+> > 
+> > 
+> > 1. In addition to that, there should be explicit way for the end user to interactively change text direction for selected text (or for current paragraph in which cursor is positioned in case current selection is of zero length). This can be achieved via:
+> > 
+> > 
+> > * GUI buttons - similar to all rich text editors (i.e. http://ckeditor.com/addon/bidi)
+> > AND / OR (in case there is no toolbars for any new buttons)
+> > 
+> > * Keyboard shortcuts (i.e. in Notepad it is Ctrl - <Left|Right-Shift>)
+> > 
+> > 
+> > **Programming lang. editing**
+> > 
+> > 1. As opposed to plain text, programming lang has well defined syntax. Some part of this syntax is visualized via color schema used for coloring different elements (i..e comments vs variables etc.) of the language. It is critical to enforce visual appearance associated with the syntax regardless of language used for different elements (i.e. comments, variables etc.). If this is not done, it becomes virtually impossible to work with the code when bidi text is used. Simple English example:
+> > a = b + c; // hello world
+> > If bidi characters are used instead you would expect to see:
+> > A = B + C; // DLROW OLLEH
+> > Instead at the moment you see:
+> > DLROW OLLEH // ;C+B=A
+> > The more complex example can be, less intuitive the display will become.
+> > 
+> > 2. Special case is the case of comments or/and constants. Those by all means usually include bidi characters (or at least much more frequently than variables names for example). It is thus preferable to display text in those contexts using natural text direction for bidi languages (which is RTL). We can't store text direction information with text (namely source code file is still a plain text file which can't include any meta information about text such as font size, color, direction etc.). Consequently we should be able to make a smart choice while displaying the text (relying just on the text itself). Most straightforward approach is to enforce auto (aka contextual or first strong) direction of text for each paragraph included in comments.
+> > For example, currently the display of sample text is as follows:
+> > res = var1 + var2; // SI EMAN YM tomer !!!
+> > If we enforce auto text direction on the comment we will see:
+> > res = var1 + var2; // !!! tomer SI EMAN YM
+> > Namely text of comment will appear with actual RTL direction which is a natural one for bidi lang.
+> > Display of text with natural text direction makes it considerably more readable and thus should greatly enhance user experience for bidi users.
+> > 
+> > 
+> > **Relevant requests**
+> > At some point support for bidi lang. was requested in vscode via #4994
+> 
+> @tomerm @alexdima hello, I would be VERY grateful and interested by your replies. I also need to be able to type a line of code which contains **Hebrew+English + lots of parenthesizes** without having the order of the parenthesizes or letters in Hebrew or the words swapped (like it is the case in most editors).
+> 
+> This is what I want (written with Textmate):
+> 
+> 
+> This is what one gets now on vscode (not correct) (when you copy-past corect line above on vscode --> it ruins the parenthesizes order ):
+> 
+> 
+> This is what is displayed when you copy-paste the same line of code as seen previously on Textmate(the correct one, I want to achive) , here on Github (not correct either) : 
+> 
+> ``` Tools :
+> (שלום|היי|בוקר טוב) {(מר|גב) מרקוס}ֿ
+> ```
+> At the end of the day, @tomerm could you please please tell me what editor/platform (which enables all what you mentioned in your first post) do you advise me to use (aka works well and is nice/strong as vscode ) ? 
+> 
+> תודה רבה / thank you @alexdima 
+
+- tomerm mentioned
+
+- tomerm subscribed
+
+- alexdima mentioned
+
+- alexdima subscribed
+
+- alexdima added label "editor-rendering"
+
+- alexdima added label "feature-request"
+
+- vscodebot[bot] milestoned
+
+- alexdima demilestoned
+
+- alexdima milestoned
+
+- microsoft comment_deleted
+
+- Referenced by issue #4: Visual Studio Code right-to-left test
+
+- alexdima was unassigned
+
+- Referenced by issue #176: Consider migrating Nammu to an Electron-based framework
+
+**MSKhodadady** commented on 2020-05-19T19:12:13Z:
+
+> Hello guys
+> I offer support for **Unicode RTL character [(200F)](https://www.fileformat.info/info/unicode/char/200f/index.htm)** the editor. It ‏works in some programs like Telegram and GTK applications. It is very good because:
+> 
+> 1. It has not that complexities of **smart finding the direction**. It may be good but in my opinion it is more confusing.
+> 2. It will not break the style of _plain text_ of files.
+> 
+> You can also put a button up in tab bar or another places that inserts this character. And I offer to show a mark for the character in text though the user knows if the character exists.
+> 
+> As the other guys mentioned, it is very useful for LaTeX and related tools.
+
+- Referenced by issue #6: Improve Arabic (RTL) text support in programming tools
+
+**KL13NT** commented on 2020-08-20T10:19:53Z:
+
+> Is this issue anywhere near fixed? We're still seeing broken rendering in RTL languages (mine is Arabic). 
+> 
+> ![image](https://user-images.githubusercontent.com/20807178/90758112-ce4d2200-e2de-11ea-983a-17bf7b6d4d87.png)
+> 
+> The problem currently lies mainly when text starts with RTL text such as Arabic letters. The image has 5 examples, `english` and `bidiEnglishFirst` are rendering correctly, while all others (that start with an RTL letter) require modification to the ` ` with class `.mtk11` to have either one of the following CSS/HTML modifications: 
+> 
+> ```css
+> unicode-bidi: plaintext;
+> ```
+> 
+> ```css
+> unicode-bidi: bidi-override;
+> direction: rtl;
+> ```
+> 
+> ```html
+> 
+> ```
+> 
+> I suppose the second modification would require some detection, while the first one potentially breaks other stuff? The third option seems too easy to implement. 
+> 
+> Comments also seem to be fixed with the HTML solution and the `unicode-bidi: plaintext` solution:
+> 
+> ![image](https://user-images.githubusercontent.com/20807178/90758472-60552a80-e2df-11ea-9ef0-95a8202b9659.png)
+> 
+
+**Kagetsuki** commented on 2020-08-27T06:35:18Z:
+
+> I can confirm the issue is not resolved in master for Hebrew either (@KL13NT); so I suspect there is no progress.
+
+- KL13NT mentioned
+
+- KL13NT subscribed
+
+**VehpuS** commented on 2021-01-17T22:00:00Z:
+
+> > Hello guys
+> > I offer support for **Unicode RTL character [(200F)](https://www.fileformat.info/info/unicode/char/200f/index.htm)** the editor. It ‏works in some programs like Telegram and GTK applications. It is very good because:
+> > 
+> > 1. It has not that complexities of **smart finding the direction**. It may be good but in my opinion it is more confusing.
+> > 2. It will not break the style of _plain text_ of files.
+> > 
+> > You can also put a button up in tab bar or another places that inserts this character. And I offer to show a mark for the character in text though the user knows if the character exists.
+> > 
+> > As the other guys mentioned, it is very useful for LaTeX and related tools.
+> 
+> A way I tried to implement this (by adding this style rule in the chrome debugger interface):
+> 
+> ```css
+> // Add per line support for RTL without alignment change
+> 
+> .view-line>span:before {
+> content: "\200f";
+> }
+> 
+> .view-line>span:after {
+> content: "\200f";
+> }
+> ```
+> 
+> This has the advantage of not affecting the line's content directly (applied as a style) and can be implemented as a per line solution.
+
+**SnirBroshi** commented on 2021-02-18T21:09:07Z:
+
+> I believe this is a duplicate of #83365, although this has more info
+
+- Referenced by PR #23: Add word to number function. 
+
+- Referenced by PR #2232: Add better support for Arabic language to Text Layer
+
+- Referenced by issue #459: How to add Persian language?
+
+- alexdima added label "editor-RTL"
+
+- alexdima removed label "editor-rendering"
+
+- Referenced by issue #145122: Right To Left text direction support for Persian and Arabic language
+
+**goozoon** commented on 2022-04-14T10:36:13Z:
+
+> Indeed, text lines with combines Arabic and English text - huge problem for VS Code. Even copy-paste isn't working as would expect.
+
+**AvtechScientific** commented on 2022-05-14T21:48:26Z:
+
+> @alexdima , @tomerm ,
+> 
+> any plans to implement this in the near future?
+
+- alexdima mentioned
+
+- alexdima subscribed
+
+- tomerm mentioned
+
+- tomerm subscribed
+
+- Referenced by issue #163547: When RTL will be supported?
+
+- Referenced by issue #12580: Template not showing in RTL direction
+
+- Referenced by issue #775: The mark set by Control+Space is moved when trying to select words with Control+Left/Right
+
+- Referenced by issue #384: Passing Text Direction Assertions
+
+- Referenced by issue #2633: [Troubleshooting tip] Document lack of BIDI language support in VS Code
+
+- Referenced by PR #2114: added section on BiDi languages support
+
+- Referenced by issue #27724: FlowDirection for all UI?
+
+**Jay-o-Way** commented on 2023-08-10T15:37:41Z:
+
+> This is a must for any language/user that can work with RTL (or bi-di)
+
+- Referenced by issue #256: Feature Request: Arabic Language Support and Explanation
+
+- Referenced by issue #189191: RTL support
+
+- Referenced by PR #630: Dev gui - Darkmode using HSL Hue
+
+**movahhedi** commented on 2024-09-26T09:58:10Z:
+
+> Any updates?
+
+- a11delavar subscribed
+
+- AidanJ subscribed
+
+**MaxFanov** commented on 2025-02-03T19:28:59Z:
+
+> Christ its been 9 years microsoft, it shouldn't be this hard to implement.
+
+- Jay-o-Way unsubscribed
+
+- woutersteven subscribed
+
+- Hosein-Rahnama subscribed
+
+- SoroushImanian subscribed
+
+- PeterNjeim subscribed
+
+**AbdallahElbatal** commented on 2026-02-19T01:12:17Z:
+
+> RTL Direction for Arabic Chat in Antigravity 👍🏻
+> https://open-vsx.org/extension/batalelo/antigravity-rtl-patcher
+
+- Referenced by PR #314365: editor/chat: improve bidirectional text support for RTL content
+
+- Referenced by issue #57419: Mixed RTL/LTR text (Arabic + English) renders with scrambled bidi order in chat panel

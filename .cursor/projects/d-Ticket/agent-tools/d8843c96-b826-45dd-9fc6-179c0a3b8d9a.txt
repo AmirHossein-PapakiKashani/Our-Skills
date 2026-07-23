@@ -1,0 +1,387 @@
+{
+  "mode": "catalog",
+  "servers": [
+    {
+      "server": "cursor-app-control",
+      "serverStatus": "ready",
+      "serverDescription": "Controls the Cursor application itself (workspace root, projects, opening resources and automations, user rules, chat title). See each tool description for usage.",
+      "tools": [
+        {
+          "tool": "create_project",
+          "description": "Create a new project at the given path. Creates the directory if it does not exist and initializes a git repository. Use this to bootstrap a new project before moving the agent to it wi... [truncated]"
+        },
+        {
+          "tool": "cursor_dialog",
+          "description": "Run Cursor-specific actions. Currently supports user rule operations with item=\"rule\", scope=\"user\", and action=\"list\", \"add\", \"update\", or \"remove\". Rule add/update accept content and ... [truncated]"
+        },
+        {
+          "tool": "mcp_auth",
+          "description": "Authenticate this MCP server so its tools can be used."
+        },
+        {
+          "tool": "move_agent_to_cloned_root",
+          "description": "Move the current agent to a root workspace directory that is a verbatim clone of the current workspace (for example produced by `cursorfs-clone`) and is already on the agent's recorded ... [truncated]"
+        },
+        {
+          "tool": "move_agent_to_root",
+          "description": "Move the current agent to a new root workspace directory, updating the visible work surface and the default cwd for new terminals. Use this after creating a worktree or whenever the con... [truncated]"
+        },
+        {
+          "tool": "open_automation",
+          "description": "Open the Glass Automations UI, optionally opening an existing automation by automationId or starting a new automation from a templateId and/or structured prefillWorkflowData. Use this i... [truncated]"
+        },
+        {
+          "tool": "open_resource",
+          "description": "Open a resource by URI: files in the Glass editor panel (with line/column from URI fragment when applicable), terminals, output channels, or http(s) URLs through the default workbench o... [truncated]"
+        },
+        {
+          "tool": "rename_chat",
+          "description": "Rename the current chat conversation tab title. Only call this when the user explicitly asks to rename the chat; never rename proactively. Uses the active conversation when composerId i... [truncated]"
+        }
+      ]
+    },
+    {
+      "server": "cursor-ide-browser",
+      "serverStatus": "ready",
+      "serverDescription": "The cursor-ide-browser MCP server provides a Cursor-owned browser tab plus a raw Chrome DevTools Protocol command tool. CORE WORKFLOW: 1. Start by understanding the user's goal and what... [truncated]",
+      "tools": [
+        {
+          "tool": "browser_cdp",
+          "description": "Send a Chrome DevTools Protocol command to the target browser tab. Do not use CDP Input.* methods; use dedicated browser tools for clicks, text input, key presses, scrolling, and drag-a... [truncated]"
+        },
+        {
+          "tool": "browser_click",
+          "description": "Click an element by ref from browser_snapshot. Use this instead of CDP Input.* methods."
+        },
+        {
+          "tool": "browser_drag",
+          "description": "Drag an element by ref to another ref or viewport coordinates."
+        },
+        {
+          "tool": "browser_fill",
+          "description": "Set the value of an input, textarea, or contenteditable element by ref."
+        },
+        {
+          "tool": "browser_get_bounding_box",
+          "description": "Get the viewport bounding box for an element ref."
+        },
+        {
+          "tool": "browser_highlight",
+          "description": "Highlight an element by ref in the browser page for visual grounding."
+        },
+        {
+          "tool": "browser_lock",
+          "description": "Lock or unlock the browser to control whether the user can interact while you work. Set action to \"lock\" or \"unlock\". When locked, the user can still click \"Take Control\" to unlock if needed."
+        },
+        {
+          "tool": "browser_mouse_click_xy",
+          "description": "Click at viewport coordinates. Prefer browser_click with refs when possible."
+        },
+        {
+          "tool": "browser_navigate",
+          "description": "Navigate to a URL. By default reuses an existing tab; set newTab: true to open in a new tab."
+        },
+        {
+          "tool": "browser_press_key",
+          "description": "Press a key in the browser page using DOM keyboard events."
+        },
+        {
+          "tool": "browser_scroll",
+          "description": "Scroll the page, a scrollable container, or an element into view. Use this instead of CDP Input.* wheel events."
+        },
+        {
+          "tool": "browser_select_option",
+          "description": "Select one or more options in a select element by ref."
+        },
+        {
+          "tool": "browser_snapshot",
+          "description": "Capture accessibility snapshot of the current page, this is better than screenshot"
+        },
+        {
+          "tool": "browser_tabs",
+          "description": "List, create, close, or select a browser tab"
+        },
+        {
+          "tool": "browser_take_screenshot",
+          "description": "Take a screenshot of the current page. You can't perform actions based on the screenshot, use browser_snapshot for actions."
+        },
+        {
+          "tool": "browser_type",
+          "description": "Type text into an input, textarea, or contenteditable element by ref."
+        },
+        {
+          "tool": "mcp_auth",
+          "description": "Authenticate this MCP server so its tools can be used."
+        }
+      ]
+    },
+    {
+      "server": "project-0-Ticket-postman",
+      "serverStatus": "ready",
+      "serverDescription": "Before answering any API-related questions, fetch the MCP resource at URI `postman://instructions` using FetchMcpResource from this MCP server, and follow the usage instructions contained within.",
+      "tools": [
+        {
+          "tool": "createCollection",
+          "description": "Creates a collection using the [Postman Collection v2.1.0 schema format](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html). **Note:** If you do not include the... [truncated]"
+        },
+        {
+          "tool": "createCollectionRequest",
+          "description": "Creates a request in a collection. For a complete list of properties, refer to the **Request** entry in the [Postman Collection Format documentation](https://schema.postman.com/collecti... [truncated]"
+        },
+        {
+          "tool": "createCollectionResponse",
+          "description": "Creates a request response in a collection. For a complete list of request body properties, refer to the **Response** entry in the [Postman Collection Format documentation](https://sche... [truncated]"
+        },
+        {
+          "tool": "createEnvironment",
+          "description": "Creates an environment. **Note:** - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP \\`411 Length Required\\` error response, manually pass ... [truncated]"
+        },
+        {
+          "tool": "createMock",
+          "description": "Creates a mock server in a collection. - Pass the collection UID (ownerId-collectionId), not the bare collection ID. - If you only have a \\`collectionId\\`, resolve the UID first: 1) Pre... [truncated]"
+        },
+        {
+          "tool": "createSpec",
+          "description": "Creates an API specification in Postman's [Spec Hub](https://learning.postman.com/docs/design-apis/specifications/overview/). Specifications can be single or multi-file. **Note:** - Pos... [truncated]"
+        },
+        {
+          "tool": "createSpecFile",
+          "description": "Creates a file for an OpenAPI or a protobuf 2 or 3 specification. **Note:** - If the file path contains a \\`/\\` (forward slash) character, then a folder is created. For example, if the ... [truncated]"
+        },
+        {
+          "tool": "createWorkspace",
+          "description": "Creates a new [workspace](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/). **Note:** - This endpoint returns a 403 \\`Forbidden\\` respon... [truncated]"
+        },
+        {
+          "tool": "duplicateCollection",
+          "description": "Creates a duplicate of the given collection in another workspace. Use the GET \\`/collection-duplicate-tasks/{taskId}\\` endpoint to get the duplication task's current status."
+        },
+        {
+          "tool": "generateCollection",
+          "description": "Creates a collection from the given API specification. The specification must already exist or be created before it can be used to generate a collection. The response contains a polling... [truncated]"
+        },
+        {
+          "tool": "generateSpecFromCollection",
+          "description": "Generates an OpenAPI 2.0, 3.0, or 3.1 specification for the given collection. The response contains a polling link to the task status."
+        },
+        {
+          "tool": "getAllSpecs",
+          "description": "Gets all API specifications in a workspace."
+        },
+        {
+          "tool": "getAuthenticatedUser",
+          "description": "Gets information about the authenticated user. - This endpoint provides “current user” context (\\`user.id\\`, \\`username\\`, \\`teamId\\`, roles). - When a user asks for “my …” (e.g., “my w... [truncated]"
+        },
+        {
+          "tool": "getCollection",
+          "description": "Get information about a collection. By default this tool returns the lightweight collection map (metadata + recursive itemRefs). Use the model parameter to opt in to Postman's full API ... [truncated]"
+        },
+        {
+          "tool": "getCollections",
+          "description": "The workspace ID query is required for this endpoint. If not provided, the LLM should ask the user to provide it."
+        },
+        {
+          "tool": "getDuplicateCollectionTaskStatus",
+          "description": "Gets the status of a collection duplication task."
+        },
+        {
+          "tool": "getEnabledTools",
+          "description": "IMPORTANT: Run this tool first when a requested tool is unavailable. Returns information about which tools are enabled in the full and minimal tool sets, helping you identify available alternatives."
+        },
+        {
+          "tool": "getEnvironment",
+          "description": "Gets information about an environment."
+        },
+        {
+          "tool": "getEnvironments",
+          "description": "Gets information about all of your [environments](https://learning.postman.com/docs/sending-requests/managing-environments/)."
+        },
+        {
+          "tool": "getGeneratedCollectionSpecs",
+          "description": "Gets the API specification generated for the given collection."
+        },
+        {
+          "tool": "getMock",
+          "description": "Gets information about a mock server. - Resource: Mock server entity. Response includes the associated \\`collection\\` UID and \\`mockUrl\\`. - Use the \\`collection\\` UID to navigate back ... [truncated]"
+        },
+        {
+          "tool": "getMocks",
+          "description": "Gets all active mock servers. By default, returns only mock servers you created across all workspaces. - Always pass either the \\`workspace\\` or \\`teamId\\` query to scope results. Prefe... [truncated]"
+        },
+        {
+          "tool": "getSpec",
+          "description": "Gets information about an API specification."
+        },
+        {
+          "tool": "getSpecCollections",
+          "description": "Gets all of an API specification's generated collections."
+        },
+        {
+          "tool": "getSpecDefinition",
+          "description": "Gets the complete contents of an OpenAPI or AsyncAPI specification's definition."
+        },
+        {
+          "tool": "getSpecFile",
+          "description": "Gets the contents of an API specification's file."
+        },
+        {
+          "tool": "getSpecFiles",
+          "description": "Gets all the files in an API specification."
+        },
+        {
+          "tool": "getTaggedEntities",
+          "description": "**Requires an Enterprise plan.** Tagging is only available on Postman Enterprise plans. This tool returns a 404 error on Free, Basic, and Professional accounts. Gets Postman elements (e... [truncated]"
+        },
+        {
+          "tool": "getWorkspace",
+          "description": "Gets information about a workspace. **Note:** This endpoint's response contains the \\`visibility\\` field. [Visibility](https://learning.postman.com/docs/collaborating-in-postman/using-w... [truncated]"
+        },
+        {
+          "tool": "getWorkspaces",
+          "description": "Gets all workspaces you have access to. - For “my …” requests, first call GET \\`/me\\` and pass \\`createdBy={me.user.id}\\`. - This endpoint's response contains the visibility field. Visi... [truncated]"
+        },
+        {
+          "tool": "mcp_auth",
+          "description": "Authenticate this MCP server so its tools can be used."
+        },
+        {
+          "tool": "publishMock",
+          "description": "Publishes a mock server. Publishing a mock server sets its **Access Control** configuration setting to public."
+        },
+        {
+          "tool": "putCollection",
+          "description": "Replaces the contents of a collection using the [Postman Collection v2.1.0 schema format](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html). Include the collec... [truncated]"
+        },
+        {
+          "tool": "putEnvironment",
+          "description": "Replaces all the contents of an environment with the given information. **Note:** - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP \\`411 ... [truncated]"
+        },
+        {
+          "tool": "runCollection",
+          "description": "Runs a Postman collection by ID with detailed test results and execution statistics. Supports optional environment for variable substitution. Note: Advanced parameters like custom delay... [truncated]"
+        },
+        {
+          "tool": "searchPostmanElements",
+          "description": "Search for Postman entities (requests, collections, workspaces, specs, flows, environments, and mocks). **Ownership:** - `organization` — Search within all resources owned by your organ... [truncated]"
+        },
+        {
+          "tool": "syncCollectionWithSpec",
+          "description": "Syncs a collection generated from an API specification. This is an asynchronous endpoint that returns an HTTP \\`202 Accepted\\` response. **Note:** - This endpoint only supports the Open... [truncated]"
+        },
+        {
+          "tool": "syncSpecWithCollection",
+          "description": "Syncs an API specification linked to a collection. This is an asynchronous endpoint that returns an HTTP \\`202 Accepted\\` response. **Note:** - This endpoint only supports the OpenAPI 2... [truncated]"
+        },
+        {
+          "tool": "updateCollectionRequest",
+          "description": "Updates a request in a collection. For a complete list of properties, refer to the **Request** entry in the [Postman Collection Format documentation](https://schema.postman.com/collecti... [truncated]"
+        },
+        {
+          "tool": "updateMock",
+          "description": "Updates a mock server. - Resource: Mock server entity associated with a collection UID. - Use this to change name, environment, privacy, or default server response. - To activate a serv... [truncated]"
+        },
+        {
+          "tool": "updateSpecFile",
+          "description": "Updates a file for an OpenAPI or protobuf 2 or 3 specification. **Note:** - This endpoint does not accept an empty request body. You must pass one of the accepted values. - This endpoin... [truncated]"
+        },
+        {
+          "tool": "updateSpecProperties",
+          "description": "Updates an API specification's properties, such as its name."
+        },
+        {
+          "tool": "updateWorkspace",
+          "description": "Updates a workspace's property, such as its name or visibility. **Note:** - This endpoint does not support the following visibility changes: - \\`private\\` to \\`public\\`, \\`public\\` to \\... [truncated]"
+        }
+      ]
+    },
+    {
+      "server": "user-codebase-memory-mcp",
+      "serverStatus": "ready",
+      "tools": [
+        {
+          "tool": "delete_project",
+          "description": "Delete a project from the index"
+        },
+        {
+          "tool": "detect_changes",
+          "description": "Detect code changes and their impact"
+        },
+        {
+          "tool": "get_architecture",
+          "description": "Get high-level architecture overview — packages, services, dependencies, and project structure at a glance. Includes 'clusters': Leiden community detection over the call/import graph, s... [truncated]"
+        },
+        {
+          "tool": "get_code_snippet",
+          "description": "Read source code for a function/class/symbol. IMPORTANT: First call search_graph to find the exact qualified_name, then pass it here. This is a read tool, not a search tool. Accepts ful... [truncated]"
+        },
+        {
+          "tool": "get_graph_schema",
+          "description": "Get the schema of the knowledge graph (node labels, edge types)"
+        },
+        {
+          "tool": "index_repository",
+          "description": "Index a repository into the knowledge graph. Special mode 'cross-repo-intelligence': skip extraction, only match Routes/Channels across projects to create CROSS_HTTP_CALLS/CROSS_ASYNC_C... [truncated]"
+        },
+        {
+          "tool": "index_status",
+          "description": "Get the indexing status of a project"
+        },
+        {
+          "tool": "ingest_traces",
+          "description": "Ingest runtime traces to enhance the knowledge graph"
+        },
+        {
+          "tool": "list_projects",
+          "description": "List all indexed projects"
+        },
+        {
+          "tool": "manage_adr",
+          "description": "Create or update Architecture Decision Records"
+        },
+        {
+          "tool": "mcp_auth",
+          "description": "Authenticate this MCP server so its tools can be used."
+        },
+        {
+          "tool": "query_graph",
+          "description": "Execute a Cypher query against the knowledge graph for complex multi-hop patterns, aggregations, and cross-service analysis. The response includes 'total' (returned row count). There is... [truncated]"
+        },
+        {
+          "tool": "search_code",
+          "description": "Graph-augmented code search. Finds text patterns via grep, then enriches results with the knowledge graph: deduplicates matches into containing functions, ranks by structural importance... [truncated]"
+        },
+        {
+          "tool": "search_graph",
+          "description": "Search the code knowledge graph for functions, classes, routes, and variables. Use INSTEAD OF grep/glob when finding code definitions, implementations, or relationships. Three search mo... [truncated]"
+        },
+        {
+          "tool": "trace_path",
+          "description": "Trace paths through the code graph. Modes: calls (callers/callees), data_flow (value propagation with args at each hop), cross_service (through HTTP/async Route nodes). Use INSTEAD OF g... [truncated]"
+        }
+      ]
+    },
+    {
+      "server": "user-microsoft-learn",
+      "serverStatus": "ready",
+      "serverDescription": "# Microsoft Learn MCP Server This server gives structured access to official Microsoft and Azure documentation via three tools: ## Tools ### microsoft_docs_search Search official docume... [truncated]",
+      "tools": [
+        {
+          "tool": "mcp_auth",
+          "description": "Authenticate this MCP server so its tools can be used."
+        },
+        {
+          "tool": "microsoft_code_sample_search",
+          "description": "Search for code snippets and examples in official Microsoft Learn documentation. This tool retrieves relevant code samples from Microsoft documentation pages providing developers with p... [truncated]"
+        },
+        {
+          "tool": "microsoft_docs_fetch",
+          "description": "Fetch and convert a Microsoft Learn documentation webpage to markdown format. This tool retrieves the latest complete content of Microsoft documentation webpages including Azure, .NET, ... [truncated]"
+        },
+        {
+          "tool": "microsoft_docs_search",
+          "description": "Search official Microsoft/Azure documentation to find the most relevant and trustworthy content for a user's query. This tool returns up to 10 high-quality content chunks (each max 500 ... [truncated]"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "listMonitorExecutions",
+  "description": "Lists executions for a monitor. Cursor-based pagination, 25 results per page. Returns execution metadata including state, trigger, results summary, and timestamps.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "monitorId": {
+        "type": "string",
+        "description": "The monitor's ID."
+      },
+      "cursor": {
+        "type": "string",
+        "description": "Cursor for pagination. Pass the `nextCursor` value from a previous response to fetch the next page."
+      }
+    },
+    "required": [
+      "monitorId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

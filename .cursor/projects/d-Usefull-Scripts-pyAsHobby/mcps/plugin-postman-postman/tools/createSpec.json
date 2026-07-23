@@ -1,0 +1,97 @@
+{
+  "name": "createSpec",
+  "description": "Creates an API specification in Postman's [Spec Hub](https://learning.postman.com/docs/design-apis/specifications/overview/). Specifications can be single or multi-file.\n\n**Note:**\n- Postman supports OpenAPI (2.0, 3.0, and 3.1), AsyncAPI (2.0 and 3.0), protobuf (2 and 3), GraphQL, and Smithy specifications.\n- If the file path contains a \\`/\\` (forward slash) character, then a folder is created. For example, if the path is the \\`components/schemas.json\\` value, then a \\`components\\` folder is created with the \\`schemas.json\\` file inside.\n- Multi-file specifications can only have one root file.\n- Files cannot exceed a maximum of 12 MB in size.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "workspaceId": {
+        "type": "string",
+        "description": "The workspace's ID."
+      },
+      "name": {
+        "type": "string",
+        "description": "The specification's name."
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "OPENAPI:2.0",
+          "OPENAPI:3.0",
+          "OPENAPI:3.1",
+          "ASYNCAPI:2.0",
+          "ASYNCAPI:3.0",
+          "PROTOBUF:2",
+          "PROTOBUF:3",
+          "GRAPHQL",
+          "SMITHY:2.0"
+        ],
+        "description": "The type of API specification."
+      },
+      "files": {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "description": "The file's path. Accepts .json, .yaml, and .proto types."
+                },
+                "content": {
+                  "type": "string",
+                  "description": "The file's stringified contents."
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "DEFAULT",
+                    "ROOT"
+                  ],
+                  "description": "The type of file. This property is required when creating multi-file specifications:\n- `ROOT` — The file containing the full OpenAPI structure. This serves as the entry point for the API spec and references other (`DEFAULT`) spec files. Multi-file specs can only have one root file.\n- `DEFAULT` — A file referenced by the `ROOT` file.\n"
+                }
+              },
+              "required": [
+                "path",
+                "content",
+                "type"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "description": "The file's path. Accepts .json, .yaml, .proto, .graphql, and .smithy file types."
+                },
+                "content": {
+                  "type": "string",
+                  "description": "The file's stringified contents."
+                }
+              },
+              "required": [
+                "path",
+                "content"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "description": "A list of the specification's files and their contents."
+      }
+    },
+    "required": [
+      "workspaceId",
+      "name",
+      "type",
+      "files"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

@@ -1,10 +1,13 @@
-# Legacy RTK hook script (fallback). Primary hook: "rtk hook cursor" in hooks.json.
+# RTK preToolUse hook for Cursor on Windows.
+# Reads Cursor hook JSON from stdin, rewrites shell commands via rtk rewrite,
+# returns Cursor-compatible JSON (permission + updated_input).
 
 $ErrorActionPreference = 'SilentlyContinue'
+$rtk = 'C:\Users\kasha\.local\bin\rtk.exe'
 
-$rtk = Join-Path $env:USERPROFILE '.local\bin\rtk.exe'
 if (-not (Test-Path -LiteralPath $rtk)) {
-    $rtk = 'rtk'
+    Write-Output '{}'
+    exit 0
 }
 
 $inputText = [Console]::In.ReadToEnd()
@@ -32,7 +35,7 @@ if ([string]::IsNullOrWhiteSpace($rewritten) -or $cmd -eq $rewritten) {
     exit 0
 }
 
-[PSCustomObject]@{
+@{
     permission    = 'allow'
-    updated_input = [PSCustomObject]@{ command = $rewritten.Trim() }
-} | ConvertTo-Json -Compress -Depth 3
+    updated_input = @{ command = $rewritten.Trim() }
+} | ConvertTo-Json -Compress

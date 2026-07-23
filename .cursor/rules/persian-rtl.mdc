@@ -1,0 +1,16 @@
+---
+description: Persian/Arabic RTL reply format for all projects
+alwaysApply: true
+---
+
+# Persian RTL Communication
+
+When the user writes Persian/Arabic/Hebrew:
+
+1. Wrap **all prose** in `<div dir="rtl">...</div>`
+2. Keep **code fences** and shell commands LTR
+3. File/path/class names LTR; explanations in Persian RTL
+4. Short sentences; explain English terms in Persian beside them
+5. Do **not** use HTML direction tags other than the wrapper above for Cursor RTL extension compatibility
+
+If the user writes English only → LTR is fine unless they prefer Persian.

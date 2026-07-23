@@ -1,0 +1,23 @@
+{
+  "name": "deleteMockServerResponse",
+  "description": "Deletes a server response from a mock server.\n\n- If this server response is currently active (\\`config.serverResponseId\\` on the mock), deleting it will not automatically deactivate it. Call \\`updateMock\\` with \\`config.serverResponseId: null\\` first to deactivate.\n- This action is destructive and cannot be undone.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "mockId": {
+        "type": "string",
+        "description": "The mock's ID."
+      },
+      "serverResponseId": {
+        "type": "string",
+        "description": "The server response's ID."
+      }
+    },
+    "required": [
+      "mockId",
+      "serverResponseId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

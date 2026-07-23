@@ -1,0 +1,17 @@
+---
+description: Accuracy-first phase-orchestrator routing (I→P→Q→X→V); no sales-idea skill
+alwaysApply: true
+---
+
+# Phase Orchestrator (accuracy first)
+
+When `/phase-orchestrator` or investigate-then-implement:
+
+1. Read `~/.cursor/skills/phase-orchestrator/SKILL.md`
+2. Loop **I → P → Q → X → V** — never code before Q passes
+3. Resolve **Stack Profile** (Side/Language/Framework/Root/Build) before Plan; never assume .NET or Python
+4. Default: `Strict: on`, `Gate: approve-plan`, `Mode: single-phase`
+5. Refuse silent edits outside plan allow-list; enforce diff budget
+6. `Gate: auto` / `all-remaining` only when quality gates + stack still pass
+7. Stage 2 E2E only after explicit phrase
+8. Do **not** invent buyer/sales feature ideas unless user asks later

@@ -1,0 +1,27 @@
+{
+  "name": "getMonitorRunResults",
+  "description": "Gets results for a monitor run, including trimmed execution logs (beforeItem and assertion events only) and result counts. Use this to inspect per-request assertions and failure details for a specific run.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "monitorId": {
+        "type": "string",
+        "description": "The monitor's ID."
+      },
+      "runId": {
+        "type": "string",
+        "description": "The run's ID."
+      }
+    },
+    "required": [
+      "monitorId",
+      "runId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

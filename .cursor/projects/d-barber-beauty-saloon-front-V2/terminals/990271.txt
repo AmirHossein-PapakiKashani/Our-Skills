@@ -1,0 +1,27 @@
+---
+pid: 16308
+cwd: "D:\\barber\\beauty-saloon-front-V2"
+command: "rtk npm run dev"
+started_at: 2026-07-03T19:59:36.124Z
+running_for_ms: 5023     
+---
+> dev
+> next dev
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://10.8.5.134:3001
+✓ Ready in 876ms
+[?25h
+⚠ Port 3000 is in use by process 13456, using available port 3001 instead.
+⨯ Another next dev server is already running.
+- Local:        http://localhost:3000
+- PID:          13456
+- Dir:          D:\barber\beauty-saloon-front-V2
+- Log:          .next\dev\logs\next-development.log
+Run taskkill /PID 13456 /F to stop it.
+
+---
+exit_code: 1
+elapsed_ms: 9470
+ended_at: 2026-07-03T19:59:45.594Z
+---

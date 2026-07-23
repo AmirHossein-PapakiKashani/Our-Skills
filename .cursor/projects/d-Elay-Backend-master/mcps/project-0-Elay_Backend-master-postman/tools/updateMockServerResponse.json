@@ -1,0 +1,80 @@
+{
+  "name": "updateMockServerResponse",
+  "description": "Updates a server response's name, statusCode, body, headers, or language.\n\n- \\`statusCode\\` must remain a 5xx value (500–599).\n- \\`body\\` is the raw response body string. Pass the full desired body — this is a full replacement, not a partial update.\n- Updating a server response does not change which response is active. To activate it, call \\`updateMock\\` with \\`config.serverResponseId\\`.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "mockId": {
+        "type": "string",
+        "description": "The mock's ID."
+      },
+      "serverResponseId": {
+        "type": "string",
+        "description": "The server response's ID."
+      },
+      "serverResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The server response's name."
+          },
+          "statusCode": {
+            "type": "integer",
+            "minimum": 500,
+            "maximum": 599,
+            "description": "The HTTP status code the mock returns. Must be a 5xx value (500–599)."
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "description": "The request header's key value."
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The request header's value. This value defines the corresponding value for the header key."
+                }
+              },
+              "additionalProperties": false,
+              "description": "Information about the key-value pair."
+            },
+            "description": "The server response's request headers, such as Content-Type, Accept, encoding, and other information."
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "text",
+                  "javascript",
+                  "json",
+                  "html",
+                  "xml"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The server response's body language type."
+          },
+          "body": {
+            "type": "string",
+            "description": "The server response's body that returns when you call the mock server."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "mockId",
+      "serverResponseId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

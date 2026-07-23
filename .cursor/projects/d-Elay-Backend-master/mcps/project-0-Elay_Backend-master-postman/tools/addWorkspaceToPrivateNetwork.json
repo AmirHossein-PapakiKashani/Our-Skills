@@ -1,0 +1,32 @@
+{
+  "name": "addWorkspaceToPrivateNetwork",
+  "description": "Publishes a workspace to your team's Private API Network.\n\nWARNING: This tool is for Private API Network management, not for general workspace operations. For workspace management use: getWorkspaces, getWorkspace, createWorkspace, updateWorkspace, deleteWorkspace.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "workspace": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The workspace's ID."
+          },
+          "parentFolderId": {
+            "type": "integer",
+            "description": "The `0` value.",
+            "default": 0
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "workspace"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

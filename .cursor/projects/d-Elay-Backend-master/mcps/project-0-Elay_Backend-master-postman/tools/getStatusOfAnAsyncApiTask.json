@@ -1,0 +1,29 @@
+{
+  "name": "getStatusOfAnAsyncApiTask",
+  "description": "Gets the status of an asynchronous task.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "apiId": {
+        "type": "string",
+        "description": "The API's ID."
+      },
+      "taskId": {
+        "type": "string",
+        "description": "The task's ID."
+      },
+      "Accept": {
+        "type": "string",
+        "const": "application/vnd.api.v10+json",
+        "description": "The `application/vnd.api.v10+json` request header required to use the endpoint."
+      }
+    },
+    "required": [
+      "apiId",
+      "taskId",
+      "Accept"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

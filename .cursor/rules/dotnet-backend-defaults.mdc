@@ -1,0 +1,39 @@
+---
+description: Default .NET / Clean Architecture backend conventions when no project AGENTS.md overrides
+alwaysApply: true
+---
+
+# .NET Backend Defaults (overridable by project)
+
+If the repo has `AGENTS.md`, `.cursorrules`, or `.cursor/rules/*` with stricter/project-specific rules — **those win**.
+
+Otherwise, prefer:
+
+## Architecture
+
+- Clean Architecture: Api → Application → Domain; Infrastructure implements Application ports
+- CQRS with MediatR (Command/Query + Handler) when the project already uses it
+- Prefer Result / Result\<T\> over throwing for expected business failures
+- Always check `IsSuccess` (or equivalent) before accessing `.Value`
+
+## API
+
+- Match existing HTTP status conventions of the project
+- If project uses Carter/minimal APIs: keep that style; never invent MVC controllers into a Carter codebase
+- Auth + rate limiting on endpoints when the project already does so
+
+## Data
+
+- Soft delete when `IsDeleted` / global filters exist — never hard `Remove()` unless project does hard deletes
+- Do not hand-edit EF `Migrations/**` — flag migration commands for the human
+- Forward `CancellationToken` on all async I/O
+- Read queries: `.AsNoTracking()` when not mutating
+
+## Mapping / DI
+
+- Prefer the project's existing mapper (Mapster / AutoMapper / manual) — do not introduce a second mapper
+- Prefer primary constructors for handlers/services when the codebase uses them
+
+## Discovery
+
+Before scaffolding: search for existing Endpoint/Handler/DTO/entity via codebase-memory MCP.

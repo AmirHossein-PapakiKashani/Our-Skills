@@ -1,0 +1,49 @@
+{
+  "name": "getTaggedEntities",
+  "description": "**Requires an Enterprise plan.** Tagging is only available on Postman Enterprise plans. This tool returns a 404 error on Free, Basic, and Professional accounts.\n\nGets Postman elements (entities) by a given tag. Tags enable you to organize and search workspaces, APIs, and collections that contain shared tags.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*[a-z0-9]+$",
+        "minLength": 2,
+        "maxLength": 64,
+        "description": "The tag's ID within a team or individual (non-team) user scope."
+      },
+      "limit": {
+        "type": "integer",
+        "maximum": 50,
+        "description": "The maximum number of tagged elements to return in a single call.",
+        "default": 10
+      },
+      "direction": {
+        "type": "string",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "description": "The ascending (`asc`) or descending (`desc`) order to sort the results by, based on the time of the entity's tagging.",
+        "default": "desc"
+      },
+      "cursor": {
+        "type": "string",
+        "description": "The cursor to get the next set of results in the paginated response. If you pass an invalid value, the API only returns the first set of results."
+      },
+      "entityType": {
+        "type": "string",
+        "enum": [
+          "api",
+          "collection",
+          "workspace"
+        ],
+        "description": "Filter results for the given entity type."
+      }
+    },
+    "required": [
+      "slug"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

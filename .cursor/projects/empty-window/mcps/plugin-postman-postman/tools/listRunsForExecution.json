@@ -1,0 +1,27 @@
+{
+  "name": "listRunsForExecution",
+  "description": "Lists runs for a monitor execution. Each execution may produce multiple runs across regions. Returns run metadata including region, state, result counts, and timestamps. Not paginated.\n\nThis is Step 2 of the monitor-run workflow: listMonitorExecutions → listRunsForExecution → getMonitorRunResults. Pass the executionId from listMonitorExecutions. Returns run objects whose `id` is the runId needed by getMonitorRunResults.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "monitorId": {
+        "type": "string",
+        "description": "The monitor's ID. Must be a plain UUID (e.g. `1f00bf12-7ee5-4500-a1a7-3c721a03d42c`), not a uid with numeric prefix."
+      },
+      "executionId": {
+        "type": "string",
+        "description": "The execution's ID, obtained from listMonitorExecutions."
+      }
+    },
+    "required": [
+      "monitorId",
+      "executionId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

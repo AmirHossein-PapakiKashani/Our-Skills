@@ -1,0 +1,49 @@
+---
+pid: 24568
+cwd: "C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)"
+command: "cd \"C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)\" && npm install --prefer-offline --no-audit --no-fund 2>&1"
+started_at: 2026-07-02T19:42:12.309Z
+running_for_ms: 446527   
+---
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+npm warn cleanup Failed to remove some directories [
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)\\node_modules\\@babel\\parser',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\@babel\parser\node_modules\@babel\types\lib'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)\\node_modules\\@babel\\parser\\node_modules\\@babel\\types\\lib'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)\\node_modules\\eslint-plugin-react-hooks',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\eslint-plugin-react-hooks\node_modules\@babel\types'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)\\node_modules\\eslint-plugin-react-hooks\\node_modules\\@babel\\types'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)\\node_modules\\next',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\next\dist\esm\build\webpack\config'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)\\node_modules\\next\\dist\\esm\\build\\webpack\\config'
+npm warn cleanup     }
+npm warn cleanup   ]
+npm warn cleanup ]
+npm error code ENOTEMPTY
+npm error syscall rmdir
+npm error path C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\zod\v4
+npm error errno -4051
+npm error ENOTEMPTY: directory not empty, rmdir 'C:\Users\kasha\Downloads\luxury-barber-booking-app (2)\node_modules\zod\v4'
+npm error A complete log of this run can be found in: C:\Users\kasha\AppData\Local\Temp\cursor-sandbox-cache\9123db353096e6abfee961a39b42d509\npm\_logs\2026-07-02T19_42_31_987Z-debug-0.log
+
+---
+exit_code: 4294963245
+elapsed_ms: 447775
+ended_at: 2026-07-02T19:49:40.084Z
+---

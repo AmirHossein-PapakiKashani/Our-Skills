@@ -1,0 +1,32 @@
+{
+  "name": "getAsyncSpecTaskStatus",
+  "description": "Gets the status of an asynchronous API specification creation task.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "elementType": {
+        "type": "string",
+        "enum": [
+          "collections",
+          "specs"
+        ],
+        "description": "The element to filter results by."
+      },
+      "elementId": {
+        "type": "string",
+        "description": "The element's ID."
+      },
+      "taskId": {
+        "type": "string",
+        "description": "The task's ID."
+      }
+    },
+    "required": [
+      "elementType",
+      "elementId",
+      "taskId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

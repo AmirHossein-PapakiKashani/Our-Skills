@@ -1,0 +1,32 @@
+{
+  "name": "createSpecFile",
+  "description": "Creates a file for an OpenAPI or a protobuf 2 or 3 specification.\n\n**Note:**\n\n- If the file path contains a \\`/\\` (forward slash) character, then a folder is created. For example, if the path is the \\`components/schemas.json\\` value, then a \\`components\\` folder is created with the \\`schemas.json\\` file inside.\n- Creating a spec file assigns it the \\`DEFAULT\\` file type.\n- Multi-file specifications can only have one root file.\n- Files cannot exceed a maximum of 10 MB in size.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "specId": {
+        "type": "string",
+        "description": "The spec's ID."
+      },
+      "path": {
+        "type": "string",
+        "description": "The file's path. Accepts JSON or YAML files."
+      },
+      "content": {
+        "type": "string",
+        "description": "The file's stringified contents."
+      }
+    },
+    "required": [
+      "specId",
+      "path",
+      "content"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

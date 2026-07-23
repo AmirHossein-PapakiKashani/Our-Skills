@@ -1,0 +1,2257 @@
+{
+  "name": "putCollection",
+  "description": "Replaces the contents of a collection using the [Postman Collection v2.1.0 schema format](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html). Include the collection's ID values in the request body. If you do not, the endpoint removes the existing items and creates new items.\n\n- To perform an update asynchronously, use the \\`Prefer\\` header with the \\`respond-async\\` value. When performing an async update, this endpoint returns a HTTP \\`202 Accepted\\` response.\n- For a complete list of properties and information, see the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).\n- For protocol profile behavior, refer to Postman's [Protocol Profile Behavior documentation](https://github.com/postmanlabs/postman-runtime/blob/develop/docs/protocol-profile-behavior.md).\n\n**Note:**\n\n- The maximum collection size this endpoint accepts cannot exceed 100 MB.\n- Use the GET \\`/collection-updates-tasks/{taskId}\\` endpoint to get the collection's update status when performing an asynchronous update.\n- If you don't include the collection items' ID values from the request body, the endpoint **removes** the existing items and recreates the items with new ID values.\n- To copy another collection's contents to the given collection, remove all ID values before you pass it in this endpoint. If you do not, this endpoint returns an error. These values include the \\`id\\`, \\`uid\\`, and \\`postman_id\\` values.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionId": {
+        "type": "string",
+        "description": "The collection ID must be in the form <OWNER_ID>-<UUID> (e.g. 12345-33823532ab9e41c9b6fd12d0fd459b8b)."
+      },
+      "Prefer": {
+        "type": "string",
+        "const": "respond-async",
+        "description": "The `respond-async` header to perform the update asynchronously."
+      },
+      "collection": {
+        "type": "object",
+        "properties": {
+          "info": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The collection's name."
+              },
+              "_postman_id": {
+                "type": "string",
+                "description": "The collection's Postman ID. This field exists for Postman Collection Format v1 compatibility."
+              },
+              "description": {
+                "type": "string",
+                "description": "The collection's description."
+              },
+              "schema": {
+                "type": "string",
+                "const": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+                "description": "The \"https://schema.getpostman.com/json/collection/v2.1.0/collection.json\" Postman Collection Format v2.1.0 schema."
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The date and time when the collection was last updated."
+              },
+              "createdat": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The date and time when the collection was created."
+              },
+              "lastUpdatedBy": {
+                "type": "string",
+                "description": "The user ID of the person who last updated the collection."
+              },
+              "uid": {
+                "type": "string",
+                "description": "The collection's unique ID."
+              }
+            },
+            "required": [
+              "name",
+              "schema"
+            ],
+            "additionalProperties": false,
+            "description": "Information about the collection."
+          },
+          "item": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The collection item's ID."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The item's name."
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The item's description."
+                },
+                "variable": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "The variable's ID. Doesn't apply to collection-level variables."
+                      },
+                      "key": {
+                        "type": "string",
+                        "description": "The variable's key (name)."
+                      },
+                      "description": {
+                        "type": "string",
+                        "maxLength": 512,
+                        "description": "The variable's description."
+                      },
+                      "value": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "integer"
+                          }
+                        ],
+                        "description": "The key's value."
+                      },
+                      "disabled": {
+                        "type": "boolean",
+                        "description": "If true, the variable is not enabled. Doesn't apply to path parameter variables.",
+                        "default": false
+                      }
+                    },
+                    "additionalProperties": false,
+                    "description": "Information about the variable."
+                  },
+                  "description": "A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables."
+                },
+                "event": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "The event's ID."
+                      },
+                      "listen": {
+                        "type": "string",
+                        "enum": [
+                          "test",
+                          "prerequest"
+                        ],
+                        "description": "The `prerequest` (pre-request) or `test` (post-response) value."
+                      },
+                      "script": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "The script's ID."
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "The type of script. For example, `text/javascript`."
+                          },
+                          "exec": {
+                            "type": "array",
+                            "items": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "description": "A list of script strings, where each line represents a line of code. Separate lines makes it easy to track script changes."
+                          }
+                        },
+                        "additionalProperties": false,
+                        "description": "Information about the Javascript code that can be used to to perform setup or teardown operations in a response."
+                      }
+                    },
+                    "required": [
+                      "listen"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Information about the collection's events."
+                  },
+                  "description": "A list of scripts configured to run when specific events occur. These scripts can be referenced in the collection by their ID."
+                },
+                "request": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "anyOf": [
+                        {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "The request's raw URL."
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "raw": {
+                              "type": "string",
+                              "description": "The request's raw URL."
+                            },
+                            "protocol": {
+                              "type": "string",
+                              "description": "The request protocol."
+                            },
+                            "host": {
+                              "type": "array",
+                              "items": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "description": "The host's URL."
+                            },
+                            "path": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "description": "A list of the URL's path components."
+                            },
+                            "port": {
+                              "type": "string",
+                              "description": "The URL's port number. An empty value indicates port `80` (http) or `443` (https)."
+                            },
+                            "query": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "key": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
+                                    "description": "The query parameter's key."
+                                  },
+                                  "value": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
+                                    "description": "The key's value."
+                                  },
+                                  "disabled": {
+                                    "type": "boolean",
+                                    "description": "If true, the query parameter isn't sent with the request.",
+                                    "default": false
+                                  },
+                                  "description": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
+                                    "description": "The query parameter's description."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "description": "A list of query parameters. These are the query string parts of the URL, parsed as separate variables."
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ],
+                      "description": "Information about the URL."
+                    },
+                    "auth": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "basic",
+                            "bearer",
+                            "apikey",
+                            "digest",
+                            "oauth1",
+                            "oauth2",
+                            "hawk",
+                            "awsv4",
+                            "ntlm",
+                            "edgegrid",
+                            "jwt",
+                            "asap",
+                            "noauth"
+                          ],
+                          "description": "The authorization type."
+                        },
+                        "apikey": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The auth method's key value."
+                              },
+                              "value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": {}
+                                    }
+                                  }
+                                ],
+                                "description": "The key's value."
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "array",
+                                  "object",
+                                  "any"
+                                ],
+                                "description": "The value's type."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                          },
+                          "description": "The API key's authentication information."
+                        },
+                        "awsv4": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The auth method's key value."
+                              },
+                              "value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": {}
+                                    }
+                                  }
+                                ],
+                                "description": "The key's value."
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "array",
+                                  "object",
+                                  "any"
+                                ],
+                                "description": "The value's type."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                          },
+                          "description": "The attributes for [AWS Signature](https://learning.postman.com/docs/sending-requests/authorization/aws-signature/) authentication."
+                        },
+                        "basic": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The auth method's key value."
+                              },
+                              "value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": {}
+                                    }
+                                  }
+                                ],
+                                "description": "The key's value."
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "array",
+                                  "object",
+                                  "any"
+                                ],
+                                "description": "The value's type."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                          },
+                          "description": "The attributes for [Basic Auth](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/#basic-auth)."
+                        },
+                        "bearer": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The auth method's key value."
+                              },
+                              "value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": {}
+                                    }
+                                  }
+                                ],
+                                "description": "The key's value."
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "array",
+                                  "object",
+                                  "any"
+                                ],
+                                "description": "The value's type."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                          },
+                          "description": "The attributes for [Bearer Token](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/#bearer-token) authentication."
+                        },
+                        "digest": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The auth method's key value."
+                              },
+                              "value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": {}
+                                    }
+                                  }
+                                ],
+                                "description": "The key's value."
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "array",
+                                  "object",
+                                  "any"
+                                ],
+                                "description": "The value's type."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                          },
+                          "description": "The attributes for [Digest](https://learning.postman.com/docs/sending-requests/authorization/digest-auth/) access authentication."
+                        },
+                        "edgegrid": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The auth method's key value."
+                              },
+                              "value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": {}
+                                    }
+                                  }
+                                ],
+                                "description": "The key's value."
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "array",
+                                  "object",
+                                  "any"
+                                ],
+                                "description": "The value's type."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                          },
+                          "description": "The attributes for [Akamai Edgegrid](https://learning.postman.com/docs/sending-requests/authorization/akamai-edgegrid/) authentication."
+                        },
+                        "hawk": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The auth method's key value."
+                              },
+                              "value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": {}
+                                    }
+                                  }
+                                ],
+                                "description": "The key's value."
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "array",
+                                  "object",
+                                  "any"
+                                ],
+                                "description": "The value's type."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                          },
+                          "description": "The attributes for [Hawk](https://learning.postman.com/docs/sending-requests/authorization/hawk-authentication/) authentication."
+                        },
+                        "ntlm": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The auth method's key value."
+                              },
+                              "value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": {}
+                                    }
+                                  }
+                                ],
+                                "description": "The key's value."
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "array",
+                                  "object",
+                                  "any"
+                                ],
+                                "description": "The value's type."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                          },
+                          "description": "The attributes for [NTLM](https://learning.postman.com/docs/sending-requests/authorization/ntlm-authentication/) authentication."
+                        },
+                        "oauth1": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The auth method's key value."
+                              },
+                              "value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": {}
+                                    }
+                                  }
+                                ],
+                                "description": "The key's value."
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "array",
+                                  "object",
+                                  "any"
+                                ],
+                                "description": "The value's type."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                          },
+                          "description": "The attributes for [OAuth1](https://learning.postman.com/docs/sending-requests/authorization/oauth-10/) authentication."
+                        },
+                        "oauth2": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The auth method's key value."
+                              },
+                              "value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": {}
+                                    }
+                                  }
+                                ],
+                                "description": "The key's value."
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "array",
+                                  "object",
+                                  "any"
+                                ],
+                                "description": "The value's type."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                          },
+                          "description": "The attributes for [OAuth2](https://learning.postman.com/docs/sending-requests/authorization/oauth-20/) authentication."
+                        },
+                        "jwt": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The auth method's key value."
+                              },
+                              "value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": {}
+                                    }
+                                  }
+                                ],
+                                "description": "The key's value."
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "array",
+                                  "object",
+                                  "any"
+                                ],
+                                "description": "The value's type."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                          },
+                          "description": "The attributes for JWT (JSON Web Token). Includes the `payload`, `secret`, `algorithm`, `addTokenTo`, and `headerPrefix` properties."
+                        },
+                        "asap": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The auth method's key value."
+                              },
+                              "value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": {}
+                                    }
+                                  }
+                                ],
+                                "description": "The key's value."
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "string",
+                                  "boolean",
+                                  "number",
+                                  "array",
+                                  "object",
+                                  "any"
+                                ],
+                                "description": "The value's type."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                          },
+                          "description": "The attributes for ASAP (Atlassian S2S Authentication Protocol). Includes the `kid`, `aud`, `iss`, `alg`, `privateKey`, and `claims` properties."
+                        }
+                      },
+                      "required": [
+                        "type"
+                      ],
+                      "additionalProperties": false,
+                      "description": "The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                    },
+                    "method": {
+                      "type": "string",
+                      "description": "The request's standard HTTP method."
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "The request's description."
+                    },
+                    "header": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string",
+                            "description": "The header's key, such as `Content-Type` or `X-Custom-Header`."
+                          },
+                          "value": {
+                            "type": "string",
+                            "description": "The header key's value."
+                          },
+                          "description": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "The header's description."
+                          }
+                        },
+                        "required": [
+                          "key",
+                          "value"
+                        ],
+                        "additionalProperties": false,
+                        "description": "Information about the header."
+                      },
+                      "description": "A list of headers."
+                    },
+                    "body": {
+                      "type": "object",
+                      "properties": {
+                        "mode": {
+                          "type": "string",
+                          "enum": [
+                            "raw",
+                            "urlencoded",
+                            "formdata",
+                            "file",
+                            "graphql"
+                          ],
+                          "description": "The data associated with the request."
+                        },
+                        "raw": {
+                          "type": "string",
+                          "description": "If the `mode` value is `raw`, the raw content of the request body."
+                        },
+                        "urlencoded": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "The key value."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "The key's value."
+                              },
+                              "description": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The key's description."
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "description": "A list of x-www-form-encoded key/value pairs."
+                        },
+                        "formdata": {
+                          "type": "array",
+                          "items": {
+                            "allOf": [
+                              {
+                                "type": "object",
+                                "additionalProperties": {}
+                              },
+                              {
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "key": {
+                                        "type": "string",
+                                        "description": "The key value."
+                                      },
+                                      "value": {
+                                        "type": "string",
+                                        "description": "The key's value."
+                                      },
+                                      "type": {
+                                        "type": "string",
+                                        "const": "text",
+                                        "description": "The `text` value."
+                                      },
+                                      "contentType": {
+                                        "type": "string",
+                                        "description": "The form-data Content-Type header."
+                                      },
+                                      "description": {
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ],
+                                        "description": "The key's description."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "key": {
+                                        "type": "string",
+                                        "description": "The key value."
+                                      },
+                                      "src": {},
+                                      "type": {
+                                        "type": "string",
+                                        "const": "file",
+                                        "description": "The `file` value."
+                                      },
+                                      "contentType": {
+                                        "type": "string",
+                                        "description": "The form-data Content-Type header."
+                                      },
+                                      "description": {
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ],
+                                        "description": "The key's description."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "description": "If the `mode` value is `formdata`, then a list of form-data key/pair values."
+                        },
+                        "file": {
+                          "type": "object",
+                          "properties": {
+                            "src": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "description": "The name of the file to upload (not its path). A null value indicates that no file is selected as a part of the request body."
+                            }
+                          },
+                          "additionalProperties": false,
+                          "description": "If the `mode` value is `file`, an object containing the file request information."
+                        },
+                        "graphql": {
+                          "type": "object",
+                          "properties": {
+                            "query": {
+                              "type": "string",
+                              "description": "The GraphQL query."
+                            },
+                            "variables": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "description": "The GraphQL query variables, in JSON format."
+                            }
+                          },
+                          "additionalProperties": false,
+                          "description": "If the `mode` value is `graphql`, an object containing the GraphQL request information."
+                        },
+                        "options": {
+                          "type": "object",
+                          "additionalProperties": {},
+                          "description": "Additional configurations and options set for various modes."
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Information about the collection's request body."
+                    }
+                  },
+                  "additionalProperties": false,
+                  "description": "Information about the collection request."
+                },
+                "response": {
+                  "type": "array",
+                  "items": {
+                    "description": "Information about the request's response."
+                  },
+                  "description": "A list of the collection's responses."
+                },
+                "protocolProfileBehavior": {
+                  "type": "object",
+                  "properties": {
+                    "strictSSL": {
+                      "type": "boolean",
+                      "description": "If true, enables certificate verification."
+                    },
+                    "followRedirects": {
+                      "type": "boolean",
+                      "description": "If true, follow HTTP 3xx responses as redirects."
+                    },
+                    "maxRedirects": {
+                      "type": "number",
+                      "description": "The maximum number of redirects to follow."
+                    },
+                    "disableBodyPruning": {
+                      "type": "boolean",
+                      "description": "If true, disables request body pruning for the GET, COPY, HEAD, PURGE, and UNLOCK methods."
+                    },
+                    "disableUrlEncoding": {
+                      "type": "boolean",
+                      "description": "If true, disables the percent encoding of auth, path, query, and fragment URL segments."
+                    },
+                    "disabledSystemHeaders": {
+                      "type": "object",
+                      "properties": {
+                        "cache-control": {
+                          "type": "boolean"
+                        },
+                        "postman-token": {
+                          "type": "boolean"
+                        },
+                        "content-type": {
+                          "type": "boolean"
+                        },
+                        "content-length": {
+                          "type": "boolean"
+                        },
+                        "accept-encoding": {
+                          "type": "boolean"
+                        },
+                        "connection": {
+                          "type": "boolean"
+                        },
+                        "host": {
+                          "type": "boolean"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Disable the system headers which are added implicitly."
+                    },
+                    "insecureHTTPParser": {
+                      "type": "boolean",
+                      "description": "If true, uses an insecure HTTP parser that accepts invalid HTTP headers."
+                    },
+                    "followOriginalHttpMethod": {
+                      "type": "boolean",
+                      "description": "If true, redirects with the original HTTP method. Redirects with the GET HTTP method by default."
+                    },
+                    "followAuthorizationHeader": {
+                      "type": "boolean",
+                      "description": "If true, retains the `authorization` header when a redirect happens to a different hostname."
+                    },
+                    "protocolVersion": {
+                      "type": "string",
+                      "enum": [
+                        "http1",
+                        "http2",
+                        "auto"
+                      ],
+                      "description": "The HTTP protocol version to use. Supports the `http1`, `http2`, and `auto` values."
+                    },
+                    "removeRefererHeaderOnRedirect": {
+                      "type": "boolean",
+                      "description": "If true, removes the `referer` header when a redirect happens."
+                    },
+                    "tlsPreferServerCiphers": {
+                      "type": "boolean",
+                      "description": "If true, uses the server's cipher suite order instead of the client's during negotiation."
+                    },
+                    "tlsDisabledProtocols": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "The SSL and TLS protocol versions to disable during negotiation."
+                    },
+                    "tlsCipherSelection": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "The order of cipher suites that the SSL server profile uses to establish a secure connection."
+                    }
+                  },
+                  "additionalProperties": false,
+                  "description": "The [settings](https://learning.postman.com/docs/sending-requests/create-requests/request-settings/) used to alter the [Protocol Profile Behavior](https://github.com/postmanlabs/postman-runtime/blob/develop/docs/protocol-profile-behavior.md) of sending a request."
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time at which the collection item was created."
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time at which the collection item was updated."
+                },
+                "uid": {
+                  "type": "string",
+                  "description": "The collection item's unique ID."
+                },
+                "item": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "The collection item's ID."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The item's name."
+                      },
+                      "description": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The item's description."
+                      },
+                      "request": {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "description": "The request's URL string."
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "raw": {
+                                    "type": "string",
+                                    "description": "The request's raw URL."
+                                  },
+                                  "protocol": {
+                                    "type": "string"
+                                  },
+                                  "host": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "path": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "query": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "key": {
+                                          "type": "string"
+                                        },
+                                        "value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    }
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "method": {
+                            "type": "string",
+                            "enum": [
+                              "GET",
+                              "PUT",
+                              "POST",
+                              "PATCH",
+                              "DELETE",
+                              "COPY",
+                              "HEAD",
+                              "OPTIONS",
+                              "LINK",
+                              "UNLINK",
+                              "PURGE",
+                              "LOCK",
+                              "UNLOCK",
+                              "PROPFIND",
+                              "VIEW"
+                            ],
+                            "description": "The HTTP method."
+                          },
+                          "header": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "body": {
+                            "type": "object",
+                            "properties": {
+                              "mode": {
+                                "type": "string",
+                                "enum": [
+                                  "raw",
+                                  "urlencoded",
+                                  "formdata",
+                                  "file",
+                                  "graphql"
+                                ]
+                              },
+                              "raw": {
+                                "type": "string"
+                              },
+                              "options": {
+                                "type": "object",
+                                "properties": {
+                                  "raw": {
+                                    "type": "object",
+                                    "properties": {
+                                      "language": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "auth": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "noauth",
+                                  "basic",
+                                  "bearer",
+                                  "apikey",
+                                  "digest",
+                                  "oauth1",
+                                  "oauth2",
+                                  "hawk",
+                                  "awsv4",
+                                  "ntlm",
+                                  "edgegrid"
+                                ]
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "additionalProperties": false,
+                        "description": "The request definition. Include for request items, omit for folder items."
+                      },
+                      "item": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "description": "The collection item's ID."
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "The item's name."
+                            },
+                            "description": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "description": "The item's description."
+                            },
+                            "request": {
+                              "type": "object",
+                              "properties": {
+                                "url": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "raw": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "method": {
+                                  "type": "string",
+                                  "enum": [
+                                    "GET",
+                                    "PUT",
+                                    "POST",
+                                    "PATCH",
+                                    "DELETE",
+                                    "COPY",
+                                    "HEAD",
+                                    "OPTIONS",
+                                    "LINK",
+                                    "UNLINK",
+                                    "PURGE",
+                                    "LOCK",
+                                    "UNLOCK",
+                                    "PROPFIND",
+                                    "VIEW"
+                                  ]
+                                },
+                                "header": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "key": {
+                                        "type": "string"
+                                      },
+                                      "value": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "body": {
+                                  "type": "object",
+                                  "properties": {
+                                    "mode": {
+                                      "type": "string"
+                                    },
+                                    "raw": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false,
+                              "description": "The request definition."
+                            },
+                            "item": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "request": {
+                                    "type": "object",
+                                    "properties": {
+                                      "url": {
+                                        "anyOf": [
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "raw": {
+                                                "type": "string"
+                                              }
+                                            },
+                                            "additionalProperties": false
+                                          }
+                                        ]
+                                      },
+                                      "method": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "description": "Further nested folder items."
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        "description": "Nested folder items for deeper folder structures."
+                      }
+                    },
+                    "additionalProperties": false,
+                    "description": "A nested collection item — either a request (has 'request') or a folder (has 'item')."
+                  },
+                  "description": "A list of items contained in this folder. Use this property to create folder structures within the collection. Each item can be a request (with a 'request' property) or a nested folder (with its own 'item' property). Omit the 'request' property for folder items."
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false,
+              "description": "Information about the collection request or folder."
+            }
+          },
+          "event": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The event's ID."
+                },
+                "listen": {
+                  "type": "string",
+                  "enum": [
+                    "test",
+                    "prerequest"
+                  ],
+                  "description": "The `prerequest` (pre-request) or `test` (post-response) value."
+                },
+                "script": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The script's ID."
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "The type of script. For example, `text/javascript`."
+                    },
+                    "exec": {
+                      "type": "array",
+                      "items": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "description": "A list of script strings, where each line represents a line of code. Separate lines makes it easy to track script changes."
+                    }
+                  },
+                  "additionalProperties": false,
+                  "description": "Information about the Javascript code that can be used to to perform setup or teardown operations in a response."
+                }
+              },
+              "required": [
+                "listen"
+              ],
+              "additionalProperties": false,
+              "description": "Information about the collection's events."
+            },
+            "description": "A list of scripts configured to run when specific events occur. These scripts can be referenced in the collection by their ID."
+          },
+          "variable": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The variable's ID. Doesn't apply to collection-level variables."
+                },
+                "key": {
+                  "type": "string",
+                  "description": "The variable's key (name)."
+                },
+                "description": {
+                  "type": "string",
+                  "maxLength": 512,
+                  "description": "The variable's description."
+                },
+                "value": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ],
+                  "description": "The key's value."
+                },
+                "disabled": {
+                  "type": "boolean",
+                  "description": "If true, the variable is not enabled. Doesn't apply to path parameter variables.",
+                  "default": false
+                }
+              },
+              "additionalProperties": false,
+              "description": "Information about the variable."
+            },
+            "description": "A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables."
+          },
+          "auth": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "basic",
+                  "bearer",
+                  "apikey",
+                  "digest",
+                  "oauth1",
+                  "oauth2",
+                  "hawk",
+                  "awsv4",
+                  "ntlm",
+                  "edgegrid",
+                  "jwt",
+                  "asap",
+                  "noauth"
+                ],
+                "description": "The authorization type."
+              },
+              "apikey": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The auth method's key value."
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          }
+                        }
+                      ],
+                      "description": "The key's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "boolean",
+                        "number",
+                        "array",
+                        "object",
+                        "any"
+                      ],
+                      "description": "The value's type."
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                },
+                "description": "The API key's authentication information."
+              },
+              "awsv4": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The auth method's key value."
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          }
+                        }
+                      ],
+                      "description": "The key's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "boolean",
+                        "number",
+                        "array",
+                        "object",
+                        "any"
+                      ],
+                      "description": "The value's type."
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                },
+                "description": "The attributes for [AWS Signature](https://learning.postman.com/docs/sending-requests/authorization/aws-signature/) authentication."
+              },
+              "basic": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The auth method's key value."
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          }
+                        }
+                      ],
+                      "description": "The key's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "boolean",
+                        "number",
+                        "array",
+                        "object",
+                        "any"
+                      ],
+                      "description": "The value's type."
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                },
+                "description": "The attributes for [Basic Auth](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/#basic-auth)."
+              },
+              "bearer": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The auth method's key value."
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          }
+                        }
+                      ],
+                      "description": "The key's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "boolean",
+                        "number",
+                        "array",
+                        "object",
+                        "any"
+                      ],
+                      "description": "The value's type."
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                },
+                "description": "The attributes for [Bearer Token](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/#bearer-token) authentication."
+              },
+              "digest": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The auth method's key value."
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          }
+                        }
+                      ],
+                      "description": "The key's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "boolean",
+                        "number",
+                        "array",
+                        "object",
+                        "any"
+                      ],
+                      "description": "The value's type."
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                },
+                "description": "The attributes for [Digest](https://learning.postman.com/docs/sending-requests/authorization/digest-auth/) access authentication."
+              },
+              "edgegrid": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The auth method's key value."
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          }
+                        }
+                      ],
+                      "description": "The key's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "boolean",
+                        "number",
+                        "array",
+                        "object",
+                        "any"
+                      ],
+                      "description": "The value's type."
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                },
+                "description": "The attributes for [Akamai Edgegrid](https://learning.postman.com/docs/sending-requests/authorization/akamai-edgegrid/) authentication."
+              },
+              "hawk": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The auth method's key value."
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          }
+                        }
+                      ],
+                      "description": "The key's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "boolean",
+                        "number",
+                        "array",
+                        "object",
+                        "any"
+                      ],
+                      "description": "The value's type."
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                },
+                "description": "The attributes for [Hawk](https://learning.postman.com/docs/sending-requests/authorization/hawk-authentication/) authentication."
+              },
+              "ntlm": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The auth method's key value."
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          }
+                        }
+                      ],
+                      "description": "The key's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "boolean",
+                        "number",
+                        "array",
+                        "object",
+                        "any"
+                      ],
+                      "description": "The value's type."
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                },
+                "description": "The attributes for [NTLM](https://learning.postman.com/docs/sending-requests/authorization/ntlm-authentication/) authentication."
+              },
+              "oauth1": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The auth method's key value."
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          }
+                        }
+                      ],
+                      "description": "The key's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "boolean",
+                        "number",
+                        "array",
+                        "object",
+                        "any"
+                      ],
+                      "description": "The value's type."
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                },
+                "description": "The attributes for [OAuth1](https://learning.postman.com/docs/sending-requests/authorization/oauth-10/) authentication."
+              },
+              "oauth2": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The auth method's key value."
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          }
+                        }
+                      ],
+                      "description": "The key's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "boolean",
+                        "number",
+                        "array",
+                        "object",
+                        "any"
+                      ],
+                      "description": "The value's type."
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                },
+                "description": "The attributes for [OAuth2](https://learning.postman.com/docs/sending-requests/authorization/oauth-20/) authentication."
+              },
+              "jwt": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The auth method's key value."
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          }
+                        }
+                      ],
+                      "description": "The key's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "boolean",
+                        "number",
+                        "array",
+                        "object",
+                        "any"
+                      ],
+                      "description": "The value's type."
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                },
+                "description": "The attributes for JWT (JSON Web Token). Includes the `payload`, `secret`, `algorithm`, `addTokenTo`, and `headerPrefix` properties."
+              },
+              "asap": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The auth method's key value."
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          }
+                        }
+                      ],
+                      "description": "The key's value."
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "boolean",
+                        "number",
+                        "array",
+                        "object",
+                        "any"
+                      ],
+                      "description": "The value's type."
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+                },
+                "description": "The attributes for ASAP (Atlassian S2S Authentication Protocol). Includes the `kid`, `aud`, `iss`, `alg`, `privateKey`, and `claims` properties."
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false,
+            "description": "The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/)."
+          },
+          "protocolProfileBehavior": {
+            "type": "object",
+            "properties": {
+              "strictSSL": {
+                "type": "boolean",
+                "description": "If true, enables certificate verification."
+              },
+              "followRedirects": {
+                "type": "boolean",
+                "description": "If true, follow HTTP 3xx responses as redirects."
+              },
+              "maxRedirects": {
+                "type": "number",
+                "description": "The maximum number of redirects to follow."
+              },
+              "disableBodyPruning": {
+                "type": "boolean",
+                "description": "If true, disables request body pruning for the GET, COPY, HEAD, PURGE, and UNLOCK methods."
+              },
+              "disableUrlEncoding": {
+                "type": "boolean",
+                "description": "If true, disables the percent encoding of auth, path, query, and fragment URL segments."
+              },
+              "disabledSystemHeaders": {
+                "type": "object",
+                "properties": {
+                  "cache-control": {
+                    "type": "boolean"
+                  },
+                  "postman-token": {
+                    "type": "boolean"
+                  },
+                  "content-type": {
+                    "type": "boolean"
+                  },
+                  "content-length": {
+                    "type": "boolean"
+                  },
+                  "accept-encoding": {
+                    "type": "boolean"
+                  },
+                  "connection": {
+                    "type": "boolean"
+                  },
+                  "host": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false,
+                "description": "Disable the system headers which are added implicitly."
+              },
+              "insecureHTTPParser": {
+                "type": "boolean",
+                "description": "If true, uses an insecure HTTP parser that accepts invalid HTTP headers."
+              },
+              "followOriginalHttpMethod": {
+                "type": "boolean",
+                "description": "If true, redirects with the original HTTP method. Redirects with the GET HTTP method by default."
+              },
+              "followAuthorizationHeader": {
+                "type": "boolean",
+                "description": "If true, retains the `authorization` header when a redirect happens to a different hostname."
+              },
+              "protocolVersion": {
+                "type": "string",
+                "enum": [
+                  "http1",
+                  "http2",
+                  "auto"
+                ],
+                "description": "The HTTP protocol version to use. Supports the `http1`, `http2`, and `auto` values."
+              },
+              "removeRefererHeaderOnRedirect": {
+                "type": "boolean",
+                "description": "If true, removes the `referer` header when a redirect happens."
+              },
+              "tlsPreferServerCiphers": {
+                "type": "boolean",
+                "description": "If true, uses the server's cipher suite order instead of the client's during negotiation."
+              },
+              "tlsDisabledProtocols": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The SSL and TLS protocol versions to disable during negotiation."
+              },
+              "tlsCipherSelection": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The order of cipher suites that the SSL server profile uses to establish a secure connection."
+              }
+            },
+            "additionalProperties": false,
+            "description": "The [settings](https://learning.postman.com/docs/sending-requests/create-requests/request-settings/) used to alter the [Protocol Profile Behavior](https://github.com/postmanlabs/postman-runtime/blob/develop/docs/protocol-profile-behavior.md) of sending a request."
+          }
+        },
+        "required": [
+          "info",
+          "item"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "collectionId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

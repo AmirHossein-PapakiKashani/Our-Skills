@@ -1,0 +1,35 @@
+---
+pid: 33476
+cwd: "D:\\Usefull Scripts\\pyAsHobby"
+command: "rtk python -c \"\nimport sys\nsys.stdout.reconfigure(encoding='utf-8')\nfrom pathlib import Path\nimport win32com.client\n\ndef inspect(path):\n    excel = win32com.client.Dispatch('Excel.Application')\n    excel.Visible = False\n    excel.DisplayAlerts = False\n    try:\n        wb = excel.Workbooks.Open(str(path), ReadOnly=True)\n        print('='*70)\n        print('FILE:', path.name)\n        print('SHEETS:', [wb.Sheets(i).Name for i in range(1, wb.Sheets.Count+1)])\n        for i in range(1, wb.Sheets.Count+1):\n            ws = wb.Sheets(i)\n            used = ws.UsedRange\n            rows = used.Rows.Count if used else 0\n            cols = used.Columns.Count if used else 0\n            print(f'\\n--- {ws.Name} used={rows}x{cols} ---')\n            max_r = min(rows, 35)\n            max_c = min(cols, 20)\n            for r in range(1, max_r+1):\n                vals = []\n                for c in range(1, max_c+1):\n                    v = used.Cells(r,c).Value\n                    if v is not None:\n                        s = str(v).replace('\\n',' ')[:60]\n                        vals.append(f'C{c}:{s}')\n                if vals:\n                    print(f'R{r}:', ' | '.join(vals[:15]))\n        wb.Close(False)\n    finally:\n        excel.Quit()\n\nbase = Path(r'C:/Users/kasha/Downloads')\nfor name in ['مناقصات.xlsx']:\n    p = base / name\n    inspect(p)\n\""
+started_at: 2026-07-23T12:02:04.093Z
+running_for_ms: 180255   
+---
+Traceback (most recent call last):
+  File "<string>", line 15, in inspect
+    print('SHEETS:', [wb.Sheets(i).Name for i in range(1, wb.Sheets.Count+1)])
+                      ~~~~~~~~~^^^
+  File "C:\Users\kasha\AppData\Local\Programs\Python\Python313\Lib\site-packages\win32com\client\dynamic.py", line 214, in __call__
+    self._oleobj_.Invoke(*allArgs), self._olerepr_.defaultDispatchName, None
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+pywintypes.com_error: (-2147418111, 'Call was rejected by callee.', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 40, in <module>
+    inspect(p)
+    ~~~~~~~^^^
+  File "<string>", line 35, in inspect
+    excel.Quit()
+    ~~~~~~~~~~^^
+  File "<COMObject Excel.Application>", line 2, in Quit
+pywintypes.com_error: (-2147418111, 'Call was rejected by callee.', None, None)
+======================================================================
+FILE: مناقصات.xlsx
+
+---
+exit_code: 1
+elapsed_ms: 184335
+ended_at: 2026-07-23T12:05:08.428Z
+---

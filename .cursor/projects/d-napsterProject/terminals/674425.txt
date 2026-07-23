@@ -1,0 +1,24 @@
+---
+pid: 47096
+cwd: "D:\\napsterProject\\src\\NapsternetVClient"
+command: "cd D:\\napsterProject\\src\\NapsternetVClient; dotnet build -c Debug 2>&1"
+started_at: 2026-07-06T21:14:26.393Z
+running_for_ms: 30020    
+---
+  Determining projects to restore...
+  Restored D:\napsterProject\src\NapsternetVClient\NapsternetVClient.csproj (in 455 ms).
+D:\napsterProject\src\NapsternetVClient\Core\BinaryManager.cs(41,9): error CS0246: The type or namespace name 'ConnectionMode' could not be found (are you missing a using directive or an assembly reference?) [D:\napsterProject\src\NapsternetVClient\NapsternetVClient_qbl42zwg_wpftmp.csproj]
+
+Build FAILED.
+
+D:\napsterProject\src\NapsternetVClient\Core\BinaryManager.cs(41,9): error CS0246: The type or namespace name 'ConnectionMode' could not be found (are you missing a using directive or an assembly reference?) [D:\napsterProject\src\NapsternetVClient\NapsternetVClient_qbl42zwg_wpftmp.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:07.13
+
+---
+exit_code: 1
+elapsed_ms: 34114
+ended_at: 2026-07-06T21:15:00.507Z
+---

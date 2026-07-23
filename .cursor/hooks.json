@@ -1,26 +1,33 @@
 {
   "version": 1,
   "hooks": {
+    "sessionStart": [
+      {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\kasha\\.cursor\\hooks\\session-rtl-context.ps1\""
+      }
+    ],
+    "beforeSubmitPrompt": [
+      {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\kasha\\.cursor\\hooks\\before-submit-rtl.ps1\""
+      }
+    ],
     "preToolUse": [
       {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\kasha\\.cursor\\hooks\\rtk-rewrite.ps1\"",
+        "matcher": "Shell"
+      },
+      {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\kasha\\.cursor\\hooks\\block-grep-glob.ps1\"",
+        "matcher": "Grep|Glob"
+      },
+      {
         "command": "rtk hook cursor",
-        "matcher": "Shell",
-        "failClosed": false
-      },
-      {
-        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \".cursor\\hooks\\customer-api-release-policy.ps1\"",
-        "matcher": "Shell",
-        "failClosed": true
-      },
-      {
-        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Elay\\.cursor\\hooks\\block-grep-glob.ps1\"",
-        "matcher": "Grep|Glob",
-        "failClosed": true
+        "matcher": "Shell"
       }
     ],
     "subagentStart": [
       {
-        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Elay\\.cursor\\hooks\\enforce-subagent-policy.ps1\"",
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\kasha\\.cursor\\hooks\\enforce-subagent-policy.ps1\"",
         "matcher": "explore|generalPurpose|shell",
         "failClosed": false
       }

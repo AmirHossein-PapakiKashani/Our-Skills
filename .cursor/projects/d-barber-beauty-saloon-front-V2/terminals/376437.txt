@@ -1,0 +1,13 @@
+---
+pid: 14920
+cwd: "D:\\barber\\beauty-saloon-front-V2"
+command: "rtk npm run dev"
+started_at: 2026-07-03T19:44:31.273Z
+running_for_ms: 610932   
+---
+
+---
+exit_code: unknown
+elapsed_ms: 615274
+ended_at: 2026-07-03T19:54:46.547Z
+---

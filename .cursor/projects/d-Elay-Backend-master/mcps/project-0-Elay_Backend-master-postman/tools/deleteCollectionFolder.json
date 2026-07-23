@@ -1,0 +1,23 @@
+{
+  "name": "deleteCollectionFolder",
+  "description": "Deletes a folder in a collection.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "folderId": {
+        "type": "string",
+        "description": "The folder's ID."
+      },
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's ID."
+      }
+    },
+    "required": [
+      "folderId",
+      "collectionId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

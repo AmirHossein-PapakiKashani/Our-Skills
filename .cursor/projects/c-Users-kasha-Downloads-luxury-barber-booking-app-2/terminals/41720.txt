@@ -1,0 +1,14 @@
+---
+pid: 10876
+cwd: "C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)"
+command: "cd \"C:\\Users\\kasha\\Downloads\\luxury-barber-booking-app (2)\"; Test-Path node_modules"
+started_at: 2026-07-02T19:41:20.876Z
+running_for_ms: 115978   
+---
+False
+
+---
+exit_code: 0
+elapsed_ms: 116049
+ended_at: 2026-07-02T19:43:16.925Z
+---

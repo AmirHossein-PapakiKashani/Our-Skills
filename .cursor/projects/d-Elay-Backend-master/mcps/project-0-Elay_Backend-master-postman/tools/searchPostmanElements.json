@@ -1,0 +1,172 @@
+{
+  "name": "searchPostmanElements",
+  "description": "Search for Postman entities (requests, collections, workspaces, specs, flows, environments, and mocks).\n\n**Ownership:**\n- `organization` — Search within all resources owned by your organization (default).\n- `external` — Search within the public Postman network (third-party and community APIs).\n- `all` — Search across all scopes.\n\n**When to use each ownership value and filters:**\n\n| Goal | Recommended approach |\n|------|----------------------|\n| Find an internal API (e.g. \"our notification service\") | `ownership: organization` |\n| Find a trusted API published to the Private Network | `ownership: organization` + `privateNetwork: true` filter |\n| Find an internal API in all resources of organization and are visible to the organization only | `ownership: organization` + `visibility: internal` filter |\n| Find an API by your organization that is made publicly visible | `ownership: organization` + `visibility: public` filter |\n| Find a third party publicly visible API (e.g. \"Stripe API\", \"Twilio API\") | `ownership: external` + `visibility: public` filter |\n| User says \"our APIs\", \"internal\", \"team\" | `ownership: organization` |\n| Search across all scopes | `ownership: all` |\n\n**Element Types:**\n- `requests`: Search for individual API requests.\n- `collections`: Search for API collections.\n- `workspaces`: Search for Postman workspaces.\n- `specs`: Search for API specifications.\n- `flows`: Search for Postman Flows.\n- `environments`: Search for Postman Environments.\n- `mocks`: Search for Postman Mock Servers.\n\n**Filters:**\n\nUse the `filters` parameter to narrow results. The top-level key must be `$and` with an array of condition objects. Each condition object must contain exactly one field key.\n\nSupported filter fields:\n| Field | Operators | Notes |\n|-------|-----------|-------|\n| `workspaceId` | `$eq`, `$ne`, `$in`, `$nin` | All element types. `$in`/`$nin` accept arrays. |\n| `collectionId` | `$eq`, `$ne`, `$in`, `$nin` | Requests and collections only. |\n| `visibility` | `$eq`, `$ne` | Values: `public`, `partner`, `internal`. All element types. |\n| `privateNetwork` | `$eq`, `$ne` | Boolean. All element types. |\n| `publisherIsVerified` | `$eq`, `$ne` | Boolean. All element types. |\n| `method` | `$eq`, `$ne`, `$in`, `$nin` | HTTP methods (GET, POST, etc.). Requests only. |\n| `tags` | `$eq`, `$ne`, `$in`, `$nin` | Workspaces and collections only. |\n| `requestId` | `$eq`, `$ne`, `$in`, `$nin` | Requests only. |\n| `specificationId` | `$eq`, `$ne`, `$in`, `$nin` | Specs only. |\n| `flowId` | `$eq`, `$ne`, `$in`, `$nin` | Flows only. |\n| `createdBy` | `$eq`, `$ne`, `$in`, `$nin` | All element types. |\n| `organizationId` | `$eq`, `$ne`, `$in`, `$nin` | All element types. |\n| `teamId` | `$eq`, `$ne`, `$in`, `$nin` | All element types. |\n| `isGitConnected` | `$eq`, `$ne` | Boolean. Workspaces, collections, requests, specs, flows, environments, mocks. |\n| `type` | `$eq`, `$ne`, `$in`, `$nin` | Requests only. |\n\n**Filter examples:**\n- Private API Network only: `{\"$and\":[{\"privateNetwork\":{\"$eq\":true}}]}`\n- Single workspace: `{\"$and\":[{\"workspaceId\":{\"$eq\":\"ws-abc123\"}}]}`\n- Multiple workspaces: `{\"$and\":[{\"workspaceId\":{\"$in\":[\"ws-1\",\"ws-2\"]}}]}`\n- Public visibility: `{\"$and\":[{\"visibility\":{\"$eq\":\"public\"}}]}`\n- GET requests only: `{\"$and\":[{\"method\":{\"$eq\":\"GET\"}}]}`\n- Combine conditions: `{\"$and\":[{\"visibility\":{\"$eq\":\"public\"}},{\"workspaceId\":{\"$eq\":\"ws-abc123\"}}]}`\n- Environments in a workspace: `{\"$and\":[{\"workspaceId\":{\"$eq\":\"ws-abc123\"}}]}`",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "entityType": {
+        "type": "string",
+        "enum": [
+          "requests",
+          "collections",
+          "workspaces",
+          "specs",
+          "flows",
+          "environments",
+          "mocks"
+        ],
+        "description": "The type of Postman entity to search for: `requests` (individual API requests), `collections` (API collections), `workspaces` (Postman workspaces), `specs` (API specifications), `flows` (Postman Flows), `environments` (Postman Environments), or `mocks` (Postman Mock Servers).",
+        "default": "requests"
+      },
+      "q": {
+        "type": "string",
+        "maxLength": 512,
+        "description": "The search query (e.g. \"payment API\", \"notification service\", \"Stripe\")."
+      },
+      "ownership": {
+        "type": "string",
+        "enum": [
+          "organization",
+          "external",
+          "all"
+        ],
+        "description": "The ownership scope. Use `organization` to search all resources in your organization (default), `external` to search the public Postman network, or `all` to search across all scopes.",
+        "default": "organization"
+      },
+      "filters": {
+        "type": "object",
+        "properties": {
+          "$and": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "privateNetwork": {
+                  "type": "object",
+                  "properties": {
+                    "$eq": {
+                      "type": "boolean"
+                    },
+                    "$ne": {
+                      "type": "boolean"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "publisherIsVerified": {
+                  "$ref": "#/properties/filters/properties/$and/items/properties/privateNetwork"
+                },
+                "isGitConnected": {
+                  "$ref": "#/properties/filters/properties/$and/items/properties/privateNetwork"
+                },
+                "visibility": {
+                  "type": "object",
+                  "properties": {
+                    "$eq": {
+                      "type": "string",
+                      "enum": [
+                        "internal",
+                        "public",
+                        "partner"
+                      ]
+                    },
+                    "$ne": {
+                      "type": "string",
+                      "enum": [
+                        "internal",
+                        "public",
+                        "partner"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "workspaceId": {
+                  "type": "object",
+                  "properties": {
+                    "$eq": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "$ne": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "$in": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "minItems": 1
+                    },
+                    "$nin": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "collectionId": {
+                  "$ref": "#/properties/filters/properties/$and/items/properties/workspaceId"
+                },
+                "method": {
+                  "$ref": "#/properties/filters/properties/$and/items/properties/workspaceId"
+                },
+                "tags": {
+                  "$ref": "#/properties/filters/properties/$and/items/properties/workspaceId"
+                },
+                "requestId": {
+                  "$ref": "#/properties/filters/properties/$and/items/properties/workspaceId"
+                },
+                "specificationId": {
+                  "$ref": "#/properties/filters/properties/$and/items/properties/workspaceId"
+                },
+                "flowId": {
+                  "$ref": "#/properties/filters/properties/$and/items/properties/workspaceId"
+                },
+                "createdBy": {
+                  "$ref": "#/properties/filters/properties/$and/items/properties/workspaceId"
+                },
+                "organizationId": {
+                  "$ref": "#/properties/filters/properties/$and/items/properties/workspaceId"
+                },
+                "teamId": {
+                  "$ref": "#/properties/filters/properties/$and/items/properties/workspaceId"
+                },
+                "type": {
+                  "$ref": "#/properties/filters/properties/$and/items/properties/workspaceId"
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "description": "Array of filter conditions. Each condition must contain exactly one field key mapped to an operator object."
+          }
+        },
+        "required": [
+          "$and"
+        ],
+        "additionalProperties": false,
+        "description": "Structured filter expression. Top-level key must be \"$and\" with an array of condition objects. Each condition: { \"<field>\": { \"<operator>\": <value> } }. Example: {\"$and\":[{\"privateNetwork\":{\"$eq\":true}}]}"
+      },
+      "cursor": {
+        "type": "string",
+        "description": "The cursor to get the next set of results in the paginated response. Pass the `nextCursor` value from the previous response."
+      },
+      "limit": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 25,
+        "description": "The maximum number of search results to return. Maximum: 25.",
+        "default": 10
+      }
+    },
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

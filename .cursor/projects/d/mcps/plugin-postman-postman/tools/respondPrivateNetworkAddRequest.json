@@ -1,0 +1,42 @@
+{
+  "name": "respondPrivateNetworkAddRequest",
+  "description": "Responds to a user's request to add a workspace to your team's Private API Network. Only managers can approve or deny a request. Once approved, the workspace will appear in the team's Private API Network.\n\nWARNING: This tool is for Private API Network management, not for general workspace operations. For workspace management use: getWorkspaces, getWorkspace, createWorkspace, updateWorkspace, deleteWorkspace.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "requestId": {
+        "type": "integer",
+        "description": "The request's ID."
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "denied",
+          "approved"
+        ],
+        "description": "The request's approval status."
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "A message that details why the user's request was denied."
+          }
+        },
+        "additionalProperties": false,
+        "description": "If the request is denied, the response to the user's request."
+      }
+    },
+    "required": [
+      "requestId",
+      "status"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

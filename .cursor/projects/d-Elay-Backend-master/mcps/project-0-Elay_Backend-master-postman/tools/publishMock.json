@@ -1,0 +1,18 @@
+{
+  "name": "publishMock",
+  "description": "Publishes a mock server. Publishing a mock server sets its **Access Control** configuration setting to public.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "mockId": {
+        "type": "string",
+        "description": "The mock's ID."
+      }
+    },
+    "required": [
+      "mockId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

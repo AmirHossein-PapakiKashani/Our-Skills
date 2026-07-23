@@ -1,0 +1,22 @@
+{
+  "name": "deleteMonitor",
+  "description": "Deletes a monitor.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "monitorId": {
+        "type": "string",
+        "description": "The monitor's ID."
+      }
+    },
+    "required": [
+      "monitorId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}

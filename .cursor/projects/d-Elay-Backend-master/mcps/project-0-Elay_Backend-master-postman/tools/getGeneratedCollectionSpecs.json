@@ -1,0 +1,24 @@
+{
+  "name": "getGeneratedCollectionSpecs",
+  "description": "Gets the API specification generated for the given collection.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionUid": {
+        "type": "string",
+        "description": "The collection's unique ID."
+      },
+      "elementType": {
+        "type": "string",
+        "const": "spec",
+        "description": "The `spec` value."
+      }
+    },
+    "required": [
+      "collectionUid",
+      "elementType"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

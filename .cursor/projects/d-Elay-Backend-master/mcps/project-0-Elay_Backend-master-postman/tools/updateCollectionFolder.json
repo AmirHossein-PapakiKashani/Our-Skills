@@ -1,0 +1,31 @@
+{
+  "name": "updateCollectionFolder",
+  "description": "Updates a folder in a collection. For a complete list of properties, refer to the **Folder** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).\n\n**Note:**\n\nThis endpoint acts like a PATCH method. It only updates the values that you pass in the request body (for example, the \\`name\\` property). The endpoint does not update the entire resource.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "folderId": {
+        "type": "string",
+        "description": "The folder's ID."
+      },
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's ID."
+      },
+      "name": {
+        "type": "string",
+        "description": "The folder's name."
+      },
+      "description": {
+        "type": "string",
+        "description": "The folder's description."
+      }
+    },
+    "required": [
+      "folderId",
+      "collectionId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

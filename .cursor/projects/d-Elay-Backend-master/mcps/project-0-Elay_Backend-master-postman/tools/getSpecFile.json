@@ -1,0 +1,23 @@
+{
+  "name": "getSpecFile",
+  "description": "Gets the contents of an API specification's file.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "specId": {
+        "type": "string",
+        "description": "The spec's ID."
+      },
+      "filePath": {
+        "type": "string",
+        "description": "The path to the file."
+      }
+    },
+    "required": [
+      "specId",
+      "filePath"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

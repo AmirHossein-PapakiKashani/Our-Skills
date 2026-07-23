@@ -1,0 +1,14 @@
+---
+pid: 34932
+cwd: "D:\\napsterProject\\src\\NapsternetVClient"
+command: "Remove-Item \"$env:APPDATA\\NapsternetVClient\\bin\\xray.zip\" -Force -ErrorAction SilentlyContinue; \"deleted corrupted xray.zip\""
+started_at: 2026-07-06T21:16:05.190Z
+running_for_ms: 30021    
+---
+deleted corrupted xray.zip
+
+---
+exit_code: 0
+elapsed_ms: 34032
+ended_at: 2026-07-06T21:16:39.222Z
+---

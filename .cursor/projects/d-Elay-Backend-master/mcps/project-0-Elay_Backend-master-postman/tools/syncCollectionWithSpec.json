@@ -1,0 +1,23 @@
+{
+  "name": "syncCollectionWithSpec",
+  "description": "Syncs a collection generated from an API specification. This is an asynchronous endpoint that returns an HTTP \\`202 Accepted\\` response.\n\n**Note:**\n\n- This endpoint only supports the OpenAPI 2.0, 3.0, and 3.1 specification types.\n- You can only sync collections generated from the given spec ID.\n",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionUid": {
+        "type": "string",
+        "description": "The collection's unique ID."
+      },
+      "specId": {
+        "type": "string",
+        "description": "The spec's ID."
+      }
+    },
+    "required": [
+      "collectionUid",
+      "specId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "updateSpecProperties",
+  "description": "Updates an API specification's properties, such as its name.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "specId": {
+        "type": "string",
+        "description": "The spec's ID."
+      },
+      "name": {
+        "type": "string",
+        "description": "The spec's name."
+      }
+    },
+    "required": [
+      "specId",
+      "name"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "getRequestComments",
+  "description": "Gets all comments left by users in a request.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "collectionId": {
+        "type": "string",
+        "description": "The collection's unique ID."
+      },
+      "requestId": {
+        "type": "string",
+        "description": "The request ID must contain the team ID as a prefix, in `teamId-requestId` format.\n\nFor example, if you're creating a comment on collection ID `24585957-7b2c98f7-30db-4b67-8685-0079f48a0947` (note on the prefix), and\nthe collection request's ID is `2c450b59-9bbf-729b-6ac0-f92535a7c336`, then the `{requestId}` must be `24585957-2c450b59-9bbf-729b-6ac0-f92535a7c336`.\n"
+      }
+    },
+    "required": [
+      "collectionId",
+      "requestId"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "postman",
+  "marketplace": "cursor-public",
+  "pluginId": "2050",
+  "marketplaceId": "34"
+}
